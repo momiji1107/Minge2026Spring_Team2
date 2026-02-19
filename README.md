@@ -33,9 +33,9 @@ private int lowerCamelCase;
 
 ### メンバ関数名
 ```C#
-@brief 関数の説明
-@param 引数の説明(この行は必要に応じて書く)
-@return 返り値の説明(この行は必要に応じて書く)
+// 関数の説明
+// 引数の説明(この行は必要に応じて書く)
+// 返り値の説明(この行は必要に応じて書く)
 public void UpperCamelCase()
 {
     
