@@ -1,24 +1,25 @@
 using UnityEngine;
 using TMPro;
 
-public class PlayerController : MonoBehaviour
+public class PlayerInputController : MonoBehaviour
 {
     [Header("Player")]
     [SerializeField] private GameObject Player;
     private Rigidbody2D rb;
     
     [Header("ステータス表示")]
-    [SerializeField] private PlayerStatus status;
+    [SerializeField] private PlayerModel model;
     [SerializeField] private TextMeshProUGUI text;
 
     [Header("縦移動")]
     [SerializeField,Tooltip("レーン移動後に再びレーン移動できるようになるまでの時間")] private float laneMoveTime = 0.5f;
     private float laneMoveTimer = 0.0f;
-    [SerializeField,Tooltip("レーンのY座標配列")] private float[] lanePositions;
+    [SerializeField,Tooltip("レーンオブジェクトの配列")] private GameObject[] lanes;
     private int laneidx = 0; //今いるレーンのインデックス
     
-    private float horizontal;
-    private float vertical;
+    private float horizontal; //横入力
+    private float vertical; //縦入力
+    private float heightAdjust = 0.1f; //レーンからの高さ補正
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,8 +30,10 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = "Level: " + status.Level + "   exp/requireExp: " + status.Exp + "/" + status.RequireExp;
+        text.text = "Level: " + model.Level + "   exp/requireExp: " + model.Exp + "/" + model.RequireExp;
         laneMoveTimer += Time.deltaTime;
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) model.TurnAround();
     }
 
     void FixedUpdate()
@@ -45,13 +48,10 @@ public class PlayerController : MonoBehaviour
         horizontal = Input.GetAxis("Horizontal");
         
         Vector2 velocity = new Vector2(horizontal, 0);
-        rb.linearVelocity = velocity * status.MoveSpeed;
-        //rb.MovePosition(rb.position + velocity * status.MoveSpeed * Time.deltaTime);
+        rb.linearVelocity = velocity * model.MoveSpeed;
     }
 
     //上下移動
-    //座標を切り替える方法
-    //後ほどジャンプで地面をすり抜ける方法に変更する可能性あり
     void VerticalMove()
     { 
         vertical = Input.GetAxis("Vertical");
@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
         {
             laneMoveTimer = 0.0f;
             laneidx++;
-            if(laneidx >= lanePositions.Length) laneidx = lanePositions.Length - 1;
+            if(laneidx >= lanes.Length) laneidx = lanes.Length - 1;
         }
         if (vertical < 0 && laneMoveTimer >= laneMoveTime)
         {
@@ -68,6 +68,6 @@ public class PlayerController : MonoBehaviour
             if(laneidx < 0) laneidx = 0;
         }
             
-        Player.transform.position = new Vector2(Player.transform.position.x, lanePositions[laneidx]);
+        Player.transform.position = new Vector2(Player.transform.position.x, lanes[laneidx].transform.position.y + heightAdjust);
     }
 }

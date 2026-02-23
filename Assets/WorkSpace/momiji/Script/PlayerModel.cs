@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerStatus : MonoBehaviour
+public class PlayerModel : MonoBehaviour
 {
     [Header("ステータス")]
     [SerializeField] private int level; //レベル
@@ -22,6 +22,10 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] private float firstShootSpeed = 5.0f;
     [SerializeField] private float firstRapidFireSpeed = 5.0f;
     
+    [Header("見た目")]
+    [SerializeField] private SpriteRenderer sr; //キャラ画像のSpriteRenderer
+    [SerializeField] private bool lookAtRight = true; //trueの時右向き
+    
     //getter
     public int Level => level;
     public int RequireExp => requireExp;
@@ -32,6 +36,7 @@ public class PlayerStatus : MonoBehaviour
     public int MoveSpeed => moveSpeed;
     public float ShootSpeed => shootSpeed;
     public float RapidFireSpeed => rapidFireSpeed;
+    public bool GetDirection => lookAtRight;
 
     void Start()
     {
@@ -54,6 +59,13 @@ public class PlayerStatus : MonoBehaviour
         {
             //死んだ時の処理
         }
+    }
+    
+    //キャラの向きを変える
+    public void TurnAround()
+    {
+        lookAtRight = !lookAtRight;
+        sr.flipX = !lookAtRight;
     }
     
     //経験値取得    
