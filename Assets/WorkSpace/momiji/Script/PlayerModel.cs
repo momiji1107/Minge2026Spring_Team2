@@ -65,7 +65,6 @@ public class PlayerModel : MonoBehaviour
     public void TurnAround()
     {
         lookAtRight = !lookAtRight;
-        sr.flipX = !lookAtRight;
     }
     
     //経験値取得    
@@ -74,8 +73,10 @@ public class PlayerModel : MonoBehaviour
         exp += amount;
         if(exp >= RequireExpCalc(level)) LevelUp();
     }
+    
     //レベルアップするのに必要な経験値を計算して返す
     int RequireExpCalc(int lv) { return lv * 100; }
+    
     //レベルアップ
     void LevelUp()
     {

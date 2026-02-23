@@ -33,7 +33,12 @@ public class PlayerInputController : MonoBehaviour
         text.text = "Level: " + model.Level + "   exp/requireExp: " + model.Exp + "/" + model.RequireExp;
         laneMoveTimer += Time.deltaTime;
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) model.TurnAround();
+        //Shiftキーを押すとオブジェクトを反転させる
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+        {
+            model.TurnAround();
+            Player.transform.Rotate(0, 180, 0);
+        }
     }
 
     void FixedUpdate()
