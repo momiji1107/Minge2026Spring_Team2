@@ -13,19 +13,19 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] private float shootSpeed; //弾速
     
     [Header("初期ステータス")]
-    [SerializeField] private int firstLevel;
-    [SerializeField] private int firstExp;
-    [SerializeField] private int firstMaxHp;
-    [SerializeField] private int firstAttack;
-    [SerializeField] private int firstMoveSpeed;
-    [SerializeField] private float firstShootSpeed;
+    [SerializeField] private int firstLevel = 1;
+    [SerializeField] private int firstExp = 0;
+    [SerializeField] private int firstMaxHp = 100;
+    [SerializeField] private int firstAttack = 5;
+    [SerializeField] private int firstMoveSpeed = 5;
+    [SerializeField] private float firstShootSpeed = 5.0f;
     
     //getter
     public int Level => level;
     public int RequireExp => requireExp;
     public int Exp => exp;
-    public int MaxHP => maxHp;
-    public int HP => hp;
+    public int MaxHp => maxHp;
+    public int Hp => hp;
     public int Attack => attack;
     public int MoveSpeed => moveSpeed;
     public float ShootSpeed => shootSpeed;
