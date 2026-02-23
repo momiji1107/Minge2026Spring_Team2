@@ -11,6 +11,7 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] private int attack; //攻撃力
     [SerializeField] private int moveSpeed; //移動速度
     [SerializeField] private float shootSpeed; //弾速
+    [SerializeField] private float rapidFireSpeed; //連射速度
     
     [Header("初期ステータス")]
     [SerializeField] private int firstLevel = 1;
@@ -19,6 +20,7 @@ public class PlayerStatus : MonoBehaviour
     [SerializeField] private int firstAttack = 5;
     [SerializeField] private int firstMoveSpeed = 5;
     [SerializeField] private float firstShootSpeed = 5.0f;
+    [SerializeField] private float firstRapidFireSpeed = 5.0f;
     
     //getter
     public int Level => level;
@@ -29,6 +31,7 @@ public class PlayerStatus : MonoBehaviour
     public int Attack => attack;
     public int MoveSpeed => moveSpeed;
     public float ShootSpeed => shootSpeed;
+    public float RapidFireSpeed => rapidFireSpeed;
 
     void Start()
     {
@@ -40,6 +43,7 @@ public class PlayerStatus : MonoBehaviour
         attack = firstAttack;
         moveSpeed = firstMoveSpeed;
         shootSpeed = firstShootSpeed;
+        rapidFireSpeed = firstRapidFireSpeed;
     }
     
     //被ダメージ
@@ -75,4 +79,6 @@ public class PlayerStatus : MonoBehaviour
     public void MoveSpeedUp(int mvSpeed) { moveSpeed += mvSpeed; }
     //弾速上昇
     public void ShootSpeedUp(float shSpeed) { shootSpeed += shSpeed; }
+    //連射速度上昇
+    public void RapidFireSpeedUp(float rfSpeed) { rapidFireSpeed += rfSpeed; }
 }
