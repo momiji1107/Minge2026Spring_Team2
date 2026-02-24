@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerModel : MonoBehaviour
 {
+    [SerializeField] private GameObject player;
+    
     [Header("ステータス")]
     [SerializeField] private int level; //レベル
     [SerializeField] private int requireExp; //レベルアップに必要な経験値
@@ -26,7 +28,10 @@ public class PlayerModel : MonoBehaviour
     [SerializeField] private SpriteRenderer sr; //キャラ画像のSpriteRenderer
     [SerializeField] private bool lookAtRight = true; //trueの時右向き
     
+    [SerializeField] const int RequireExpPerLevel = 100;
+    
     //getter
+    public GameObject Player => player;
     public int Level => level;
     public int RequireExp => requireExp;
     public int Exp => exp;
@@ -75,7 +80,7 @@ public class PlayerModel : MonoBehaviour
     }
     
     //レベルアップするのに必要な経験値を計算して返す
-    int RequireExpCalc(int lv) { return lv * 100; }
+    int RequireExpCalc(int lv) { return lv * RequireExpPerLevel; }
     
     //レベルアップ
     void LevelUp()
@@ -83,9 +88,9 @@ public class PlayerModel : MonoBehaviour
         level++;
         requireExp = RequireExpCalc(level);
         exp = 0;
-        maxHp += 10;
-        hp = maxHp;
     }
+    //最大HP上昇、HP全回復
+    public void MaxHpUp(int plusHp) { maxHp += plusHp; hp = maxHp; }
     //攻撃力上昇
     public void AttackUp(int atk) { attack += atk; }
     //移動速度上昇
