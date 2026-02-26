@@ -929,7 +929,7 @@ GameObject:
   - component: {fileID: 1324754461}
   - component: {fileID: 1324754462}
   m_Layer: 0
-  m_Name: PlayerSkillManager
+  m_Name: PlayerEquipmentManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -962,6 +962,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0d7b22bd6c75413899c6af552d9c3e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSkillManager
+  model: {fileID: 0}
   attackController: {fileID: 1957288227}
   maxSkillnum: 3
 --- !u!1 &1584727850
