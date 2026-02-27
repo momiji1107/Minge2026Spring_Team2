@@ -11,7 +11,7 @@ public class PlayerModel : MonoBehaviour
     [SerializeField] private int maxHp; //現在の体力の最大値
     [SerializeField] private int hp; //現在の体力
     [SerializeField] private int attack; //攻撃力
-    [SerializeField] private int moveSpeed; //移動速度
+    [SerializeField] private float moveSpeed; //移動速度
     [SerializeField] private float shootSpeed; //弾速
     [SerializeField] private float rapidFireSpeed; //連射速度
     
@@ -20,7 +20,7 @@ public class PlayerModel : MonoBehaviour
     [SerializeField] private int firstExp = 0;
     [SerializeField] private int firstMaxHp = 100;
     [SerializeField] private int firstAttack = 5;
-    [SerializeField] private int firstMoveSpeed = 5;
+    [SerializeField] private float firstMoveSpeed = 5.0f;
     [SerializeField] private float firstShootSpeed = 5.0f;
     [SerializeField] private float firstRapidFireSpeed = 5.0f;
     
@@ -38,7 +38,7 @@ public class PlayerModel : MonoBehaviour
     public int MaxHp => maxHp;
     public int Hp => hp;
     public int Attack => attack;
-    public int MoveSpeed => moveSpeed;
+    public float MoveSpeed => moveSpeed;
     public float ShootSpeed => shootSpeed;
     public float RapidFireSpeed => rapidFireSpeed;
     public bool GetDirection => lookAtRight;
@@ -94,7 +94,7 @@ public class PlayerModel : MonoBehaviour
     //攻撃力上昇
     public void AttackUp(int atk) { attack += atk; }
     //移動速度上昇
-    public void MoveSpeedUp(int mvSpeed) { moveSpeed += mvSpeed; }
+    public void MoveSpeedUp(float mvSpeed) { moveSpeed += mvSpeed; }
     //弾速上昇
     public void ShootSpeedUp(float shSpeed) { shootSpeed += shSpeed; }
     //連射速度上昇
