@@ -4,7 +4,6 @@ using UnityEngine;
 public class StraightShoot : EquipmentBase
 {
     [SerializeField] private GameObject bulletPrefab;
-    [SerializeField,Tooltip("弾速")] private float bulletSpeed;
 
     public StraightShoot()
     {
@@ -14,7 +13,7 @@ public class StraightShoot : EquipmentBase
     public override void Activate(PlayerModel model)
     {
         GameObject bullet = Instantiate(bulletPrefab, model.Player.transform.position, Quaternion.identity);
-        bullet.GetComponent<Rigidbody2D>().linearVelocity = model.Player.transform.right * bulletSpeed;
+        bullet.GetComponent<Rigidbody2D>().linearVelocity = model.Player.transform.right * model.ShootSpeed;
         
         Destroy(bullet,2f);
     }

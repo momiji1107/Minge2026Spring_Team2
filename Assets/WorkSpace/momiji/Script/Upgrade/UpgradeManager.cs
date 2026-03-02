@@ -22,6 +22,9 @@ public class UpgradeManager : MonoBehaviour
         
         //アップグレード画面を表示（後ほど追加）
         //upgradeCanvas.gameObject.SetActive(true);
+        
+        //選ばれた３つの選択肢確認用
+        //Debug.Log("selection: " + displayUpgrades[0].name + "\n" + displayUpgrades[1].name + "\n" + displayUpgrades[2].name);
     }
     
     //アップグレードを選択し、反映する
