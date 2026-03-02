@@ -10,8 +10,9 @@ public class EnemyShotSingle : EnemyBehaviourBase
     [Header("発射方向")][SerializeField] private Vector3 direction = Vector3.left;
     
     private float _rateTimer = 0f;
-
-    public void Tick(float dt)
+    
+    // Update
+    public override void Tick(float dt)
     {
         Shooter(dt);
     }

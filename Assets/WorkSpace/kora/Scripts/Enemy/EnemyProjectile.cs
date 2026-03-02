@@ -15,6 +15,9 @@ public class EnemyProjectile : MonoBehaviour
     
     private Vector3 _direction;
 
+    /// <summary>
+    /// 発射方向を受け取り、弾が動き出す
+    /// </summary>
     public void Init(Vector3 direction)
     {
         _direction = direction;

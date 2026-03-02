@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EnemyContactEffect : EnemyBehaviourBase
 {
+    [SerializeField] private bool isDamageable = true;
     [SerializeField] private float damage = 1f;
     
     readonly string PlayerTag = "Player";
@@ -25,9 +26,12 @@ public class EnemyContactEffect : EnemyBehaviourBase
     
     void OnHitPlayer(Collider2D other)
     {
-        Debug.Log("playerにダメージを与える");
-        // playerにダメージを与える処理を追記
-        
+        if (isDamageable)
+        {
+            Debug.Log("playerにダメージを与える");
+            // playerにダメージを与える処理を追記
+        }
+
         Destroy(gameObject);
     }
 }
