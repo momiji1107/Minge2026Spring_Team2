@@ -16,7 +16,13 @@ public class PlayerEquipmentManager : MonoBehaviour
         attackController.Skills.Add(newSkill);
     }
 
-    //スキルを検索して所持していればそのスキルを返す
+    //通常攻撃が要求されたものであればその通常攻撃を返す、そうでなければnullを返す
+    public EquipmentBase GetBasicAttack(EquipmentBase target)
+    {
+        return attackController.BasicAttack == target ? target : null;
+    }
+    
+    //スキルを検索して所持していればそのスキルを返す、そうでなければnullを返す
     public EquipmentBase GetSkill(EquipmentBase requireSkill)
     {
         EquipmentBase skill = attackController.Skills.Find(s => s.name == requireSkill.name);
