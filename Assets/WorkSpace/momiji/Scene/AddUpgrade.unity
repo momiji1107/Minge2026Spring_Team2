@@ -290,6 +290,60 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &430123542
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 430123543}
+  - component: {fileID: 430123544}
+  m_Layer: 0
+  m_Name: UpgradeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &430123543
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430123542}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 586972734}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &430123544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 430123542}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29662773cfc674ba894c5a5f596ead87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeManager
+  equipmentManager: {fileID: 1324754462}
+  upgrades:
+  - {fileID: 11400000, guid: d470ea747c2c146ae87ac87b5dce746a, type: 2}
+  - {fileID: 11400000, guid: cf60bf80005d64720833dd1fa9005f17, type: 2}
+  - {fileID: 11400000, guid: 4404b5c660f864a8c90012efafec7db3, type: 2}
+  - {fileID: 11400000, guid: 7803a49735c254d3cb1dd9858bde65b8, type: 2}
+  - {fileID: 11400000, guid: 5b7c304d02bc1451eaedc533e60a68e8, type: 2}
+  - {fileID: 11400000, guid: ddded5b7c9a524a9fb3a1afe527a81b1, type: 2}
+  - {fileID: 11400000, guid: 480c074379a614c63b83dbd23b702d22, type: 2}
+  diplayUpgradesNum: 3
 --- !u!1 &526368926
 GameObject:
   m_ObjectHideFlags: 0
@@ -523,6 +577,7 @@ Transform:
   - {fileID: 1601370355}
   - {fileID: 1957288228}
   - {fileID: 1324754461}
+  - {fileID: 430123543}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &586972735
@@ -1132,6 +1187,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStatus
   player: {fileID: 586972730}
+  upgradeManager: {fileID: 430123544}
   level: 0
   requireExp: 0
   exp: 0
@@ -1147,7 +1203,7 @@ MonoBehaviour:
   firstAttack: 5
   firstMoveSpeed: 5
   firstShootSpeed: 5
-  firstRapidFireSpeed: 5
+  firstRapidFireSpeed: 1
   sr: {fileID: 586972733}
   lookAtRight: 1
 --- !u!4 &1601370355

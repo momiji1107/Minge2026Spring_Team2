@@ -91,6 +91,7 @@ public class PlayerModel : MonoBehaviour
         exp = 0;
         upgradeManager.DisplayRandomUpgrades();
     }
+    
     //最大HP上昇、HP全回復
     public void MaxHpUp(int plusHp) { maxHp += plusHp; hp = maxHp; }
     //攻撃力上昇
@@ -99,6 +100,6 @@ public class PlayerModel : MonoBehaviour
     public void MoveSpeedUp(float mvSpeed) { moveSpeed += mvSpeed; }
     //弾速上昇
     public void ShootSpeedUp(float shSpeed) { shootSpeed += shSpeed; }
-    //連射速度上昇
-    public void RapidFireSpeedUp(float rfSpeed) { rapidFireSpeed += rfSpeed; }
+    //連射速度上昇(クールタイム短縮)
+    public void RapidFireSpeedUp(float rfSpeed) { rapidFireSpeed -= rfSpeed; }
 }

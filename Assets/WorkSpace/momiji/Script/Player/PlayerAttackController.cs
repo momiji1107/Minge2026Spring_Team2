@@ -18,7 +18,7 @@ public class PlayerAttackController : MonoBehaviour
 
     void Start()
     {
-        timers = new float[skills.Count];
+        timers = new float[skills.Count + 1];
         
         for(int i = 0; i < timers.Length; i++)
         {
