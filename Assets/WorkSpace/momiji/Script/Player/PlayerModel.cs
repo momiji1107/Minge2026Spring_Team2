@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerModel : MonoBehaviour
 {
     [SerializeField] private GameObject player;
+    [SerializeField] private UpgradeManager upgradeManager;
     
     [Header("ステータス")]
     [SerializeField] private int level; //レベル
@@ -11,16 +12,16 @@ public class PlayerModel : MonoBehaviour
     [SerializeField] private int maxHp; //現在の体力の最大値
     [SerializeField] private int hp; //現在の体力
     [SerializeField] private int attack; //攻撃力
-    [SerializeField] private int moveSpeed; //移動速度
+    [SerializeField] private float moveSpeed; //移動速度
     [SerializeField] private float shootSpeed; //弾速
-    [SerializeField] private float rapidFireSpeed; //連射速度
+    [SerializeField] private float rapidFireSpeed; //連射速度(クールタイム)
     
     [Header("初期ステータス")]
     [SerializeField] private int firstLevel = 1;
     [SerializeField] private int firstExp = 0;
     [SerializeField] private int firstMaxHp = 100;
     [SerializeField] private int firstAttack = 5;
-    [SerializeField] private int firstMoveSpeed = 5;
+    [SerializeField] private float firstMoveSpeed = 5.0f;
     [SerializeField] private float firstShootSpeed = 5.0f;
     [SerializeField] private float firstRapidFireSpeed = 5.0f;
     
@@ -28,7 +29,7 @@ public class PlayerModel : MonoBehaviour
     [SerializeField] private SpriteRenderer sr; //キャラ画像のSpriteRenderer
     [SerializeField] private bool lookAtRight = true; //trueの時右向き
     
-    [SerializeField] const int RequireExpPerLevel = 100;
+    [Tooltip("レベルごとに増加するレベルアップに必要な経験値量")] const int RequireExpPerLevel = 100;
     
     //getter
     public GameObject Player => player;
@@ -38,7 +39,7 @@ public class PlayerModel : MonoBehaviour
     public int MaxHp => maxHp;
     public int Hp => hp;
     public int Attack => attack;
-    public int MoveSpeed => moveSpeed;
+    public float MoveSpeed => moveSpeed;
     public float ShootSpeed => shootSpeed;
     public float RapidFireSpeed => rapidFireSpeed;
     public bool GetDirection => lookAtRight;
@@ -88,15 +89,17 @@ public class PlayerModel : MonoBehaviour
         level++;
         requireExp = RequireExpCalc(level);
         exp = 0;
+        upgradeManager.DisplayRandomUpgrades();
     }
+    
     //最大HP上昇、HP全回復
     public void MaxHpUp(int plusHp) { maxHp += plusHp; hp = maxHp; }
     //攻撃力上昇
     public void AttackUp(int atk) { attack += atk; }
     //移動速度上昇
-    public void MoveSpeedUp(int mvSpeed) { moveSpeed += mvSpeed; }
+    public void MoveSpeedUp(float mvSpeed) { moveSpeed += mvSpeed; }
     //弾速上昇
     public void ShootSpeedUp(float shSpeed) { shootSpeed += shSpeed; }
-    //連射速度上昇
-    public void RapidFireSpeedUp(float rfSpeed) { rapidFireSpeed += rfSpeed; }
+    //連射速度上昇(クールタイム短縮)
+    public void RapidFireSpeedUp(float rfSpeed) { rapidFireSpeed -= rfSpeed; }
 }

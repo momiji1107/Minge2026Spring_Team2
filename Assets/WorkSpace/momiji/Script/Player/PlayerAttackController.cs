@@ -13,53 +13,52 @@ public class PlayerAttackController : MonoBehaviour
     public EquipmentBase BasicAttack { get { return basicAttack; } set { basicAttack = value; } }
     public List<EquipmentBase> Skills{ get { return skills; } set { skills = value; } }
     
-    //クールタイムを計測する用のタイマー
-    private float basicAttackTimer;
-    private float skill1Timer;
-    private float skill2Timer;
-    private float skill3Timer;
+    //クールタイムを計測する用のタイマー、timer[0]は通常攻撃用、それ以外はスキル用
+    private float[] timers;
 
     void Start()
     {
-        basicAttackTimer = 0f;
-        skill1Timer = 0f;
-        skill2Timer = 0f;
-        skill3Timer = 0f;
+        timers = new float[skills.Count + 1];
+        
+        for(int i = 0; i < timers.Length; i++)
+        {
+            timers[i] = 0f;
+        }
     }
     void Update()
     {
         //クールタイム計測用タイマーに時間を加算する
-        basicAttackTimer += Time.deltaTime;
-        skill1Timer += Time.deltaTime;
-        skill2Timer += Time.deltaTime;
-        skill3Timer += Time.deltaTime;
+        for(int i = 0; i < timers.Length; i++)
+        {
+            timers[i] += Time.deltaTime;
+        }
         
         //Spaceキーを押すと通常攻撃
-        if (Input.GetKey(KeyCode.Space) && basicAttackTimer >= basicAttack.coolTime)
+        if (Input.GetKey(KeyCode.Space) && timers[0] >= model.RapidFireSpeed + basicAttack.coolTime)
         {
             basicAttack.Activate(model);
-            basicAttackTimer = 0f;
+            timers[0] = 0f;
         }
 
         //Xキーを押すとスキル１を使用する
-        if (Input.GetKeyDown(KeyCode.X) && skill1Timer >= Skills[0].coolTime)
+        if (Input.GetKeyDown(KeyCode.X) && timers[1] >= model.RapidFireSpeed + Skills[0].coolTime)
         {
             Skills[0].Activate(model);
-            skill1Timer = 0f;
+            timers[1] = 0f;
         }
 
         //Cキーを押すとスキル２を使用する
-        if (Input.GetKeyDown(KeyCode.C) && skill2Timer >= Skills[1].coolTime)
+        if (Input.GetKeyDown(KeyCode.C) && timers[2] >= model.RapidFireSpeed + Skills[1].coolTime)
         {
             Skills[1].Activate(model);
-            skill2Timer = 0f;
+            timers[2] = 0f;
         }
 
         //Vキーを押すとスキル３を使用する
-        if (Input.GetKeyDown(KeyCode.V) && skill3Timer >= Skills[2].coolTime)
+        if (Input.GetKeyDown(KeyCode.V) && timers[3] >= model.RapidFireSpeed + Skills[2].coolTime)
         {
             Skills[2].Activate(model);
-            skill3Timer = 0f;
+            timers[3] = 0f;
         }
     }
     
