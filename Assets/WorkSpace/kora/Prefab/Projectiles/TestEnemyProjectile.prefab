@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7584680293874563016}
   - component: {fileID: 3681234813121717496}
   m_Layer: 0
-  m_Name: TestProjectile
+  m_Name: TestEnemyProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,6 +105,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33334484793e9f24d9afa40230ade7fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyProjectile
+  type: 0
+  damage: 1
+  speed: 3
+  lifeTime: 20
 --- !u!70 &3681234813121717496
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
