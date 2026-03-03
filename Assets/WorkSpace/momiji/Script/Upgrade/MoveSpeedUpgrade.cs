@@ -11,6 +11,6 @@ public class MoveSpeedUpgrade : UpgradeBase
 
     public override void Apply(PlayerEquipmentManager equipmentManager)
     {
-        equipmentManager.Model.MoveSpeedUp(moveSpeed);
+        equipmentManager?.Model.MoveSpeedUp(moveSpeed);
     }
 }

@@ -12,6 +12,6 @@ public class AttackUpgrade : UpgradeBase
 
     public override void Apply(PlayerEquipmentManager equipmentManager)
     {
-        equipmentManager.Model.AttackUp(attack);
+        equipmentManager?.Model.AttackUp(attack);
     }
 }
