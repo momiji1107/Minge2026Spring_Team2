@@ -9,21 +9,33 @@ using TMPro;
 public class UpgradeManager : MonoBehaviour
 {
     [SerializeField] private PlayerEquipmentManager equipmentManager;
+    [SerializeField] private PlayerModel model;
     [SerializeField] private List<UpgradeBase> upgrades;
-    [SerializeField] private TextMeshProUGUI[] texts;
+    [Header("パネルUI関係")]
     [SerializeField] private Canvas upgradeCanvas;
+    [SerializeField] private RectTransform[] panelRects;
+    [SerializeField] private TextMeshProUGUI[] texts;
+    private float atractSize = 1.2f; //選択中のパネルの拡大したサイズ
+    
     [SerializeField,Tooltip("表示するアップグレードの数")] private int diplayUpgradesNum;
     private List<UpgradeBase> displayUpgrades; //選択肢に表示するアップグレード
+    private int selectNumber; //選択中のアップグレードを示す
 
     void Start()
     {
         upgradeCanvas.gameObject.SetActive(false);
         displayUpgrades = new List<UpgradeBase>();
+        selectNumber = 0;
     }
     
     //アップグレードをランダムに表示する
     public void DisplayRandomUpgrades()
     {
+        //時間を止める＆フラグの切り替え
+        Time.timeScale = 0f;
+        model.canControll = false;
+        model.isUpgrade = true;
+        
         //表示可能なものを抽出、要素をシャッフルし、先頭からdisplayUpgradesNumの数だけ取り出す
         displayUpgrades = upgrades.Where(u => u.CanAppear(equipmentManager))
             .OrderBy(u => Guid.NewGuid())
@@ -49,5 +61,32 @@ public class UpgradeManager : MonoBehaviour
     {
         displayUpgrades[select].Apply(equipmentManager);
         upgradeCanvas.gameObject.SetActive(false);
+        Time.timeScale = 1f;
+        model.canControll = true;
+        model.isUpgrade = false;
+    }
+    
+    //アップグレード中は左右矢印キーで選択肢を変更する、Enterキーで決定
+    public void UpgradeInput()
+    {
+        if (Input.GetKeyDown(KeyCode.RightArrow) && selectNumber < displayUpgrades.Count - 1)
+        {
+            selectNumber++;
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && selectNumber > 0)
+        {
+            selectNumber--;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            SelectUpgrade(selectNumber);
+        }
+
+        for (int i = 0; i < panelRects.Length; i++)
+        {
+            panelRects[i].localScale = (i == selectNumber) ? Vector3.one * atractSize : Vector3.one;
+        }
     }
 }
