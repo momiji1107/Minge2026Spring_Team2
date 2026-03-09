@@ -6,6 +6,7 @@ public class PlayerInputController : MonoBehaviour
     [Header("Player")]
     [SerializeField] private GameObject Player;
     private Rigidbody2D rb;
+    [SerializeField] private UpgradeManager upgradeManager;
     
     [Header("ステータス表示")]
     [SerializeField] private PlayerModel model;
@@ -20,6 +21,7 @@ public class PlayerInputController : MonoBehaviour
     private float horizontal; //横入力
     private float vertical; //縦入力
     private float heightAdjust = 0.1f; //レーンからの高さ補正
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -34,22 +36,35 @@ public class PlayerInputController : MonoBehaviour
         laneMoveTimer += Time.deltaTime;
 
         //Shiftキーを押すとオブジェクトを反転させる
-        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) && model.canControll)
         {
             model.TurnAround();
             Player.transform.Rotate(0, 180, 0);
         }
+        
+        //アップグレード中の操作に切り替える
+        if (model.isUpgrade)
+        {
+            upgradeManager.UpgradeInput();
+        }
+        
     }
 
     void FixedUpdate()
     {
-        HorizontalMove();
-        VerticalMove();
+        if (model.canControll)
+        {
+            HorizontalMove();
+            VerticalMove();
+        }
+        
     }
 
     //左右移動
     void HorizontalMove()
     {
+        if (!model.canControll) return;
+        
         horizontal = Input.GetAxis("Horizontal");
         
         Vector2 velocity = new Vector2(horizontal, 0);
@@ -59,6 +74,8 @@ public class PlayerInputController : MonoBehaviour
     //上下移動
     void VerticalMove()
     { 
+        if (!model.canControll) return;
+        
         vertical = Input.GetAxis("Vertical");
         if (vertical > 0 && laneMoveTimer >= laneMoveTime)
         {

@@ -31,6 +31,10 @@ public class PlayerModel : MonoBehaviour
     
     [Tooltip("レベルごとに増加するレベルアップに必要な経験値量")] const int RequireExpPerLevel = 100;
     
+    [Header("フラグ関係")]
+    public bool canControll; //操作可能かどうか
+    public bool isUpgrade; //アップグレード中かどうか
+    
     //getter
     public GameObject Player => player;
     public int Level => level;
@@ -55,6 +59,9 @@ public class PlayerModel : MonoBehaviour
         moveSpeed = firstMoveSpeed;
         shootSpeed = firstShootSpeed;
         rapidFireSpeed = firstRapidFireSpeed;
+        
+        canControll = true;
+        isUpgrade = false;
     }
     
     //被ダメージ
@@ -92,6 +99,12 @@ public class PlayerModel : MonoBehaviour
         upgradeManager.DisplayRandomUpgrades();
     }
     
+    //HP回復
+    public void HpRecovery(int plusHp)
+    {
+        hp += plusHp;
+        if(hp > maxHp) hp = maxHp;
+    }
     //最大HP上昇、HP全回復
     public void MaxHpUp(int plusHp) { maxHp += plusHp; hp = maxHp; }
     //攻撃力上昇
