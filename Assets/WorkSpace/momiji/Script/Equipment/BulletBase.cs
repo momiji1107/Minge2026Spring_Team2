@@ -1,5 +1,6 @@
 using UnityEngine;
 
+public class BulletBase : MonoBehaviour
 {
     private int _damage;
 
