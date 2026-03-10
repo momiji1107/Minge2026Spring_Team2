@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public interface IEnemyCore
@@ -13,7 +14,9 @@ public class EnemyCore : MonoBehaviour, IEnemyCore
 {
     [SerializeField] private int maxHp = 50;
     [SerializeField,Tooltip("経験値")] private int exp = 100;
-    [SerializeField] private PlayerModel model;
+    [SerializeField] private int score = 100;
+
+    public static event Action<int> OnDie;
     
     private int _hp;
 
@@ -45,6 +48,9 @@ public class EnemyCore : MonoBehaviour, IEnemyCore
     private void Die()
     {
         Destroy(gameObject);
-        model.AddExp(exp);
+        
+        // ここでScoreをゲームマネージャ―に送る
+        
+        OnDie?.Invoke(exp);
     }
 }
