@@ -357,7 +357,7 @@ GameObject:
   - component: {fileID: 526368927}
   m_Layer: 0
   m_Name: Lane0
-  m_TagString: BottomLane
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -667,7 +667,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7785345535377445664, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7787471606157949731, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -708,6 +708,10 @@ PrefabInstance:
     - target: {fileID: 7787471606157949731, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7787471606157949731, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -777,6 +781,10 @@ PrefabInstance:
     - target: {fileID: 5712204562103570737, guid: 79a56118da54bf14988dd36a20fd795e, type: 3}
       propertyPath: m_Name
       value: Enemy3 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5712204562103570737, guid: 79a56118da54bf14988dd36a20fd795e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1820,13 +1828,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 134141170540080227, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
+      propertyPath: speed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332777169600125922, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -855298285791758126, guid: 6ee5f8c7660c1a54885cf9a7744b3462, type: 3}
+    - target: {fileID: 3332777169600125922, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332777169600125922, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332777169600125922, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8759148217643277841, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
       propertyPath: m_Name
       value: Enemy1
       objectReference: {fileID: 0}
     - target: {fileID: 8759148217643277841, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069288921748573208, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069288921748573208, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069288921748573208, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.16
       objectReference: {fileID: 0}
     - target: {fileID: 9069288921748573208, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1834,7 +1874,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9069288921748573208, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.06
+      value: -0.42
       objectReference: {fileID: 0}
     - target: {fileID: 9069288921748573208, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1867,6 +1907,10 @@ PrefabInstance:
     - target: {fileID: 9069288921748573208, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9069288921748573208, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2196,9 +2240,41 @@ PrefabInstance:
       propertyPath: startTime
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2482660897909430325, guid: 79a56118da54bf14988dd36a20fd795e, type: 3}
+      propertyPath: direction.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2482660897909430325, guid: 79a56118da54bf14988dd36a20fd795e, type: 3}
+      propertyPath: direction.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2482660897909430325, guid: 79a56118da54bf14988dd36a20fd795e, type: 3}
+      propertyPath: bounceLanes.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2482660897909430325, guid: 79a56118da54bf14988dd36a20fd795e, type: 3}
+      propertyPath: 'bounceLanes.Array.data[0]'
+      value: 
+      objectReference: {fileID: 526368926}
+    - target: {fileID: 2482660897909430325, guid: 79a56118da54bf14988dd36a20fd795e, type: 3}
+      propertyPath: 'bounceLanes.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2088738412}
     - target: {fileID: 5712204562103570737, guid: 79a56118da54bf14988dd36a20fd795e, type: 3}
       propertyPath: m_Name
       value: Enemy3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336568929127826696, guid: 79a56118da54bf14988dd36a20fd795e, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336568929127826696, guid: 79a56118da54bf14988dd36a20fd795e, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6336568929127826696, guid: 79a56118da54bf14988dd36a20fd795e, type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

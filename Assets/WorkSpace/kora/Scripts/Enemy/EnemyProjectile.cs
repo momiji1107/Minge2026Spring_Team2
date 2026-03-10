@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum EnemyProjectileType
@@ -13,8 +14,10 @@ public class EnemyProjectile : MonoBehaviour
     [Header("Hit時のダメージ")] [SerializeField] private float damage = 1f;
     [Header("速度")][SerializeField] private float speed = 3f;
     [Header("弾が消えるまでの時間")][SerializeField] private float lifeTime = 20f;
+    [Header("弾の向き")] [SerializeField] private Vector3 fromDirection = Vector3.up;
     
     private Vector3 _direction;
+    private List<GameObject> _bounceLanes = new List<GameObject>();
 
     private readonly string _playerTag = "Player";
     private readonly string _bottomLaneTag = "BottomLane";
@@ -25,8 +28,13 @@ public class EnemyProjectile : MonoBehaviour
     public void Init(Vector3 direction)
     {
         _direction = direction.normalized;
-        transform.rotation = Quaternion.FromToRotation(Vector3.up, _direction);
+        transform.rotation = Quaternion.FromToRotation(fromDirection, _direction);
         StartCoroutine(Move());
+    }
+
+    public void InitBounce(List<GameObject> bounceLanes)
+    {
+        _bounceLanes = bounceLanes;
     }
 
     private IEnumerator Move()
@@ -66,7 +74,7 @@ public class EnemyProjectile : MonoBehaviour
 
         if (type == EnemyProjectileType.Bounce)
         {
-            if (other.CompareTag(_bottomLaneTag))
+            if (_bounceLanes.Contains(other.gameObject))
             {
                 Bounce();
             }
