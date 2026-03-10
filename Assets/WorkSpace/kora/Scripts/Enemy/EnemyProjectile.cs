@@ -11,7 +11,7 @@ public enum EnemyProjectileType
 public class EnemyProjectile : MonoBehaviour
 {
     [Header("弾の挙動")] [SerializeField] private EnemyProjectileType type = EnemyProjectileType.Straight;
-    [Header("Hit時のダメージ")] [SerializeField] private float damage = 1f;
+    [Header("Hit時のダメージ")] [SerializeField] private int damage = 10;
     [Header("速度")][SerializeField] private float speed = 3f;
     [Header("弾が消えるまでの時間")][SerializeField] private float lifeTime = 20f;
     [Header("弾の向き")] [SerializeField] private Vector3 fromDirection = Vector3.up;
@@ -69,6 +69,9 @@ public class EnemyProjectile : MonoBehaviour
     {
         if (other.CompareTag(_playerTag))
         { 
+            Debug.Log(damage + "Damageを与える");
+            other.GetComponentInChildren<PlayerModel>().Damage(damage);
+            Destroy(gameObject);
             OnHitPlayer();
         }
 

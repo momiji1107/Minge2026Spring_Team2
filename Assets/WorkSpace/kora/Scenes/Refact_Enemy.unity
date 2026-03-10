@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 280430364}
   - component: {fileID: 280430366}
   - component: {fileID: 280430367}
+  - component: {fileID: 280430368}
   m_Layer: 0
   m_Name: TestPlayer
   m_TagString: Player
@@ -285,6 +286,40 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &280430368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280430363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40d2817d789844ef3b4ff52c97931e72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerModel
+  player: {fileID: 0}
+  upgradeManager: {fileID: 0}
+  level: 0
+  requireExp: 0
+  exp: 0
+  maxHp: 0
+  hp: 0
+  attack: 0
+  moveSpeed: 0
+  shootSpeed: 0
+  rapidFireSpeed: 0
+  firstLevel: 1
+  firstExp: 0
+  firstMaxHp: 100
+  firstAttack: 5
+  firstMoveSpeed: 5
+  firstShootSpeed: 5
+  firstRapidFireSpeed: 5
+  sr: {fileID: 0}
+  lookAtRight: 1
+  canControll: 0
+  isUpgrade: 0
 --- !u!1 &365707850
 GameObject:
   m_ObjectHideFlags: 0
