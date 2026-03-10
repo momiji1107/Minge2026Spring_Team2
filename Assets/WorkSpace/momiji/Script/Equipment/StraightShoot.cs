@@ -13,8 +13,8 @@ public class StraightShoot : EquipmentBase
     public override void Activate(PlayerModel model)
     {
         GameObject bullet = Instantiate(bulletPrefab, model.Player.transform.position, Quaternion.identity);
+        bullet.GetComponent<BulletBase>()?.SetDamage(model.Attack);
         bullet.GetComponent<Rigidbody2D>().linearVelocity = model.Player.transform.right * model.ShootSpeed;
-        
         Destroy(bullet,2f);
     }
 }

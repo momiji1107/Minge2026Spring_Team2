@@ -20,6 +20,7 @@ public class MultipleShoot : EquipmentBase
         foreach (var offset in offsets)
         {
             GameObject bullet = Instantiate(bulletPrefab, model.Player.transform.position + offset , Quaternion.identity);
+            bullet.GetComponent<BulletBase>()?.SetDamage(model.Attack * level);
             bullet.GetComponent<Rigidbody2D>().linearVelocity = model.Player.transform.right * model.ShootSpeed * level;
             Destroy(bullet,2f);
         }

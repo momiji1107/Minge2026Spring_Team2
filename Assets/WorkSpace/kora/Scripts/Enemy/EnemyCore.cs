@@ -2,19 +2,20 @@ using UnityEngine;
 
 public interface IEnemyCore
 {
-    public float GetHp();
-    public float GetMaxHp();
-    public float GetExp();
-    public void TakeDamage(float damage);
+    public int GetHp();
+    public int GetMaxHp();
+    public int GetExp();
+    public void TakeDamage(int damage);
 
 }
 
 public class EnemyCore : MonoBehaviour, IEnemyCore
 {
-    [SerializeField] private float maxHp = 1f;
-    [SerializeField] private float exp = 1f;
+    [SerializeField] private int maxHp = 50;
+    [SerializeField,Tooltip("経験値")] private int exp = 100;
+    [SerializeField] private PlayerModel model;
     
-    private float _hp;
+    private int _hp;
 
     void Awake()
     {
@@ -22,14 +23,14 @@ public class EnemyCore : MonoBehaviour, IEnemyCore
     }
 
     // getter
-    public float GetHp() => this._hp;
-    public float GetMaxHp() => this.maxHp;
-    public float GetExp() => this.exp;
+    public int GetHp() => this._hp;
+    public int GetMaxHp() => this.maxHp;
+    public int GetExp() => this.exp;
 
     /// <summary>
     ///  ダメージを受ける
     /// </summary>
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         _hp -= damage;
         if (_hp <= 0)
@@ -38,8 +39,12 @@ public class EnemyCore : MonoBehaviour, IEnemyCore
         }
     }
 
+    /// <summary>
+    ///  やられた時
+    /// </summary>
     private void Die()
     {
         Destroy(gameObject);
+        model.AddExp(exp);
     }
 }

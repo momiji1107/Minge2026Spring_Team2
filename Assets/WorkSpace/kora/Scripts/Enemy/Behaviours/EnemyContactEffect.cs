@@ -3,7 +3,7 @@ using UnityEngine;
 public class EnemyContactEffect : EnemyBehaviourBase
 {
     [SerializeField] private bool isDamageable = true;
-    [SerializeField] private float damage = 1f;
+    [SerializeField] private int damage = 1;
     
     readonly string PlayerTag = "Player";
     private EnemyCore _core;
