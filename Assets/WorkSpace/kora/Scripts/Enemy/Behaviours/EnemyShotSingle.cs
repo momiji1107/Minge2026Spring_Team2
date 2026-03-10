@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -8,13 +9,22 @@ public class EnemyShotSingle : EnemyBehaviourBase
     
     [Header("発射間隔")][SerializeField] private float projRate = 1.5f;
     [Header("発射方向")][SerializeField] private Vector3 direction = Vector3.left;
-    
+    [Header("最初の発射までの時間")][SerializeField] private float startTime = 0f;
+    [Header("Bounceさせるレーン")][SerializeField] private List<GameObject> bounceLanes = null;
+
+    private float _waitTimer = 0f;
     private float _rateTimer = 0f;
+    
+    void Start()
+    {
+        _rateTimer = projRate;
+    }
     
     // Update
     public override void Tick(float dt)
     {
-        Shooter(dt);
+        if (_waitTimer < startTime) _waitTimer += dt;
+        else Shooter(dt);
     }
     
     private void Shooter(float dt)
@@ -33,6 +43,8 @@ public class EnemyShotSingle : EnemyBehaviourBase
         if (projectile == null) return;
         
         var obj = Instantiate(projectile, transform.position, Quaternion.identity);
-        obj.GetComponent<EnemyProjectile>().Init(direction);
+        var proj = obj.GetComponent<EnemyProjectile>();
+        proj.Init(direction);
+        if (bounceLanes != null) proj.InitBounce(bounceLanes);
     }
 }
