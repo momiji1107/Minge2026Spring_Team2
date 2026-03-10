@@ -62,6 +62,9 @@ public class PlayerModel : MonoBehaviour
         
         canControll = true;
         isUpgrade = false;
+
+        // register
+        EnemyCore.OnDie += AddExp;
     }
     
     //被ダメージ
