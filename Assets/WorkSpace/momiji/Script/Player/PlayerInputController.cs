@@ -36,14 +36,14 @@ public class PlayerInputController : MonoBehaviour
         laneMoveTimer += Time.deltaTime;
 
         //Shiftキーを押すとオブジェクトを反転させる
-        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) && model.canControll)
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) && GameManager.GameState == GAMESTATE.INGAME)
         {
             model.TurnAround();
             Player.transform.Rotate(0, 180, 0);
         }
         
         //アップグレード中の操作に切り替える
-        if (model.isUpgrade)
+        if (GameManager.GameState == GAMESTATE.ISUPGRADE)
         {
             upgradeManager.UpgradeInput();
         }
@@ -52,19 +52,17 @@ public class PlayerInputController : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (model.canControll)
-        {
-            HorizontalMove();
-            VerticalMove();
-        }
+
+        if (GameManager.GameState != GAMESTATE.INGAME) return;
+        
+        HorizontalMove();
+        VerticalMove();
         
     }
 
     //左右移動
     void HorizontalMove()
     {
-        if (!model.canControll) return;
-        
         horizontal = Input.GetAxis("Horizontal");
         
         Vector2 velocity = new Vector2(horizontal, 0);
@@ -74,8 +72,6 @@ public class PlayerInputController : MonoBehaviour
     //上下移動
     void VerticalMove()
     { 
-        if (!model.canControll) return;
-        
         vertical = Input.GetAxis("Vertical");
         if (vertical > 0 && laneMoveTimer >= laneMoveTime)
         {

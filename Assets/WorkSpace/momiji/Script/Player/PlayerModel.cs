@@ -31,10 +31,6 @@ public class PlayerModel : MonoBehaviour
     
     [Tooltip("レベルごとに増加するレベルアップに必要な経験値量")] const int RequireExpPerLevel = 100;
     
-    [Header("フラグ関係")]
-    public bool canControll; //操作可能かどうか
-    public bool isUpgrade; //アップグレード中かどうか
-    
     //getter
     public GameObject Player => player;
     public int Level => level;
@@ -59,12 +55,9 @@ public class PlayerModel : MonoBehaviour
         moveSpeed = firstMoveSpeed;
         shootSpeed = firstShootSpeed;
         rapidFireSpeed = firstRapidFireSpeed;
-        
-        canControll = true;
-        isUpgrade = false;
 
         // register
-        EnemyCore.OnDie += AddExp;
+        EnemyCore.AddExpToPlayer += AddExp;
     }
     
     //被ダメージ

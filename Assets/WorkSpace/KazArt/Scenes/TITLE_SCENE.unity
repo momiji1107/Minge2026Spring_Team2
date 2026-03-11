@@ -580,6 +580,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1240763889}
   m_CullTransparentMesh: 1
+--- !u!1 &1466994265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1466994267}
+  - component: {fileID: 1466994266}
+  m_Layer: 0
+  m_Name: Kari
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1466994266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466994265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82d24b33b7d4b4a89bf57be38bf79a51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Kari
+--- !u!4 &1466994267
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466994265}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.87216, y: 1.90163, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5748288998040788855
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -676,6 +720,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Button
       objectReference: {fileID: 0}
+    - target: {fileID: 4364077970340248713, guid: cd8d749c291d0ef4dbb47d3f6e7c02cc, type: 3}
+      propertyPath: scene
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4364077970340248713, guid: cd8d749c291d0ef4dbb47d3f6e7c02cc, type: 3}
+      propertyPath: nextScene
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069689949009854752, guid: cd8d749c291d0ef4dbb47d3f6e7c02cc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5748288998040788856}
+    - target: {fileID: 5069689949009854752, guid: cd8d749c291d0ef4dbb47d3f6e7c02cc, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeScene
+      objectReference: {fileID: 0}
     - target: {fileID: 6383090922935626325, guid: cd8d749c291d0ef4dbb47d3f6e7c02cc, type: 3}
       propertyPath: m_text
       value: Character
@@ -685,6 +745,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd8d749c291d0ef4dbb47d3f6e7c02cc, type: 3}
+--- !u!114 &5748288998040788856 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4364077970340248713, guid: cd8d749c291d0ef4dbb47d3f6e7c02cc, type: 3}
+  m_PrefabInstance: {fileID: 5748288998040788855}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b085c73af57b5242a4b8994357f6622, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SceneChanger
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -692,3 +763,4 @@ SceneRoots:
   - {fileID: 266814158}
   - {fileID: 327959920}
   - {fileID: 438445564}
+  - {fileID: 1466994267}
