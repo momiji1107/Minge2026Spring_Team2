@@ -16,7 +16,8 @@ public class EnemyCore : MonoBehaviour, IEnemyCore
     [SerializeField,Tooltip("経験値")] private int exp = 100;
     [SerializeField] private int score = 100;
 
-    public static event Action<int> OnDie;
+    public static event Action<int> AddExpToPlayer;
+    public static event Action<int> AddScoreToPlayer;
     
     private int _hp;
 
@@ -49,8 +50,9 @@ public class EnemyCore : MonoBehaviour, IEnemyCore
     {
         Destroy(gameObject);
         
-        // ここでScoreをゲームマネージャ―に送る
-        
-        OnDie?.Invoke(exp);
+        //ScoreをScoreManagerに加算する
+        AddScoreToPlayer?.Invoke(score);
+        //プレイヤーに経験値を加算する
+        AddExpToPlayer?.Invoke(exp);
     }
 }

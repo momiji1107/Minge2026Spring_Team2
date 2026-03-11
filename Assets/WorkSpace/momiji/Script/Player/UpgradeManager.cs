@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Rendering;
 
 
 public class UpgradeManager : MonoBehaviour
@@ -12,7 +13,7 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private PlayerModel model;
     [SerializeField] private List<UpgradeBase> upgrades;
     [Header("パネルUI関係")]
-    [SerializeField] private Canvas upgradeCanvas;
+    [SerializeField] private GameObject upgradePanel;
     [SerializeField] private RectTransform[] panelRects;
     [SerializeField] private TextMeshProUGUI[] texts;
     private float atractSize = 1.2f; //選択中のパネルの拡大したサイズ
@@ -23,7 +24,7 @@ public class UpgradeManager : MonoBehaviour
 
     void Start()
     {
-        upgradeCanvas.gameObject.SetActive(false);
+        upgradePanel.gameObject.SetActive(false);
         displayUpgrades = new List<UpgradeBase>();
         selectNumber = 0;
     }
@@ -31,10 +32,9 @@ public class UpgradeManager : MonoBehaviour
     //アップグレードをランダムに表示する
     public void DisplayRandomUpgrades()
     {
-        //時間を止める＆フラグの切り替え
+        //時間を止める＆状態の切り替え
         Time.timeScale = 0f;
-        model.canControll = false;
-        model.isUpgrade = true;
+        GameManager.GameState = GAMESTATE.ISUPGRADE;
         
         //表示可能なものを抽出、要素をシャッフルし、先頭からdisplayUpgradesNumの数だけ取り出す
         displayUpgrades = upgrades.Where(u => u.CanAppear(equipmentManager))
@@ -49,7 +49,7 @@ public class UpgradeManager : MonoBehaviour
         }
         
         //アップグレード画面を表示
-        upgradeCanvas.gameObject.SetActive(true);
+        upgradePanel.gameObject.SetActive(true);
         
         //選ばれた３つの選択肢確認用
         Debug.Log("selection: " + displayUpgrades[0].name + ", " + displayUpgrades[1].name + ", " + displayUpgrades[2].name);
@@ -60,10 +60,11 @@ public class UpgradeManager : MonoBehaviour
     public void SelectUpgrade(int select)
     {
         displayUpgrades[select].Apply(equipmentManager);
-        upgradeCanvas.gameObject.SetActive(false);
+        upgradePanel.gameObject.SetActive(false);
+        
+        //時間を動かす＆状態の切り替え
         Time.timeScale = 1f;
-        model.canControll = true;
-        model.isUpgrade = false;
+        GameManager.GameState = GAMESTATE.INGAME;
     }
     
     //アップグレード中は左右矢印キーで選択肢を変更する、Enterキーで決定

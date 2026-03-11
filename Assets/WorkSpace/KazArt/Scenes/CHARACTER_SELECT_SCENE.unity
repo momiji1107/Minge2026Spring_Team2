@@ -763,7 +763,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4364077970340248713, guid: cd8d749c291d0ef4dbb47d3f6e7c02cc, type: 3}
       propertyPath: scene
-      value: 2
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4364077970340248713, guid: cd8d749c291d0ef4dbb47d3f6e7c02cc, type: 3}
+      propertyPath: gameState
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4364077970340248713, guid: cd8d749c291d0ef4dbb47d3f6e7c02cc, type: 3}
+      propertyPath: nextScene
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4364077970340248713, guid: cd8d749c291d0ef4dbb47d3f6e7c02cc, type: 3}
+      propertyPath: nextGameState
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6383090922935626325, guid: cd8d749c291d0ef4dbb47d3f6e7c02cc, type: 3}
       propertyPath: m_text
