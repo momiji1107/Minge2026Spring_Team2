@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyMoveRound : EnemyBehaviourBase
+public class EnemyMoveRound : EnemyMoveBehaviourBase
 {
     [SerializeField] private float speed = 3f;
     [SerializeField] private float distance = 5f;
