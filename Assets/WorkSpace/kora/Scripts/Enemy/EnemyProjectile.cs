@@ -20,7 +20,6 @@ public class EnemyProjectile : MonoBehaviour
     private List<GameObject> _bounceLanes = new List<GameObject>();
 
     private readonly string _playerTag = "Player";
-    private readonly string _bottomLaneTag = "BottomLane";
     
     /// <summary>
     /// 発射方向を受け取り、弾が動き出す

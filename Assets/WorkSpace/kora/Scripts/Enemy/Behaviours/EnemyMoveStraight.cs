@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyMoveStraight : EnemyBehaviourBase
+public class EnemyMoveStraight : EnemyMoveBehaviourBase
 {
     [Header("移動速度")][SerializeField] private float speed = 5f;
     [Header("進行方向")][SerializeField] private Vector3 direction = Vector3.left;
