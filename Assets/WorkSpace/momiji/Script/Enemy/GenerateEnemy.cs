@@ -35,7 +35,6 @@ public class GenerateEnemy : MonoBehaviour
         foreach (EnemySpawnData data in wave.enamydatas)
         {
             var enemy = Instantiate(data.enemyPrefab, data.spawnPoint.position, Quaternion.identity);
-            enemy.GetComponent<SpriteRenderer>().flipX = data.onLeft;
         }
     }
 }

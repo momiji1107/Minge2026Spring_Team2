@@ -7,7 +7,6 @@ public class EnemySpawnData
 {
         [Tooltip("生成する敵のPrefab")] public GameObject enemyPrefab;
         [Tooltip("生成するSpawnPoint")] public Transform spawnPoint;
-        [Tooltip("左側から生成するならtrue")] public bool onLeft;
 }
 
 [System.Serializable]
