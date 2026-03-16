@@ -14,16 +14,8 @@ public static class PlayerSelection
 public class CharacterSelect : MonoBehaviour
 {
     public CharacterName characterName;
-    public GameObject startButton;
-
-    void Start()
-    {
-        startButton.SetActive(false);
-    }
-
     public void ChangeCharacter()
     {
         PlayerSelection.selectedCharacter = characterName;
-        startButton.SetActive(true);
     }
 }
