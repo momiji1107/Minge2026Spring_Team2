@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 2302349679641374091}
   - component: {fileID: 7584680293874563016}
   - component: {fileID: 3681234813121717496}
-  - component: {fileID: -1720121101888685299}
   - component: {fileID: 7108000628871154850}
   m_Layer: 0
   m_Name: TestEnemyProjectile
@@ -110,7 +109,7 @@ MonoBehaviour:
   type: 0
   damage: 10
   speed: 3
-  lifeTime: 20
+  lifeTime: 10
   fromDirection: {x: -1, y: 0, z: 0}
 --- !u!70 &3681234813121717496
 CapsuleCollider2D:
@@ -149,33 +148,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.0020274655, y: 0.005764697}
   m_Size: {x: 0.212377, y: 0.23521759}
   m_Direction: 0
---- !u!50 &-1720121101888685299
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5893101884982852981}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!95 &7108000628871154850
 Animator:
   serializedVersion: 7
