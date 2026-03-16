@@ -1,5 +1,4 @@
 using UnityEngine;
-using TMPro;
 
 public class InputManager : MonoBehaviour
 {
@@ -7,7 +6,7 @@ public class InputManager : MonoBehaviour
     [SerializeField] private SceneChanger sceneChanger;
     
     [Header("パネルUI関係")]
-    [SerializeField] private RectTransform[] panelRects;
+    [SerializeField] private GameObject[] panels;
     
     private float atractSize = 1.2f; //選択中のパネルの拡大したサイズ
     private int selectNumber; //選択中のものを示す値
@@ -22,22 +21,22 @@ public class InputManager : MonoBehaviour
     void Update()
     {
         if (GameManager.GameState != GAMESTATE.NONE) return;
-
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            sceneChanger.ChangeScene();
-        }
         
-        if (Input.GetKeyDown(KeyCode.RightArrow) && selectNumber < panelRects.Length - 1) { 
+        if (Input.GetKeyDown(KeyCode.RightArrow) && selectNumber < panels.Length - 1) {
             selectNumber++;
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow) && selectNumber > 0) { 
             selectNumber--;
         }
         
+        for (int i = 0; i < panels.Length; i++) { 
+            panels[i].GetComponent<RectTransform>().localScale = (i == selectNumber) ? Vector3.one * atractSize : Vector3.one;
+        }
         
-        for (int i = 0; i < panelRects.Length; i++) { 
-            panelRects[i].localScale = (i == selectNumber) ? Vector3.one * atractSize : Vector3.one;
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            if(currentScene == SceneName.CHARACTER_SELECT_SCENE) panels[selectNumber].GetComponent<CharacterSelect>()?.ChangeCharacter();
+            sceneChanger.ChangeScene();
         }
     }
 }
