@@ -1837,21 +1837,22 @@ MonoBehaviour:
     enamydatas:
     - enemyPrefab: {fileID: 7785345535377445664, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
       spawnPoint: {fileID: 281830841}
-      onLeft: 0
     - enemyPrefab: {fileID: 7785345535377445664, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
       spawnPoint: {fileID: 856623190}
-      onLeft: 0
   - spawnTime: 5
     enamydatas:
     - enemyPrefab: {fileID: 7785345535377445664, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
       spawnPoint: {fileID: 1792504353}
-      onLeft: 1
     - enemyPrefab: {fileID: 7785345535377445664, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
       spawnPoint: {fileID: 1441434005}
-      onLeft: 1
     - enemyPrefab: {fileID: 7785345535377445664, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
       spawnPoint: {fileID: 175243115}
-      onLeft: 1
+  - spawnTime: 8
+    enamydatas:
+    - enemyPrefab: {fileID: 8759148217643277841, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
+      spawnPoint: {fileID: 1608523165}
+    - enemyPrefab: {fileID: 8759148217643277841, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
+      spawnPoint: {fileID: 1654143591}
 --- !u!4 &932100199
 Transform:
   m_ObjectHideFlags: 0
@@ -4333,6 +4334,10 @@ PrefabInstance:
     - target: {fileID: 342104190562028362, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 342104190562028362, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 413379066700061959, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: upgradePanel
