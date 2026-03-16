@@ -14,10 +14,10 @@ public class EnemyWizardView : EnemyBasicView
     
     protected override void Awake()
     {
-        animator = GetComponent<Animator>();
+        Animator = GetComponent<Animator>();
         _shot = GetComponent<EnemyShotSingle>();
 
-        foreach (var clip in animator.runtimeAnimatorController.animationClips)
+        foreach (var clip in Animator.runtimeAnimatorController.animationClips)
         {
             if (clip.name == _attackClip)
             {
@@ -31,11 +31,11 @@ public class EnemyWizardView : EnemyBasicView
 
     protected override void PlayAttackAnim()
     {
-        if (ReferenceEquals(animator, null) || ReferenceEquals(_shot, null)) return;
+        if (ReferenceEquals(Animator, null) || ReferenceEquals(_shot, null)) return;
         
         var speedMultiplier = _startAttackLength / _shot.ShotRate;
         
-        animator.SetFloat(_attackSpeed, speedMultiplier);
+        Animator.SetFloat(_attackSpeed, speedMultiplier);
         
         // Shot -> Endまでの時間待つ
         var t = (_startAttackLength - fireTime) / speedMultiplier;
@@ -45,6 +45,6 @@ public class EnemyWizardView : EnemyBasicView
     private IEnumerator StartShotAnim(float time)
     {
         yield return new WaitForSeconds(time);
-        animator.SetBool(AnimParam.IsAttack, true);
+        Animator.SetBool(AnimParam.IsAttack, true);
     }
 }
