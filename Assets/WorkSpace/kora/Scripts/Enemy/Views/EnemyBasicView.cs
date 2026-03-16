@@ -9,7 +9,7 @@ public interface IEnemyView
 /// </summary>
 public class EnemyBasicView : MonoBehaviour, IEnemyView
 {
-    [SerializeField] protected Animator animator = null;
+    protected Animator Animator = null;
 
     protected EnemyAttackBehaviourBase Attack;
     protected EnemyMoveBehaviourBase Move;
@@ -22,25 +22,26 @@ public class EnemyBasicView : MonoBehaviour, IEnemyView
 
     protected virtual void Awake()
     {
-        animator = GetComponent<Animator>();
+        Animator = GetComponent<Animator>();
+        
         Attack = GetComponent<EnemyAttackBehaviourBase>();
         Move = GetComponent<EnemyMoveBehaviourBase>();
-
-        Attack.ActiveAttackAnim += PlayAttackAnim;
-        Move.ActiveMoveAnim += PlayMoveAnim;
+        
+        if (Attack != null) Attack.ActiveAttackAnim += PlayAttackAnim;
+        if (Move != null) Move.ActiveMoveAnim += PlayMoveAnim;
     }
 
     protected virtual void PlayAttackAnim()
     {
-        if (ReferenceEquals(animator, null)) return;
+        if (Animator == null) return;
         
-        animator.SetBool(AnimParam.IsAttack, true);
+        Animator.SetBool(AnimParam.IsAttack, true);
     }
 
     protected virtual void PlayMoveAnim()
     {
-        if (ReferenceEquals(animator, null)) return;
+        if (Animator == null) return;
         
-        animator.SetBool(AnimParam.IsMove, true);
+        Animator.SetBool(AnimParam.IsMove, true);
     }
 }
