@@ -7,7 +7,9 @@ public interface IEnemyCore
     public int GetMaxHp();
     public int GetExp();
     public void TakeDamage(int damage);
-
+    public void Stun(float time);
+    public void Slow(float time, float per);
+    public void SpawnMove(float time, Vector3 targetPos);
 }
 
 public class EnemyCore : MonoBehaviour, IEnemyCore
@@ -20,16 +22,34 @@ public class EnemyCore : MonoBehaviour, IEnemyCore
     public static event Action<int> AddScoreToPlayer;
     
     private int _hp;
+    
+    private EnemyController _controller;
 
     void Awake()
     {
         _hp = maxHp;
+        _controller = GetComponent<EnemyController>();
     }
 
     // getter
     public int GetHp() => this._hp;
     public int GetMaxHp() => this.maxHp;
     public int GetExp() => this.exp;
+    
+    /// <summary>
+    /// 各EnemyBehaviourのTickがtime秒間動かない
+    /// </summary>
+    public void Stun(float time) {_controller.Stun(time);}
+    
+    /// <summary>
+    /// 移動速度、発射速度などがtime秒間per(%)減少する
+    /// </summary>
+    public void Slow(float time, float per) {_controller.Slow(time, per);}
+    
+    /// <summary>
+    /// targetPosの座標にtime秒で移動する
+    /// </summary>
+    public void SpawnMove(float time, Vector3 targetPos) {_controller.SpawnMove(time, targetPos);}
 
     /// <summary>
     ///  ダメージを受ける

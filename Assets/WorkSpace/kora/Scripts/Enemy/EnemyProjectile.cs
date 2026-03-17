@@ -20,8 +20,11 @@ public class EnemyProjectile : MonoBehaviour
     private List<GameObject> _bounceLanes = new List<GameObject>();
 
     private readonly string _playerTag = "Player";
+
     
-    private Renderer _renderer = null;
+    private void Awake()
+    {
+    }
     
     /// <summary>
     /// 発射方向を受け取り、弾が動き出す
@@ -31,8 +34,6 @@ public class EnemyProjectile : MonoBehaviour
         _direction = direction.normalized;
         transform.rotation = Quaternion.FromToRotation(fromDirection, _direction);
         StartCoroutine(Move());
-        
-        _renderer = GetComponent<Renderer>();
     }
 
     public void InitBounce(List<GameObject> bounceLanes)
@@ -56,11 +57,10 @@ public class EnemyProjectile : MonoBehaviour
                     break;
             }
             
-            //if(!_renderer.isVisible) Destroy(gameObject);
-            
             timer += Time.deltaTime;
             yield return null;
         }
+        
         
         Destroy(gameObject);
     }
@@ -88,7 +88,7 @@ public class EnemyProjectile : MonoBehaviour
             }
         }
     }
-
+    
     private void OnHitPlayer()
     {
         Debug.Log(damage + "Damageを与える");
