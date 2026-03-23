@@ -4,7 +4,6 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.Rendering;
 
 
 public class UpgradeManager : MonoBehaviour
@@ -12,12 +11,15 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private PlayerEquipmentManager equipmentManager;
     [SerializeField] private PlayerModel model;
     [SerializeField] private List<UpgradeBase> upgrades;
+    
     [Header("パネルUI関係")]
     [SerializeField] private GameObject upgradePanel;
     [SerializeField] private RectTransform[] panelRects;
     [SerializeField] private TextMeshProUGUI[] texts;
+    [SerializeField] private Image[] images;
     private float atractSize = 1.2f; //選択中のパネルの拡大したサイズ
     
+    [Header("アップグレード関係")]
     [SerializeField,Tooltip("表示するアップグレードの数")] private int diplayUpgradesNum;
     private List<UpgradeBase> displayUpgrades; //選択肢に表示するアップグレード
     private int selectNumber; //選択中のアップグレードを示す
@@ -46,6 +48,7 @@ public class UpgradeManager : MonoBehaviour
         for (int i = 0; i < displayUpgrades.Count; i++)
         {
             texts[i].text = displayUpgrades[i].name;
+            images[i].sprite = displayUpgrades[i].icon;
         }
         
         //アップグレード画面を表示

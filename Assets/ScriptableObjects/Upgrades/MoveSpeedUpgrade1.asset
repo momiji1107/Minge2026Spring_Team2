@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: MoveSpeedUpgrade1
   m_EditorClassIdentifier: Assembly-CSharp::MoveSpeedUpgrade
   name: MoveSpeed+1
+  icon: {fileID: 21300000, guid: f92ef5aac75604c66b13ebd9960f2dc0, type: 3}
   moveSpeed: 1
