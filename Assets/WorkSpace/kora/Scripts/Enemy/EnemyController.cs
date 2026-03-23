@@ -53,15 +53,20 @@ public class EnemyController : MonoBehaviour
         StartCoroutine(RunStun(time));
     }
 
-    public void SpawnMove(float time, Vector3 targetPos)
+    public void SpawnMove(float time, Vector3 vector)
     {
         if (time == 0) return;
+        
+        //Local座標からworld座標に変換
+        var targetPos = gameObject.transform.position + vector;
+        Debug.Log(targetPos);
+        
         StartCoroutine(RunSpawnMove(time, targetPos));
     }
     
     private IEnumerator RunSlow(float time, float per)
     {
-        Debug.Log("Slow");
+        //Debug.Log("Slow");
         _isSlow = true;
         _slowPer = (100f - per) / 100f;
         
@@ -77,7 +82,7 @@ public class EnemyController : MonoBehaviour
     
     private IEnumerator RunStun(float time)
     {
-        Debug.Log("Stun");
+        //Debug.Log("Stun");
         _isStop = true;
 
         float timer = 0f;

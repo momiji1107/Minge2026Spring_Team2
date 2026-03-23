@@ -9,7 +9,7 @@ public interface IEnemyCore
     public void TakeDamage(int damage);
     public void Stun(float time);
     public void Slow(float time, float per);
-    public void SpawnMove(float time, Vector3 targetPos);
+    public void SpawnMove(float time, Vector3 vector);
 }
 
 public class EnemyCore : MonoBehaviour, IEnemyCore
@@ -37,7 +37,7 @@ public class EnemyCore : MonoBehaviour, IEnemyCore
     public int GetExp() => this.exp;
     
     /// <summary>
-    /// 各EnemyBehaviourのTickがtime秒間動かない
+    /// 移動、攻撃などがtime秒間動かない
     /// </summary>
     public void Stun(float time) {_controller.Stun(time);}
     
@@ -47,9 +47,9 @@ public class EnemyCore : MonoBehaviour, IEnemyCore
     public void Slow(float time, float per) {_controller.Slow(time, per);}
     
     /// <summary>
-    /// targetPosの座標にtime秒で移動する
+    /// vector(Local座標)に向かってtime秒で移動する
     /// </summary>
-    public void SpawnMove(float time, Vector3 targetPos) {_controller.SpawnMove(time, targetPos);}
+    public void SpawnMove(float time, Vector3 vector) {_controller.SpawnMove(time, vector);}
 
     /// <summary>
     ///  ダメージを受ける
