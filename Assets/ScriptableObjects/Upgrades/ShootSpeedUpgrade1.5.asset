@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: ShootSpeedUpgrade1.5
   m_EditorClassIdentifier: Assembly-CSharp::ShootSpeedUpgrade
   name: ShootSpeed+1.5
+  icon: {fileID: 21300000, guid: e70057e6c387340ac88f6f8fd3ca36e1, type: 3}
   shootSpeed: 1.5

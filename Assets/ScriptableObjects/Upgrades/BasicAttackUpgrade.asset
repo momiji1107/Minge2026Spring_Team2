@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: BasicAttackUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::BasicAttackUpgrade
   name: BasicAttackZanngeki
+  icon: {fileID: 21300000, guid: 787a9afbee4154a8996f7c8ed03e084d, type: 3}
   preBasicAttack: {fileID: 11400000, guid: 938335deb2a8441d3984ca66a4ab2024, type: 2}
   newBasicAttack: {fileID: 11400000, guid: 7025a10bfb9404d25adb5ec377fdd382, type: 2}
