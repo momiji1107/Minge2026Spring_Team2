@@ -11,7 +11,6 @@ public class EnemyShotSingle : EnemyAttackBehaviourBase
     [Header("発射間隔")][SerializeField] private float shotRate = 1.5f;
     [Header("発射方向")][SerializeField] private Vector3 direction = Vector3.left;
     [Header("最初の詠唱開始までの時間")][SerializeField] private float startTime = 0f;
-    [Header("Bounceさせるレーン")][SerializeField] private List<GameObject> bounceLanes = null;
 
     public float ShotRate => shotRate;
     
@@ -56,6 +55,5 @@ public class EnemyShotSingle : EnemyAttackBehaviourBase
         var obj = Instantiate(projectile, transform.position, Quaternion.identity);
         var proj = obj.GetComponent<EnemyProjectile>();
         proj.Init(direction);
-        if (bounceLanes != null) proj.InitBounce(bounceLanes);
     }
 }

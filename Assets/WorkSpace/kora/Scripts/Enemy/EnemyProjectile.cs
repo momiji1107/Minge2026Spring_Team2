@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,7 +19,7 @@ public class EnemyProjectile : MonoBehaviour
     
     private Vector3 _direction;
     private List<GameObject> _bounceLanes = new List<GameObject>();
-
+    
     private readonly string _playerTag = "Player";
 
     
@@ -34,11 +35,8 @@ public class EnemyProjectile : MonoBehaviour
         _direction = direction.normalized;
         transform.rotation = Quaternion.FromToRotation(fromDirection, _direction);
         StartCoroutine(Move());
-    }
-
-    public void InitBounce(List<GameObject> bounceLanes)
-    {
-        _bounceLanes = bounceLanes;
+        
+        if (SceneContext.Instance != null) _bounceLanes = SceneContext.Instance.bounceLanes;
     }
 
     private IEnumerator Move()
@@ -57,6 +55,8 @@ public class EnemyProjectile : MonoBehaviour
                     break;
             }
             
+            CheckVisible();
+            
             timer += Time.deltaTime;
             yield return null;
         }
@@ -70,11 +70,20 @@ public class EnemyProjectile : MonoBehaviour
         transform.position += _direction * (speed * Time.deltaTime);
     }
 
+    private void CheckVisible()
+    {
+        var pos = Camera.main.WorldToViewportPoint(transform.position);
+        if (pos.x < 0 || 1 < pos.x || pos.y < 0 || 1 < pos.x)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag(_playerTag))
         { 
-            Debug.Log(damage + "Damageを与える");
+            //Debug.Log(damage + "Damageを与える");
             other.GetComponentInChildren<PlayerModel>().Damage(damage);
             Destroy(gameObject);
             OnHitPlayer();
@@ -88,7 +97,9 @@ public class EnemyProjectile : MonoBehaviour
             }
         }
     }
+
     
+
     private void OnHitPlayer()
     {
         Debug.Log(damage + "Damageを与える");
