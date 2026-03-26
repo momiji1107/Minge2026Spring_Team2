@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyCore
   maxHp: 1
-  exp: 1
+  exp: 100
   score: 100
 --- !u!114 &134141170540080227
 MonoBehaviour:

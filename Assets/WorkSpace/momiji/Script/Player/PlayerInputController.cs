@@ -10,7 +10,8 @@ public class PlayerInputController : MonoBehaviour
     
     [Header("ステータス表示")]
     [SerializeField] private PlayerModel model;
-    [SerializeField] private TextMeshProUGUI text;
+    [SerializeField] private TextMeshProUGUI levelText;
+    [SerializeField] private TextMeshProUGUI expText;
 
     [Header("縦移動")]
     [SerializeField,Tooltip("レーン移動後に再びレーン移動できるようになるまでの時間")] private float laneMoveTime = 0.5f;
@@ -32,7 +33,8 @@ public class PlayerInputController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = "Level: " + model.Level + "   exp/requireExp: " + model.Exp + "/" + model.RequireExp;
+        levelText.text = "LV : " + model.Level;
+        expText.text = "EXP : " + model.Exp + "/" + model.RequireExp;
         laneMoveTimer += Time.deltaTime;
 
         //Shiftキーを押すとオブジェクトを反転させる

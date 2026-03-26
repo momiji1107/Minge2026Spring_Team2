@@ -6,7 +6,8 @@ public class MaxHpUpgrade : UpgradeBase
     [SerializeField] private int hp;
     public override bool CanAppear(PlayerEquipmentManager equipmentManager)
     {
-        return true;
+        if (equipmentManager.Model.MaxHp < equipmentManager.Model.HPLIMIT) return true;
+        return false;
     }
 
     public override void Apply(PlayerEquipmentManager equipmentManager)

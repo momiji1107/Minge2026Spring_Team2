@@ -123,8 +123,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afc9dbb94d9e9243a3478e54a8df3d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyCore
-  maxHp: 1
-  exp: 1
+  maxHp: 3
+  exp: 100
   score: 100
 --- !u!114 &2323057125527778542
 MonoBehaviour:
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyShotSingle
   projectile: {fileID: 5893101884982852981, guid: 4ddd2690e5699934684cd4f7e1287656, type: 3}
-  projRate: 3
+  shotRate: 1.5
   direction: {x: -1, y: 0, z: 0}
   startTime: 0
   bounceLanes: []
@@ -169,7 +169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cafcf3c0321b6148ba26044a60a17b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyWizardView
-  enemy: {fileID: 7785345535377445664}
   fireTime: 1.3
 --- !u!50 &-6972040618617840218
 Rigidbody2D:

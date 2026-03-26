@@ -122,8 +122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afc9dbb94d9e9243a3478e54a8df3d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyCore
-  maxHp: 1
-  exp: 1
+  maxHp: 3
+  exp: 100
   score: 100
 --- !u!114 &2482660897909430325
 MonoBehaviour:
@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyShotSingle
   projectile: {fileID: 2823361468637368064, guid: 357eafe8f89544b41942ff5597c73e8f, type: 3}
-  projRate: 2
+  shotRate: 1.5
   direction: {x: -1, y: -1, z: 0}
   startTime: 0
   bounceLanes: []
