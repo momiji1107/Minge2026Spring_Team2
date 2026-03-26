@@ -1,14 +1,17 @@
+using System;
 using UnityEngine;
 
 public class PlayerModel : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private UpgradeManager upgradeManager;
+    [SerializeField] private HPheartView heartView;
     
     [Header("ステータス")]
     [SerializeField] private int level; //レベル
     [SerializeField] private int requireExp; //レベルアップに必要な経験値
     [SerializeField] private int exp; //経験値
+    public int HPLIMIT = 10; //HPの最大値制限
     [SerializeField] private int maxHp; //現在の体力の最大値
     [SerializeField] private int hp; //現在の体力
     [SerializeField] private int attack; //攻撃力
@@ -64,6 +67,7 @@ public class PlayerModel : MonoBehaviour
     public void Damage(int damage)
     {
         hp -= damage;
+        heartView.HPView();
         if (hp <= 0)
         {
             //死んだ時の処理
@@ -100,9 +104,15 @@ public class PlayerModel : MonoBehaviour
     {
         hp += plusHp;
         if(hp > maxHp) hp = maxHp;
+        heartView.HPView();
     }
-    //最大HP上昇、HP全回復
-    public void MaxHpUp(int plusHp) { maxHp += plusHp; hp = maxHp; }
+    //最大HP上昇、HP上昇分回復
+    public void MaxHpUp(int plusHp)
+    {
+        maxHp += plusHp; 
+        hp += plusHp;
+        heartView.HPView();
+    }
     //攻撃力上昇
     public void AttackUp(int atk) { attack += atk; }
     //移動速度上昇
