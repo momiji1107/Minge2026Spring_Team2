@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class SwingSword : EquipmentBase
 {
-    [Header("“–‚½‚è”»’èƒTƒCƒY")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½è”»ï¿½ï¿½Tï¿½Cï¿½Y")]
     [SerializeField] private float radius;
 
     public override void Activate(PlayerModel model)
     {
-        Debug.Log("”­“®");
+        //Debug.Log("ï¿½ï¿½ï¿½ï¿½");
 
         Vector2 hitPos = model.transform.position;
 

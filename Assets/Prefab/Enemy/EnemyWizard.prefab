@@ -155,7 +155,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a098daac6e55b64597768fb6be7ee47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyContactEffect
-  isDamageable: 1
+  isDamageable: 0
   damage: 1
 --- !u!114 &1967343272205462698
 MonoBehaviour:
