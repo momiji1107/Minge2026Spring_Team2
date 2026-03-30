@@ -9,9 +9,9 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI clearTimeText;
     
-    private static int score = 0;
-    private static int killCount = 0;
-    private static float clearTimer = 0f;
+    private int score = 0;
+    private int killCount = 0;
+    private float clearTimer = 0f;
 
     //スコアをリセット
     private void ResetScore()
