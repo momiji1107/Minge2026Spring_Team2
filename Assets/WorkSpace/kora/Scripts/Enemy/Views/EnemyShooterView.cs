@@ -2,14 +2,15 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 
-public class EnemyWizardView : EnemyBasicView
+public class EnemyShooterView : EnemyBasicView
 {
-    [SerializeField] private float fireTime = 1.15f;
+    [SerializeField] private float fireFlame = 30;
 
     private float _startAttackLength;
+    private float _clipFlameRate;
     private EnemyShotSingle _shot;
 
-    private readonly string _attackClip = "Wizard_Attack";
+    private readonly string _attackClip = "Attack";
     private readonly string _attackSpeed = "AttackSpeed";
     
     protected override void Awake()
@@ -22,6 +23,7 @@ public class EnemyWizardView : EnemyBasicView
             if (clip.name == _attackClip)
             {
                 _startAttackLength = clip.length;
+                _clipFlameRate = clip.frameRate;
             }
         }
         
@@ -38,12 +40,14 @@ public class EnemyWizardView : EnemyBasicView
         Animator.SetFloat(_attackSpeed, speedMultiplier);
         
         // Shot -> Endまでの時間待つ
+        var fireTime = fireFlame / _clipFlameRate;
         var t = (_startAttackLength - fireTime) / speedMultiplier;
         StartCoroutine(StartShotAnim(t));
     }
 
     private IEnumerator StartShotAnim(float time)
     {
+        Debug.Log("Play Attack Animation");
         yield return new WaitForSeconds(time);
         Animator.SetBool(AnimParam.IsAttack, true);
     }

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8185452703283526685
+--- !u!1 &3106744930323405570
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,7 +8,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3313661321926615527}
+  - component: {fileID: 7270716999842655133}
   m_Layer: 0
   m_Name: ShotPoint
   m_TagString: Untagged
@@ -16,16 +16,16 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3313661321926615527
+--- !u!4 &7270716999842655133
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8185452703283526685}
+  m_GameObject: {fileID: 3106744930323405570}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.75, y: 0.6, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.13, y: -0.24, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 3190029848974126344}
   - component: {fileID: 2355560809307077578}
   m_Layer: 0
-  m_Name: EnemyPoisonSlime
+  m_Name: EnemySoldier
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69,7 +69,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 3313661321926615527}
+  - {fileID: 7270716999842655133}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3332777169600125922
@@ -121,7 +121,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 0ef75fb9c1395064ea65e022a0f8a2e6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: edc1379577377da4db20a3c548ed1965, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -209,7 +209,7 @@ Animator:
   m_GameObject: {fileID: 8759148217643277841}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0512285630536364fab40e6557f64291, type: 2}
+  m_Controller: {fileID: 9100000, guid: c707253bc07a11946b60a4e8e0de44f7, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -255,8 +255,8 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.03267553, y: -0.074035935}
-  m_Size: {x: 1.261822, y: 1.261822}
+  m_Offset: {x: 0.4096421, y: -0.34785146}
+  m_Size: {x: 1.0511951, y: 1.2126757}
   m_Direction: 0
 --- !u!114 &3190029848974126344
 MonoBehaviour:
@@ -270,10 +270,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d04c41198430f24c9c7855b2df40df5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyShotSingle
-  projectile: {fileID: 5893101884982852981, guid: 72f42a3e583a0034486f7aabf1ef78e4, type: 3}
+  projectile: {fileID: 5893101884982852981, guid: f7684563019b6344492fadc738338407, type: 3}
   shotRate: 1.5
   direction: {x: -1, y: 0, z: 0}
-  shotPosition: {fileID: 8185452703283526685}
+  shotPosition: {fileID: 3106744930323405570}
   startTime: 0
 --- !u!114 &2355560809307077578
 MonoBehaviour:
@@ -287,4 +287,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cafcf3c0321b6148ba26044a60a17b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyWizardView
-  fireFlame: 38
+  fireFlame: 51

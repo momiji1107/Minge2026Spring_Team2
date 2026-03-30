@@ -10,18 +10,23 @@ public class EnemyShotSingle : EnemyAttackBehaviourBase
     
     [Header("発射間隔")][SerializeField] private float shotRate = 1.5f;
     [Header("発射方向")][SerializeField] private Vector3 direction = Vector3.left;
+    [Header("発射位置")] [SerializeField] private GameObject shotPosition;
     [Header("最初の詠唱開始までの時間")][SerializeField] private float startTime = 0f;
 
     public float ShotRate => shotRate;
-    
+
+    private Vector3 _shotPos;
     private float _waitTimer = 0f;
     private float _rateTimer = 0f;
     
     private bool _isFirst = false;
+    private bool _isNullShotPosition = false;
     
     void Start()
     {
         startTime += shotRate;
+        
+        if (shotPosition == null) _isNullShotPosition = true;
     }
     
     // Update
@@ -40,10 +45,13 @@ public class EnemyShotSingle : EnemyAttackBehaviourBase
         }
         
         _rateTimer += dt;
+        
+        if (!_isNullShotPosition) _shotPos = shotPosition.transform.position;
+        else _shotPos = transform.position;
 
         if (_rateTimer >= shotRate)
         {
-            _rateTimer -= shotRate;
+            _rateTimer = 0f;
             Shot();
         }
     }
@@ -52,7 +60,7 @@ public class EnemyShotSingle : EnemyAttackBehaviourBase
     {
         if (projectile == null) return;
         
-        var obj = Instantiate(projectile, transform.position, Quaternion.identity);
+        var obj = Instantiate(projectile, _shotPos, Quaternion.identity);
         var proj = obj.GetComponent<EnemyProjectile>();
         proj.Init(direction);
     }
