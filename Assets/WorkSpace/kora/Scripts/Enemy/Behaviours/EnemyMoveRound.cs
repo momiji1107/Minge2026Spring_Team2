@@ -16,10 +16,13 @@ public class EnemyMoveRound : EnemyMoveBehaviourBase
         
         _currentDistance = startDistance;
         _direction = isMoveRight ? Vector3.right : Vector3.left;
+        
+        Direction = _direction;
     }
     
     public override void Tick(float dt)
     {
+        _direction = Direction;
         MoveRound(dt);
     }
 

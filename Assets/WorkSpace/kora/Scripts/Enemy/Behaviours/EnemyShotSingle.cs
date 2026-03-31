@@ -22,9 +22,10 @@ public class EnemyShotSingle : EnemyAttackBehaviourBase
     private bool _isFirst = false;
     private bool _isNullShotPosition = false;
     
-    void Start()
+    void Awake()
     {
         startTime += shotRate;
+        Direction = direction;
         
         if (shotPosition == null) _isNullShotPosition = true;
     }
@@ -45,8 +46,13 @@ public class EnemyShotSingle : EnemyAttackBehaviourBase
         }
         
         _rateTimer += dt;
+
         
-        if (!_isNullShotPosition) _shotPos = shotPosition.transform.position;
+        
+        if (!_isNullShotPosition)
+        {
+            _shotPos = shotPosition.transform.position;
+        }
         else _shotPos = transform.position;
 
         if (_rateTimer >= shotRate)
@@ -59,9 +65,13 @@ public class EnemyShotSingle : EnemyAttackBehaviourBase
     private void Shot()
     {
         if (projectile == null) return;
-        
+     
         var obj = Instantiate(projectile, _shotPos, Quaternion.identity);
         var proj = obj.GetComponent<EnemyProjectile>();
-        proj.Init(direction);
+        proj.Init(Direction);
+    }
+
+    protected override void OnSetIsRight()
+    {
     }
 }

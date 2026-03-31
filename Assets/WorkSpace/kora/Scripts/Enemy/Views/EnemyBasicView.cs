@@ -11,6 +11,7 @@ public class EnemyBasicView : MonoBehaviour, IEnemyView
 {
     protected Animator Animator = null;
 
+    protected EnemyController Controller;
     protected EnemyAttackBehaviourBase Attack;
     protected EnemyMoveBehaviourBase Move;
     
@@ -23,14 +24,20 @@ public class EnemyBasicView : MonoBehaviour, IEnemyView
     protected virtual void Awake()
     {
         Animator = GetComponent<Animator>();
-        
+
+        Controller = GetComponent<EnemyController>();
         Attack = GetComponent<EnemyAttackBehaviourBase>();
         Move = GetComponent<EnemyMoveBehaviourBase>();
-        
+
+        if (Controller != null) Controller.OnSetIsRight += OnSetIsRight;
         if (Attack != null) Attack.ActiveAttackAnim += PlayAttackAnim;
         if (Move != null) Move.ActiveMoveAnim += PlayMoveAnim;
+        
+        OnAwake();
     }
 
+    protected virtual void OnAwake(){}
+    
     protected virtual void PlayAttackAnim()
     {
         if (Animator == null) return;
@@ -43,5 +50,13 @@ public class EnemyBasicView : MonoBehaviour, IEnemyView
         if (Animator == null) return;
         
         Animator.SetBool(AnimParam.IsMove, true);
+    }
+
+    protected virtual void OnSetIsRight(bool isRight)
+    {
+        if (isRight)
+        {
+            gameObject.transform.Rotate(0,180,0);
+        }
     }
 }

@@ -13,9 +13,8 @@ public class EnemyShooterView : EnemyBasicView
     private readonly string _attackClip = "Attack";
     private readonly string _attackSpeed = "AttackSpeed";
     
-    protected override void Awake()
+    protected override void OnAwake()
     {
-        Animator = GetComponent<Animator>();
         _shot = GetComponent<EnemyShotSingle>();
 
         foreach (var clip in Animator.runtimeAnimatorController.animationClips)
@@ -26,9 +25,6 @@ public class EnemyShooterView : EnemyBasicView
                 _clipFlameRate = clip.frameRate;
             }
         }
-        
-        //Resister
-        _shot.ActiveAttackAnim += PlayAttackAnim;
     }
 
     protected override void PlayAttackAnim()
@@ -47,7 +43,7 @@ public class EnemyShooterView : EnemyBasicView
 
     private IEnumerator StartShotAnim(float time)
     {
-        Debug.Log("Play Attack Animation");
+        //Debug.Log("Play Attack Animation");
         yield return new WaitForSeconds(time);
         Animator.SetBool(AnimParam.IsAttack, true);
     }
