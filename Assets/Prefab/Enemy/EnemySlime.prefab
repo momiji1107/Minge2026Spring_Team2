@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 4032770715303872910}
   - component: {fileID: 1093576919478883642}
   - component: {fileID: 134141170540080227}
-  - component: {fileID: 8454358254967472799}
   - component: {fileID: 5939030543876509912}
   - component: {fileID: 3077301644879105312}
   - component: {fileID: 7653535009805067517}
   - component: {fileID: 8458903826754264497}
+  - component: {fileID: -7182098605895108463}
   m_Layer: 0
   m_Name: EnemySlime
   m_TagString: Enemy
@@ -140,20 +140,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMoveStraight
   speed: 1
   direction: {x: -1, y: 0, z: 0}
---- !u!114 &8454358254967472799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8759148217643277841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a098daac6e55b64597768fb6be7ee47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyContactEffect
-  isDamageable: 1
-  damage: 1
 --- !u!50 &5939030543876509912
 Rigidbody2D:
   serializedVersion: 5
@@ -252,3 +238,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 195e3db3c9cbc9745ae53efbc8d23ba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicView
+--- !u!114 &-7182098605895108463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8759148217643277841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a098daac6e55b64597768fb6be7ee47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyContactEffect
+  isDamageable: 1
+  damage: 1

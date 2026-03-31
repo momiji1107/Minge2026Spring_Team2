@@ -975,6 +975,74 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!1 &211336058
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 211336059}
+  - component: {fileID: 211336060}
+  m_Layer: 0
+  m_Name: UpgradeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &211336059
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211336058}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 723456971}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &211336060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211336058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29662773cfc674ba894c5a5f596ead87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeManager
+  equipmentManager: {fileID: 2045640924}
+  model: {fileID: 67754450}
+  upgrades:
+  - {fileID: 11400000, guid: d470ea747c2c146ae87ac87b5dce746a, type: 2}
+  - {fileID: 11400000, guid: cf60bf80005d64720833dd1fa9005f17, type: 2}
+  - {fileID: 11400000, guid: c7ead5dcd5de0428dac9153abd88a2c5, type: 2}
+  - {fileID: 11400000, guid: 4404b5c660f864a8c90012efafec7db3, type: 2}
+  - {fileID: 11400000, guid: 7803a49735c254d3cb1dd9858bde65b8, type: 2}
+  - {fileID: 11400000, guid: 5b7c304d02bc1451eaedc533e60a68e8, type: 2}
+  - {fileID: 11400000, guid: ddded5b7c9a524a9fb3a1afe527a81b1, type: 2}
+  upgradePanel: {fileID: 588251282}
+  panelRects:
+  - {fileID: 2002921505}
+  - {fileID: 479827483}
+  - {fileID: 296305041}
+  texts:
+  - {fileID: 26180095}
+  - {fileID: 1970703823}
+  - {fileID: 372039925}
+  images:
+  - {fileID: 2124501637}
+  - {fileID: 268108025}
+  - {fileID: 2010402056}
+  diplayUpgradesNum: 3
 --- !u!1 &223086937
 GameObject:
   m_ObjectHideFlags: 0
@@ -1472,19 +1540,31 @@ PrefabInstance:
     - target: {fileID: 911620504892808639, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: basicAttack
       value: 
-      objectReference: {fileID: 11400000, guid: 938335deb2a8441d3984ca66a4ab2024, type: 2}
+      objectReference: {fileID: 11400000, guid: fa63b509ac56b471482c94f345267797, type: 2}
+    - target: {fileID: 911620504892808639, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+      propertyPath: skills.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1639827053677834406, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: heartView
       value: 
       objectReference: {fileID: 30989976}
     - target: {fileID: 1639827053677834406, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: firstMaxHp
-      value: 3
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1639827053677834406, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+      propertyPath: firstAttack
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1639827053677834406, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: upgradeManager
       value: 
-      objectReference: {fileID: 1219905029}
+      objectReference: {fileID: 211336060}
+    - target: {fileID: 1639827053677834406, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+      propertyPath: firstRapidFireSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6228957118106431102, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: m_Name
       value: Player
@@ -1504,7 +1584,7 @@ PrefabInstance:
     - target: {fileID: 6845716956616023705, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: upgradeManager
       value: 
-      objectReference: {fileID: 1219905029}
+      objectReference: {fileID: 211336060}
     - target: {fileID: 6845716956616023705, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: 'lanes.Array.data[0]'
       value: 
@@ -2762,7 +2842,7 @@ Transform:
   - {fileID: 522140087}
   - {fileID: 1261193532}
   - {fileID: 223086939}
-  - {fileID: 1219905028}
+  - {fileID: 211336059}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &732718175
@@ -3997,74 +4077,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!1 &1219905027
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1219905028}
-  - component: {fileID: 1219905029}
-  m_Layer: 0
-  m_Name: UpgradeManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1219905028
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1219905027}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 723456971}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1219905029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1219905027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29662773cfc674ba894c5a5f596ead87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::UpgradeManager
-  equipmentManager: {fileID: 1722399496}
-  model: {fileID: 67754450}
-  upgrades:
-  - {fileID: 11400000, guid: d470ea747c2c146ae87ac87b5dce746a, type: 2}
-  - {fileID: 11400000, guid: cf60bf80005d64720833dd1fa9005f17, type: 2}
-  - {fileID: 11400000, guid: c7ead5dcd5de0428dac9153abd88a2c5, type: 2}
-  - {fileID: 11400000, guid: 4404b5c660f864a8c90012efafec7db3, type: 2}
-  - {fileID: 11400000, guid: 7803a49735c254d3cb1dd9858bde65b8, type: 2}
-  - {fileID: 11400000, guid: 5b7c304d02bc1451eaedc533e60a68e8, type: 2}
-  - {fileID: 11400000, guid: ddded5b7c9a524a9fb3a1afe527a81b1, type: 2}
-  upgradePanel: {fileID: 588251282}
-  panelRects:
-  - {fileID: 2002921505}
-  - {fileID: 479827483}
-  - {fileID: 296305041}
-  texts:
-  - {fileID: 26180095}
-  - {fileID: 1970703823}
-  - {fileID: 372039925}
-  images:
-  - {fileID: 2124501637}
-  - {fileID: 268108025}
-  - {fileID: 2010402056}
-  diplayUpgradesNum: 3
 --- !u!1 &1237191014
 GameObject:
   m_ObjectHideFlags: 0
@@ -4234,36 +4246,36 @@ MonoBehaviour:
   waves:
   - spawnTime: 0
     enamydatas:
-    - enemyPrefab: {fileID: 8759148217643277841, guid: 4430a4c09163f3c429aa1de343724d41, type: 3}
+    - enemyPrefab: {fileID: 7785345535377445664, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
       spawnPoint: {fileID: 423413088}
       spawnMoveTime: 2
-      targetPosition: {x: -2, y: 0, z: 0}
+      targetPosition: {x: -5, y: 0, z: 0}
     - enemyPrefab: {fileID: 7785345535377445664, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
-      spawnPoint: {fileID: 1306579116}
+      spawnPoint: {fileID: 1275203100}
       spawnMoveTime: 2
       targetPosition: {x: -3, y: 0, z: 0}
   - spawnTime: 5
     enamydatas:
     - enemyPrefab: {fileID: 8759148217643277841, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
-      spawnPoint: {fileID: 571631438}
+      spawnPoint: {fileID: 120388281}
       spawnMoveTime: 0
       targetPosition: {x: 0, y: 0, z: 0}
     - enemyPrefab: {fileID: 8759148217643277841, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
-      spawnPoint: {fileID: 1275203100}
+      spawnPoint: {fileID: 1306579116}
       spawnMoveTime: 0
       targetPosition: {x: 0, y: 0, z: 0}
   - spawnTime: 10
     enamydatas:
-    - enemyPrefab: {fileID: 7785345535377445664, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
-      spawnPoint: {fileID: 423413088}
+    - enemyPrefab: {fileID: 8759148217643277841, guid: 4430a4c09163f3c429aa1de343724d41, type: 3}
+      spawnPoint: {fileID: 1275203100}
       spawnMoveTime: 2
       targetPosition: {x: -3, y: 0, z: 0}
-    - enemyPrefab: {fileID: 7785345535377445664, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
-      spawnPoint: {fileID: 1255025508}
-      spawnMoveTime: 2
-      targetPosition: {x: 3, y: 0, z: 0}
-    - enemyPrefab: {fileID: 7785345535377445664, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
-      spawnPoint: {fileID: 1743404263}
+    - enemyPrefab: {fileID: 8759148217643277841, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
+      spawnPoint: {fileID: 571631438}
+      spawnMoveTime: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+    - enemyPrefab: {fileID: 8759148217643277841, guid: 3a88225e77fda7f44960f56478e8d9b9, type: 3}
+      spawnPoint: {fileID: 1306579116}
       spawnMoveTime: 2
       targetPosition: {x: 5, y: 0, z: 0}
 --- !u!1 &1275203099
@@ -5523,17 +5535,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1702703960}
   m_CullTransparentMesh: 1
---- !u!114 &1722399496 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3979451929934102920, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
-  m_PrefabInstance: {fileID: 369819793}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0d7b22bd6c75413899c6af552d9c3e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerSkillManager
 --- !u!1 &1743404262
 GameObject:
   m_ObjectHideFlags: 0
@@ -6310,6 +6311,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2035315936}
   m_CullTransparentMesh: 1
+--- !u!114 &2045640924 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3979451929934102920, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+  m_PrefabInstance: {fileID: 369819793}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d7b22bd6c75413899c6af552d9c3e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSkillManager
 --- !u!1 &2074494640
 GameObject:
   m_ObjectHideFlags: 0

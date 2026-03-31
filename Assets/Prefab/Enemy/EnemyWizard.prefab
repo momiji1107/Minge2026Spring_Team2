@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 7469697865717266516}
   - component: {fileID: 899587795887832955}
   - component: {fileID: 2323057125527778542}
-  - component: {fileID: 2017356349359829642}
   - component: {fileID: 1967343272205462698}
   - component: {fileID: -6972040618617840218}
   - component: {fileID: -4201303877913084997}
   - component: {fileID: 2997458172657482792}
+  - component: {fileID: -4682972828311658953}
   m_Layer: 0
   m_Name: EnemyWizard
   m_TagString: Enemy
@@ -143,20 +143,6 @@ MonoBehaviour:
   direction: {x: -1, y: 0, z: 0}
   shotPosition: {fileID: 0}
   startTime: 0
---- !u!114 &2017356349359829642
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7785345535377445664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a098daac6e55b64597768fb6be7ee47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyContactEffect
-  isDamageable: 1
-  damage: 1
 --- !u!114 &1967343272205462698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -265,3 +251,17 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-4682972828311658953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7785345535377445664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a098daac6e55b64597768fb6be7ee47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyContactEffect
+  isDamageable: 1
+  damage: 1

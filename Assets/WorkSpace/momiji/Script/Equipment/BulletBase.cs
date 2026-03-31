@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class BulletBase : MonoBehaviour
@@ -15,5 +16,10 @@ public class BulletBase : MonoBehaviour
             other.gameObject.GetComponent<EnemyCore>()?.TakeDamage(_damage);
             Destroy(this.gameObject);
         }
+    }
+
+    private void OnBecameInvisible()
+    {
+        Destroy(this.gameObject);
     }
 }

@@ -59,7 +59,7 @@ public class EnemyController : MonoBehaviour
         
         //Local座標からworld座標に変換
         var targetPos = gameObject.transform.position + vector;
-        Debug.Log(targetPos);
+        //Debug.Log(targetPos);
         
         StartCoroutine(RunSpawnMove(time, targetPos));
     }
