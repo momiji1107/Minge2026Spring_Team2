@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using Unity.VisualScripting;
 
 public class PlayerInputController : MonoBehaviour
 {
@@ -22,6 +23,11 @@ public class PlayerInputController : MonoBehaviour
     private float horizontal; //横入力
     private float vertical; //縦入力
     private float heightAdjust = 0.1f; //レーンからの高さ補正
+    
+    [Header("Audio関係")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip moveClip;
+    [SerializeField] private AudioClip laneChangeClip;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -67,8 +73,11 @@ public class PlayerInputController : MonoBehaviour
     {
         horizontal = Input.GetAxis("Horizontal");
         
-        Vector2 velocity = new Vector2(horizontal, 0);
-        rb.linearVelocity = velocity * model.MoveSpeed;
+        Vector2 velocity = new Vector2(horizontal, 0) * model.MoveSpeed;
+        rb.linearVelocity = velocity;
+        
+        //移動音を鳴らす
+        if(velocity.magnitude > 0 && !audioSource.isPlaying) audioSource.PlayOneShot(moveClip);
     }
 
     //上下移動
@@ -77,15 +86,17 @@ public class PlayerInputController : MonoBehaviour
         vertical = Input.GetAxis("Vertical");
         if (vertical > 0 && laneMoveTimer >= laneMoveTime)
         {
+            if (laneidx >= lanes.Length - 1) return;
             laneMoveTimer = 0.0f;
             laneidx++;
-            if(laneidx >= lanes.Length) laneidx = lanes.Length - 1;
+            audioSource.PlayOneShot(laneChangeClip);
         }
         if (vertical < 0 && laneMoveTimer >= laneMoveTime)
         {
+            if (laneidx <= 0) return;
             laneMoveTimer = 0.0f;
             laneidx--;
-            if(laneidx < 0) laneidx = 0;
+            audioSource.PlayOneShot(laneChangeClip);
         }
             
         Player.transform.position = new Vector2(Player.transform.position.x, lanes[laneidx].transform.position.y + heightAdjust);
