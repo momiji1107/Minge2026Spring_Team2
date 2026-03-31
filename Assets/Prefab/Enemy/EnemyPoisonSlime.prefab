@@ -43,12 +43,12 @@ GameObject:
   - component: {fileID: 3332777169600125922}
   - component: {fileID: 4032770715303872910}
   - component: {fileID: 1093576919478883642}
-  - component: {fileID: 8454358254967472799}
   - component: {fileID: 5939030543876509912}
   - component: {fileID: 3077301644879105312}
   - component: {fileID: 7653535009805067517}
   - component: {fileID: 3190029848974126344}
   - component: {fileID: 2355560809307077578}
+  - component: {fileID: -2521814579695638725}
   m_Layer: 0
   m_Name: EnemyPoisonSlime
   m_TagString: Enemy
@@ -158,20 +158,6 @@ MonoBehaviour:
   maxHp: 3
   exp: 100
   score: 100
---- !u!114 &8454358254967472799
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8759148217643277841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a098daac6e55b64597768fb6be7ee47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyContactEffect
-  isDamageable: 0
-  damage: 1
 --- !u!50 &5939030543876509912
 Rigidbody2D:
   serializedVersion: 5
@@ -288,3 +274,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyWizardView
   fireFlame: 38
+--- !u!114 &-2521814579695638725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8759148217643277841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a098daac6e55b64597768fb6be7ee47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyContactEffect
+  isDamageable: 1
+  damage: 1

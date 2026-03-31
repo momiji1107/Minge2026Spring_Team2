@@ -30,8 +30,9 @@ public class EnemyContactEffect : EnemyBehaviourBase
         {
             Debug.Log("playerにダメージを与える");
             // playerにダメージを与える処理を追記
+            other.gameObject.GetComponent<PlayerModel>().Damage(damage);
         }
 
-        Destroy(gameObject);
+        //Destroy(gameObject);
     }
 }

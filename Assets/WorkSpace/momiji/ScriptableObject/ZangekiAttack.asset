@@ -16,5 +16,5 @@ MonoBehaviour:
   level: 0
   coolTime: 0
   zangekiPrefab: {fileID: 4492134659843027878, guid: 3d5bb0e0287b24b29981947327293768, type: 3}
-  offset: 0.5
-  radius: 1
+  offset: {x: 1, y: 0}
+  radius: 0.5

@@ -4,8 +4,8 @@ using UnityEngine;
 public class ZangekiAttack : EquipmentBase
 {
     [SerializeField] private GameObject zangekiPrefab;
-    [SerializeField,Tooltip("攻撃範囲の中心のずれ")] private float offset = 1.0f;
-    [SerializeField] private float radius = 1.0f;
+    [SerializeField,Tooltip("攻撃範囲の中心のずれ")] private Vector2 offset = new Vector2(0.5f, 0);
+    [SerializeField] private float radius = 5.0f;
     
     public ZangekiAttack()
     {
@@ -15,8 +15,15 @@ public class ZangekiAttack : EquipmentBase
     public override void Activate(PlayerModel model)
     {
         Vector2 pos = model.transform.position;
-        Vector2 center = pos + Vector2.right * offset;
-        Instantiate(zangekiPrefab, center, Quaternion.identity);
+        float dir = model.GetDirection ? 1.0f : -1.0f;
+        Vector2 center = pos + new Vector2(dir * offset.x, offset.y);
+        
+        //プレファブを生成
+        GameObject zangeki = Instantiate(zangekiPrefab, center, Quaternion.identity);
+        zangeki.gameObject.GetComponent<SpriteRenderer>().flipX = !model.GetDirection;
+        Destroy(zangeki, 0.7f);
+        
+        //範囲内にいた敵にダメージを与える
         Collider2D[] hits = Physics2D.OverlapCircleAll(center, radius);
 
         foreach (var hit in hits)

@@ -4248,26 +4248,26 @@ MonoBehaviour:
       targetPosition: {x: -3, y: 0, z: 0}
   - spawnTime: 5
     enamydatas:
-    - enemyPrefab: {fileID: 7785345535377445664, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
-      spawnPoint: {fileID: 1743404263}
-      spawnMoveTime: 2
-      targetPosition: {x: 3, y: 0, z: 0}
-    - enemyPrefab: {fileID: 7785345535377445664, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
-      spawnPoint: {fileID: 349227348}
-      spawnMoveTime: 2
-      targetPosition: {x: 5, y: 0, z: 0}
+    - enemyPrefab: {fileID: 8759148217643277841, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
+      spawnPoint: {fileID: 120388281}
+      spawnMoveTime: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+    - enemyPrefab: {fileID: 8759148217643277841, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
+      spawnPoint: {fileID: 1306579116}
+      spawnMoveTime: 0
+      targetPosition: {x: 0, y: 0, z: 0}
   - spawnTime: 10
     enamydatas:
-    - enemyPrefab: {fileID: 7785345535377445664, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
-      spawnPoint: {fileID: 423413088}
+    - enemyPrefab: {fileID: 8759148217643277841, guid: 4430a4c09163f3c429aa1de343724d41, type: 3}
+      spawnPoint: {fileID: 1275203100}
       spawnMoveTime: 2
       targetPosition: {x: -3, y: 0, z: 0}
-    - enemyPrefab: {fileID: 7785345535377445664, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
-      spawnPoint: {fileID: 1255025508}
-      spawnMoveTime: 2
-      targetPosition: {x: 3, y: 0, z: 0}
-    - enemyPrefab: {fileID: 7785345535377445664, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
-      spawnPoint: {fileID: 1743404263}
+    - enemyPrefab: {fileID: 8759148217643277841, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
+      spawnPoint: {fileID: 571631438}
+      spawnMoveTime: 0
+      targetPosition: {x: 0, y: 0, z: 0}
+    - enemyPrefab: {fileID: 8759148217643277841, guid: 3a88225e77fda7f44960f56478e8d9b9, type: 3}
+      spawnPoint: {fileID: 1306579116}
       spawnMoveTime: 2
       targetPosition: {x: 5, y: 0, z: 0}
 --- !u!1 &1275203099
