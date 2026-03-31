@@ -35,6 +35,8 @@ public class EnemyCore : MonoBehaviour, IEnemyCore
     public int GetHp() => this._hp;
     public int GetMaxHp() => this.maxHp;
     public int GetExp() => this.exp;
+    // setter
+    public void SetIsRight(bool right) => _controller.SetIsRight(right);
     
     /// <summary>
     /// 移動、攻撃などがtime秒間動かない

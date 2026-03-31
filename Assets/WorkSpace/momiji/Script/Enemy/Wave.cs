@@ -9,7 +9,7 @@ public class EnemySpawnData
         [Tooltip("生成するSpawnPoint")] public Transform spawnPoint;
         [Tooltip("生成直後歩く時間")] public float spawnMoveTime; 
         [Tooltip("生成後向かう座標")]public Vector3 targetPosition;
-        
+        [Tooltip("左右反転するかどうか")]public bool isRight;
 }
 
 [System.Serializable]

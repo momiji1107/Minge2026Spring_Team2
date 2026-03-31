@@ -8,6 +8,8 @@ public class EnemyController : MonoBehaviour
 {
     private List<EnemyBehaviourBase> _behaviours;
 
+    public Action<bool> OnSetIsRight;
+    
     private bool _isStop = false;
     private bool _isSlow = false;
 
@@ -41,6 +43,16 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    public void SetIsRight(bool right)
+    {
+        Debug.Log("SetIsRight");
+        foreach (var b in _behaviours)
+        {
+            b.SetIsRight(right);
+        }
+        OnSetIsRight?.Invoke(right);
+    }
+    
     public void Slow(float time, float per)
     {
         if (per >= 100f || time == 0) return;
@@ -55,8 +67,6 @@ public class EnemyController : MonoBehaviour
 
     public void SpawnMove(float time, Vector3 vector)
     {
-        if (time == 0) return;
-        
         //Local座標からworld座標に変換
         var targetPos = gameObject.transform.position + vector;
         //Debug.Log(targetPos);
@@ -97,6 +107,11 @@ public class EnemyController : MonoBehaviour
 
     private IEnumerator RunSpawnMove(float time, Vector3 targetPos)
     {
+        if (time == 0)
+        {
+            transform.position = targetPos;
+        }
+        
         _isStop = true;
         
         var currentPos = transform.position;

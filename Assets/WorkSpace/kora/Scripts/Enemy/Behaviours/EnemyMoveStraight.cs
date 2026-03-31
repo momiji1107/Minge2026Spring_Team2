@@ -5,19 +5,19 @@ public class EnemyMoveStraight : EnemyMoveBehaviourBase
     [Header("移動速度")][SerializeField] private float speed = 5f;
     [Header("進行方向")][SerializeField] private Vector3 direction = Vector3.left;
 
-    private bool isFirst = true;
+    private bool _isFirst = true;
 
     private void Awake()
     {
-        direction = direction.normalized;
+        base.Direction = direction;
     }
     
     // Update
     public override void Tick(float dt)
     {
-        if (isFirst)
+        if (_isFirst)
         {
-            isFirst = false;
+            _isFirst = false;
             ActiveMoveAnim?.Invoke();
         }
         Move(dt);
@@ -25,6 +25,6 @@ public class EnemyMoveStraight : EnemyMoveBehaviourBase
 
     private void Move(float dt)
     {
-        transform.position += direction * (speed * dt);
+        transform.position += Direction * (speed * dt);
     }
 }
