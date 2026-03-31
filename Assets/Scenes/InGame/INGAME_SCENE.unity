@@ -1472,19 +1472,31 @@ PrefabInstance:
     - target: {fileID: 911620504892808639, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: basicAttack
       value: 
-      objectReference: {fileID: 11400000, guid: 938335deb2a8441d3984ca66a4ab2024, type: 2}
+      objectReference: {fileID: 11400000, guid: fa63b509ac56b471482c94f345267797, type: 2}
+    - target: {fileID: 911620504892808639, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+      propertyPath: skills.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1639827053677834406, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: heartView
       value: 
       objectReference: {fileID: 30989976}
     - target: {fileID: 1639827053677834406, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: firstMaxHp
-      value: 3
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1639827053677834406, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+      propertyPath: firstAttack
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1639827053677834406, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: upgradeManager
       value: 
       objectReference: {fileID: 1219905029}
+    - target: {fileID: 1639827053677834406, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+      propertyPath: firstRapidFireSpeed
+      value: 1.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6228957118106431102, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: m_Name
       value: Player
@@ -2763,6 +2775,7 @@ Transform:
   - {fileID: 1261193532}
   - {fileID: 223086939}
   - {fileID: 1219905028}
+  - {fileID: 848539687}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &732718175
@@ -3084,6 +3097,135 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 801940916}
   m_CullTransparentMesh: 1
+--- !u!1 &848539686
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 848539687}
+  - component: {fileID: 848539688}
+  m_Layer: 0
+  m_Name: BGMManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &848539687
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848539686}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 723456971}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &848539688
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848539686}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 160d7a004342148c3b729137d2abb4e1, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &917376853
 GameObject:
   m_ObjectHideFlags: 0
@@ -4238,34 +4380,41 @@ MonoBehaviour:
       spawnPoint: {fileID: 423413088}
       spawnMoveTime: 2
       targetPosition: {x: -2, y: 0, z: 0}
+      isRight: 0
     - enemyPrefab: {fileID: 7785345535377445664, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
       spawnPoint: {fileID: 1306579116}
       spawnMoveTime: 2
       targetPosition: {x: -3, y: 0, z: 0}
+      isRight: 0
   - spawnTime: 5
     enamydatas:
     - enemyPrefab: {fileID: 8759148217643277841, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
       spawnPoint: {fileID: 571631438}
       spawnMoveTime: 0
       targetPosition: {x: 0, y: 0, z: 0}
+      isRight: 0
     - enemyPrefab: {fileID: 8759148217643277841, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
       spawnPoint: {fileID: 1275203100}
       spawnMoveTime: 0
       targetPosition: {x: 0, y: 0, z: 0}
+      isRight: 0
   - spawnTime: 10
     enamydatas:
     - enemyPrefab: {fileID: 7785345535377445664, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
       spawnPoint: {fileID: 423413088}
       spawnMoveTime: 2
       targetPosition: {x: -3, y: 0, z: 0}
+      isRight: 0
     - enemyPrefab: {fileID: 7785345535377445664, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
       spawnPoint: {fileID: 1255025508}
       spawnMoveTime: 2
       targetPosition: {x: 3, y: 0, z: 0}
+      isRight: 0
     - enemyPrefab: {fileID: 7785345535377445664, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
       spawnPoint: {fileID: 1743404263}
       spawnMoveTime: 2
       targetPosition: {x: 5, y: 0, z: 0}
+      isRight: 0
 --- !u!1 &1275203099
 GameObject:
   m_ObjectHideFlags: 0
