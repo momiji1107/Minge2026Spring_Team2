@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class InputManager : MonoBehaviour
@@ -10,6 +11,11 @@ public class InputManager : MonoBehaviour
     
     private float atractSize = 1.2f; //選択中のパネルの拡大したサイズ
     private int selectNumber; //選択中のものを示す値
+    
+    [Header("Audio関係")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip selectClip;
+    [SerializeField] private AudioClip confirmClip;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,9 +30,11 @@ public class InputManager : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.RightArrow) && selectNumber < panels.Length - 1) {
             selectNumber++;
+            audioSource.PlayOneShot(selectClip);
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow) && selectNumber > 0) { 
             selectNumber--;
+            audioSource.PlayOneShot(selectClip);
         }
         
         for (int i = 0; i < panels.Length; i++) { 
@@ -35,8 +43,16 @@ public class InputManager : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            if(currentScene == SceneName.CHARACTER_SELECT_SCENE) panels[selectNumber].GetComponent<CharacterSelect>()?.ChangeCharacter();
-            sceneChanger.ChangeScene();
+            Debug.Log("return");
+            StartCoroutine(NextScene());
         }
+    }
+
+    private IEnumerator NextScene()
+    {
+        if(currentScene == SceneName.CHARACTER_SELECT_SCENE) panels[selectNumber].GetComponent<CharacterSelect>()?.ChangeCharacter();
+        audioSource.PlayOneShot(confirmClip);
+        yield return new WaitForSeconds(0.5f);
+        sceneChanger.ChangeScene();
     }
 }

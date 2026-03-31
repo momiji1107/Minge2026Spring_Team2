@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 /// <summary>
@@ -7,6 +8,15 @@ using UnityEngine;
 public class TitleManager : MonoBehaviour
 {
     [SerializeField] private SceneChanger sceneChanger;
+    
+    [Header("Audio関係")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip startClip;
+    
+    [Header("Sprite関係")]
+    [SerializeField] private SpriteRenderer sr;
+    [SerializeField] private Sprite sprite1;
+    [SerializeField] private Sprite sprite2;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -20,7 +30,17 @@ public class TitleManager : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            sceneChanger.ChangeScene();
+            StartCoroutine(NextScene());
         }
+    }
+    
+    private IEnumerator NextScene()
+    {
+        audioSource.PlayOneShot(startClip);
+        sr.sprite = sprite2;
+        yield return new WaitForSeconds(0.3f);
+        sr.sprite = sprite1;
+        yield return new WaitForSeconds(0.7f);
+        sceneChanger.ChangeScene();
     }
 }
