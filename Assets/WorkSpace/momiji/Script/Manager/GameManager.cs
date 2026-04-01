@@ -9,8 +9,6 @@ public class GameManager : MonoBehaviour
     
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private TextMeshProUGUI gameOverText;
-
-    [SerializeField] private PlayerModel model;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,13 +24,13 @@ public class GameManager : MonoBehaviour
             gameTimer += Time.deltaTime;
         }
 
-        if (gameTimer >= clearTime || model.Hp <= 0)
+        if (gameTimer >= clearTime)
         {
             GameOver();
         }
     }
 
-    private void GameOver()
+    public void GameOver()
     {
         GameManagement.GameState = GAMESTATE.GAMEOVER;
         Time.timeScale = 0f;
