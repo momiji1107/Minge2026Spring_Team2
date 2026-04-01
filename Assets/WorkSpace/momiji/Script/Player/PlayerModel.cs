@@ -31,6 +31,10 @@ public class PlayerModel : MonoBehaviour
     [Header("見た目")]
     [SerializeField] private SpriteRenderer sr; //キャラ画像のSpriteRenderer
     [SerializeField] private bool lookAtRight = true; //trueの時右向き
+
+    [Header("ダメージ軽減スキル・無効化設定")]
+    [SerializeField] private DamageReduction damageReduction;
+    [SerializeField] private DamageNegate damageNegate;
     
     [Tooltip("レベルごとに増加するレベルアップに必要な経験値量")] const int RequireExpPerLevel = 100;
     
@@ -66,7 +70,7 @@ public class PlayerModel : MonoBehaviour
     //被ダメージ
     public void Damage(int damage)
     {
-        hp -= damage;
+        hp -= CalcDamage(damage);
         heartView.HPView();
         if (hp <= 0)
         {
@@ -74,6 +78,26 @@ public class PlayerModel : MonoBehaviour
         }
     }
     
+    //ダメージ計算
+    public int CalcDamage(int damage)
+    {
+        if(damageReduction.IsActive)
+        {
+            damage = Mathf.Max(0, damage - 1);
+            Debug.Log(damage + "与えられた");
+        }
+
+        if(damageNegate.IsActive)
+        {
+            damage = 0;
+            Debug.Log(damage + "与えられた");
+        }
+
+        Debug.Log(damage + "与えられた");
+
+        return damage;
+    }
+
     //キャラの向きを変える
     public void TurnAround()
     {
