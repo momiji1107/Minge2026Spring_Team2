@@ -36,6 +36,7 @@ public class EnemyMoveStraight : EnemyMoveBehaviourBase
         var pos = Camera.main.WorldToViewportPoint(transform.position);
         if (pos.x < 0 || 1 < pos.x || pos.y < 0 || 1 < pos.x)
         {
+            Debug.Log("Out of Camera and Destroy:" + gameObject.name);
             Destroy(gameObject);
         }
     }

@@ -38,6 +38,7 @@ public class EnemyController : MonoBehaviour
         {
             foreach (var b in _behaviours)
             {
+                if (!b.enabled) continue;
                 b.Tick(dt);
             }
         }
