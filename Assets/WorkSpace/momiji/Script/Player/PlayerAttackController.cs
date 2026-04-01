@@ -61,5 +61,14 @@ public class PlayerAttackController : MonoBehaviour
             timers[3] = 0f;
         }
     }
-    
+
+    public bool HasSkill(string skillName)
+    {
+        foreach (var skill in skills)
+        {
+            if(skill.name == skillName) return true;
+        }
+        
+        return false;
+    }
 }
