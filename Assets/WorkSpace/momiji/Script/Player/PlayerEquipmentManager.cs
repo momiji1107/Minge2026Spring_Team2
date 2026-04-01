@@ -6,14 +6,19 @@ public class PlayerEquipmentManager : MonoBehaviour
     [SerializeField] private PlayerModel model;
     [SerializeField] private PlayerAttackController attackController;
     [SerializeField] private int maxSkillnum = 3; //最大スキル所持数
+    [SerializeField] private List<SpriteRenderer> srs = new List<SpriteRenderer>();
     
     public PlayerModel Model => model;
+    public int MaxSkillnum => maxSkillnum;
+    public int SkillNum => attackController.Skills.Count;
     
     //スキルを追加する
-    public void AddSkill(EquipmentBase newSkill)
+    public void AddSkill(EquipmentBase newSkill, Sprite icon)
     {
-        if (attackController.Skills.Count >= maxSkillnum) return;
+        int skillNum = attackController.Skills.Count;
+        if (skillNum >= maxSkillnum) return;
         attackController.Skills.Add(newSkill);
+        srs[skillNum].sprite = icon;
     }
 
     //通常攻撃が要求されたものであればその通常攻撃を返す、そうでなければnullを返す
