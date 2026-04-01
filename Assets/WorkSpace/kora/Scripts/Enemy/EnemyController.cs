@@ -45,7 +45,6 @@ public class EnemyController : MonoBehaviour
 
     public void SetIsRight(bool right)
     {
-        Debug.Log("SetIsRight");
         foreach (var b in _behaviours)
         {
             b.SetIsRight(right);

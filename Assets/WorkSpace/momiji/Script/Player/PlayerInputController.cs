@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using TMPro;
 using Unity.VisualScripting;
@@ -8,6 +9,7 @@ public class PlayerInputController : MonoBehaviour
     [SerializeField] private GameObject Player;
     private Rigidbody2D rb;
     [SerializeField] private UpgradeManager upgradeManager;
+    [SerializeField] private SceneChanger sceneChanger;
     
     [Header("ステータス表示")]
     [SerializeField] private PlayerModel model;
@@ -44,24 +46,32 @@ public class PlayerInputController : MonoBehaviour
         laneMoveTimer += Time.deltaTime;
 
         //Shiftキーを押すとオブジェクトを反転させる
-        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) && GameManager.GameState == GAMESTATE.INGAME)
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) && GameManagement.GameState == GAMESTATE.INGAME)
         {
             model.TurnAround();
             Player.transform.Rotate(0, 180, 0);
         }
         
         //アップグレード中の操作に切り替える
-        if (GameManager.GameState == GAMESTATE.ISUPGRADE)
+        if (GameManagement.GameState == GAMESTATE.ISUPGRADE)
         {
             upgradeManager.UpgradeInput();
         }
-        
+
+        //ゲームオーバー時にEnterを押すとキャラ選択画面に戻る
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            if (GameManagement.GameState == GAMESTATE.GAMEOVER)
+            {
+                StartCoroutine(sceneChanger.ChangeScene());
+            }
+        }
     }
 
     void FixedUpdate()
     {
 
-        if (GameManager.GameState != GAMESTATE.INGAME) return;
+        if (GameManagement.GameState != GAMESTATE.INGAME) return;
         
         HorizontalMove();
         VerticalMove();

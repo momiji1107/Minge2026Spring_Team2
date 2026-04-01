@@ -5,7 +5,7 @@ public class SelectedPlayer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        GameManager.GameState = GAMESTATE.INGAME;
+        GameManagement.GameState = GAMESTATE.INGAME;
         
         switch (PlayerSelection.selectedCharacter)
         {

@@ -1,29 +1,54 @@
-using System;
+using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using TMPro;
 
-public enum GAMESTATE
+public class GameManager : MonoBehaviour
 {
-    NONE = 0,
-    INGAME,
-    ISUPGRADE,
-    GAMEOVER,
-    CLEAR
-}
-
-public static class GameManager
-{
-    private static GAMESTATE gameState;
+    [SerializeField] private float clearTime = 300.0f;
+    public float gameTimer = 0f;
     
-    /// <summary>
-    /// GANESTATEを変更する
-    /// </summary>
-    public static GAMESTATE GameState { get => gameState; set => gameState = value; }
+    [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private TextMeshProUGUI gameOverText;
 
-    /// <summary>
-    /// シーン遷移を行う
-    /// 別スクリプトではSceneManagerを使用せず、このメソッドを呼び出す。
-    /// </summary>
-    /// <param name="sceneName">遷移先のシーン名</param>
-    public static void LoadScene(SceneName sceneName) { SceneManager.LoadScene(sceneName.ToString()); }
+    [SerializeField] private PlayerModel model;
+    
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        gameOverPanel.SetActive(false);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (GameManagement.GameState == GAMESTATE.INGAME)
+        {
+            gameTimer += Time.deltaTime;
+        }
+
+        if (gameTimer >= clearTime || model.Hp <= 0)
+        {
+            GameOver();
+        }
+    }
+
+    private void GameOver()
+    {
+        GameManagement.GameState = GAMESTATE.GAMEOVER;
+        Time.timeScale = 0f;
+        gameOverPanel.SetActive(true);
+        StartCoroutine(DropText());
+    }
+
+    private IEnumerator DropText()
+    {
+        var wait = new WaitForSeconds(0.3f);
+        Vector2 pos = gameOverText.gameObject.transform.position;
+        while (pos.y > 0)
+        {
+            pos.y -= 0.1f;
+            gameOverText.gameObject.transform.position = pos;
+            yield return wait;
+        }
+    }
 }

@@ -21,12 +21,12 @@ public class TitleManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        GameManager.GameState = GAMESTATE.NONE;
+        GameManagement.GameState = GAMESTATE.NONE;
     }
 
     void Update()
     {
-        if (GameManager.GameState != GAMESTATE.NONE) return;
+        if (GameManagement.GameState != GAMESTATE.NONE) return;
         
         if (Input.GetKeyDown(KeyCode.Return))
         {
@@ -37,10 +37,9 @@ public class TitleManager : MonoBehaviour
     private IEnumerator NextScene()
     {
         audioSource.PlayOneShot(startClip);
+        StartCoroutine(sceneChanger.ChangeScene());
         sr.sprite = sprite2;
         yield return new WaitForSeconds(0.3f);
         sr.sprite = sprite1;
-        yield return new WaitForSeconds(0.7f);
-        sceneChanger.ChangeScene();
     }
 }

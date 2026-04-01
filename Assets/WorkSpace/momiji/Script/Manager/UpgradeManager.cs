@@ -36,7 +36,7 @@ public class UpgradeManager : MonoBehaviour
     {
         //時間を止める＆状態の切り替え
         Time.timeScale = 0f;
-        GameManager.GameState = GAMESTATE.ISUPGRADE;
+        GameManagement.GameState = GAMESTATE.ISUPGRADE;
         
         //表示可能なものを抽出、要素をシャッフルし、先頭からdisplayUpgradesNumの数だけ取り出す
         displayUpgrades = upgrades.Where(u => u.CanAppear(equipmentManager))
@@ -67,7 +67,7 @@ public class UpgradeManager : MonoBehaviour
         
         //時間を動かす＆状態の切り替え
         Time.timeScale = 1f;
-        GameManager.GameState = GAMESTATE.INGAME;
+        GameManagement.GameState = GAMESTATE.INGAME;
     }
     
     //アップグレード中は左右矢印キーで選択肢を変更する、Enterキーで決定
