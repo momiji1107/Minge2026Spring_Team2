@@ -770,7 +770,8 @@ MonoBehaviour:
   Player: {fileID: 586972730}
   upgradeManager: {fileID: 0}
   model: {fileID: 1601370354}
-  text: {fileID: 1584727851}
+  levelText: {fileID: 0}
+  expText: {fileID: 0}
   laneMoveTime: 0.3
   lanes:
   - {fileID: 526368926}
@@ -1320,9 +1321,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStatus
   player: {fileID: 586972730}
   upgradeManager: {fileID: 430123544}
+  heartView: {fileID: 0}
   level: 0
   requireExp: 0
   exp: 0
+  HPLIMIT: 10
   maxHp: 0
   hp: 0
   attack: 0
@@ -1338,6 +1341,8 @@ MonoBehaviour:
   firstRapidFireSpeed: 1
   sr: {fileID: 586972733}
   lookAtRight: 1
+  damageReduction: {fileID: 11400000, guid: 4c8165ff24f5f5b45b202f2a54151e3c, type: 2}
+  damageNegate: {fileID: 11400000, guid: a92e6d01137a03b40ae96f3848fce274, type: 2}
 --- !u!4 &1601370355
 Transform:
   m_ObjectHideFlags: 0
@@ -1725,7 +1730,7 @@ MonoBehaviour:
   model: {fileID: 1601370354}
   basicAttack: {fileID: 11400000, guid: 1a1c84814568f594a9a3c92efbcb74b3, type: 2}
   skills:
-  - {fileID: 11400000, guid: eabf58a4892996449b8b77f22f1e6f20, type: 2}
+  - {fileID: 11400000, guid: a92e6d01137a03b40ae96f3848fce274, type: 2}
   - {fileID: 11400000, guid: f4b2445a81598be47bb93c7802bf3e51, type: 2}
   - {fileID: 11400000, guid: f9b379850d15cfc4496c5766ee71aac2, type: 2}
 --- !u!4 &1957288228
