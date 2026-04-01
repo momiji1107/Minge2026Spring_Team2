@@ -7,6 +7,7 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     private List<EnemyBehaviourBase> _behaviours;
+    private EnemyCore _core;
 
     public Action<bool> OnSetIsRight;
     
@@ -18,6 +19,10 @@ public class EnemyController : MonoBehaviour
     void Awake()
     {
         _behaviours = GetComponents<EnemyBehaviourBase>().ToList();
+
+        _core = GetComponent<EnemyCore>();
+
+        _core.OnDead += DisActiveEnemy;
     }
 
     void Update()
@@ -126,5 +131,15 @@ public class EnemyController : MonoBehaviour
         }
         
         _isStop = false;
+    }
+
+    private void DisActiveEnemy()
+    {
+        foreach (var b in _behaviours)
+        {
+            b.enabled = false;
+        }
+        
+        this.enabled = false;
     }
 }

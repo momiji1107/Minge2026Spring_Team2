@@ -20,6 +20,8 @@ public class EnemyCore : MonoBehaviour, IEnemyCore
 
     public static event Action<int> AddExpToPlayer;
     public static event Action<int> AddScoreToPlayer;
+
+    public event Action OnDead;
     
     private int _hp;
     
@@ -65,12 +67,17 @@ public class EnemyCore : MonoBehaviour, IEnemyCore
         }
     }
 
+    public void ActiveDestroy()
+    {
+        Destroy(gameObject);
+    }
+    
     /// <summary>
     ///  やられた時
     /// </summary>
     private void Die()
     {
-        Destroy(gameObject);
+        OnDead?.Invoke();
         
         //ScoreをScoreManagerに加算する
         AddScoreToPlayer?.Invoke(score);
