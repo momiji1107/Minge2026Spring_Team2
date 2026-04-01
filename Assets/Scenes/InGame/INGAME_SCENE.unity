@@ -1901,6 +1901,22 @@ PrefabInstance:
       propertyPath: firstRapidFireSpeed
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3979451929934102920, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+      propertyPath: srs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3979451929934102920, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+      propertyPath: 'srs.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1378744999}
+    - target: {fileID: 3979451929934102920, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+      propertyPath: 'srs.Array.data[1]'
+      value: 
+      objectReference: {fileID: 521403354}
+    - target: {fileID: 3979451929934102920, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+      propertyPath: 'srs.Array.data[2]'
+      value: 
+      objectReference: {fileID: 2100122861}
     - target: {fileID: 6228957118106431102, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: m_Name
       value: Player
@@ -5554,13 +5570,13 @@ MonoBehaviour:
     enamydatas:
     - enemyPrefab: {fileID: 8759148217643277841, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
       spawnPoint: {fileID: 571631438}
-      spawnMoveTime: 0
-      targetPosition: {x: 0, y: 0, z: 0}
+      spawnMoveTime: 1
+      targetPosition: {x: -1, y: 0, z: 0}
       isRight: 0
     - enemyPrefab: {fileID: 8759148217643277841, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
       spawnPoint: {fileID: 1275203100}
-      spawnMoveTime: 0
-      targetPosition: {x: 0, y: 0, z: 0}
+      spawnMoveTime: 1
+      targetPosition: {x: -1, y: 0, z: 0}
       isRight: 0
   - spawnTime: 10
     enamydatas:
@@ -6623,7 +6639,7 @@ Transform:
   m_GameObject: {fileID: 1524307575}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.5, z: 0}
+  m_LocalPosition: {x: 0, y: 4.5, z: -1}
   m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
   m_ConstrainProportionsScale: 1
   m_Children: []
