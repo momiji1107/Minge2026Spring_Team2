@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +13,9 @@ public class PlayerAttackController : MonoBehaviour
     //getterとsetter
     public EquipmentBase BasicAttack { get { return basicAttack; } set { basicAttack = value; } }
     public List<EquipmentBase> Skills{ get { return skills; } set { skills = value; } }
+    
+    //Event
+    public Action BasicAttackAnim;
     
     //クールタイムを計測する用のタイマー、timer[0]は通常攻撃用、それ以外はスキル用
     private float[] timers;
@@ -36,6 +40,7 @@ public class PlayerAttackController : MonoBehaviour
         //Spaceキーを押すと通常攻撃
         if (Input.GetKey(KeyCode.Space) && timers[0] >= model.RapidFireSpeed + basicAttack.coolTime)
         {
+            BasicAttackAnim?.Invoke();
             basicAttack.Activate(model);
             timers[0] = 0f;
         }

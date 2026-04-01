@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   Player: {fileID: 6228957118106431102}
   upgradeManager: {fileID: 0}
+  sceneChanger: {fileID: 0}
   model: {fileID: 1639827053677834406}
   levelText: {fileID: 0}
   expText: {fileID: 0}
@@ -56,6 +57,9 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  audioSource: {fileID: 0}
+  moveClip: {fileID: 0}
+  laneChangeClip: {fileID: 0}
 --- !u!1 &5200811242514356832
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,6 +126,8 @@ MonoBehaviour:
   firstRapidFireSpeed: 1
   sr: {fileID: 4120501383824954216}
   lookAtRight: 1
+  damageReduction: {fileID: 11400000, guid: 4c8165ff24f5f5b45b202f2a54151e3c, type: 2}
+  damageNegate: {fileID: 11400000, guid: a92e6d01137a03b40ae96f3848fce274, type: 2}
 --- !u!1 &6148538963550357974
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,3 +462,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerView
   player: {fileID: 6228957118106431102}
+  attack: {fileID: 911620504892808639}
