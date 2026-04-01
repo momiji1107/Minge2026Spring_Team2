@@ -20,11 +20,23 @@ public class EnemyMoveStraight : EnemyMoveBehaviourBase
             _isFirst = false;
             ActiveMoveAnim?.Invoke();
         }
+        
+        CheckVisible();
+        
         Move(dt);
     }
 
     private void Move(float dt)
     {
         transform.position += Direction * (speed * dt);
+    }
+    
+    private void CheckVisible()
+    {
+        var pos = Camera.main.WorldToViewportPoint(transform.position);
+        if (pos.x < 0 || 1 < pos.x || pos.y < 0 || 1 < pos.x)
+        {
+            Destroy(gameObject);
+        }
     }
 }
