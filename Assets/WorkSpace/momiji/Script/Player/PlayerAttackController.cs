@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerAttackController : MonoBehaviour
 {
     [SerializeField] private PlayerModel model;
+    [SerializeField] private PlayerEquipmentManager equipmentManager;
     
     [Header("攻撃方法")]
     [SerializeField] private EquipmentBase basicAttack;
@@ -18,7 +19,8 @@ public class PlayerAttackController : MonoBehaviour
 
     void Start()
     {
-        timers = new float[skills.Count + 1];
+        Skills = new List<EquipmentBase>();
+        timers = new float[equipmentManager.MaxSkillnum + 1];
         
         for(int i = 0; i < timers.Length; i++)
         {
@@ -41,25 +43,27 @@ public class PlayerAttackController : MonoBehaviour
         }
 
         //Xキーを押すとスキル１を使用する
-        if (Input.GetKeyDown(KeyCode.X) && timers[1] >= model.RapidFireSpeed + Skills[0].coolTime)
+        if (Input.GetKeyDown(KeyCode.X) && timers[1] >= model.RapidFireSpeed + Skills[0]?.coolTime)
         {
-            Skills[0].Activate(model);
+            Skills[0]?.Activate(model);
             timers[1] = 0f;
         }
 
         //Cキーを押すとスキル２を使用する
-        if (Input.GetKeyDown(KeyCode.C) && timers[2] >= model.RapidFireSpeed + Skills[1].coolTime)
+        if (Input.GetKeyDown(KeyCode.C) && timers[2] >= model.RapidFireSpeed + Skills[1]?.coolTime)
         {
-            Skills[1].Activate(model);
+            Skills[1]?.Activate(model);
             timers[2] = 0f;
         }
 
         //Vキーを押すとスキル３を使用する
-        if (Input.GetKeyDown(KeyCode.V) && timers[3] >= model.RapidFireSpeed + Skills[2].coolTime)
+        if (Input.GetKeyDown(KeyCode.V) && timers[3] >= model.RapidFireSpeed + Skills[2]?.coolTime)
         {
-            Skills[2].Activate(model);
+            Skills[2]?.Activate(model);
             timers[3] = 0f;
         }
+        
+        Debug.Log("timers.Length = " + timers.Length);
     }
 
     public bool HasSkill(string skillName)
