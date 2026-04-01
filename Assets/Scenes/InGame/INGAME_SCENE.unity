@@ -1025,6 +1025,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 723456971}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &242451316 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 911620504892808639, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+  m_PrefabInstance: {fileID: 369819793}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e29328c02c2b4bfeae05ba259da0eae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackController
 --- !u!1 &250795327
 GameObject:
   m_ObjectHideFlags: 0
@@ -1629,9 +1640,25 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 1639827053677834406, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 2057944466}
+    - target: {fileID: 1639827053677834406, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+      propertyPath: damageNegate
+      value: 
+      objectReference: {fileID: 11400000, guid: a92e6d01137a03b40ae96f3848fce274, type: 2}
+    - target: {fileID: 1639827053677834406, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: upgradeManager
       value: 
       objectReference: {fileID: 1219905029}
+    - target: {fileID: 1639827053677834406, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+      propertyPath: damageReduction
+      value: 
+      objectReference: {fileID: 11400000, guid: 4c8165ff24f5f5b45b202f2a54151e3c, type: 2}
+    - target: {fileID: 1639827053677834406, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+      propertyPath: attackController
+      value: 
+      objectReference: {fileID: 242451316}
     - target: {fileID: 1639827053677834406, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: firstRapidFireSpeed
       value: 1.5
@@ -6944,7 +6971,6 @@ MonoBehaviour:
   gameTimer: 0
   gameOverPanel: {fileID: 2010402258}
   gameOverText: {fileID: 250795328}
-  model: {fileID: 67754450}
 --- !u!114 &2057944467
 MonoBehaviour:
   m_ObjectHideFlags: 0

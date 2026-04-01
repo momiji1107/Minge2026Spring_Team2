@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyProjectile
   type: 0
-  damage: 10
+  damage: 2
   speed: 5
   lifeTime: 10
   fromDirection: {x: -1, y: 0, z: 0}

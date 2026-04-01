@@ -5,6 +5,8 @@ public class PlayerModel : MonoBehaviour
 {
     [SerializeField] private GameObject player;
     [SerializeField] private UpgradeManager upgradeManager;
+    [SerializeField] private PlayerAttackController attackController;
+    [SerializeField] private GameManager gameManager;
     [SerializeField] private HPheartView heartView;
     
     [Header("ステータス")]
@@ -75,22 +77,23 @@ public class PlayerModel : MonoBehaviour
         if (hp <= 0)
         {
             //死んだ時の処理
+            gameManager.GameOver();
         }
     }
     
     //ダメージ計算
     public int CalcDamage(int damage)
     {
+        if (!attackController.HasSkill(damageNegate.name) || !attackController.HasSkill(damageReduction.name)) return damage;
+        
         if(damageReduction.IsActive)
         {
             damage = Mathf.Max(0, damage - 1);
-            Debug.Log(damage + "与えられた");
         }
 
         if(damageNegate.IsActive)
         {
             damage = 0;
-            Debug.Log(damage + "与えられた");
         }
 
         Debug.Log(damage + "与えられた");
