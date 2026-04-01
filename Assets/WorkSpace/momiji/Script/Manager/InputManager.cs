@@ -26,7 +26,7 @@ public class InputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.GameState != GAMESTATE.NONE) return;
+        if (GameManagement.GameState != GAMESTATE.NONE) return;
         
         if (Input.GetKeyDown(KeyCode.RightArrow) && selectNumber < panels.Length - 1) {
             selectNumber++;
@@ -43,16 +43,14 @@ public class InputManager : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            Debug.Log("return");
-            StartCoroutine(NextScene());
+            NextScene();
         }
     }
 
-    private IEnumerator NextScene()
+    private void NextScene()
     {
         if(currentScene == SceneName.CHARACTER_SELECT_SCENE) panels[selectNumber].GetComponent<CharacterSelect>()?.ChangeCharacter();
         audioSource.PlayOneShot(confirmClip);
-        yield return new WaitForSeconds(0.5f);
-        sceneChanger.ChangeScene();
+        StartCoroutine(sceneChanger.ChangeScene());
     }
 }

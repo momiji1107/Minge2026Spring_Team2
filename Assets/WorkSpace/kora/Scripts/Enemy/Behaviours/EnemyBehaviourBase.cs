@@ -29,7 +29,6 @@ public abstract class EnemyBehaviourBase : MonoBehaviour
     {
         this.IsRight = isRight;
         Direction = InitDirection(Direction);
-        Debug.Log("Direction: " + Direction);
         OnSetIsRight();
     }
 

@@ -1,6 +1,5 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -8,36 +7,37 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI killCountText;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private TextMeshProUGUI clearTimeText;
+    [SerializeField] private GameManager gameManager;
+    [SerializeField] private SceneChanger sceneChanger;
     
     private int score = 0;
     private int killCount = 0;
-    private float clearTimer = 0f;
 
     //スコアをリセット
     private void ResetScore()
     {
-        score = 0; 
+        score = 0;
         killCount = 0;
-        clearTimer = 0f;
+        gameManager.gameTimer = 0f;
     }
 
     //スコアを加算
     public void AddScore(int amount)
     {
-        score += amount; 
+        score += amount;
         killCount++;
     }
 
     //スコア画面を表示する
     public void DisplayScore()
     {
-        GameManager.GameState = GAMESTATE.CLEAR;
+        GameManagement.GameState = GAMESTATE.CLEAR;
         Time.timeScale = 0f;
         
         //スコアをテキストに反映
         killCountText.text = "Kill Count     " + killCount;
         scoreText.text = "Score     " + score;
-        clearTimeText.text = "Clear Time     " + clearTimer;
+        clearTimeText.text = "Clear Time     " + gameManager.gameTimer;
         scorePanel.SetActive(true);
     }
 
@@ -48,8 +48,7 @@ public class ScoreManager : MonoBehaviour
         ResetScore();
         
         //キャラ選択画面にシーン移行
-        GameManager.LoadScene(SceneName.CHARACTER_SELECT_SCENE);
-        GameManager.GameState = GAMESTATE.NONE;
+        StartCoroutine(sceneChanger.ChangeScene());
     }
 
     void Start()
@@ -58,13 +57,5 @@ public class ScoreManager : MonoBehaviour
         EnemyCore.AddScoreToPlayer += AddScore;
         scorePanel.SetActive(false);
         Time.timeScale = 1f;
-    }
-
-    void Update()
-    {
-        if (GameManager.GameState == GAMESTATE.INGAME)
-        {
-            clearTimer += Time.deltaTime;
-        }
     }
 }
