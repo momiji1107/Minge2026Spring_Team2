@@ -72,6 +72,11 @@ public class PlayerModel : MonoBehaviour
         // register
         EnemyCore.AddExpToPlayer += AddExp;
     }
+
+    void OnDestroy()
+    {
+        EnemyCore.AddExpToPlayer -= AddExp;
+    }
     
     //被ダメージ
     public void Damage(int damage)
