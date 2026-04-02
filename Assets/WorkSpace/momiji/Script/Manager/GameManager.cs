@@ -4,8 +4,10 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private float clearTime = 300.0f;
+    [SerializeField] private float clearTime = 50.0f;
     public float gameTimer = 0f;
+    
+    [SerializeField] private ScoreManager scoreManager;
     
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private TextMeshProUGUI gameOverText;
@@ -28,7 +30,7 @@ public class GameManager : MonoBehaviour
 
         if (gameTimer >= clearTime)
         {
-            GameOver();
+            GameClear();
         }
     }
 
@@ -51,5 +53,10 @@ public class GameManager : MonoBehaviour
             gameOverText.gameObject.transform.position = pos;
             yield return wait;
         }
+    }
+
+    private void GameClear()
+    {
+        scoreManager.DisplayScore();
     }
 }

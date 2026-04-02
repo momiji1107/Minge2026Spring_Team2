@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 233dca6efcbf642b59407e0952b375ff, type: 3}
   m_Name: HPrecoverSkillGet
   m_EditorClassIdentifier: Assembly-CSharp::NewSkillGetUpgrade
-  name: HPrecover
+  name: HPRecover
   icon: {fileID: 21300000, guid: 507b12dce2a5442c0a31c371f0d9d769, type: 3}
   newSkill: {fileID: 11400000, guid: bc81978c905cd7e4b9edf05e44c508a1, type: 2}

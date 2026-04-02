@@ -111,7 +111,8 @@ public class PlayerModel : MonoBehaviour
     public void AddExp(int amount)
     {
         exp += amount;
-        if(exp >= RequireExpCalc(level)) LevelUp();
+        if(exp >= 300) LevelUp();
+        //if(exp >= RequireExpCalc(level)) LevelUp();
     }
     
     //レベルアップするのに必要な経験値を計算して返す
