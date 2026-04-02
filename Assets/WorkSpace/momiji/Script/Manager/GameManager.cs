@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private TextMeshProUGUI gameOverText;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip gameOverClip;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -34,6 +36,7 @@ public class GameManager : MonoBehaviour
     {
         GameManagement.GameState = GAMESTATE.GAMEOVER;
         Time.timeScale = 0f;
+        audioSource.PlayOneShot(gameOverClip);
         gameOverPanel.SetActive(true);
         StartCoroutine(DropText());
     }
