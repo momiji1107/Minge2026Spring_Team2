@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioClip gameOverClip;
     [SerializeField] private AudioClip clearClip;
     
+    private bool flag = false;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,7 +33,7 @@ public class GameManager : MonoBehaviour
 
         if (gameTimer >= clearTime)
         {
-            GameClear();
+            if(!flag) GameClear();
         }
     }
 
@@ -58,7 +60,9 @@ public class GameManager : MonoBehaviour
 
     private void GameClear()
     {
-        //audioSource.PlayOneShot(clearClip);
+        flag = true;
+        
+        audioSource.PlayOneShot(clearClip);
         scoreManager.DisplayScore();
     }
 }
