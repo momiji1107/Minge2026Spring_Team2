@@ -5,14 +5,15 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
+  - EnemyProjectile
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy
   - Water
   - UI
-  - 
+  - Player
   - 
   - 
   - 

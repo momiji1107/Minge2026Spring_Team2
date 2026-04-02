@@ -106,6 +106,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStatus
   player: {fileID: 6228957118106431102}
   upgradeManager: {fileID: 0}
+  attackController: {fileID: 0}
+  gameManager: {fileID: 0}
   heartView: {fileID: 0}
   level: 0
   requireExp: 0
@@ -189,7 +191,7 @@ GameObject:
   - component: {fileID: 2309006869908617171}
   - component: {fileID: 8541043132618572753}
   - component: {fileID: 8222376753964571112}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
