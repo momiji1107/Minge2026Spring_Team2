@@ -33,6 +33,8 @@ public class PlayerAttackController : MonoBehaviour
     }
     void Update()
     {
+        if (GameManagement.GameState != GAMESTATE.INGAME) return;
+        
         //クールタイム計測用タイマーに時間を加算する
         for(int i = 0; i < timers.Length; i++)
         {

@@ -71,4 +71,9 @@ public class ScoreManager : MonoBehaviour
         scorePanel.SetActive(false);
         Time.timeScale = 1f;
     }
+
+    private void OnDestroy()
+    {
+        EnemyCore.AddScoreToPlayer -= AddScore;
+    }
 }
