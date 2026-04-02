@@ -5,11 +5,15 @@ using UnityEngine;
 public class HPrecover : EquipmentBase
 
 {
-    [Header("‰ñ•œ—Ê")]
-    [SerializeField]private int healAmount;
+    [Header("ï¿½ñ•œ—ï¿½")]
+    [SerializeField] private int healAmount;
+    [SerializeField] private AudioClip healClip;
+    private AudioSource audioSource;
   
     public override void Activate(PlayerModel model)
     {
+        audioSource = model.GetComponent<AudioSource>();
+        audioSource.PlayOneShot(healClip);
         model.HpRecovery(healAmount);
     }
 }
