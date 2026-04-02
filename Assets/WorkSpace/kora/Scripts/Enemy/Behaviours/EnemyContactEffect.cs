@@ -10,6 +10,8 @@ public class EnemyContactEffect : EnemyBehaviourBase
     
     readonly string PlayerTag = "Player";
     private EnemyCore _core;
+    
+    private bool _isDead = false;
 
     void Awake()
     {
@@ -17,6 +19,8 @@ public class EnemyContactEffect : EnemyBehaviourBase
         {
             Debug.Log("Not Found EnemyCore");
         }
+
+        _core.OnDead += DisActiveHit;
     }
     
     private void OnTriggerEnter2D(Collider2D other)
@@ -32,6 +36,8 @@ public class EnemyContactEffect : EnemyBehaviourBase
     
     void OnHitPlayer(Collider2D other)
     {
+        if (_isDead) return;
+        
         if (isDamageable)
         {
             Debug.Log(other.name +"に" + damage + "ダメージを与える");
@@ -43,5 +49,10 @@ public class EnemyContactEffect : EnemyBehaviourBase
         {
             Destroy(gameObject);
         }
+    }
+
+    private void DisActiveHit()
+    {
+        _isDead = true;
     }
 }
