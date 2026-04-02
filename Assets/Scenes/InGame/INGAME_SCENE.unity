@@ -1964,9 +1964,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 30989976}
     - target: {fileID: 1639827053677834406, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+      propertyPath: damageClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 04d7c58a02967475f9e7420829397839, type: 3}
+    - target: {fileID: 1639827053677834406, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: firstMaxHp
-      value: 5
+      value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1639827053677834406, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+      propertyPath: audioSource
+      value: 
+      objectReference: {fileID: 1488418683}
     - target: {fileID: 1639827053677834406, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: firstAttack
       value: 15
@@ -5599,10 +5607,10 @@ MonoBehaviour:
       targetPosition: {x: -1, y: 0, z: 0}
       isRight: 0
     - enemyPrefab: {fileID: 8759148217643277841, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
-      spawnPoint: {fileID: 120388281}
+      spawnPoint: {fileID: 349227348}
       spawnMoveTime: 1
-      targetPosition: {x: -1, y: 0, z: 0}
-      isRight: 0
+      targetPosition: {x: 1, y: 0, z: 0}
+      isRight: 1
     - enemyPrefab: {fileID: 8759148217643277841, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
       spawnPoint: {fileID: 1743404263}
       spawnMoveTime: 1
@@ -5657,6 +5665,11 @@ MonoBehaviour:
       spawnMoveTime: 2
       targetPosition: {x: -2, y: 0, z: 0}
       isRight: 0
+    - enemyPrefab: {fileID: 8759148217643277841, guid: 3a88225e77fda7f44960f56478e8d9b9, type: 3}
+      spawnPoint: {fileID: 1255025508}
+      spawnMoveTime: 2
+      targetPosition: {x: 2, y: 0, z: 0}
+      isRight: 1
 --- !u!1 &1275203099
 GameObject:
   m_ObjectHideFlags: 0
@@ -6570,14 +6583,14 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 120
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -8601,13 +8614,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72fbb6ea18d8747c0ad05ac07adeedae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  clearTime: 45
+  clearTime: 40
   gameTimer: 0
   scoreManager: {fileID: 223086938}
   gameOverPanel: {fileID: 2010402258}
   gameOverText: {fileID: 250795328}
   audioSource: {fileID: 2057944468}
   gameOverClip: {fileID: 8300000, guid: 20222825be82048a180befc148b45a75, type: 3}
+  clearClip: {fileID: 8300000, guid: 6f58a172250774af7aaa515686ae621a, type: 3}
 --- !u!114 &2057944467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8635,14 +8649,14 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 100
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
@@ -8896,7 +8910,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 86}
   m_SizeDelta: {x: 1300, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2081101988
