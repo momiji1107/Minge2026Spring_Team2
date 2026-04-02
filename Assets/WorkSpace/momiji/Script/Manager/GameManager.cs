@@ -4,11 +4,15 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] private float clearTime = 300.0f;
+    [SerializeField] private float clearTime = 50.0f;
     public float gameTimer = 0f;
+    
+    [SerializeField] private ScoreManager scoreManager;
     
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private TextMeshProUGUI gameOverText;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip gameOverClip;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,7 +30,7 @@ public class GameManager : MonoBehaviour
 
         if (gameTimer >= clearTime)
         {
-            GameOver();
+            GameClear();
         }
     }
 
@@ -34,6 +38,7 @@ public class GameManager : MonoBehaviour
     {
         GameManagement.GameState = GAMESTATE.GAMEOVER;
         Time.timeScale = 0f;
+        audioSource.PlayOneShot(gameOverClip);
         gameOverPanel.SetActive(true);
         StartCoroutine(DropText());
     }
@@ -48,5 +53,10 @@ public class GameManager : MonoBehaviour
             gameOverText.gameObject.transform.position = pos;
             yield return wait;
         }
+    }
+
+    private void GameClear()
+    {
+        scoreManager.DisplayScore();
     }
 }

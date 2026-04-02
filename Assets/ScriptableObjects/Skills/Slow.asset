@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b86f76dc2d0bc745b02cb95d620c2a1, type: 3}
   m_Name: Slow
   m_EditorClassIdentifier: Assembly-CSharp::Slow
-  name: 
+  name: Slow
   level: 1
   coolTime: 10
   slowDuration: 5
@@ -20,3 +20,4 @@ MonoBehaviour:
   boxWidth: 4
   boxHeight: 1
   offSet: 2
+  slowClip: {fileID: 8300000, guid: 3273bb9856c844f1b8c1e6a4d8a3075d, type: 3}

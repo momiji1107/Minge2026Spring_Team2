@@ -4,18 +4,24 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Slow", menuName = "ScriptableObjects/Skill/Slow")]
 public class Slow : EquipmentBase
 {
-    [Header("ƒXƒ[ŠÔ‚Æ‘¬“x")]
+    [Header("ï¿½Xï¿½ï¿½ï¿½[ï¿½ï¿½ï¿½Ô‚Æ‘ï¿½ï¿½x")]
     [SerializeField] private int slowDuration;
     [SerializeField] private int speedDown;
 
-    [Header("“–‚½‚è”»’èƒTƒCƒY")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½è”»ï¿½ï¿½Tï¿½Cï¿½Y")]
     [SerializeField] private float boxWidth;
     [SerializeField] private float boxHeight;
     [SerializeField] private float offSet;
+    
+    [Header("Audioé–¢ä¿‚")]
+    [SerializeField] private AudioClip slowClip;
+    private AudioSource audioSource;
 
     public override void Activate(PlayerModel model)
     {
-        Debug.Log("”­“®");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½");
+        audioSource = model.GetComponent<AudioSource>();
+        audioSource.PlayOneShot(slowClip);
 
         Vector2 ownerPos = model.transform.position;
         Vector2 hitPos = ownerPos + (Vector2)model.transform.right * offSet;

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using TMPro;
 
@@ -10,8 +11,20 @@ public class ScoreManager : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private SceneChanger sceneChanger;
     
+    [Header("ステータス表示")]
+    [SerializeField] private PlayerModel model;
+    [SerializeField] private TextMeshProUGUI levelText;
+    [SerializeField] private TextMeshProUGUI expText;
+    
     private int score = 0;
     private int killCount = 0;
+
+    private void Update()
+    {
+        levelText.text = "LV : " + model.Level;
+        expText.text = "EXP : " + model.Exp + "/300";
+        //expText.text = "EXP : " + model.Exp + "/" + model.RequireExp;
+    }
 
     //スコアをリセット
     private void ResetScore()
