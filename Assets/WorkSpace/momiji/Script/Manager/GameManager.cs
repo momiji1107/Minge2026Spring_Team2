@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI gameOverText;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip gameOverClip;
+    [SerializeField] private AudioClip clearClip;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -57,6 +58,7 @@ public class GameManager : MonoBehaviour
 
     private void GameClear()
     {
+        //audioSource.PlayOneShot(clearClip);
         scoreManager.DisplayScore();
     }
 }
