@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerAttackController : MonoBehaviour
 {
@@ -10,6 +11,11 @@ public class PlayerAttackController : MonoBehaviour
     [Header("攻撃方法")]
     [SerializeField] private EquipmentBase basicAttack;
     [SerializeField] private List<EquipmentBase> skills;
+    
+    [Header("クールタイム表示関係")]
+    [SerializeField] private Slider[] coolTimeBar;
+    //クールタイムを計測する用のタイマー、timer[0]は通常攻撃用、それ以外はスキル用
+    private float[] timers;
 
     //getterとsetter
     public EquipmentBase BasicAttack { get { return basicAttack; } set { basicAttack = value; } }
@@ -17,9 +23,6 @@ public class PlayerAttackController : MonoBehaviour
     
     //Event
     public Action BasicAttackAnim;
-    
-    //クールタイムを計測する用のタイマー、timer[0]は通常攻撃用、それ以外はスキル用
-    private float[] timers;
 
     void Start()
     {
@@ -28,8 +31,11 @@ public class PlayerAttackController : MonoBehaviour
         
         for(int i = 0; i < timers.Length; i++)
         {
-            timers[i] = 0f;
+            timers[i] = 100f;
+            coolTimeBar[i].gameObject.SetActive(false);
         }
+        
+        
     }
     void Update()
     {
@@ -70,7 +76,7 @@ public class PlayerAttackController : MonoBehaviour
             timers[3] = 0f;
         }
         
-        Debug.Log("timers.Length = " + timers.Length);
+        DisplayCoolTimeBar();
     }
 
     public bool HasSkill(string skillName)
@@ -81,5 +87,23 @@ public class PlayerAttackController : MonoBehaviour
         }
         
         return false;
+    }
+
+    //クールタイムをSliderに表示させる
+    private void DisplayCoolTimeBar()
+    {
+        for (int i = 0; i < Skills.Count + 1; i++)
+        {
+            if (i == 0)
+            {
+                coolTimeBar[i].value = timers[i] / (model.RapidFireSpeed + basicAttack.coolTime);
+                coolTimeBar[i].gameObject.SetActive(coolTimeBar[i].value < 1);
+            }
+            else
+            {
+                coolTimeBar[i].value = 1.0f - (timers[i] / (model.RapidFireSpeed + Skills[i-1].coolTime));
+                coolTimeBar[i].gameObject.SetActive(coolTimeBar[i].value > 0);
+            }
+        }
     }
 }
