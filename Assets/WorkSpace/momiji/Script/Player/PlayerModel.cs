@@ -38,6 +38,10 @@ public class PlayerModel : MonoBehaviour
     [SerializeField] private DamageReduction damageReduction;
     [SerializeField] private DamageNegate damageNegate;
     
+    [Header("Audio関係")]
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip damageClip;
+    
     [Tooltip("レベルごとに増加するレベルアップに必要な経験値量")] const int RequireExpPerLevel = 100;
     
     //getter
@@ -72,6 +76,8 @@ public class PlayerModel : MonoBehaviour
     //被ダメージ
     public void Damage(int damage)
     {
+        audioSource.PlayOneShot(damageClip);
+        
         hp -= CalcDamage(damage);
         heartView.HPView();
         if (hp <= 0)
