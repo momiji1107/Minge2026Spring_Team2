@@ -2190,6 +2190,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2057944467}
     - target: {fileID: 6845716956616023705, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+      propertyPath: scoreManager
+      value: 
+      objectReference: {fileID: 223086938}
+    - target: {fileID: 6845716956616023705, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: laneChangeClip
       value: 
       objectReference: {fileID: 8300000, guid: 7ac6f2601a627474fa1b3f004a8c7a9a, type: 3}
@@ -7220,7 +7224,6 @@ GameObject:
   - component: {fileID: 1543052748}
   - component: {fileID: 1543052750}
   - component: {fileID: 1543052749}
-  - component: {fileID: 1543052751}
   m_Layer: 5
   m_Name: CloseText
   m_TagString: Untagged
@@ -7267,7 +7270,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press SPACE to close
+  m_text: Press ENTER to close
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 19720e46012214697a3e529ca44a2153, type: 2}
   m_sharedMaterial: {fileID: 6751430931266192204, guid: 19720e46012214697a3e529ca44a2153, type: 2}
@@ -7347,19 +7350,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1543052747}
   m_CullTransparentMesh: 1
---- !u!114 &1543052751
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1543052747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3c717ab9c3494d49bee4efeca13ab3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CloseText
-  scoreManager: {fileID: 223086938}
 --- !u!1 &1543986273
 GameObject:
   m_ObjectHideFlags: 0

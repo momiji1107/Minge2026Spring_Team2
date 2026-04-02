@@ -69,8 +69,6 @@ public class PlayerAttackController : MonoBehaviour
             Skills[2]?.Activate(model);
             timers[3] = 0f;
         }
-        
-        Debug.Log("timers.Length = " + timers.Length);
     }
 
     public bool HasSkill(string skillName)
