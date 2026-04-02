@@ -135,7 +135,7 @@ public class PlayerModel : MonoBehaviour
         level++;
         requireExp = RequireExpCalc(level);
         exp = 0;
-        upgradeManager.DisplayRandomUpgrades();
+        StartCoroutine(Common.DelayCall(upgradeManager.DisplayRandomUpgrades, 0.5f));
     }
     
     //HP回復

@@ -75,7 +75,7 @@ public class PlayerAttackController : MonoBehaviour
             Skills[2]?.Activate(model);
             timers[3] = 0f;
         }
-        
+
         DisplayCoolTimeBar();
     }
 
