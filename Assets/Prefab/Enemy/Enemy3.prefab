@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 2108098709560983158}
   - component: {fileID: 3071694540275310082}
   - component: {fileID: 4022579802303053768}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Enemy3
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -140,8 +140,8 @@ MonoBehaviour:
   projectile: {fileID: 2823361468637368064, guid: 357eafe8f89544b41942ff5597c73e8f, type: 3}
   shotRate: 1.5
   direction: {x: -1, y: -1, z: 0}
+  shotPosition: {fileID: 0}
   startTime: 0
-  bounceLanes: []
 --- !u!114 &4405109662647658227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,6 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyContactEffect
   isDamageable: 1
+  isDestroy: 0
   damage: 1
 --- !u!114 &2108098709560983158
 MonoBehaviour:
