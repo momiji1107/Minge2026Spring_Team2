@@ -371,7 +371,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7787471606157949731, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7787471606157949731, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1214,6 +1214,7 @@ MonoBehaviour:
   model: {fileID: 0}
   attackController: {fileID: 1957288227}
   maxSkillnum: 3
+  srs: []
 --- !u!1 &1584727850
 GameObject:
   m_ObjectHideFlags: 0
@@ -1382,6 +1383,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStatus
   player: {fileID: 586972730}
   upgradeManager: {fileID: 430123544}
+  attackController: {fileID: 0}
+  gameManager: {fileID: 0}
   heartView: {fileID: 0}
   level: 0
   requireExp: 0
@@ -1441,7 +1444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7787471606157949731, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7787471606157949731, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1789,9 +1792,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackController
   model: {fileID: 1601370354}
+  equipmentManager: {fileID: 1324754462}
   basicAttack: {fileID: 11400000, guid: 1a1c84814568f594a9a3c92efbcb74b3, type: 2}
   skills:
-  - {fileID: 11400000, guid: 01d61e8327138a941a531a0560f19524, type: 2}
+  - {fileID: 11400000, guid: f64c2a01c463fde49b3647e9e87bbc18, type: 2}
   - {fileID: 11400000, guid: 5ca5e70f62d641d49804908ac8422f79, type: 2}
   - {fileID: 11400000, guid: f9b379850d15cfc4496c5766ee71aac2, type: 2}
 --- !u!4 &1957288228
