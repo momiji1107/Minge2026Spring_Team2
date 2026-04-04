@@ -23,7 +23,9 @@ public class PlayerData : ScriptableObject
     public float FirstMoveSpeed => firstMoveSpeed;
     public float FirstShootSpeed => firstShootSpeed;
     public float FirstRapidFireSpeed => firstRapidFireSpeed;
-    
+
+    public EquipmentBase BasicAttack => basicAttack;
+
     /*public Sprite PlayerSprite => playerSprite;
     public Animator Animator => animator;
     public string MoveAnim => moveAnim;

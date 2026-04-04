@@ -2332,6 +2332,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: fa63b509ac56b471482c94f345267797, type: 2}
     - target: {fileID: 911620504892808639, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+      propertyPath: selectedPlayer
+      value: 
+      objectReference: {fileID: 522140088}
+    - target: {fileID: 911620504892808639, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: equipmentManager
       value: 
       objectReference: {fileID: 1722399496}
