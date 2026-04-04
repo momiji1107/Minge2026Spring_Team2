@@ -2332,6 +2332,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: fa63b509ac56b471482c94f345267797, type: 2}
     - target: {fileID: 911620504892808639, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+      propertyPath: selectedPlayer
+      value: 
+      objectReference: {fileID: 522140088}
+    - target: {fileID: 911620504892808639, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: equipmentManager
       value: 
       objectReference: {fileID: 1722399496}
@@ -2391,6 +2395,10 @@ PrefabInstance:
       propertyPath: damageNegate
       value: 
       objectReference: {fileID: 11400000, guid: a92e6d01137a03b40ae96f3848fce274, type: 2}
+    - target: {fileID: 1639827053677834406, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+      propertyPath: selectedPlayer
+      value: 
+      objectReference: {fileID: 522140088}
     - target: {fileID: 1639827053677834406, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: upgradeManager
       value: 
@@ -3389,6 +3397,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5b531f9171382ba4fae9eb72ea037095, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectedPlayer
+  playerDatas:
+  - {fileID: 11400000, guid: 2e7d735f7c7004c05a718d36a9485e62, type: 2}
+  - {fileID: 11400000, guid: 1116e6cc332cf4697adc822217bc45b9, type: 2}
+  - {fileID: 11400000, guid: 62951beff03d3405f99390300915a994, type: 2}
 --- !u!1 &526368926
 GameObject:
   m_ObjectHideFlags: 0

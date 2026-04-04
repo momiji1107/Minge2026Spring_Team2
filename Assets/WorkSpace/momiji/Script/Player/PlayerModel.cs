@@ -8,12 +8,13 @@ public class PlayerModel : MonoBehaviour
     [SerializeField] private PlayerAttackController attackController;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private HPheartView heartView;
+    [SerializeField] private SelectedPlayer selectedPlayer;
     
     [Header("ステータス")]
     [SerializeField] private int level; //レベル
     [SerializeField] private int requireExp; //レベルアップに必要な経験値
     [SerializeField] private int exp; //経験値
-    public int HPLIMIT = 10; //HPの最大値制限
+    [NonSerialized] public int HPLIMIT = 10; //HPの最大値制限
     [SerializeField] private int maxHp; //現在の体力の最大値
     [SerializeField] private int hp; //現在の体力
     [SerializeField] private int attack; //攻撃力
@@ -24,11 +25,11 @@ public class PlayerModel : MonoBehaviour
     [Header("初期ステータス")]
     [SerializeField] private int firstLevel = 1;
     [SerializeField] private int firstExp = 0;
-    [SerializeField] private int firstMaxHp = 100;
+    /*[SerializeField] private int firstMaxHp = 10;
     [SerializeField] private int firstAttack = 5;
     [SerializeField] private float firstMoveSpeed = 5.0f;
     [SerializeField] private float firstShootSpeed = 5.0f;
-    [SerializeField] private float firstRapidFireSpeed = 5.0f;
+    [SerializeField] private float firstRapidFireSpeed = 1.5f;*/
     
     [Header("見た目")]
     [SerializeField] private SpriteRenderer sr; //キャラ画像のSpriteRenderer
@@ -59,15 +60,18 @@ public class PlayerModel : MonoBehaviour
 
     void Start()
     {
+        var data = selectedPlayer.PlayerData;
+        if(data == null) Debug.Log("data is null");
         level = firstLevel;
         requireExp = RequireExpCalc(level);
         exp = firstExp;
-        maxHp = firstMaxHp;
+        maxHp = data.FirstMaxHp;
         hp = maxHp;
-        attack = firstAttack;
-        moveSpeed = firstMoveSpeed;
-        shootSpeed = firstShootSpeed;
-        rapidFireSpeed = firstRapidFireSpeed;
+        attack = data.FirstAttack;
+        moveSpeed = data.FirstMoveSpeed;
+        shootSpeed = data.FirstShootSpeed;
+        rapidFireSpeed = data.FirstRapidFireSpeed;
+        Debug.Log("status set");
 
         // register
         EnemyCore.AddExpToPlayer += AddExp;

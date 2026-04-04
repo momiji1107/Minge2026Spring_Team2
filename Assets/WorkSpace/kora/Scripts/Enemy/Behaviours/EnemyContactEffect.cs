@@ -40,7 +40,7 @@ public class EnemyContactEffect : EnemyBehaviourBase
         
         if (isDamageable)
         {
-            Debug.Log(other.name +"に" + damage + "ダメージを与える");
+            Debug.Log("EnemyContactEffect: " + other.name +"に" + damage + "ダメージを与える");
             // playerにダメージを与える処理を追記
             other.gameObject.GetComponentInChildren<PlayerModel>().Damage(damage);
         }

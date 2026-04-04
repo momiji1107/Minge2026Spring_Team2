@@ -7,6 +7,7 @@ public class PlayerAttackController : MonoBehaviour
 {
     [SerializeField] private PlayerModel model;
     [SerializeField] private PlayerEquipmentManager equipmentManager;
+    [SerializeField] private SelectedPlayer selectedPlayer;
     
     [Header("攻撃方法")]
     [SerializeField] private EquipmentBase basicAttack;
@@ -34,8 +35,8 @@ public class PlayerAttackController : MonoBehaviour
             timers[i] = 100f;
             coolTimeBar[i].gameObject.SetActive(false);
         }
-        
-        
+
+        basicAttack = selectedPlayer.PlayerData.BasicAttack;
     }
     void Update()
     {

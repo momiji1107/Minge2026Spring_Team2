@@ -83,7 +83,7 @@ public class EnemyProjectile : MonoBehaviour
     {
         if (other.CompareTag(_playerTag))
         { 
-            Debug.Log(damage + "Damageを与える");
+            Debug.Log("EnemyProjectile: " + damage + "Damageを与える");
             other.GetComponentInChildren<PlayerModel>().Damage(damage);
             Destroy(gameObject);
             OnHitPlayer();
