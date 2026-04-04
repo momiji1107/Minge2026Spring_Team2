@@ -24,6 +24,7 @@ public class EnemyCore : MonoBehaviour, IEnemyCore
     public event Action OnDead;
     
     private int _hp;
+    private bool _isDead = false;
     
     private EnemyController _controller;
 
@@ -61,8 +62,10 @@ public class EnemyCore : MonoBehaviour, IEnemyCore
     public void TakeDamage(int damage)
     {
         _hp -= damage;
-        if (_hp <= 0)
+        if (_hp <= 0 && !_isDead)
         {
+            //Debug.Log("Die: " + damage);
+            _isDead = true;
             Die();
         }
     }
