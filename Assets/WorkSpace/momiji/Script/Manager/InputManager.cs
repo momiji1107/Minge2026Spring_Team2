@@ -49,7 +49,8 @@ public class InputManager : MonoBehaviour
 
     private void NextScene()
     {
-        if(currentScene == SceneName.CHARACTER_SELECT_SCENE) panels[selectNumber].GetComponent<CharacterSelect>()?.ChangeCharacter();
+        if (currentScene == SceneName.CHARACTER_SELECT_SCENE) panels[selectNumber].GetComponent<CharacterSelect>()?.ChangeCharacter();
+        
         audioSource.PlayOneShot(confirmClip);
         StartCoroutine(sceneChanger.ChangeScene());
     }

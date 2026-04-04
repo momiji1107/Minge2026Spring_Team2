@@ -176,7 +176,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HERO
+  m_text: 'HERO2
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 19720e46012214697a3e529ca44a2153, type: 2}
   m_sharedMaterial: {fileID: 6751430931266192204, guid: 19720e46012214697a3e529ca44a2153, type: 2}
@@ -774,7 +776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d051086c123f546799b77f7ef6e149b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputManager
-  currentScene: 2
+  currentScene: 4
   sceneChanger: {fileID: 661839969}
   panels:
   - {fileID: 743766433}
@@ -1027,7 +1029,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HERO
+  m_text: HERO3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 19720e46012214697a3e529ca44a2153, type: 2}
   m_sharedMaterial: {fileID: 6751430931266192204, guid: 19720e46012214697a3e529ca44a2153, type: 2}
@@ -1651,7 +1653,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HERO
+  m_text: 'HERO1
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 19720e46012214697a3e529ca44a2153, type: 2}
   m_sharedMaterial: {fileID: 6751430931266192204, guid: 19720e46012214697a3e529ca44a2153, type: 2}

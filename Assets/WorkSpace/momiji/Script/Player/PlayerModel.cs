@@ -14,7 +14,7 @@ public class PlayerModel : MonoBehaviour
     [SerializeField] private int level; //レベル
     [SerializeField] private int requireExp; //レベルアップに必要な経験値
     [SerializeField] private int exp; //経験値
-    public int HPLIMIT = 10; //HPの最大値制限
+    [NonSerialized] public int HPLIMIT = 10; //HPの最大値制限
     [SerializeField] private int maxHp; //現在の体力の最大値
     [SerializeField] private int hp; //現在の体力
     [SerializeField] private int attack; //攻撃力
@@ -71,6 +71,7 @@ public class PlayerModel : MonoBehaviour
         moveSpeed = data.FirstMoveSpeed;
         shootSpeed = data.FirstShootSpeed;
         rapidFireSpeed = data.FirstRapidFireSpeed;
+        Debug.Log("status set");
 
         // register
         EnemyCore.AddExpToPlayer += AddExp;
