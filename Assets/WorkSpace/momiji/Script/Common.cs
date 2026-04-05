@@ -16,6 +16,21 @@ public class Common : MonoBehaviour
         yield return new WaitForSeconds(delay);
         action();
     }
+
+    public static IEnumerator BlinkColor(SpriteRenderer sr, float interval, float time)
+    {
+        Color32 white = new Color32(255, 255, 255, 255);
+        Color32 red = new Color32(255, 130, 130, 255);
+        
+        float timer = 0;
+        while (timer < time)
+        {
+            Debug.Log("Change color");
+            sr.color = sr.color == white? red : white;
+            timer += interval;
+            yield return new WaitForSeconds(interval);
+        }
+    }
 }
 
 
