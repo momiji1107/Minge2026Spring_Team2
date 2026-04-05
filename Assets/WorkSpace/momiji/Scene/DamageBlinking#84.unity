@@ -2431,6 +2431,18 @@ PrefabInstance:
       propertyPath: 'srs.Array.data[2]'
       value: 
       objectReference: {fileID: 2100122861}
+    - target: {fileID: 4120501383824954216, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4120501383824954216, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4120501383824954216, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6228957118106431102, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: m_Name
       value: Player

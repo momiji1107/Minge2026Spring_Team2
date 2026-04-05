@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerModel : MonoBehaviour
 {
+    [Header("依存関係")]
     [SerializeField] private GameObject player;
     [SerializeField] private UpgradeManager upgradeManager;
     [SerializeField] private PlayerAttackController attackController;
@@ -25,11 +26,6 @@ public class PlayerModel : MonoBehaviour
     [Header("初期ステータス")]
     [SerializeField] private int firstLevel = 1;
     [SerializeField] private int firstExp = 0;
-    /*[SerializeField] private int firstMaxHp = 10;
-    [SerializeField] private int firstAttack = 5;
-    [SerializeField] private float firstMoveSpeed = 5.0f;
-    [SerializeField] private float firstShootSpeed = 5.0f;
-    [SerializeField] private float firstRapidFireSpeed = 1.5f;*/
     
     [Header("見た目")]
     [SerializeField] private SpriteRenderer sr; //キャラ画像のSpriteRenderer
@@ -38,6 +34,7 @@ public class PlayerModel : MonoBehaviour
     [Header("ダメージ軽減スキル・無効化設定")]
     [SerializeField] private DamageReduction damageReduction;
     [SerializeField] private DamageNegate damageNegate;
+    private bool invincible = false; //無敵中かどうか
     
     [Header("Audio関係")]
     [SerializeField] private AudioSource audioSource;
@@ -62,6 +59,7 @@ public class PlayerModel : MonoBehaviour
     {
         var data = selectedPlayer.PlayerData;
         if(data == null) Debug.Log("data is null");
+        
         level = firstLevel;
         requireExp = RequireExpCalc(level);
         exp = firstExp;
@@ -85,8 +83,16 @@ public class PlayerModel : MonoBehaviour
     //被ダメージ
     public void Damage(int damage)
     {
+        if (invincible) return; //無敵状態だったら何もしない
+        
         audioSource.PlayOneShot(damageClip);
         
+        //Spriteを点滅させる
+        ChangeInvincible();
+        StartCoroutine(Common.BlinkColor(sr, 0.1f, 1.0f));
+        Invoke(nameof(ChangeInvincible), 1.0f);
+        
+        //HPの計算処理
         hp -= CalcDamage(damage);
         heartView.HPView();
         if (hp <= 0)
@@ -97,7 +103,7 @@ public class PlayerModel : MonoBehaviour
     }
     
     //ダメージ計算
-    public int CalcDamage(int damage)
+    private int CalcDamage(int damage)
     {
         if (!attackController.HasSkill(damageNegate.name) || !attackController.HasSkill(damageReduction.name)) return damage;
         
@@ -164,4 +170,7 @@ public class PlayerModel : MonoBehaviour
     public void ShootSpeedUp(float shSpeed) { shootSpeed += shSpeed; }
     //連射速度上昇(クールタイム短縮)
     public void RapidFireSpeedUp(float rfSpeed) { rapidFireSpeed -= rfSpeed; }
+
+    //無敵状態フラグの切り替え
+    private void ChangeInvincible() { invincible = !invincible; }
 }
