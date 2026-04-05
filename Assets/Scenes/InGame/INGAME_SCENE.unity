@@ -2457,7 +2457,7 @@ PrefabInstance:
       objectReference: {fileID: 1017885672}
     - target: {fileID: 6845716956616023705, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: laneMoveTime
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6845716956616023705, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: sceneChanger
