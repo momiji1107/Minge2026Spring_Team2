@@ -45,11 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   Player: {fileID: 6228957118106431102}
+  model: {fileID: 1639827053677834406}
   upgradeManager: {fileID: 0}
   sceneChanger: {fileID: 0}
-  model: {fileID: 1639827053677834406}
-  levelText: {fileID: 0}
-  expText: {fileID: 0}
+  scoreManager: {fileID: 0}
   laneMoveTime: 0.3
   lanes:
   - {fileID: 0}
@@ -109,10 +108,10 @@ MonoBehaviour:
   attackController: {fileID: 0}
   gameManager: {fileID: 0}
   heartView: {fileID: 0}
+  selectedPlayer: {fileID: 0}
   level: 0
   requireExp: 0
   exp: 0
-  HPLIMIT: 10
   maxHp: 0
   hp: 0
   attack: 0
@@ -121,15 +120,12 @@ MonoBehaviour:
   rapidFireSpeed: 0
   firstLevel: 1
   firstExp: 0
-  firstMaxHp: 100
-  firstAttack: 5
-  firstMoveSpeed: 5
-  firstShootSpeed: 5
-  firstRapidFireSpeed: 1
   sr: {fileID: 4120501383824954216}
   lookAtRight: 1
   damageReduction: {fileID: 11400000, guid: 4c8165ff24f5f5b45b202f2a54151e3c, type: 2}
   damageNegate: {fileID: 11400000, guid: a92e6d01137a03b40ae96f3848fce274, type: 2}
+  audioSource: {fileID: 0}
+  damageClip: {fileID: 0}
 --- !u!1 &6148538963550357974
 GameObject:
   m_ObjectHideFlags: 0
@@ -175,9 +171,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackController
   model: {fileID: 1639827053677834406}
+  equipmentManager: {fileID: 0}
+  selectedPlayer: {fileID: 0}
   basicAttack: {fileID: 11400000, guid: 938335deb2a8441d3984ca66a4ab2024, type: 2}
   skills:
   - {fileID: 11400000, guid: e31d2c84bb47941bbb6086d71997d975, type: 2}
+  coolTimeBar: []
 --- !u!1 &6228957118106431102
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,7 +359,7 @@ Animator:
   m_GameObject: {fileID: 6228957118106431102}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8698395a56a3bb04482ff66a3d7a239c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0b4e3026163be2d4cbaf1bfdb4af2a1c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -419,6 +418,7 @@ MonoBehaviour:
   model: {fileID: 1639827053677834406}
   attackController: {fileID: 911620504892808639}
   maxSkillnum: 3
+  srs: []
 --- !u!1 &7012899357628875401
 GameObject:
   m_ObjectHideFlags: 0
@@ -465,3 +465,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerView
   player: {fileID: 6228957118106431102}
   attack: {fileID: 911620504892808639}
+  select: {fileID: 0}
