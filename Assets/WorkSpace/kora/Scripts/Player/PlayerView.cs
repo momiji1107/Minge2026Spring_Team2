@@ -7,7 +7,10 @@ public class PlayerView : MonoBehaviour
     [SerializeField] private GameObject player;
     [SerializeField] private PlayerAttackController attack;
     
+    [SerializeField] private SelectedPlayer select;
+    
     private Animator _animator = null;
+    private PlayerData _data = null;
     
     private readonly string _isMove = "IsMove";
     private readonly string _isAttack = "Attack";
@@ -20,6 +23,12 @@ public class PlayerView : MonoBehaviour
         {
             attack.BasicAttackAnim += ActiveBasicAttackAnim;
         }
+
+        _data = select?.PlayerData;
+        _animator.runtimeAnimatorController = _data?.Animator;
+        
+        var spriteRenderer = player.GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = _data?.PlayerSprite;
     }
 
     private void Update()
