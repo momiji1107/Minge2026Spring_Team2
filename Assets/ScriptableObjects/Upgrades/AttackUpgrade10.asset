@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: AttackUpgrade10
   m_EditorClassIdentifier: Assembly-CSharp::AttackUpgrade
   titleName: "\u3053\u3046\u3052\u304D\u529BUP"
-  infoSentence: "\u3053\u3046\u3052\u304D\u529B +10"
-  icon: {fileID: 0}
+  infoSentence: "\n\u3053\u3046\u3052\u304D\u529B +10\n"
+  icon: {fileID: 21300000, guid: 787a9afbee4154a8996f7c8ed03e084d, type: 3}
   attack: 10

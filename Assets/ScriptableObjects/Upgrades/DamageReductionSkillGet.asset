@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 233dca6efcbf642b59407e0952b375ff, type: 3}
   m_Name: DamageReductionSkillGet
   m_EditorClassIdentifier: Assembly-CSharp::NewSkillGetUpgrade
-  name: DamageReduction
+  titleName: "\u65B0\u30B9\u30AD\u30EBGET"
+  infoSentence: "\u30C0\u30E1\u30FC\u30B8\u8EFD\u6E1B\n\uFF13\u79D2\u9593\u30C0\u30E1\u30FC\u30B8\u3092\u8EFD\u6E1B\u3059\u308B\n\u30AF\u30FC\u30EB\u30BF\u30A4\u30E0
+    10\u79D2"
   icon: {fileID: 21300000, guid: 7029746f7189d418fa92c030dac2528f, type: 3}
   newSkill: {fileID: 11400000, guid: 4c8165ff24f5f5b45b202f2a54151e3c, type: 2}
