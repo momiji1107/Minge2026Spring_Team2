@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 177931bf6ae54497a903a8d60b45cd43, type: 3}
   m_Name: AttackUpgrade3
   m_EditorClassIdentifier: Assembly-CSharp::AttackUpgrade
-  name: 
+  titleName: "\u3053\u3046\u3052\u304D\u529BUP"
+  infoSentence: "\n\u3053\u3046\u3052\u304D\u529B +3"
   icon: {fileID: 21300000, guid: 787a9afbee4154a8996f7c8ed03e084d, type: 3}
   attack: 3

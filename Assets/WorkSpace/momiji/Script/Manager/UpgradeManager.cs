@@ -47,7 +47,7 @@ public class UpgradeManager : MonoBehaviour
         //パネルの表示にアップグレードの内容を反映させる
         for (int i = 0; i < displayUpgrades.Count; i++)
         {
-            texts[i].text = displayUpgrades[i].name;
+            texts[i].text = displayUpgrades[i].titleName;
             images[i].sprite = displayUpgrades[i].icon;
         }
         
@@ -55,7 +55,7 @@ public class UpgradeManager : MonoBehaviour
         upgradePanel.gameObject.SetActive(true);
         
         //選ばれた３つの選択肢確認用
-        Debug.Log("selection: " + displayUpgrades[0].name + ", " + displayUpgrades[1].name + ", " + displayUpgrades[2].name);
+        Debug.Log("selection: " + displayUpgrades[0].titleName + ", " + displayUpgrades[1].titleName + ", " + displayUpgrades[2].titleName);
     }
     
     //アップグレードを選択し、反映する
