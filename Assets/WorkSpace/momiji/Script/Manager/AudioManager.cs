@@ -31,8 +31,9 @@ public class AudioManager : MonoBehaviour
         bgmAudioSource.Stop(); //BGMを止める
         bgmAudioSource.loop = false;
         seAudioSource.PlayOneShot(gameOverClip); //ゲームオーバー効果音
-        
-        yield return new WaitForSeconds(0.5f);
+        Debug.Log("gameover SE");
+        yield return new WaitForSecondsRealtime(0.5f);
+        Debug.Log("gameover BGM");
         bgmAudioSource.clip = gameOverBGMClip; //ゲームオーバーBGM
         bgmAudioSource.Play();
     }
@@ -43,7 +44,7 @@ public class AudioManager : MonoBehaviour
         bgmAudioSource.loop = false;
         seAudioSource.PlayOneShot(clearClip); //ゲームクリア効果音
         
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSecondsRealtime(0.5f);
         bgmAudioSource.clip = clearBGMClip; //ゲームクリアBGM
         bgmAudioSource.Play();
     }
@@ -56,5 +57,10 @@ public class AudioManager : MonoBehaviour
     public void Confirm()
     {
         seAudioSource.PlayOneShot(confirmClip);
+    }
+
+    public void Attack(AudioClip attackClip)
+    {
+        seAudioSource.PlayOneShot(attackClip);
     }
 }

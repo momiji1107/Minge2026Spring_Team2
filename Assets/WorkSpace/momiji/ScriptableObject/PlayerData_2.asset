@@ -20,3 +20,4 @@ MonoBehaviour:
   basicAttack: {fileID: 11400000, guid: 7025a10bfb9404d25adb5ec377fdd382, type: 2}
   playerSprite: {fileID: 21300000, guid: 9c6392f144e3246478346b63b14ed164, type: 3}
   animator: {fileID: 9100000, guid: 092af4d6887d42c4b991031ae1f18679, type: 2}
+  attackClip: {fileID: 8300000, guid: c2bd93d49bf7844e8a86e2b0f2ee0d46, type: 3}

@@ -2197,6 +2197,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: fa63b509ac56b471482c94f345267797, type: 2}
     - target: {fileID: 911620504892808639, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+      propertyPath: audioManager
+      value: 
+      objectReference: {fileID: 848539689}
+    - target: {fileID: 911620504892808639, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: selectedPlayer
       value: 
       objectReference: {fileID: 522140088}
@@ -4681,8 +4685,9 @@ GameObject:
   m_Component:
   - component: {fileID: 848539687}
   - component: {fileID: 848539688}
+  - component: {fileID: 848539689}
   m_Layer: 0
-  m_Name: BGMManager
+  m_Name: AudioManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4714,9 +4719,9 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: 160d7a004342148c3b729137d2abb4e1, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 0.5
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -4800,6 +4805,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &848539689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 848539686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51bd63ec9aab14cddbf770c000d2d994, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioManager
+  seAudioSource: {fileID: 848539688}
+  gameOverClip: {fileID: 8300000, guid: 20222825be82048a180befc148b45a75, type: 3}
+  clearClip: {fileID: 8300000, guid: 6f58a172250774af7aaa515686ae621a, type: 3}
+  selectClip: {fileID: 8300000, guid: d39a44c3a813647a1a7fcccb0256706e, type: 3}
+  confirmClip: {fileID: 8300000, guid: 772a6bfc420674ad3b5debf7f1b93809, type: 3}
+  bgmAudioSource: {fileID: 2057944468}
+  bgmClip:
+  - {fileID: 8300000, guid: 160d7a004342148c3b729137d2abb4e1, type: 3}
+  - {fileID: 8300000, guid: f5cb626e53e44409aa1786d366510d54, type: 3}
+  gameOverBGMClip: {fileID: 8300000, guid: 135ea5506912b402a9aee7d0c605e3f7, type: 3}
+  clearBGMClip: {fileID: 8300000, guid: 2627d37022e7e499291c3278d2610e91, type: 3}
 --- !u!1 &872786393
 GameObject:
   m_ObjectHideFlags: 0
@@ -6835,6 +6863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeManager
   equipmentManager: {fileID: 1722399496}
   model: {fileID: 67754450}
+  audioManager: {fileID: 848539689}
   upgrades:
   - {fileID: 11400000, guid: d470ea747c2c146ae87ac87b5dce746a, type: 2}
   - {fileID: 11400000, guid: cf60bf80005d64720833dd1fa9005f17, type: 2}
@@ -11158,11 +11187,9 @@ MonoBehaviour:
   clearTime: 90
   gameTimer: 0
   scoreManager: {fileID: 223086938}
+  audioManager: {fileID: 848539689}
   gameOverPanel: {fileID: 2010402258}
   gameOverText: {fileID: 250795328}
-  audioSource: {fileID: 2057944468}
-  gameOverClip: {fileID: 8300000, guid: 20222825be82048a180befc148b45a75, type: 3}
-  clearClip: {fileID: 8300000, guid: 6f58a172250774af7aaa515686ae621a, type: 3}
 --- !u!114 &2057944467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11191,7 +11218,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
