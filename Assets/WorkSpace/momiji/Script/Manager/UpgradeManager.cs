@@ -10,6 +10,7 @@ public class UpgradeManager : MonoBehaviour
 {
     [SerializeField] private PlayerEquipmentManager equipmentManager;
     [SerializeField] private PlayerModel model;
+    [SerializeField] private AudioManager audioManager;
     [SerializeField] private List<UpgradeBase> upgrades;
     
     [Header("パネルUI関係")]
@@ -78,16 +79,19 @@ public class UpgradeManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow) && selectNumber < displayUpgrades.Count - 1)
         {
             selectNumber++;
+            audioManager.Select();
         }
 
         if (Input.GetKeyDown(KeyCode.LeftArrow) && selectNumber > 0)
         {
             selectNumber--;
+            audioManager.Select();
         }
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
             SelectUpgrade(selectNumber);
+            audioManager.Confirm();
         }
 
         for (int i = 0; i < panelRects.Length; i++)
