@@ -15,7 +15,8 @@ public class UpgradeManager : MonoBehaviour
     [Header("パネルUI関係")]
     [SerializeField] private GameObject upgradePanel;
     [SerializeField] private RectTransform[] panelRects;
-    [SerializeField] private TextMeshProUGUI[] texts;
+    [SerializeField] private TextMeshProUGUI[] nameTexts;
+    [SerializeField] private TextMeshProUGUI[] infoTexts;
     [SerializeField] private Image[] images;
     private float atractSize = 1.2f; //選択中のパネルの拡大したサイズ
     
@@ -47,7 +48,8 @@ public class UpgradeManager : MonoBehaviour
         //パネルの表示にアップグレードの内容を反映させる
         for (int i = 0; i < displayUpgrades.Count; i++)
         {
-            texts[i].text = displayUpgrades[i].titleName;
+            nameTexts[i].text = displayUpgrades[i].titleName;
+            infoTexts[i].text = displayUpgrades[i].infoSentence;
             images[i].sprite = displayUpgrades[i].icon;
         }
         
