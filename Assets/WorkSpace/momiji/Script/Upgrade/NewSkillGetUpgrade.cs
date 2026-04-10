@@ -1,9 +1,16 @@
+using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewSkillGetUpgrade", menuName = "ScriptableObjects/Upgrade/NewSkillGetUpgrade")]
 public class NewSkillGetUpgrade : UpgradeBase
 {
     [SerializeField] private EquipmentBase newSkill;
+
+    private void OnEnable()
+    {
+        titleName = "新スキルGET";
+    }
+
     public override bool CanAppear(PlayerEquipmentManager equipmentManager)
     {
         if(equipmentManager.GetSkill(newSkill) == null && equipmentManager.SkillNum < equipmentManager.MaxSkillnum) return true;

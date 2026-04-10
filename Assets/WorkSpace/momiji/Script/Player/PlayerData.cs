@@ -15,6 +15,9 @@ public class PlayerData : ScriptableObject
     [SerializeField] private Sprite playerSprite;
     [SerializeField] private RuntimeAnimatorController animator;
     
+    [Header("サウンド")]
+    [SerializeField] private AudioClip attackClip;
+    
     //getter
     public int FirstMaxHp => firstMaxHp;
     public int FirstAttack => firstAttack;
@@ -26,4 +29,6 @@ public class PlayerData : ScriptableObject
 
     public Sprite PlayerSprite => playerSprite;
     public RuntimeAnimatorController Animator => animator;
+
+    public AudioClip AttackClip => attackClip;
 }

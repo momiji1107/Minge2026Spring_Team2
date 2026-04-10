@@ -4,12 +4,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "DamageReduction", menuName = "ScriptableObjects/Skill/DamageReduction")]
 public class DamageReduction : EquipmentBase
 {
-    [Header("ƒ_ƒ[ƒWŒyŒ¸Œø‰ÊŽžŠÔ")]
+    [Header("ï¿½_ï¿½ï¿½ï¿½[ï¿½Wï¿½yï¿½ï¿½ï¿½ï¿½ï¿½ÊŽï¿½ï¿½ï¿½")]
     [SerializeField] private int duration;
     [SerializeField] private bool isActive;
 
     public bool IsActive => isActive;
-
+    
     public override void Activate(PlayerModel model)
     {
         model.StartCoroutine(ActiveDamageReduce());

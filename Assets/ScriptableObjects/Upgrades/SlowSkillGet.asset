@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 233dca6efcbf642b59407e0952b375ff, type: 3}
   m_Name: SlowSkillGet
   m_EditorClassIdentifier: Assembly-CSharp::NewSkillGetUpgrade
-  name: Slow
+  titleName: "\u65B0\u30B9\u30AD\u30EBGET"
+  infoSentence: "\u76EE\u306E\u524D\u306E\u3066\u304D\u306E\n\u52D5\u304D\u3092\u304A\u305D\u304F\u3059\u308B"
   icon: {fileID: 21300000, guid: b405ef275647b4e2eb2a3f1fba62e1a1, type: 3}
   newSkill: {fileID: 11400000, guid: eabf58a4892996449b8b77f22f1e6f20, type: 2}

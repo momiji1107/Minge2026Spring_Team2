@@ -8,12 +8,10 @@ public class GameManager : MonoBehaviour
     public float gameTimer = 0f;
     
     [SerializeField] private ScoreManager scoreManager;
+    [SerializeField] private AudioManager audioManager;
     
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private TextMeshProUGUI gameOverText;
-    [SerializeField] private AudioSource audioSource;
-    [SerializeField] private AudioClip gameOverClip;
-    [SerializeField] private AudioClip clearClip;
     
     private bool flag = false;
     
@@ -41,7 +39,7 @@ public class GameManager : MonoBehaviour
     {
         GameManagement.GameState = GAMESTATE.GAMEOVER;
         Time.timeScale = 0f;
-        audioSource.PlayOneShot(gameOverClip);
+        StartCoroutine(audioManager.GameOver());
         gameOverPanel.SetActive(true);
         StartCoroutine(DropText());
     }
@@ -61,8 +59,8 @@ public class GameManager : MonoBehaviour
     private void GameClear()
     {
         flag = true;
-        
-        audioSource.PlayOneShot(clearClip);
+
+        StartCoroutine(audioManager.GameClear());
         scoreManager.DisplayScore();
     }
 }

@@ -7,6 +7,7 @@ public class PlayerAttackController : MonoBehaviour
 {
     [SerializeField] private PlayerModel model;
     [SerializeField] private PlayerEquipmentManager equipmentManager;
+    [SerializeField] private AudioManager audioManager;
     [SerializeField] private SelectedPlayer selectedPlayer;
     
     [Header("攻撃方法")]
@@ -52,6 +53,7 @@ public class PlayerAttackController : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && timers[0] >= model.RapidFireSpeed + basicAttack.coolTime)
         {
             BasicAttackAnim?.Invoke();
+            audioManager.Attack(selectedPlayer.PlayerData.AttackClip);
             basicAttack.Activate(model);
             timers[0] = 0f;
         }

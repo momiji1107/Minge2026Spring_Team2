@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d735f67f4ebf49b69ebffd28226f0b0, type: 3}
   m_Name: BasicAttackUpgrade
   m_EditorClassIdentifier: Assembly-CSharp::BasicAttackUpgrade
-  name: BasicAttackZanngeki
+  titleName: "\u65B0\u308F\u3056\u7372\u5F97"
+  infoSentence: "\u3056\u3093\u3052\u304D\u3092\n\u98DB\u3070\u3057\u3066\n\u3053\u3046\u3052\u304D\u3059\u308B"
   icon: {fileID: 21300000, guid: 787a9afbee4154a8996f7c8ed03e084d, type: 3}
   preBasicAttack: {fileID: 11400000, guid: 938335deb2a8441d3984ca66a4ab2024, type: 2}
   newBasicAttack: {fileID: 11400000, guid: 7025a10bfb9404d25adb5ec377fdd382, type: 2}
