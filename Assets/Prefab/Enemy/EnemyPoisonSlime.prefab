@@ -336,7 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyShotSingle
   projectile: {fileID: 5893101884982852981, guid: 72f42a3e583a0034486f7aabf1ef78e4, type: 3}
-  shotRate: 1.5
+  shotRate: 2.5
   direction: {x: -1, y: 0, z: 0}
   shotPosition: {fileID: 8185452703283526685}
   startTime: 0
