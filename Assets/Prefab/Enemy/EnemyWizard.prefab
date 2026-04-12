@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afc9dbb94d9e9243a3478e54a8df3d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyCore
-  maxHp: 5
+  maxHp: 10
   exp: 100
   score: 100
 --- !u!114 &2323057125527778542
