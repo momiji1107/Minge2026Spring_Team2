@@ -8,14 +8,15 @@ public class EnemyShooterView : EnemyBasicView
 
     private float _startAttackLength;
     private float _clipFlameRate;
-    private EnemyShotSingle _shot;
+    private EnemyShotSingleParam _shotParam;
 
     private readonly string _attackClip = "Attack";
     private readonly string _attackSpeed = "AttackSpeed";
     
     protected override void OnAwake()
     {
-        _shot = GetComponent<EnemyShotSingle>();
+        var data = (NormalEnemyData)Core.GetData();
+        _shotParam = data.shotSingle;
 
         foreach (var clip in Animator.runtimeAnimatorController.animationClips)
         {
@@ -29,9 +30,9 @@ public class EnemyShooterView : EnemyBasicView
 
     protected override void PlayAttackAnim()
     {
-        if (ReferenceEquals(Animator, null) || ReferenceEquals(_shot, null)) return;
+        if (ReferenceEquals(Animator, null) || ReferenceEquals(_shotParam, null)) return;
         
-        var speedMultiplier = _startAttackLength / _shot.ShotRate;
+        var speedMultiplier = _startAttackLength / _shotParam.shotRate;
         
         Animator.SetFloat(_attackSpeed, speedMultiplier);
         

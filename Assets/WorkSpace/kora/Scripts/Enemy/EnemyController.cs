@@ -3,144 +3,59 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class EnemyController : MonoBehaviour
 {
-    private List<EnemyBehaviourBase> _behaviours;
-    private EnemyCore _core;
+    [SerializeField] private EnemyData data;
 
-    public Action<bool> OnSetIsRight;
+    [SerializeField] private EnemyCore core;
+    [SerializeField] private GameObject enemy;
     
-    private bool _isStop = false;
-    private bool _isSlow = false;
+    private EnemyCore _core;
+    private EnemyContext _context;
+    
+    public Action<bool> OnSetIsRight;
 
     private float _slowPer;
     
+    public EnemyContext Context => _context;
+    
+    public void Destroy() { Destroy(enemy); }
+    public GameObject Instantiate(GameObject obj, Vector3 pos) { return Instantiate(obj, pos, obj.transform.rotation); }
+    
     void Awake()
     {
-        _behaviours = GetComponents<EnemyBehaviourBase>().ToList();
+        _context = GetComponent<EnemyContext>();
+        
+        if (core == null) _core = GetComponent<EnemyCore>();
+        else
+        {
+            _core = core;
+            _context.SetCoreObject(_core.gameObject);
+        }
 
-        _core = GetComponent<EnemyCore>();
+        if (enemy == null) enemy = gameObject;
 
-        _core.OnDead += DisActiveEnemy;
+        _core.Init(data, this);
+        _context.Init(this, enemy);
     }
 
     void Update()
     {
-        float dt = Time.deltaTime;
-        var isSkip = false;
-        
-        if (_isStop)
-        {
-            isSkip = true;
-        }
-        else if (_isSlow)
-        {
-            dt *= _slowPer;
-        }
-        
-        if (!isSkip)
-        {
-            foreach (var b in _behaviours)
-            {
-                if (!b.enabled) continue;
-                b.Tick(dt);
-            }
-        }
+        _core.Tick();
     }
 
-    public void SetIsRight(bool right)
+    public void OnTriggerEnter2D(Collider2D other)
     {
-        foreach (var b in _behaviours)
-        {
-            b.SetIsRight(right);
-        }
-        OnSetIsRight?.Invoke(right);
-    }
-    
-    public void Slow(float time, float per)
-    {
-        if (per >= 100f || time == 0) return;
-        StartCoroutine(RunSlow(time, per));
-    }
-    
-    public void Stun(float time)
-    {
-        if (time == 0) return;
-        StartCoroutine(RunStun(time));
+        OnTrigger(other);
     }
 
-    public void SpawnMove(float time, Vector3 vector)
+    public void OnTrigger(Collider2D other)
     {
-        //Local座標からworld座標に変換
-        var targetPos = gameObject.transform.position + vector;
-        //Debug.Log(targetPos);
-        
-        StartCoroutine(RunSpawnMove(time, targetPos));
-    }
-    
-    private IEnumerator RunSlow(float time, float per)
-    {
-        //Debug.Log("Slow");
-        _isSlow = true;
-        _slowPer = (100f - per) / 100f;
-        
-        float timer = 0f;
-        while (timer < time)
+        if (other.CompareTag("Player"))
         {
-            timer += Time.deltaTime;
-            yield return null;
+            _core.OnHitPlayer(other);
         }
-        
-        _isSlow = false;
-    }
-    
-    private IEnumerator RunStun(float time)
-    {
-        //Debug.Log("Stun");
-        _isStop = true;
-
-        float timer = 0f;
-        while (timer < time)
-        {
-            timer += Time.deltaTime;
-            yield return null;
-        }
-        
-        _isStop = false;
-    }
-
-    private IEnumerator RunSpawnMove(float time, Vector3 targetPos)
-    {
-        if (time == 0)
-        {
-            transform.position = targetPos;
-        }
-        
-        _isStop = true;
-        
-        var currentPos = transform.position;
-        var direction = (targetPos - currentPos).normalized;
-        float speed = Vector3.Distance(currentPos, targetPos) / time;
-
-        float timer = 0f;
-        while (timer < time)
-        {
-            timer += Time.deltaTime;
-            transform.position += direction * (speed * Time.deltaTime);
-            yield return null;
-        }
-        
-        _isStop = false;
-    }
-
-    private void DisActiveEnemy()
-    {
-        foreach (var b in _behaviours)
-        {
-            b.enabled = false;
-        }
-        
-        this.enabled = false;
     }
 }

@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b92e92685b33bd43bb5a560795e61c8, type: 3}
+  m_Name: Wizard
+  m_EditorClassIdentifier: Assembly-CSharp::NormalEnemyData
+  maxHp: 1
+  exp: 100
+  score: 100
+  isBoss: 0
+  behaviours:
+  - {fileID: 11400000, guid: 5ff32d1c819eeca4cb70abcd7ed8a62c, type: 2}
+  - {fileID: 11400000, guid: e5fc02ad604781340ab7a1b54be99f2b, type: 2}
+  contactEffect:
+    isDamageable: 1
+    isDestroy: 0
+    damage: 1
+  moveRound:
+    speed: 3
+    distance: 5
+    startDistance: 4
+    isMoveRight: 0
+  moveStraight:
+    speed: 5
+    direction: {x: -1, y: 0, z: 0}
+  shotSingle:
+    projectile: {fileID: 5893101884982852981, guid: 4ddd2690e5699934684cd4f7e1287656, type: 3}
+    shotRate: 1.5
+    direction: {x: -1, y: 0, z: 0}
+    startTime: 0
