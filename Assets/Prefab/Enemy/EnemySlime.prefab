@@ -83,10 +83,9 @@ GameObject:
   - component: {fileID: 5939030543876509912}
   - component: {fileID: 3077301644879105312}
   - component: {fileID: 4032770715303872910}
+  - component: {fileID: 531119078910468795}
   - component: {fileID: 1093576919478883642}
-  - component: {fileID: 134141170540080227}
   - component: {fileID: 8458903826754264497}
-  - component: {fileID: -7182098605895108463}
   m_Layer: 3
   m_Name: EnemySlime
   m_TagString: Enemy
@@ -276,6 +275,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d869242d4baa9dd4581342e4138afd99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
+  data: {fileID: 11400000, guid: 9680dfcb786d3f4408754b64d029b913, type: 2}
+--- !u!114 &531119078910468795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8759148217643277841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b81ceb7b14a7c94b8d6e92f647dd34f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyContext
+  damageCollider: {fileID: 8082797589827680314}
+  shotPoint: {fileID: 0}
 --- !u!114 &1093576919478883642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,23 +302,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afc9dbb94d9e9243a3478e54a8df3d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyCore
-  maxHp: 1
-  exp: 100
-  score: 100
---- !u!114 &134141170540080227
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8759148217643277841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b0da43217b6d5f4389bdb5770e70085, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyMoveStraight
-  speed: 1
-  direction: {x: -1, y: 0, z: 0}
 --- !u!114 &8458903826754264497
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,19 +314,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 195e3db3c9cbc9745ae53efbc8d23ba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicView
---- !u!114 &-7182098605895108463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8759148217643277841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a098daac6e55b64597768fb6be7ee47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyContactEffect
-  damageCollider: {fileID: 8082797589827680314}
-  isDamageable: 1
-  isDestroy: 0
-  damage: 1

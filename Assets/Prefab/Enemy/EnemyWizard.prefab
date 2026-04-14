@@ -46,9 +46,8 @@ GameObject:
   - component: {fileID: 2997458172657482792}
   - component: {fileID: 7469697865717266516}
   - component: {fileID: 899587795887832955}
-  - component: {fileID: 2323057125527778542}
+  - component: {fileID: 1879971025856429215}
   - component: {fileID: 1967343272205462698}
-  - component: {fileID: 1031128527879711308}
   m_Layer: 3
   m_Name: EnemyWizard
   m_TagString: Enemy
@@ -239,6 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d869242d4baa9dd4581342e4138afd99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
+  data: {fileID: 11400000, guid: ff7df7baf63d0b548aaa81095879896a, type: 2}
 --- !u!114 &899587795887832955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,10 +251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afc9dbb94d9e9243a3478e54a8df3d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyCore
-  maxHp: 5
-  exp: 100
-  score: 100
---- !u!114 &2323057125527778542
+--- !u!114 &1879971025856429215
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -263,14 +260,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7785345535377445664}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d04c41198430f24c9c7855b2df40df5, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b81ceb7b14a7c94b8d6e92f647dd34f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyShotSingle
-  projectile: {fileID: 5893101884982852981, guid: 4ddd2690e5699934684cd4f7e1287656, type: 3}
-  shotRate: 1.5
-  direction: {x: -1, y: 0, z: 0}
-  shotPosition: {fileID: 1539722480947085157}
-  startTime: 0
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyContext
+  damageCollider: {fileID: 2431734203080842033}
+  shotPoint: {fileID: 1539722480947085157}
 --- !u!114 &1967343272205462698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,22 +278,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyWizardView
   fireFlame: 75
---- !u!114 &1031128527879711308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7785345535377445664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a098daac6e55b64597768fb6be7ee47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyContactEffect
-  damageCollider: {fileID: 2431734203080842033}
-  isDamageable: 1
-  isDestroy: 0
-  damage: 1
 --- !u!1 &7919634318070816630
 GameObject:
   m_ObjectHideFlags: 0
