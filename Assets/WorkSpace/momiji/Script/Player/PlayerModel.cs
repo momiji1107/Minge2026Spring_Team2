@@ -44,6 +44,7 @@ public class PlayerModel : MonoBehaviour
     
     //getter
     public GameObject Player => player;
+    public SelectedPlayer SelectedPlayer => selectedPlayer;
     public int Level => level;
     public int RequireExp => requireExp;
     public int Exp => exp;

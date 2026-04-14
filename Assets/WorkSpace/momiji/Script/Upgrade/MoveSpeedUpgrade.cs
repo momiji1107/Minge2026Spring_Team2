@@ -4,6 +4,13 @@ using UnityEngine;
 public class MoveSpeedUpgrade : UpgradeBase
 {
     [SerializeField,Tooltip("増加する移動速度の値")] private float moveSpeed;
+
+    void OnEnable()
+    {
+        titleName = "いどう速度UP";
+        infoSentence = $"いどう速度が\n{moveSpeed} 上がる";
+    }
+    
     public override bool CanAppear(PlayerEquipmentManager equipmentManager)
     {
         return true;

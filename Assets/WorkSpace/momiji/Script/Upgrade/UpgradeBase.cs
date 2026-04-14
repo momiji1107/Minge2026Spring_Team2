@@ -3,7 +3,8 @@ using UnityEngine.UI;
 
 public abstract class UpgradeBase : ScriptableObject
 {
-    public string name;
+    public string titleName;
+    [Multiline] public string infoSentence;
     public Sprite icon;
     
     //アップグレードに表示できるかどうか

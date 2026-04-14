@@ -320,7 +320,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afc9dbb94d9e9243a3478e54a8df3d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyCore
---- !u!114 &6764722696980204149
+  maxHp: 20
+  exp: 100
+  score: 300
+--- !u!114 &3190029848974126344
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -331,9 +334,12 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4b81ceb7b14a7c94b8d6e92f647dd34f, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyContext
-  damageCollider: {fileID: 1902663831437125397}
-  shotPoint: {fileID: 3106744930323405570}
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyShotSingle
+  projectile: {fileID: 5893101884982852981, guid: f7684563019b6344492fadc738338407, type: 3}
+  shotRate: 3.5
+  direction: {x: -1, y: 0, z: 0}
+  shotPosition: {fileID: 3106744930323405570}
+  startTime: 0
 --- !u!114 &2355560809307077578
 MonoBehaviour:
   m_ObjectHideFlags: 0

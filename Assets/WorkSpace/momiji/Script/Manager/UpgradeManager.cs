@@ -10,12 +10,14 @@ public class UpgradeManager : MonoBehaviour
 {
     [SerializeField] private PlayerEquipmentManager equipmentManager;
     [SerializeField] private PlayerModel model;
+    [SerializeField] private AudioManager audioManager;
     [SerializeField] private List<UpgradeBase> upgrades;
     
     [Header("パネルUI関係")]
     [SerializeField] private GameObject upgradePanel;
     [SerializeField] private RectTransform[] panelRects;
-    [SerializeField] private TextMeshProUGUI[] texts;
+    [SerializeField] private TextMeshProUGUI[] nameTexts;
+    [SerializeField] private TextMeshProUGUI[] infoTexts;
     [SerializeField] private Image[] images;
     private float atractSize = 1.2f; //選択中のパネルの拡大したサイズ
     
@@ -47,7 +49,8 @@ public class UpgradeManager : MonoBehaviour
         //パネルの表示にアップグレードの内容を反映させる
         for (int i = 0; i < displayUpgrades.Count; i++)
         {
-            texts[i].text = displayUpgrades[i].name;
+            nameTexts[i].text = displayUpgrades[i].titleName;
+            infoTexts[i].text = displayUpgrades[i].infoSentence;
             images[i].sprite = displayUpgrades[i].icon;
         }
         
@@ -55,7 +58,7 @@ public class UpgradeManager : MonoBehaviour
         upgradePanel.gameObject.SetActive(true);
         
         //選ばれた３つの選択肢確認用
-        Debug.Log("selection: " + displayUpgrades[0].name + ", " + displayUpgrades[1].name + ", " + displayUpgrades[2].name);
+        Debug.Log("selection: " + displayUpgrades[0].titleName + ", " + displayUpgrades[1].titleName + ", " + displayUpgrades[2].titleName);
     }
     
     //アップグレードを選択し、反映する
@@ -76,16 +79,19 @@ public class UpgradeManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow) && selectNumber < displayUpgrades.Count - 1)
         {
             selectNumber++;
+            audioManager.Select();
         }
 
         if (Input.GetKeyDown(KeyCode.LeftArrow) && selectNumber > 0)
         {
             selectNumber--;
+            audioManager.Select();
         }
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
             SelectUpgrade(selectNumber);
+            audioManager.Confirm();
         }
 
         for (int i = 0; i < panelRects.Length; i++)

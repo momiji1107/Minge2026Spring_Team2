@@ -11,11 +11,12 @@ public class PlayerData : ScriptableObject
     [SerializeField] private float firstRapidFireSpeed;
     [SerializeField] private EquipmentBase basicAttack;
 
-    /*[Header("見た目")] 
+    [Header("見た目")] 
     [SerializeField] private Sprite playerSprite;
-    [SerializeField] private Animator animator;
-    [SerializeField] private string moveAnim;
-    [SerializeField] private string attackAnim;*/
+    [SerializeField] private RuntimeAnimatorController animator;
+    
+    [Header("サウンド")]
+    [SerializeField] private AudioClip attackClip;
     
     //getter
     public int FirstMaxHp => firstMaxHp;
@@ -26,8 +27,8 @@ public class PlayerData : ScriptableObject
 
     public EquipmentBase BasicAttack => basicAttack;
 
-    /*public Sprite PlayerSprite => playerSprite;
-    public Animator Animator => animator;
-    public string MoveAnim => moveAnim;
-    public string AttackAnim => attackAnim;*/
+    public Sprite PlayerSprite => playerSprite;
+    public RuntimeAnimatorController Animator => animator;
+
+    public AudioClip AttackClip => attackClip;
 }

@@ -7,6 +7,7 @@ public class PlayerAttackController : MonoBehaviour
 {
     [SerializeField] private PlayerModel model;
     [SerializeField] private PlayerEquipmentManager equipmentManager;
+    [SerializeField] private AudioManager audioManager;
     [SerializeField] private SelectedPlayer selectedPlayer;
     
     [Header("攻撃方法")]
@@ -27,7 +28,6 @@ public class PlayerAttackController : MonoBehaviour
 
     void Start()
     {
-        Skills = new List<EquipmentBase>();
         timers = new float[equipmentManager.MaxSkillnum + 1];
         
         for(int i = 0; i < timers.Length; i++)
@@ -52,28 +52,29 @@ public class PlayerAttackController : MonoBehaviour
         if (Input.GetKey(KeyCode.Space) && timers[0] >= model.RapidFireSpeed + basicAttack.coolTime)
         {
             BasicAttackAnim?.Invoke();
+            audioManager.Attack(selectedPlayer.PlayerData.AttackClip);
             basicAttack.Activate(model);
             timers[0] = 0f;
         }
 
         //Xキーを押すとスキル１を使用する
-        if (Input.GetKeyDown(KeyCode.X) && timers[1] >= model.RapidFireSpeed + Skills[0]?.coolTime)
+        if (Input.GetKeyDown(KeyCode.X) && timers[1] >= model.RapidFireSpeed + skills[0]?.coolTime)
         {
-            Skills[0]?.Activate(model);
+            skills[0]?.Activate(model);
             timers[1] = 0f;
         }
 
         //Cキーを押すとスキル２を使用する
-        if (Input.GetKeyDown(KeyCode.C) && timers[2] >= model.RapidFireSpeed + Skills[1]?.coolTime)
+        if (Input.GetKeyDown(KeyCode.C) && timers[2] >= model.RapidFireSpeed + skills[1]?.coolTime)
         {
-            Skills[1]?.Activate(model);
+            skills[1]?.Activate(model);
             timers[2] = 0f;
         }
 
         //Vキーを押すとスキル３を使用する
-        if (Input.GetKeyDown(KeyCode.V) && timers[3] >= model.RapidFireSpeed + Skills[2]?.coolTime)
+        if (Input.GetKeyDown(KeyCode.V) && timers[3] >= model.RapidFireSpeed + skills[2]?.coolTime)
         {
-            Skills[2]?.Activate(model);
+            skills[2]?.Activate(model);
             timers[3] = 0f;
         }
 
@@ -93,7 +94,7 @@ public class PlayerAttackController : MonoBehaviour
     //クールタイムをSliderに表示させる
     private void DisplayCoolTimeBar()
     {
-        for (int i = 0; i < Skills.Count + 1; i++)
+        for (int i = 0; i < skills.Count + 1; i++)
         {
             if (i == 0)
             {
@@ -102,7 +103,7 @@ public class PlayerAttackController : MonoBehaviour
             }
             else
             {
-                coolTimeBar[i].value = 1.0f - (timers[i] / (model.RapidFireSpeed + Skills[i-1].coolTime));
+                coolTimeBar[i].value = 1.0f - (timers[i] / (model.RapidFireSpeed + skills[i-1].coolTime));
                 coolTimeBar[i].gameObject.SetActive(coolTimeBar[i].value > 0);
             }
         }
