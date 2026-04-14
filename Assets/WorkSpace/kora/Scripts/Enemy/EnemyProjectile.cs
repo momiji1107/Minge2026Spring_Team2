@@ -21,11 +21,6 @@ public class EnemyProjectile : MonoBehaviour
     private List<GameObject> _bounceLanes = new List<GameObject>();
     
     private readonly string _playerTag = "Player";
-
-    
-    private void Awake()
-    {
-    }
     
     /// <summary>
     /// 発射方向を受け取り、弾が動き出す
@@ -60,7 +55,6 @@ public class EnemyProjectile : MonoBehaviour
             timer += Time.deltaTime;
             yield return null;
         }
-        
         
         Destroy(gameObject);
     }
@@ -97,9 +91,7 @@ public class EnemyProjectile : MonoBehaviour
             }
         }
     }
-
     
-
     private void OnHitPlayer()
     {
         //Debug.Log(damage + "Damageを与える");

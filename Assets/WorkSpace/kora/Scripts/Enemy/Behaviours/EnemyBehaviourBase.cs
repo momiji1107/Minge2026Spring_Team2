@@ -4,11 +4,43 @@ using UnityEngine;
 /// <summary>
 /// Enemyの特性を追加するときは、基本的にこれを継承
 /// </summary>
-public abstract class EnemyBehaviourBase : MonoBehaviour
+[System.Serializable]
+public abstract class EnemyBehaviourBase
 {
     protected bool IsRight;
     protected Vector3 Direction = Vector3.left;
+
+    protected NormalEnemyData Data;
+    protected EnemyCore Core;
+    protected EnemyContext Context;
+
+    public void Init(NormalEnemyData data, EnemyCore core, EnemyContext context)
+    {
+        Data = data;
+        Core = core;
+        Context = context;
+        
+        OnInit();
+    }
+
+    public abstract void OnInit();
     
+    /// <summary>
+    /// EnemyControllerで制御しているUpdate処理
+    /// </summary>
+    public virtual void Tick(float deltaTime){}
+    
+    public virtual void OnHitPlayer(Collider2D other){}
+    
+    public void SetIsRight(bool isRight)
+    {
+        this.IsRight = isRight;
+        Direction = InitDirection(Direction);
+        OnSetIsRight();
+    }
+
+    protected virtual void OnSetIsRight() {}
+
     protected Vector3 InitDirection(Vector3 dir)
     {
         dir.Normalize();
@@ -19,36 +51,4 @@ public abstract class EnemyBehaviourBase : MonoBehaviour
 
         return dir;
     }
-    
-    /// <summary>
-    /// EnemyControllerで制御しているUpdate処理
-    /// </summary>
-    public virtual void Tick(float deltaTime){}
-    
-    public void SetIsRight(bool isRight)
-    {
-        this.IsRight = isRight;
-        Direction = InitDirection(Direction);
-        OnSetIsRight();
-    }
-
-    protected virtual void OnSetIsRight() {}
-}
-
-/// <summary>
-/// Attack処理のBehaviourはこれを継承
-/// </summary>
-public abstract class EnemyAttackBehaviourBase : EnemyBehaviourBase
-{
-    public Action ActiveAttackAnim;
-    public Action DisActiveAttackAnim;
-}
-
-/// <summary>
-/// Move処理のBehaviourはこれを継承
-/// </summary>
-public abstract class EnemyMoveBehaviourBase : EnemyBehaviourBase
-{
-    public Action ActiveMoveAnim;
-    public Action DisActiveMoveAnim;
 }

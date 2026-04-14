@@ -3,16 +3,19 @@ using UnityEngine;
 public class TestSetIsRight : MonoBehaviour
 {
     [SerializeField] private GameObject enemy;
+
+    [SerializeField] private bool isFunc1;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Invoke(nameof(SetIsRight), 3f);
+        if (isFunc1) Invoke(nameof(Func1), 3f);
     }
 
-    private void SetIsRight()
+    private void Func1()
     {
-        enemy.GetComponent<EnemyCore>().SetIsRight(true);
+        var core = enemy.GetComponent<EnemyCore>();
+        core.SetIsRight(true);
     }
     
     // Update is called once per frame

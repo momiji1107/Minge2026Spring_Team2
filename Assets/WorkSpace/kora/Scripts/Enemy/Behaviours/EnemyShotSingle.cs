@@ -3,17 +3,27 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class EnemyShotSingle : EnemyAttackBehaviourBase
+[Serializable]
+public class EnemyShotSingleParam
 {
     [Header("弾の設定")]
-    [Header("Prefab")][SerializeField] private GameObject projectile;
+    [Header("Prefab")]public GameObject projectile;
     
-    [Header("発射間隔")][SerializeField] private float shotRate = 1.5f;
-    [Header("発射方向")][SerializeField] private Vector3 direction = Vector3.left;
-    [Header("発射位置")] [SerializeField] private GameObject shotPosition;
-    [Header("最初の詠唱開始までの時間")][SerializeField] private float startTime = 0f;
+    [Header("発射間隔")]public float shotRate = 1.5f;
+    [Header("発射方向")]public Vector3 direction = Vector3.left;
+    [Header("最初の詠唱開始までの時間")]public float startTime = 0f;
+}
 
-    public float ShotRate => shotRate;
+public class EnemyShotSingle : EnemyBehaviourBase
+{
+    private GameObject _projectile;
+    
+    private float _shotRate = 1.5f;
+    private Vector3 _direction = Vector3.left;
+    private GameObject _shotPoint;
+    private float _startTime = 0f;
+
+    public float ShotRate => _shotRate;
 
     private Vector3 _shotPos;
     private float _waitTimer = 0f;
@@ -22,18 +32,26 @@ public class EnemyShotSingle : EnemyAttackBehaviourBase
     private bool _isFirst = false;
     private bool _isNullShotPosition = false;
     
-    void Awake()
+    public override void OnInit()
     {
-        startTime += shotRate;
-        Direction = direction;
+        //Debug.Log("Init shot: " + Data.shotSingle.shotRate);
+        var param = Data.shotSingle;
+        _projectile = param.projectile;
+        _shotRate = param.shotRate;
+        _direction = param.direction;
+        _startTime = param.startTime;
+        _shotPoint = Context.shotPoint;
         
-        if (shotPosition == null) _isNullShotPosition = true;
+        _startTime += _shotRate;
+        Direction = _direction;
+        
+        if (_shotPoint == null) _isNullShotPosition = true;
     }
     
     // Update
     public override void Tick(float dt)
     {
-        if (_waitTimer < startTime) _waitTimer += dt;
+        if (_waitTimer < _startTime) _waitTimer += dt;
         else Shooter(dt);
     }
     
@@ -42,20 +60,19 @@ public class EnemyShotSingle : EnemyAttackBehaviourBase
         if (_isFirst == false)
         {
             _isFirst = true;
-            ActiveAttackAnim.Invoke();
+            Core.InvokeAttackAnim();
         }
         
         _rateTimer += dt;
-
         
-        
+        //shotPointがnullなら、enemyの中心から弾を生成する
         if (!_isNullShotPosition)
         {
-            _shotPos = shotPosition.transform.position;
+            _shotPos = _shotPoint.transform.position;
         }
-        else _shotPos = transform.position;
+        else _shotPos = Context.Transform.position;
 
-        if (_rateTimer >= shotRate)
+        if (_rateTimer >= _shotRate)
         {
             _rateTimer = 0f;
             Shot();
@@ -64,9 +81,9 @@ public class EnemyShotSingle : EnemyAttackBehaviourBase
 
     private void Shot()
     {
-        if (projectile == null) return;
+        if (_projectile == null) return;
      
-        var obj = Instantiate(projectile, _shotPos, Quaternion.identity);
+        var obj = Context.Instantiate(_projectile, _shotPos);
         var proj = obj.GetComponent<EnemyProjectile>();
         proj.Init(Direction);
     }

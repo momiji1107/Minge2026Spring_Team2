@@ -1,21 +1,37 @@
+using System;
 using UnityEngine;
 
-public class EnemyMoveRound : EnemyMoveBehaviourBase
+[Serializable]
+public class EnemyMoveRoundParam
 {
-    [SerializeField] private float speed = 3f;
-    [SerializeField] private float distance = 5f;
-    [SerializeField] private float startDistance = 4f;
-    [SerializeField] private bool isMoveRight = false;
+    public float speed = 3f;
+    public float distance = 5f;
+    public float startDistance = 4f;
+    public bool isMoveRight = false;
+}
+
+public class EnemyMoveRound : EnemyBehaviourBase
+{
+    private float _speed = 3f;
+    private float _distance = 5f;
+    private float _startDistance = 4f;
+    private bool _isMoveRight = false;
 
     private float _currentDistance;
     private Vector3 _direction;
     
-    void Start()
+    public override void OnInit()
     {
-        if (startDistance > distance) startDistance = distance;
+        var param = Data.moveRound;
+        _speed = param.speed;
+        _distance = param.distance;
+        _startDistance = param.startDistance;
+        _isMoveRight = param.isMoveRight;
         
-        _currentDistance = startDistance;
-        _direction = isMoveRight ? Vector3.right : Vector3.left;
+        if (_startDistance > _distance) _startDistance = _distance;
+        
+        _currentDistance = _startDistance;
+        _direction = _isMoveRight ? Vector3.right : Vector3.left;
         
         Direction = _direction;
     }
@@ -28,8 +44,8 @@ public class EnemyMoveRound : EnemyMoveBehaviourBase
 
     private void MoveRound(float dt)
     {
-        var d = _direction * (speed * dt);
-        transform.position += d;
+        var d = _direction * (_speed * dt);
+        Context.Move(d);
         _currentDistance += d.x;
         
         if (_currentDistance < 0f)
@@ -37,9 +53,9 @@ public class EnemyMoveRound : EnemyMoveBehaviourBase
             _currentDistance = 0f;
             _direction.x *= -1;
         }
-        else if (_currentDistance > distance)
+        else if (_currentDistance > _distance)
         {
-            _currentDistance = distance;
+            _currentDistance = _distance;
             _direction.x *= -1;
         }
     }
