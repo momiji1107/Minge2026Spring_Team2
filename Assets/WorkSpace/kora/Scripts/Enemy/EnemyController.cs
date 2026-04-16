@@ -24,7 +24,7 @@ public class EnemyController : MonoBehaviour
     public void Destroy() { Destroy(enemy); }
     public GameObject Instantiate(GameObject obj, Vector3 pos) { return Instantiate(obj, pos, obj.transform.rotation); }
     
-    void Awake()
+    void Start()
     {
         _context = GetComponent<EnemyContext>();
         
