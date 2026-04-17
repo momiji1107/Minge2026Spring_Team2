@@ -29,7 +29,7 @@ public class StatusPanelSetting : MonoBehaviour
         }
         basicAttackText.text = playerData.BasicAttack.name;
         attackPowerBar.fillAmount = (float)playerData.FirstAttack / FirstAttackLimit;
-        rapidFireSpeedBar.fillAmount = playerData.FirstRapidFireSpeed / FirstRapidFireSpeedLimit;
+        rapidFireSpeedBar.fillAmount = 1 - (playerData.FirstRapidFireSpeed / FirstRapidFireSpeedLimit);
         moveSpeedBar.fillAmount = playerData.FirstMoveSpeed / FirstMoveSpeedLimit;
     }
     
