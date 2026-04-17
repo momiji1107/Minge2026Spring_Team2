@@ -1,58 +1,49 @@
+using System;
 using UnityEngine;
+
+[Serializable]
+public class EnemyContactEfectParam
+{
+    public bool isDamageable = true;
+    public bool isDestroy = false;
+    public int damage = 1;
+}
 
 public class EnemyContactEffect : EnemyBehaviourBase
 {
-    [SerializeField] private Collider2D damageCollider;
+    private Collider2D _damageCollider;
     
-    [SerializeField] private bool isDamageable = true;
-    [SerializeField] private bool isDestroy = false;
-    [SerializeField] private int damage = 1;
+    private bool _isDamageable = true;
+    private bool _isDestroy = false;
+    private int _damage = 1;
     
-    readonly string PlayerTag = "Player";
-    private EnemyCore _core;
-    
-    private bool _isDead = false;
+    //readonly string PlayerTag = "Player";
 
-    void Awake()
+    public override void OnInit()
     {
-        if (!gameObject.TryGetComponent<EnemyCore>(out _core))
-        {
-            Debug.Log("Not Found EnemyCore");
-        }
-
-        _core.OnDead += DisActiveHit;
+        var param = Data.contactEffect;
+        _isDamageable = param.isDamageable;
+        _isDestroy = param.isDestroy;
+        _damage = param.damage;
+        _damageCollider = Context.damageCollider;
     }
     
-    private void OnTriggerEnter2D(Collider2D other)
+    public override void OnHitPlayer(Collider2D other)
     {
-        //Debug.Log("OnTriggerEnter "  + other.name);
-        if (!damageCollider.IsTouching(other)) return;
+        if (!_damageCollider.IsTouching(other)) return;
         
-        if (other.CompareTag(PlayerTag))
-        {
-            OnHitPlayer(other);
-        }
-    }
-    
-    void OnHitPlayer(Collider2D other)
-    {
-        if (_isDead) return;
+        if (Core.GetIsDead()) return;
         
-        if (isDamageable)
+        if (_isDamageable)
         {
-            Debug.Log("EnemyContactEffect: " + other.name +"に" + damage + "ダメージを与える");
+            Debug.Log("EnemyContactEffect: " + other.name +"に" + _damage + "ダメージを与える");
             // playerにダメージを与える処理を追記
-            other.gameObject.GetComponentInChildren<PlayerModel>().Damage(damage);
+            other.gameObject.GetComponentInChildren<PlayerModel>().Damage(_damage);
         }
 
-        if (isDestroy)
+        if (_isDestroy)
         {
-            Destroy(gameObject);
+            Context.Destroy();
         }
-    }
-
-    private void DisActiveHit()
-    {
-        _isDead = true;
     }
 }

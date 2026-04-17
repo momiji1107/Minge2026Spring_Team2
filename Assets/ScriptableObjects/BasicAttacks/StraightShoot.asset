@@ -16,3 +16,4 @@ MonoBehaviour:
   level: 1
   coolTime: 0
   bulletPrefab: {fileID: 8325350445536012867, guid: 8233ec1601fc049b4ba1fd11afe0fe36, type: 3}
+  flyEndless: 1

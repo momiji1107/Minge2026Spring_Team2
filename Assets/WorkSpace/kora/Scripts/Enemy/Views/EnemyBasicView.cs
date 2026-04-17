@@ -10,11 +10,9 @@ public interface IEnemyView
 public class EnemyBasicView : MonoBehaviour, IEnemyView
 {
     protected Animator Animator = null;
-
+    
     protected EnemyCore Core;
     protected EnemyController Controller;
-    protected EnemyAttackBehaviourBase Attack;
-    protected EnemyMoveBehaviourBase Move;
     
     private bool _isDead = false;
     
@@ -34,14 +32,15 @@ public class EnemyBasicView : MonoBehaviour, IEnemyView
 
         Core = GetComponent<EnemyCore>();
         Controller = GetComponent<EnemyController>();
-        Attack = GetComponent<EnemyAttackBehaviourBase>();
-        Move = GetComponent<EnemyMoveBehaviourBase>();
 
         if (Controller != null) Controller.OnSetIsRight += OnSetIsRight;
-        
-        if (Core != null) Core.OnDead += PlayDeadAnim;
-        if (Attack != null) Attack.ActiveAttackAnim += PlayAttackAnim;
-        if (Move != null) Move.ActiveMoveAnim += PlayMoveAnim;
+
+        if (Core != null)
+        {
+            Core.OnDead += PlayDeadAnim;
+            Core.OnAttack += PlayAttackAnim;
+            Core.OnMove += PlayMoveAnim;
+        }
         
         OnAwake();
     }
@@ -77,7 +76,11 @@ public class EnemyBasicView : MonoBehaviour, IEnemyView
 
     protected virtual void PlayDeadAnim()
     {
-        if (Animator == null) return;
+        if (Animator == null)
+        {
+            Core.ActiveDestroy();
+            return;
+        }
         Animator.SetTrigger(AnimParam.OnDead);
         
         _isDead = true;
@@ -85,6 +88,7 @@ public class EnemyBasicView : MonoBehaviour, IEnemyView
 
     protected virtual void OnSetIsRight(bool isRight)
     {
+        Debug.Log(isRight);
         if (isRight)
         {
             gameObject.transform.Rotate(0,180,0);

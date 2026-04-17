@@ -2210,12 +2210,12 @@ PrefabInstance:
       objectReference: {fileID: 1722399496}
     - target: {fileID: 911620504892808639, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: skills.Array.size
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 911620504892808639, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: 'skills.Array.data[0]'
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: bc81978c905cd7e4b9edf05e44c508a1, type: 2}
     - target: {fileID: 911620504892808639, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: coolTimeBar.Array.size
       value: 4
