@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private TextMeshProUGUI gameOverText;
     
-    private bool flag = false;
+    private bool flag = false; //ゲームをクリアしたかどうか
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
