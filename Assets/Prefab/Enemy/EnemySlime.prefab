@@ -290,8 +290,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b81ceb7b14a7c94b8d6e92f647dd34f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyCore
-  damageCollider: {fileID: 7520136305236063426}
+  damageCollider: {fileID: 8082797589827680314}
   shotPoint: {fileID: 8759148217643277841}
+  sr: {fileID: 0}
 --- !u!114 &8458903826754264497
 MonoBehaviour:
   m_ObjectHideFlags: 0
