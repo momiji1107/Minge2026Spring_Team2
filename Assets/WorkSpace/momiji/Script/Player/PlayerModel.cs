@@ -15,7 +15,6 @@ public class PlayerModel : MonoBehaviour
     [SerializeField] private int level; //レベル
     [SerializeField] private int requireExp; //レベルアップに必要な経験値
     [SerializeField] private int exp; //経験値
-    [NonSerialized] public int HPLIMIT = 10; //HPの最大値制限
     [SerializeField] private int maxHp; //現在の体力の最大値
     [SerializeField] private int hp; //現在の体力
     [SerializeField] private int attack; //攻撃力
@@ -26,6 +25,13 @@ public class PlayerModel : MonoBehaviour
     [Header("初期ステータス")]
     [SerializeField] private int firstLevel = 1;
     [SerializeField] private int firstExp = 0;
+    
+    [Header("ステータス上限")]
+    [NonSerialized] public static readonly int HpLimit = 10; //HPの上限
+    [NonSerialized] public static readonly int AttackLimit = 100; //攻撃力の上限
+    [NonSerialized] public static readonly float MoveSpeedLimit = 10.0f; //移動速度の上限
+    [NonSerialized] public static readonly float ShootSpeedLimit = 10.0f; //弾速の上限
+    [NonSerialized] public static readonly float RapidFireSpeedLimit = 10.0f; //連射速度の上限
     
     [Header("見た目")]
     [SerializeField] private SpriteRenderer sr; //キャラ画像のSpriteRenderer

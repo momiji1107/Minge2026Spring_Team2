@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35290ad2a86fc4495a0abbfe731a73e8, type: 3}
   m_Name: StraightShoot 1
   m_EditorClassIdentifier: Assembly-CSharp::StraightShoot
-  name: Zanngeki
+  name: Slash
   level: 1
   coolTime: 0
   bulletPrefab: {fileID: 4492134659843027878, guid: 3d5bb0e0287b24b29981947327293768, type: 3}
