@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2cd6b05021054893b47b573be23fd8a, type: 3}
   m_Name: ZangekiAttack
   m_EditorClassIdentifier: Assembly-CSharp::ZangekiAttack
-  name: ZangekiAttack
+  name: "\u3056\u3093\u3052\u304D"
   level: 0
   coolTime: 0
   zangekiPrefab: {fileID: 4492134659843027878, guid: 3d5bb0e0287b24b29981947327293768, type: 3}

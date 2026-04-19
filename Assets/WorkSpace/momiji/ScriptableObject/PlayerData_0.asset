@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18e34a40b3ecf41718e138122fcf4a98, type: 3}
   m_Name: PlayerData_0
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
-  firstMaxHp: 5
+  firstMaxHp: 4
   firstAttack: 15
   firstMoveSpeed: 5
   firstShootSpeed: 5

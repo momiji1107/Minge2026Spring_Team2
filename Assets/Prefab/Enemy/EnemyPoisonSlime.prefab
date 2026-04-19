@@ -308,8 +308,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
   data: {fileID: 11400000, guid: 052efd00a69432f42b0ea7f20f3f9899, type: 2}
-  core: {fileID: 0}
-  enemy: {fileID: 0}
+  core: {fileID: 1093576919478883642}
+  enemy: {fileID: 8759148217643277841}
 --- !u!114 &1093576919478883642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,6 +347,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b81ceb7b14a7c94b8d6e92f647dd34f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyShotSingle
-  damageCollider: {fileID: 8150685975065029820}
-  shotPoint: {fileID: 0}
-  sr: {fileID: 0}
+  damageCollider: {fileID: 7710772669456489449}
+  shotPoint: {fileID: 8759148217643277841}

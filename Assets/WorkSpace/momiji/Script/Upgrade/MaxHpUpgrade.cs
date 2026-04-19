@@ -14,7 +14,7 @@ public class MaxHpUpgrade : UpgradeBase
 
     public override bool CanAppear(PlayerEquipmentManager equipmentManager)
     {
-        if (equipmentManager.Model.MaxHp < equipmentManager.Model.HPLIMIT) return true;
+        if (equipmentManager.Model.MaxHp < PlayerModel.HpLimit) return true;
         return false;
     }
 

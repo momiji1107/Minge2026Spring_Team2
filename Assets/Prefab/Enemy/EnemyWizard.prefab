@@ -46,8 +46,8 @@ GameObject:
   - component: {fileID: 2997458172657482792}
   - component: {fileID: 7469697865717266516}
   - component: {fileID: 899587795887832955}
-  - component: {fileID: 1879971025856429215}
   - component: {fileID: 1967343272205462698}
+  - component: {fileID: 2323057125527778542}
   m_Layer: 3
   m_Name: EnemyWizard
   m_TagString: Enemy
@@ -239,6 +239,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
   data: {fileID: 11400000, guid: ff7df7baf63d0b548aaa81095879896a, type: 2}
+  core: {fileID: 899587795887832955}
+  enemy: {fileID: 7785345535377445664}
 --- !u!114 &899587795887832955
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,9 +253,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1afc9dbb94d9e9243a3478e54a8df3d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyCore
-  maxHp: 10
-  exp: 100
-  score: 100
+--- !u!114 &1967343272205462698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7785345535377445664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cafcf3c0321b6148ba26044a60a17b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyWizardView
+  fireFlame: 75
 --- !u!114 &2323057125527778542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -268,19 +280,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyContext
   damageCollider: {fileID: 2431734203080842033}
   shotPoint: {fileID: 1539722480947085157}
---- !u!114 &1967343272205462698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7785345535377445664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cafcf3c0321b6148ba26044a60a17b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyWizardView
-  fireFlame: 75
 --- !u!1 &7919634318070816630
 GameObject:
   m_ObjectHideFlags: 0
