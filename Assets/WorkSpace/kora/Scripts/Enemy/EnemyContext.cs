@@ -23,6 +23,7 @@ public class EnemyContext : MonoBehaviour
     //Getter
     public GameObject GameObject => _gameObject;
     public Transform Transform => _gameObject.transform;
+    public Transform CoreTransform => _coreObject.transform;
 
     public void Move(Vector3 delta)
     {
@@ -44,6 +45,7 @@ public class EnemyContext : MonoBehaviour
     public void SetCorePosition(Vector3 position)
     {
         if (_coreObject == null) return;
+        Debug.Log("Position: " + position);
         _coreObject.transform.position = position;
     }
     
