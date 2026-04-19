@@ -109,6 +109,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyController
   data: {fileID: 0}
+  core: {fileID: 0}
+  enemy: {fileID: 0}
 --- !u!114 &5635370222295113431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,8 +135,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b81ceb7b14a7c94b8d6e92f647dd34f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyContext
-  damageCollider: {fileID: 0}
+  damageCollider: {fileID: 3071694540275310082}
   shotPoint: {fileID: 0}
+  sr: {fileID: 0}
 --- !u!61 &3071694540275310082
 BoxCollider2D:
   m_ObjectHideFlags: 0

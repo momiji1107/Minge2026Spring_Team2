@@ -70,6 +70,12 @@ public class EnemyCore : MonoBehaviour, IEnemy
     public void TakeDamage(int damage)
     {
         _hp -= damage;
+        
+        //点滅
+        if (_controller.Context.sr != null)
+        {
+            StartCoroutine(Common.BlinkColor(_controller.Context.sr, _data.interval, _data.time));
+        }
         //Debug.Log("TakeDamage: " + damage);
         
         if (_hp <= 0 && !_isDead)

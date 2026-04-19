@@ -6,7 +6,8 @@ using UnityEngine;
 public enum EnemyProjectileType
 {
     Straight,
-    Bounce
+    Bounce,
+    Rain
 }
 
 public class EnemyProjectile : MonoBehaviour

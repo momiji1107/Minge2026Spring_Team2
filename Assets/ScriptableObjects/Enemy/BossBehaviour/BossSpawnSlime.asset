@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a2eaef771264374a9be8714df19be0a, type: 3}
+  m_Name: BossSpawnSlime
+  m_EditorClassIdentifier: Assembly-CSharp::BossSpawnSlime
+  slimePrefab: {fileID: 8759148217643277841, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
+  interval: 15
+  startTime: 3
+  spawnLanes: 00000000010000000200000004000000
+  upToLane: 1

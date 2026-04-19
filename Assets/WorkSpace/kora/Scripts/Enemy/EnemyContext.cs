@@ -4,6 +4,7 @@ public class EnemyContext : MonoBehaviour
 {
     [Header("接触判定")][SerializeField] public Collider2D damageCollider;
     [Header("発射位置")][SerializeField] public GameObject shotPoint;
+    [Header("ダメージ時に点滅するsprite")] public SpriteRenderer sr;
     
     private EnemyController _controller;
     private GameObject _gameObject;
@@ -23,6 +24,7 @@ public class EnemyContext : MonoBehaviour
     //Getter
     public GameObject GameObject => _gameObject;
     public Transform Transform => _gameObject.transform;
+    public float DeltaTime => Time.deltaTime;
     public Transform CoreTransform => _coreObject.transform;
 
     public void Move(Vector3 delta)

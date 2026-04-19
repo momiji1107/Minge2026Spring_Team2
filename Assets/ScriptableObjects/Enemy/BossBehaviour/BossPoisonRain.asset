@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba5c65e5f080d29419488554b12efc84, type: 3}
+  m_Name: BossPoisonRain
+  m_EditorClassIdentifier: Assembly-CSharp::BossPoisonRain
+  prefab: {fileID: 5893101884982852981, guid: 72f42a3e583a0034486f7aabf1ef78e4, type: 3}
+  rainInterval: 5
+  waveInterval: 0.5
+  startTime: 2
+  upToLane: 10
+  rainWaves:
+  - pointPercents:
+    - 10
+    - 30
+    - 50
+    - 80

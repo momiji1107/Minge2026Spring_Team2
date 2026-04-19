@@ -16,11 +16,13 @@ MonoBehaviour:
   exp: 100
   score: 100
   isBoss: 1
+  interval: 0.1
+  time: 1
   phases:
   - hpPercent: 100
     behaviours:
-    - {fileID: 11400000, guid: 66a9650a13b16624383cd61e0c2aec50, type: 2}
     - {fileID: 11400000, guid: 5d6cdd484a1bb5e49ba128ea0e66c447, type: 2}
+    - {fileID: 11400000, guid: e6971d58ac5698f409dce74af47737f6, type: 2}
   - hpPercent: 50
     behaviours:
     - {fileID: 11400000, guid: e03cafc3dc959754aa032458e55f196b, type: 2}
