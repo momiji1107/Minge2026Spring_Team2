@@ -3,6 +3,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BossMoveCoreOnce", menuName = "ScriptableObjects/Enemy/BossBehaviour/BossMoveCoreOnce")]
 public class BossMoveCoreOnce : BossBehaviourBaseSO
 {
+    [SerializeField] private int laneIndex = 0;
+    
     private bool _isFire = false;
 
     protected override void OnInit()
@@ -14,8 +16,8 @@ public class BossMoveCoreOnce : BossBehaviourBaseSO
     {
         if (_isFire) return;
         
-        var obj = SceneContext.Instance.coreMovePoint;
-        var y = obj.position.y;
+        var obj = SceneContext.Instance.lanes[laneIndex];
+        var y = obj.transform.position.y;
         
         var pos = Context.Transform.position;
         pos.y = y;

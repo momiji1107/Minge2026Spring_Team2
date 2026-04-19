@@ -6,7 +6,6 @@ public class SceneContext : MonoBehaviour
 {
     [SerializeField] public List<GameObject> bounceLanes;
     [SerializeField] public List<GameObject> lanes;
-    [SerializeField] public Transform coreMovePoint;
 
     public static SceneContext Instance = null;
 
