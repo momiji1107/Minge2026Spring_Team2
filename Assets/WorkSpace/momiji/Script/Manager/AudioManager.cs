@@ -31,9 +31,7 @@ public class AudioManager : MonoBehaviour
         bgmAudioSource.Stop(); //BGMを止める
         bgmAudioSource.loop = false;
         seAudioSource.PlayOneShot(gameOverClip); //ゲームオーバー効果音
-        Debug.Log("gameover SE");
         yield return new WaitForSecondsRealtime(0.5f);
-        Debug.Log("gameover BGM");
         bgmAudioSource.clip = gameOverBGMClip; //ゲームオーバーBGM
         bgmAudioSource.Play();
     }

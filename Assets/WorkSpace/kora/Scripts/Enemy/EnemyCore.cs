@@ -62,7 +62,10 @@ public class EnemyCore : MonoBehaviour, IEnemy
     /// <summary>
     /// vector(Local座標)に向かってtime秒で移動する
     /// </summary>
-    public void SpawnMove(float time, Vector3 vector) {_statusManager.SpawnMove(time, vector);}
+    public void SpawnMove(float time, Vector3 vector) {
+        if(_statusManager == null) Debug.Log("_statusManager == null:SpawnMove");
+        _statusManager.SpawnMove(time, vector);
+    }
 
     /// <summary>
     ///  ダメージを受ける

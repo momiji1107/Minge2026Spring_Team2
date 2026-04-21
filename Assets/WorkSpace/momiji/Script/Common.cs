@@ -11,6 +11,7 @@ public static class Tags
 
 public class Common : MonoBehaviour
 {
+    public static readonly float OneFrameTime = 1f/60;
     public static IEnumerator DelayCall(Action action, float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -25,7 +26,6 @@ public class Common : MonoBehaviour
         float timer = 0;
         while (timer < time)
         {
-            Debug.Log("Change color");
             sr.color = sr.color == white? red : white;
             timer += interval;
             yield return new WaitForSeconds(interval);

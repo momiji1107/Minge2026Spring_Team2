@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private TextMeshProUGUI gameOverText;
     
-    private bool flag = false; //ゲームをクリアしたかどうか
+    private bool isClear = false; //ゲームをクリアしたかどうか
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -31,35 +31,40 @@ public class GameManager : MonoBehaviour
 
         if (gameTimer >= clearTime)
         {
-            if(!flag) GameClear();
+            if(!isClear) GameClear();
         }
     }
 
+    //ゲームオーバー
     public void GameOver()
     {
         GameManagement.GameState = GAMESTATE.GAMEOVER;
-        Time.timeScale = 0f;
         StartCoroutine(audioManager.GameOver());
         gameOverPanel.SetActive(true);
+        scoreManager.DisplayScore();
         StartCoroutine(DropText());
     }
 
+    //ゲームオーバーテキストを表示するアニメーション
     private IEnumerator DropText()
     {
-        var wait = new WaitForSeconds(0.3f);
-        Vector2 pos = gameOverText.gameObject.transform.position;
-        while (pos.y > 0)
+        var wait = new WaitForSecondsRealtime(Common.OneFrameTime);
+        Vector2 pos = gameOverText.GetComponent<RectTransform>().anchoredPosition;
+        while (pos.y > 400f)
         {
-            pos.y -= 0.1f;
-            gameOverText.gameObject.transform.position = pos;
+            Debug.Log("Panel move");
+            pos.y -= 1.0f;
+            gameOverText.GetComponent<RectTransform>().anchoredPosition = pos;
             yield return wait;
         }
     }
 
     private void GameClear()
     {
-        flag = true;
+        GameManagement.GameState = GAMESTATE.CLEAR;
+        isClear = true;
 
+        //音を鳴らしてスコアを表示する
         StartCoroutine(audioManager.GameClear());
         scoreManager.DisplayScore();
     }
