@@ -18,6 +18,10 @@ public class ScoreManager : MonoBehaviour
     
     private int score = 0;
     private int killCount = 0;
+    
+    [Header("スコアパネルを表示する座標")]
+    [SerializeField] private Vector3 clearScorePos = new  Vector3(0f, 85f, 0f);
+    [SerializeField] private Vector3 gameOverScorePos = new  Vector3(0f, -65f, 0f);
 
     private void Update()
     {
@@ -44,13 +48,16 @@ public class ScoreManager : MonoBehaviour
     //スコア画面を表示する
     public void DisplayScore()
     {
-        GameManagement.GameState = GAMESTATE.CLEAR;
         Time.timeScale = 0f;
         
         //スコアをテキストに反映
         killCountText.text = "Kill Count     " + killCount;
         scoreText.text = "Score     " + score;
         clearTimeText.text = "Clear Time     " + gameManager.gameTimer;
+        
+        //スコアパネルの座標を設定する
+        if(GameManagement.GameState == GAMESTATE.GAMEOVER) scorePanel.GetComponent<RectTransform>().anchoredPosition = gameOverScorePos;
+        else if(GameManagement.GameState == GAMESTATE.CLEAR) scorePanel.GetComponent<RectTransform>().anchoredPosition = clearScorePos;
         scorePanel.SetActive(true);
     }
 
