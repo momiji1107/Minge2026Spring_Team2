@@ -51,15 +51,10 @@ public class PlayerInputController : MonoBehaviour
             upgradeManager.UpgradeInput();
         }
 
-        //ゲームオーバー時にEnterを押すとキャラ選択画面に戻る
+        //ゲームオーバー時にEnterを押すとタイトル画面に戻る
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            if (GameManagement.GameState == GAMESTATE.GAMEOVER)
-            {
-                StartCoroutine(sceneChanger.ChangeScene());
-            }
-
-            if (GameManagement.GameState == GAMESTATE.CLEAR)
+            if (GameManagement.GameState == GAMESTATE.GAMEOVER || GameManagement.GameState == GAMESTATE.CLEAR)
             {
                 scoreManager.CloseScore();
             }

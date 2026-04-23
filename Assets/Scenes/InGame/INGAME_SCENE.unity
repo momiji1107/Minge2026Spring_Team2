@@ -1337,9 +1337,9 @@ Transform:
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 2007842710}
   - {fileID: 2100122860}
   - {fileID: 925854234}
+  - {fileID: 2007842710}
   m_Father: {fileID: 872786394}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &169334170
@@ -3686,9 +3686,9 @@ Transform:
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 1524307576}
   - {fileID: 1378744998}
   - {fileID: 1299304562}
+  - {fileID: 1524307576}
   m_Father: {fileID: 872786394}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &578142973
@@ -7289,9 +7289,9 @@ Transform:
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 357617409}
   - {fileID: 521403353}
   - {fileID: 655860473}
+  - {fileID: 357617409}
   m_Father: {fileID: 872786394}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1237191016
@@ -11564,7 +11564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b085c73af57b5242a4b8994357f6622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneChanger
-  nextScene: 4
+  nextScene: 1
   nextGameState: 0
   changeTime: 0.5
 --- !u!82 &2057944468

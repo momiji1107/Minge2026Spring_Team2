@@ -52,7 +52,6 @@ public class GameManager : MonoBehaviour
         Vector2 pos = gameOverText.GetComponent<RectTransform>().anchoredPosition;
         while (pos.y > 400f)
         {
-            Debug.Log("Panel move");
             pos.y -= 1.0f;
             gameOverText.GetComponent<RectTransform>().anchoredPosition = pos;
             yield return wait;
