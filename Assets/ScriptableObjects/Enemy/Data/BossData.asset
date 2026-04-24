@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c7459fd3161044498be037ede6e08c1, type: 3}
   m_Name: BossData
   m_EditorClassIdentifier: Assembly-CSharp::BossData
-  maxHp: 100
+  maxHp: 300
   exp: 100
-  score: 100
+  score: 500
   isBoss: 1
   interval: 0.1
   time: 1

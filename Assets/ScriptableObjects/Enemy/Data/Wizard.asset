@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b92e92685b33bd43bb5a560795e61c8, type: 3}
   m_Name: Wizard
   m_EditorClassIdentifier: Assembly-CSharp::NormalEnemyData
-  maxHp: 1
+  maxHp: 15
   exp: 100
   score: 100
   isBoss: 0
+  interval: 0.1
+  time: 1
   behaviours:
   - {fileID: 11400000, guid: 5ff32d1c819eeca4cb70abcd7ed8a62c, type: 2}
   - {fileID: 11400000, guid: e5fc02ad604781340ab7a1b54be99f2b, type: 2}
