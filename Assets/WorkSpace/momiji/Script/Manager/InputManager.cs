@@ -11,7 +11,7 @@ public class InputManager : MonoBehaviour
     private readonly float _atractSize = 1.2f; //選択中のパネルの拡大したサイズ
     private readonly float _nonAtractSize = 0.8f; //非選択中のパネルサイズ
     private readonly float _panelDistance = 1100f; //パネル同士の距離
-    private readonly float _panelHeight = -15f; //パネルのY座標
+    private readonly float _panelHeight = 35f; //パネルのY座標
     private readonly float _panelMoveSpeed = 1.5f; //パネルが動く速さ
     private float _limitPosX; //パネルの左右移動量限度
     private int _selectNumber; //選択中のパネルを示すインデックス

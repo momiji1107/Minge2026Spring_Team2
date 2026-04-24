@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerData_2
   m_EditorClassIdentifier: Assembly-CSharp::PlayerData
   firstMaxHp: 3
-  firstAttack: 10
+  firstAttack: 25
   firstMoveSpeed: 2
   firstShootSpeed: 2
   firstRapidFireSpeed: 1
