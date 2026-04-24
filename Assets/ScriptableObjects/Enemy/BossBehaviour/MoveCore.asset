@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ef50aa97df89724e8f1acf09180d7aa, type: 3}
-  m_Name: BossMoveCoreOnce
-  m_EditorClassIdentifier: Assembly-CSharp::BossMoveCoreOnce
-  obj: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: e4661170453ba254eb10e401878f46bd, type: 3}
+  m_Name: MoveCore
+  m_EditorClassIdentifier: Assembly-CSharp::BossMoveCore
+  roundLanes: 0300000000000000020000000100000004000000
+  roundTime: 5
+  startTime: 1
+  upToLane: 1

@@ -3,14 +3,14 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BossContactEffect", menuName = "ScriptableObjects/Enemy/BossBehaviour/BossContactEffectSO")]
 public class BossContactEffect : BossBehaviourBaseSO
 {
-    public bool isDamageable = true;
-    public bool isDestroy = false;
-    public int damage = 1;
+    [SerializeField] bool isDamageable = true;
+    [SerializeField] bool isDestroy = false;
+    [SerializeField] int damage = 1;
 
     private Collider2D _damageCollider;
     
     protected override void OnInit()
-    {;
+    {
         _damageCollider = Context.damageCollider;
     }
 

@@ -25,6 +25,7 @@ public class EnemyCore : MonoBehaviour, IEnemy
     private int _hp;
     private bool _isDead = false;
     private bool _isBoss = false;
+    private bool _isRight = false;
     
     private EnemyData _data;
     private EnemyController _controller;
@@ -40,11 +41,13 @@ public class EnemyCore : MonoBehaviour, IEnemy
     public bool GetIsSlow() => _statusManager.IsSlow;
     public bool GetIsBoss() => _isBoss;
     public bool GetIsDead() => this._isDead;
+    public bool GetIsRight() => _isRight;
     public EnemyData GetData() => this._data;
     
     // setter
     public void SetIsRight(bool right)
     {
+        _isRight = right;
         _stateMachine.SetIsRignt(right);
         _controller.OnSetIsRight?.Invoke(right);
     }
@@ -138,7 +141,14 @@ public class EnemyCore : MonoBehaviour, IEnemy
     private void Die()
     {
         OnDead?.Invoke();
+        //Debug.Log("Die: " + OnDead);
         if (OnDead == null) ActiveDestroy();
+        if (GetIsBoss())
+        {
+            //Bossが死んだらクリア！
+            var obj = SceneContext.Instance.gameManager;
+            obj.GetComponent<GameManager>().GameClear();
+        }
         
         //ScoreをScoreManagerに加算する
         AddScoreToPlayer?.Invoke(_data.score);

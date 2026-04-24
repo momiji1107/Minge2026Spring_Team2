@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void GameClear()
+    public void GameClear()
     {
         GameManagement.GameState = GAMESTATE.CLEAR;
         isClear = true;

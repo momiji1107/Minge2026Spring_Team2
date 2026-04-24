@@ -7,21 +7,29 @@ public enum EnemyProjectileType
 {
     Straight,
     Bounce,
-    Rain
+    Stationaly
 }
 
 public class EnemyProjectile : MonoBehaviour
 {
-    [Header("弾の挙動")] [SerializeField] private EnemyProjectileType type = EnemyProjectileType.Straight;
-    [Header("Hit時のダメージ")] [SerializeField] private int damage = 10;
-    [Header("速度")][SerializeField] private float speed = 3f;
-    [Header("弾が消えるまでの時間")][SerializeField] private float lifeTime = 10f;
-    [Header("弾の向き")] [SerializeField] private Vector3 fromDirection = Vector3.up;
+    [Tooltip("弾の挙動")] [SerializeField] private EnemyProjectileType type = EnemyProjectileType.Straight;
+    [Tooltip("Hit時のダメージ")] [SerializeField] private int damage = 10;
+    [Tooltip("速度")][SerializeField] private float speed = 3f;
+    [Tooltip("弾が消えるまでの時間")][SerializeField] private float lifeTime = 10f;
+    [Tooltip("弾の向き")] [SerializeField] private Vector3 fromDirection = Vector3.up;
+    [Tooltip("Hit時にDestroyする")] [SerializeField] private bool isDestroy = true;
+    [SerializeField] private int[] bounceLanes = {0, 4};
+    [SerializeField] private bool isDebug;
     
     private Vector3 _direction;
     private List<GameObject> _bounceLanes = new List<GameObject>();
     
     private readonly string _playerTag = "Player";
+
+    void Start()
+    {
+        if (isDebug) Init(Vector3.left);
+    }
     
     /// <summary>
     /// 発射方向を受け取り、弾が動き出す
@@ -31,27 +39,34 @@ public class EnemyProjectile : MonoBehaviour
         _direction = direction.normalized;
         transform.rotation = Quaternion.FromToRotation(fromDirection, _direction);
         StartCoroutine(Move());
-        
-        if (SceneContext.Instance != null) _bounceLanes = SceneContext.Instance.bounceLanes;
+
+        if (SceneContext.Instance != null)
+        {
+            foreach (var index in bounceLanes)
+            {
+                _bounceLanes.Add(SceneContext.Instance.lanes[index]);
+            }
+        }
     }
 
     private IEnumerator Move()
     {
         float timer = 0f;
-
         while (timer < lifeTime)
         {
             switch (type)
             {
                 case EnemyProjectileType.Straight:
                     MoveStraight();
+                    CheckVisible();
                     break;
                 case EnemyProjectileType.Bounce:
                     MoveStraight();
+                    CheckVisible();
+                    break;
+                case EnemyProjectileType.Stationaly:
                     break;
             }
-            
-            CheckVisible();
             
             timer += Time.deltaTime;
             yield return null;
@@ -80,8 +95,7 @@ public class EnemyProjectile : MonoBehaviour
         { 
             Debug.Log("EnemyProjectile: " + damage + "Damageを与える");
             other.GetComponentInChildren<PlayerModel>().Damage(damage);
-            Destroy(gameObject);
-            OnHitPlayer();
+            if (isDestroy) Destroy(gameObject);
         }
 
         if (type == EnemyProjectileType.Bounce)
@@ -91,14 +105,6 @@ public class EnemyProjectile : MonoBehaviour
                 Bounce();
             }
         }
-    }
-    
-    private void OnHitPlayer()
-    {
-        //Debug.Log(damage + "Damageを与える");
-        // 処理を追記
-        
-        Destroy(gameObject);
     }
 
     private void Bounce()

@@ -11,7 +11,6 @@ public class BossSpawnSlime : BossBehaviourBaseSO
     [SerializeField] private float upToLane = 1f;
 
     private float _timer;
-    private List<GameObject> _lanes;
 
     protected override void OnInit()
     {

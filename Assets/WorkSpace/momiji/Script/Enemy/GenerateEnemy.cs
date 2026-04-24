@@ -35,7 +35,10 @@ public class GenerateEnemy : MonoBehaviour
         foreach (EnemySpawnData data in wave.enamydatas)
         {
             var enemy = Instantiate(data.enemyPrefab, data.spawnPoint.position, Quaternion.identity);
-            var core = enemy.GetComponent<EnemyCore>();
+            if (!enemy.TryGetComponent<EnemyCore>(out var core))
+            { 
+                core = enemy.GetComponentInChildren<EnemyCore>();
+            }
             core.SpawnMove(data.spawnMoveTime, data.targetPosition);
             core.SetIsRight(data.isRight);
         }
