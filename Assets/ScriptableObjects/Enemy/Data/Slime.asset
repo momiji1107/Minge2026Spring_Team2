@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NormalEnemyData
   maxHp: 1
   exp: 100
-  score: 100
+  score: 10
   isBoss: 0
+  interval: 0.1
+  time: 1
   behaviours:
   - {fileID: 11400000, guid: 5ff32d1c819eeca4cb70abcd7ed8a62c, type: 2}
   - {fileID: 11400000, guid: 03ca17b60b4c9644ca64e22d50eff8b5, type: 2}

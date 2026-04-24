@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossData
   maxHp: 200
   exp: 100
-  score: 100
+  score: 500
   isBoss: 1
   interval: 0.1
   time: 1

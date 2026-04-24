@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b92e92685b33bd43bb5a560795e61c8, type: 3}
   m_Name: MetalSlime
   m_EditorClassIdentifier: Assembly-CSharp::NormalEnemyData
-  maxHp: 1
+  maxHp: 100
   exp: 100
-  score: 100
+  score: 1000
   isBoss: 0
+  interval: 0.1
+  time: 1
   behaviours:
   - {fileID: 11400000, guid: 5ff32d1c819eeca4cb70abcd7ed8a62c, type: 2}
   - {fileID: 11400000, guid: 03ca17b60b4c9644ca64e22d50eff8b5, type: 2}
@@ -29,7 +31,7 @@ MonoBehaviour:
     startDistance: 4
     isMoveRight: 0
   moveStraight:
-    speed: 5
+    speed: 2
     direction: {x: -1, y: 0, z: 0}
   shotSingle:
     projectile: {fileID: 0}
