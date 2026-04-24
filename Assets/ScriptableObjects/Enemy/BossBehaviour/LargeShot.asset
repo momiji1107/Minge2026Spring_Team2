@@ -21,6 +21,7 @@ MonoBehaviour:
   direction: {x: -1, y: 0, z: 0}
   startTime: 0
   isSetCenter: 0
-  isForecast: 0
-  forecastObject: {fileID: 0}
+  isForecast: 1
+  isSetSenterForecast: 1
+  forecastObject: {fileID: 2053019384128273929, guid: 6dc17bb4b3e38394ea2495c3dfc1629c, type: 3}
   forecastTime: 3

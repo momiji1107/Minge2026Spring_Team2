@@ -22,5 +22,6 @@ MonoBehaviour:
   startTime: 0
   isSetCenter: 0
   isForecast: 1
+  isSetSenterForecast: 0
   forecastObject: {fileID: 3441246096636640871, guid: 6d7f4c5dac131ad4dacff10655812726, type: 3}
   forecastTime: 2

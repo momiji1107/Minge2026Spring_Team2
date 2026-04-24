@@ -22,8 +22,7 @@ MonoBehaviour:
   - hpPercent: 100
     behaviours:
     - {fileID: 11400000, guid: 5d6cdd484a1bb5e49ba128ea0e66c447, type: 2}
-    - {fileID: 11400000, guid: 2185cc774fa72634a9d7f9428214c278, type: 2}
-    - {fileID: 11400000, guid: 9c8a06a70b920134ea3602749ae87ff0, type: 2}
+    - {fileID: 11400000, guid: 5ab3e1af7ca57eb46bce97940306d3c9, type: 2}
   - hpPercent: 50
     behaviours:
     - {fileID: 11400000, guid: 5d6cdd484a1bb5e49ba128ea0e66c447, type: 2}
