@@ -4,17 +4,17 @@ using UnityEngine;
 
 public abstract class EnemyData : ScriptableObject
 {
-    public int maxHp;
-    public int exp;
-    public int score;
+    [Tooltip("最大Hp")]public int maxHp;
+    [Tooltip("経験値")] public int exp;
+    [Tooltip("スコア")]public int score;
 
-    [Header("Bossかどうか")]
+    [Tooltip("Bossかどうか")]
     public bool isBoss;
 
     [Header("damage時の点滅")]
-    public float interval = 0.1f;
+    [Tooltip("点滅の間隔")]public float interval = 0.1f;
 
-    public float time = 1f;
+    [Tooltip("点滅時間")]public float time = 1f;
 }
 
 public abstract class EnemyBehaviourSO : ScriptableObject

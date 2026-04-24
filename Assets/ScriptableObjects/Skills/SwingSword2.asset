@@ -16,3 +16,4 @@ MonoBehaviour:
   level: 1
   coolTime: 5
   radius: 2.5
+  effect: {fileID: 271370633281393084, guid: 7e10d161c5d301346aca5e481713802d, type: 3}

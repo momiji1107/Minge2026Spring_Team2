@@ -5,12 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BossData", menuName = "ScriptableObjects/Enemy/BossData")]
 public class BossData : EnemyData
 {
-    public List<Phase> phases;
+    [Tooltip("ボスのフェーズ\nHpで変化する")]public List<Phase> phases;
     
     [Serializable]
     public class Phase
     {
-        public int hpPercent;
-        public List<BossBehaviourBaseSO> behaviours;
+        [Tooltip("このフェーズが始まるHp残量の割合\n百分率で設定する")] public int hpPercent;
+        [Tooltip("このフェーズの行動(特性)")]public List<BossBehaviourBaseSO> behaviours;
     }
 }

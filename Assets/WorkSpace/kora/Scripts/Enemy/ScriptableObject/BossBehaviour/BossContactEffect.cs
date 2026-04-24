@@ -3,8 +3,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BossContactEffect", menuName = "ScriptableObjects/Enemy/BossBehaviour/BossContactEffectSO")]
 public class BossContactEffect : BossBehaviourBaseSO
 {
-    [SerializeField] bool isDamageable = true;
-    [SerializeField] bool isDestroy = false;
+    [Tooltip("接触時ダメージを受ける")][SerializeField] bool isDamageable = true;
+    [Tooltip("接触時このオブジェクトが消滅する")][SerializeField] bool isDestroy = false;
     [SerializeField] int damage = 1;
 
     private Collider2D _damageCollider;
