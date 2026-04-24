@@ -14,6 +14,7 @@ public abstract class BossBehaviourBaseSO : ScriptableObject
     {
         Core = core;
         Context = context;
+        IsRight = false;
         
         OnInit();
     }
@@ -38,5 +39,23 @@ public abstract class BossBehaviourBaseSO : ScriptableObject
         }
 
         return dir;
+    }
+    
+    /// <summary>
+    /// Cameraでのx位置をWorld座標のxで返す
+    /// 左端~右端で0~1の値を入れる
+    /// </summary>
+    protected float GetXOnCameraToWorldPoint(float xRatio)
+    {
+        Vector3 viewport = new Vector3(xRatio, 0, 0);
+        Vector3 world = Camera.main.ViewportToWorldPoint(viewport);
+        return world.x;
+    }
+
+    protected float GetXWorldToCameraPoint(float worldX)
+    {
+        Vector3 posX = new Vector3(worldX, 0, 0);
+        Vector3 viewport = Camera.main.WorldToViewportPoint(posX);
+        return viewport.x;
     }
 }

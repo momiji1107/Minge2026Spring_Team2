@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 730d26bcf1d4d3143bd5dc632285ba2e, type: 3}
+  m_Name: Ozyama
+  m_EditorClassIdentifier: Assembly-CSharp::BossOzyama
+  panelPrefab: {fileID: 7146472518673166771, guid: 16bcedd8a1cee7349915412ebf6b0965, type: 3}
+  isOnce: 0
+  startTime: 1
+  interval: 5
+  number: 3
+  viewPortXLimit: {x: 0.2, y: 0.8}
+  viewPortYLimit: {x: 0.3, y: 0.9}
+  projDistance: {x: 0.2, y: 0.2}

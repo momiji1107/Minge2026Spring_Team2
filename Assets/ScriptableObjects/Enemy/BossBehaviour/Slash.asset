@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27dab8f62faf074489fa271456cc3c65, type: 3}
+  m_Name: Slash
+  m_EditorClassIdentifier: Assembly-CSharp::BossShot
+  laneIndex: 01000000
+  upToLane: 1.78
+  adjustPosition: {x: -4, y: 0, z: -1}
+  projectile: {fileID: 6915700139386594496, guid: d9120bc2ec9644b4f858bed3987eccf2, type: 3}
+  shotType: 0
+  shotRate: 5
+  direction: {x: -1, y: 0, z: 0}
+  startTime: 0
+  isSetCenter: 0
+  isForecast: 1
+  forecastObject: {fileID: 3441246096636640871, guid: 6d7f4c5dac131ad4dacff10655812726, type: 3}
+  forecastTime: 2

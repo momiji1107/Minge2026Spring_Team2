@@ -10,16 +10,33 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ba5c65e5f080d29419488554b12efc84, type: 3}
-  m_Name: BossPoisonRain
+  m_Name: PoisonRain
   m_EditorClassIdentifier: Assembly-CSharp::BossPoisonRain
-  prefab: {fileID: 5893101884982852981, guid: 72f42a3e583a0034486f7aabf1ef78e4, type: 3}
+  prefab: {fileID: 5893101884982852981, guid: 86ca821bd844cea4ba04fdd51f3ab310, type: 3}
+  isOnce: 0
   rainInterval: 5
-  waveInterval: 0.5
+  waveInterval: 2
   startTime: 2
-  upToLane: 10
+  upToLane: 3
   rainWaves:
   - pointPercents:
     - 10
     - 30
     - 50
+    - 70
+    - 80
+    - 95
+  - pointPercents:
+    - 5
+    - 20
+    - 40
+    - 45
+    - 55
+    - 70
+    - 90
+  - pointPercents:
+    - 10
+    - 30
+    - 50
+    - 60
     - 80

@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void GameClear()
+    public void GameClear()
     {
         flag = true;
 

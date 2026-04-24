@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5a2eaef771264374a9be8714df19be0a, type: 3}
-  m_Name: BossSpawnSlime
+  m_Name: SpawnSlime
   m_EditorClassIdentifier: Assembly-CSharp::BossSpawnSlime
   slimePrefab: {fileID: 8759148217643277841, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
   interval: 15

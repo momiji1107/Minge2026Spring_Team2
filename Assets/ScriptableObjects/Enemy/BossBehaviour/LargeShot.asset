@@ -10,9 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 27dab8f62faf074489fa271456cc3c65, type: 3}
-  m_Name: BossShotSingle
-  m_EditorClassIdentifier: Assembly-CSharp::BossShotSingle
-  projectile: {fileID: 5893101884982852981, guid: f7684563019b6344492fadc738338407, type: 3}
-  shotRate: 1.5
+  m_Name: LargeShot
+  m_EditorClassIdentifier: Assembly-CSharp::BossShot
+  laneIndex: 0300000001000000
+  upToLane: 0
+  adjustPosition: {x: 0, y: 0, z: 0}
+  projectile: {fileID: 5893101884982852981, guid: f2044756c758526459585ee11753ae6d, type: 3}
+  shotType: 0
+  shotRate: 5
   direction: {x: -1, y: 0, z: 0}
-  startTime: 10.5
+  startTime: 0
+  isSetCenter: 0
+  isForecast: 0
+  forecastObject: {fileID: 0}
+  forecastTime: 3
