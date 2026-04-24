@@ -17,3 +17,4 @@ MonoBehaviour:
   coolTime: 10
   duration: 3
   isActive: 0
+  effect: {fileID: 626978043811673729, guid: ef7bf890a5412de478ff36ddd72bf673, type: 3}

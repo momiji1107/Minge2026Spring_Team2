@@ -4,14 +4,24 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "DamageNegate", menuName = "ScriptableObjects/Skill/DamageNegate")]
 public class DamageNegate : EquipmentBase
 {
-    [Header("ƒ_ƒ[ƒW–³Œø‰»ŽžŠÔ")]
+    [Header("ï¿½_ï¿½ï¿½ï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     [SerializeField] private int duration;
     [SerializeField] private bool isActive;
+    [SerializeField] private GameObject effect;
 
     public bool IsActive => isActive;
 
     public override void Activate(PlayerModel model)
     {
+        //init effect
+        var obj = Instantiate(effect, model.transform.position, Quaternion.identity);
+        if (!model.GetDirection)
+        {
+            var l = obj.transform.localScale;
+            obj.transform.localScale = new Vector3(l.x * -1, l.y, l.z);
+        }
+        obj.transform.SetParent(model.transform);
+        
         model.StartCoroutine(ActiveDamageNegate());
     }
 

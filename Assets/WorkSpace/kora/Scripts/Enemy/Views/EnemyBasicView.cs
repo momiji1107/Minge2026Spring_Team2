@@ -107,7 +107,9 @@ public class EnemyBasicView : MonoBehaviour, IEnemyView
         if (isRight != _previousIsRight)
         {
             _previousIsRight = isRight;
-            enemy.transform.Rotate(0,180,0);
+            var s = enemy.transform.localScale;
+            s.x *= -1;
+            enemy.transform.localScale = s;
         }
     }
 }
