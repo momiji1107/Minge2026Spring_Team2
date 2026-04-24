@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27dab8f62faf074489fa271456cc3c65, type: 3}
+  m_Name: LazerShotDown
+  m_EditorClassIdentifier: Assembly-CSharp::BossShot
+  laneIndex: 00000000
+  upToLane: 0.66
+  adjustPosition: {x: 0, y: 0, z: 0}
+  projectile: {fileID: 2053019384128273929, guid: e3985af18e774f146bbf12f79575b3fd, type: 3}
+  shotType: 0
+  shotRate: 20
+  direction: {x: -1, y: 0, z: 0}
+  startTime: 2
+  isSetCenter: 1
+  isForecast: 1
+  forecastObject: {fileID: 2053019384128273929, guid: 6dc17bb4b3e38394ea2495c3dfc1629c, type: 3}
+  forecastTime: 3

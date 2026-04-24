@@ -8,24 +8,27 @@ public class BossPoisonRain : BossBehaviourBaseSO
     [Serializable]
     private class RainWave
     {
-        public float[] pointPercents = {10, 50, 80};
+        [SerializeField, Range(0f, 100f)]public float[] pointPercents = {10, 50, 80};
     }
     
     [Header("弾")]
     [SerializeField] private GameObject prefab;
-    
+
+    [SerializeField] private bool isOnce;
     [SerializeField] private float rainInterval = 5f;
     [SerializeField] private float waveInterval = 0.5f;
     [SerializeField] private float startTime = 2f;
-    [SerializeField] private float upToLane = 10f;
+    [SerializeField] private float upToLane = 3f;
     [SerializeField] private List<RainWave> rainWaves;
 
+    private bool _isFire;
     private float _rainTimer;
     private float _waveTimer;
     private int _index;
     
     protected override void OnInit()
     {
+        _isFire = false;
         _rainTimer = rainInterval - startTime;
         _waveTimer = waveInterval;
         _index = 0;
@@ -33,6 +36,9 @@ public class BossPoisonRain : BossBehaviourBaseSO
 
     public override void Tick(float dt)
     {
+        //isOnce==trueなら一度だけ発火する
+        if (_isFire) return;
+        
         if (_rainTimer < rainInterval)
         {
             _rainTimer += dt;
@@ -51,9 +57,9 @@ public class BossPoisonRain : BossBehaviourBaseSO
         if (_index >= rainWaves.Count)
         {
             _index = 0;
-        _rainTimer = 0f;
+            _rainTimer = 0f;
+            if (isOnce) _isFire = true;
         }
-
     }
 
     private void Rain()
@@ -63,18 +69,10 @@ public class BossPoisonRain : BossBehaviourBaseSO
         
         foreach (var xPer in rainWaves[_index].pointPercents)
         {
-            pos.x = GetXOnCamera(xPer/100);
+            pos.x = GetXOnCameraToWorldPoint(xPer/100);
 
             var obj = Context.Instantiate(prefab, pos);
             obj.GetComponent<EnemyProjectile>().Init(Vector3.down);
         }
-
-    }
-    
-    float GetXOnCamera(float xRatio)
-    {
-        Vector3 viewport = new Vector3(xRatio, 0, 0);
-        Vector3 world = Camera.main.ViewportToWorldPoint(viewport);
-        return world.x;
     }
 }

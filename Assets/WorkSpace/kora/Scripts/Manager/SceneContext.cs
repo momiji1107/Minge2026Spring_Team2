@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class SceneContext : MonoBehaviour
 {
-    [SerializeField] public List<GameObject> bounceLanes;
     [SerializeField] public List<GameObject> lanes;
+    [SerializeField] public GameObject canvas;
+    [SerializeField] public GameObject gameManager;
 
     public static SceneContext Instance = null;
 
