@@ -60,7 +60,7 @@ public class EnemyBasicView : MonoBehaviour, IEnemyView
         
         if (_isDead)
         {
-            if (_isNullAnimController) { Core.ActiveDestroy(); }
+            if (_isNullAnimController) ; //{ Core.ActiveDestroy(); }
             else
             {
                 var info = Animator.GetCurrentAnimatorStateInfo(AnimParam.DeadLayerIndex);
