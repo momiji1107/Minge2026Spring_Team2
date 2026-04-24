@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43aa4827770dc43d48561eafeff22583, type: 3}
+  m_Name: HPrecover2SkillUpgrade
+  m_EditorClassIdentifier: Assembly-CSharp::SkillUpgrade
+  titleName: "MoreHeal\u30B9\u30AD\u30EB\u5F37\u5316"
+  infoSentence: "\u3082\u3063\u3068HP\u56DE\u3075\u304F\u91CF\n\u30A2\u30C3\u30D7"
+  icon: {fileID: 21300000, guid: 507b12dce2a5442c0a31c371f0d9d769, type: 3}
+  preSkill: {fileID: 11400000, guid: 56396d439bfff9b4c86b2accb5b3b5bd, type: 2}
+  newSkill: {fileID: 11400000, guid: 5ba9defbd2700e947afe6d8cce284437, type: 2}

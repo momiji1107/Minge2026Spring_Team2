@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43aa4827770dc43d48561eafeff22583, type: 3}
+  m_Name: DamageReductionSkillUpgrade
+  m_EditorClassIdentifier: Assembly-CSharp::SkillUpgrade
+  titleName: "\u30C0\u30E1\u30FC\u30B8\u3051\u3044\u3052\u3093\u5F37\u5316"
+  infoSentence: "\u30C0\u30E1\u30FC\u30B8\u7121\u3053\u3046\u5316\n\u3059\u308B"
+  icon: {fileID: 21300000, guid: 41f1077e1f01145c59c7fd81c1a5db28, type: 3}
+  preSkill: {fileID: 11400000, guid: 4c8165ff24f5f5b45b202f2a54151e3c, type: 2}
+  newSkill: {fileID: 11400000, guid: a92e6d01137a03b40ae96f3848fce274, type: 2}

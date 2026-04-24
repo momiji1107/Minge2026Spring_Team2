@@ -16,3 +16,4 @@ MonoBehaviour:
   level: 1
   coolTime: 10
   healAmount: 7
+  healClip: {fileID: 8300000, guid: 10b75b917536d49db89ed8baa8a902e2, type: 3}

@@ -1392,6 +1392,8 @@ MonoBehaviour:
   model: {fileID: 67754450}
   levelText: {fileID: 1057151145}
   expText: {fileID: 2074494641}
+  clearScorePos: {x: 0, y: 85, z: 0}
+  gameOverScorePos: {x: 0, y: -65, z: 0}
 --- !u!4 &223086939
 Transform:
   m_ObjectHideFlags: 0
@@ -3954,6 +3956,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KariClearButton
   scoreManager: {fileID: 223086938}
+  gameManager: {fileID: 0}
 --- !u!1 &685833174
 GameObject:
   m_ObjectHideFlags: 0
