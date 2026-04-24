@@ -65,10 +65,7 @@ public class EnemyCore : MonoBehaviour, IEnemy
     /// <summary>
     /// vector(Local座標)に向かってtime秒で移動する
     /// </summary>
-    public void SpawnMove(float time, Vector3 vector) {
-        if(_statusManager == null) Debug.Log("_statusManager == null:SpawnMove");
-        _statusManager.SpawnMove(time, vector);
-    }
+    public void SpawnMove(float time, Vector3 vector) {_statusManager.SpawnMove(time, vector);}
 
     /// <summary>
     ///  ダメージを受ける
@@ -129,7 +126,7 @@ public class EnemyCore : MonoBehaviour, IEnemy
     
     public void ActiveDestroy()
     {
-        _controller.Context.Destroy();
+        _controller.Destroy();
     }
     
     public void InvokeAttackAnim() {OnAttack?.Invoke();}
@@ -142,17 +139,13 @@ public class EnemyCore : MonoBehaviour, IEnemy
     {
         OnDead?.Invoke();
         //Debug.Log("Die: " + OnDead);
-        if (OnDead == null) ActiveDestroy();
         if (GetIsBoss())
         {
             //Bossが死んだらクリア！
             var obj = SceneContext.Instance.gameManager;
-            obj.GetComponent<GameManager>().GameClear();
+            StartCoroutine(Common.DelayCall(obj.GetComponent<GameManager>().GameClear, 2f));
+            StartCoroutine(Common.DelayCall(ActiveDestroy, 2.1f));
         }
-        
-        //スコアを頭上に表示
-        var scoreCanvas = Instantiate(_controller.Context.ScorePrefab, transform.position + Vector3.down, Quaternion.identity);
-        scoreCanvas.gameObject.GetComponent<ScorePopup>().SetScore(_data.score);
         
         //ScoreをScoreManagerに加算する
         AddScoreToPlayer?.Invoke(_data.score);

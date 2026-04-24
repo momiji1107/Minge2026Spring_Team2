@@ -28,11 +28,6 @@ public class GameManager : MonoBehaviour
         {
             gameTimer += Time.deltaTime;
         }
-
-        if (gameTimer >= clearTime)
-        {
-            if(!isClear) GameClear();
-        }
     }
 
     //ゲームオーバー
