@@ -15,7 +15,7 @@ MonoBehaviour:
   panelPrefab: {fileID: 7146472518673166771, guid: 16bcedd8a1cee7349915412ebf6b0965, type: 3}
   isOnce: 0
   startTime: 1
-  interval: 3
+  interval: 15
   number: 3
   isCheckViewPort: 0
   minViewPort: {x: 0.5, y: 0.3}

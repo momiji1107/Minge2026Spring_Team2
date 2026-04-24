@@ -673,6 +673,7 @@ GameObject:
   - component: {fileID: 8372845332519816060}
   - component: {fileID: 8819704129371126626}
   - component: {fileID: 7974976420394619053}
+  - component: {fileID: 6053799333216041222}
   m_Layer: 0
   m_Name: Core
   m_TagString: Enemy
@@ -861,6 +862,18 @@ MonoBehaviour:
   shotPoint: {fileID: 5388298929091285907}
   sr: {fileID: 8789029463910743384}
   scorePrefab: {fileID: 5593453957742890521, guid: d676faf3e96f54531bae616495ca2459, type: 3}
+--- !u!114 &6053799333216041222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7801100448734870840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0544e5dcb83254d98a7d385598b10057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BossAppear
 --- !u!1 &8438421607937569304
 GameObject:
   m_ObjectHideFlags: 0

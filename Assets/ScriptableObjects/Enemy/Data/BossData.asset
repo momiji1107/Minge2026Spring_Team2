@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c7459fd3161044498be037ede6e08c1, type: 3}
   m_Name: BossData
   m_EditorClassIdentifier: Assembly-CSharp::BossData
-  maxHp: 200
+  maxHp: 500
   exp: 100
   score: 500
   isBoss: 1
@@ -23,9 +23,25 @@ MonoBehaviour:
     behaviours:
     - {fileID: 11400000, guid: 5d6cdd484a1bb5e49ba128ea0e66c447, type: 2}
     - {fileID: 11400000, guid: 5ab3e1af7ca57eb46bce97940306d3c9, type: 2}
-  - hpPercent: 50
+    - {fileID: 11400000, guid: b7293f40772c2d343a8d71b6fe8f625a, type: 2}
+    - {fileID: 11400000, guid: c941ddea3af668a4a8f1ecdee1d7ac77, type: 2}
+  - hpPercent: 66
     behaviours:
     - {fileID: 11400000, guid: 5d6cdd484a1bb5e49ba128ea0e66c447, type: 2}
     - {fileID: 11400000, guid: c941ddea3af668a4a8f1ecdee1d7ac77, type: 2}
     - {fileID: 11400000, guid: 37b4b990c1989774ea1b4be28a2ca5ee, type: 2}
     - {fileID: 11400000, guid: e6971d58ac5698f409dce74af47737f6, type: 2}
+    - {fileID: 11400000, guid: 5ab3e1af7ca57eb46bce97940306d3c9, type: 2}
+    - {fileID: 11400000, guid: b7293f40772c2d343a8d71b6fe8f625a, type: 2}
+  - hpPercent: 33
+    behaviours:
+    - {fileID: 11400000, guid: 5d6cdd484a1bb5e49ba128ea0e66c447, type: 2}
+    - {fileID: 11400000, guid: c941ddea3af668a4a8f1ecdee1d7ac77, type: 2}
+    - {fileID: 11400000, guid: 37b4b990c1989774ea1b4be28a2ca5ee, type: 2}
+    - {fileID: 11400000, guid: e6971d58ac5698f409dce74af47737f6, type: 2}
+    - {fileID: 11400000, guid: e9c9bb9acc9cb8447b2e0bd9bc236ecb, type: 2}
+    - {fileID: 11400000, guid: 2185cc774fa72634a9d7f9428214c278, type: 2}
+    - {fileID: 11400000, guid: 9c8a06a70b920134ea3602749ae87ff0, type: 2}
+    - {fileID: 11400000, guid: b7293f40772c2d343a8d71b6fe8f625a, type: 2}
+    - {fileID: 11400000, guid: 5ab3e1af7ca57eb46bce97940306d3c9, type: 2}
+    - {fileID: 11400000, guid: ae1df5c4be73ce54399463ae475df633, type: 2}

@@ -112,7 +112,7 @@ public class BossShot : BossBehaviourBaseSO
     {
         if (projectile ==null) return;
 
-        Debug.Log("Shot:" + _shotPos);
+        //Debug.Log("Shot:" + _shotPos);
         switch (shotType)
         {
             case ShotType.Single:

@@ -16,14 +16,12 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip[] bgmClip;
     [SerializeField] private AudioClip gameOverBGMClip;
     [SerializeField] private AudioClip clearBGMClip;
+    [SerializeField] private AudioClip bossAppearClip;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        bgmAudioSource.loop = true;
-        int idx = Random.Range(0, bgmClip.Length);
-        bgmAudioSource.clip = bgmClip[idx];
-        bgmAudioSource.Play();
+        StartGameBGM();
     }
 
     public IEnumerator GameOver()
@@ -60,5 +58,26 @@ public class AudioManager : MonoBehaviour
     public void Attack(AudioClip attackClip)
     {
         seAudioSource.PlayOneShot(attackClip);
+    }
+
+    public void BossAppear()
+    {
+        //ボス出現BGMを流す
+        bgmAudioSource.Stop();
+        bgmAudioSource.loop = false;
+        bgmAudioSource.clip = bossAppearClip;
+        bgmAudioSource.Play();
+        StartCoroutine(Common.DelayCall(StartGameBGM, 10.0f));
+    }
+
+    private void StartGameBGM()
+    {
+        if (!bgmAudioSource.isPlaying)
+        {
+            bgmAudioSource.loop = true;
+            int idx = Random.Range(0, bgmClip.Length);
+            bgmAudioSource.clip = bgmClip[idx];
+            bgmAudioSource.Play();
+        }
     }
 }
