@@ -280,6 +280,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyContext
   damageCollider: {fileID: 2431734203080842033}
   shotPoint: {fileID: 1539722480947085157}
+  sr: {fileID: 0}
+  scorePrefab: {fileID: 5593453957742890521, guid: d676faf3e96f54531bae616495ca2459, type: 3}
 --- !u!1 &7919634318070816630
 GameObject:
   m_ObjectHideFlags: 0

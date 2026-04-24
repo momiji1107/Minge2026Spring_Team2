@@ -76,7 +76,6 @@ public class PlayerModel : MonoBehaviour
         moveSpeed = data.FirstMoveSpeed;
         shootSpeed = data.FirstShootSpeed;
         rapidFireSpeed = data.FirstRapidFireSpeed;
-        Debug.Log("status set");
 
         // register
         EnemyCore.AddExpToPlayer += AddExp;
