@@ -350,3 +350,4 @@ MonoBehaviour:
   damageCollider: {fileID: 8150685975065029820}
   shotPoint: {fileID: 8759148217643277841}
   sr: {fileID: 0}
+  scorePrefab: {fileID: 5593453957742890521, guid: d676faf3e96f54531bae616495ca2459, type: 3}

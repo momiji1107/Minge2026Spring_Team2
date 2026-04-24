@@ -140,6 +140,10 @@ public class EnemyCore : MonoBehaviour, IEnemy
         OnDead?.Invoke();
         if (OnDead == null) ActiveDestroy();
         
+        //スコアを頭上に表示
+        var scoreCanvas = Instantiate(_controller.Context.ScorePrefab, transform.position + Vector3.down, Quaternion.identity);
+        scoreCanvas.gameObject.GetComponent<ScorePopup>().SetScore(_data.score);
+        
         //ScoreをScoreManagerに加算する
         AddScoreToPlayer?.Invoke(_data.score);
         //プレイヤーに経験値を加算する

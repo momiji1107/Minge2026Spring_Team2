@@ -88,7 +88,6 @@ public class EnemyBasicView : MonoBehaviour, IEnemyView
 
     protected virtual void OnSetIsRight(bool isRight)
     {
-        Debug.Log(isRight);
         if (isRight)
         {
             gameObject.transform.Rotate(0,180,0);
