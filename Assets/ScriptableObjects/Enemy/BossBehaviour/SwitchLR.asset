@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SwitchLR
   m_EditorClassIdentifier: Assembly-CSharp::BossSwitchLR
   isOnce: 0
-  interval: 20
-  startTime: 2
+  interval: 50
+  startTime: 20
   duration: 5
   adjustXRatio: -0.2

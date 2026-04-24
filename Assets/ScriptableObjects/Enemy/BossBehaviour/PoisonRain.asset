@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossPoisonRain
   prefab: {fileID: 5893101884982852981, guid: 86ca821bd844cea4ba04fdd51f3ab310, type: 3}
   isOnce: 0
-  rainInterval: 5
+  rainInterval: 15
   waveInterval: 2
-  startTime: 2
+  startTime: 10
   upToLane: 3
   rainWaves:
   - pointPercents:

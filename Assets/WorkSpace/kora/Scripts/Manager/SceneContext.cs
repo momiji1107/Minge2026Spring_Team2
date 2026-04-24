@@ -7,6 +7,7 @@ public class SceneContext : MonoBehaviour
     [SerializeField] public List<GameObject> lanes;
     [SerializeField] public GameObject canvas;
     [SerializeField] public GameObject gameManager;
+    [SerializeField] public AudioManager audioManager;
 
     public static SceneContext Instance = null;
 

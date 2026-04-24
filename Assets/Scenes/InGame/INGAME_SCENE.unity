@@ -5062,8 +5062,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 848539687}
-  - component: {fileID: 848539688}
   - component: {fileID: 848539689}
+  - component: {fileID: 848539688}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -5206,6 +5206,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: f5cb626e53e44409aa1786d366510d54, type: 3}
   gameOverBGMClip: {fileID: 8300000, guid: 135ea5506912b402a9aee7d0c605e3f7, type: 3}
   clearBGMClip: {fileID: 8300000, guid: 2627d37022e7e499291c3278d2610e91, type: 3}
+  bossAppearClip: {fileID: 8300000, guid: 3856657c1ef194c7a913a7297cd32bf5, type: 3}
 --- !u!1 &872786393
 GameObject:
   m_ObjectHideFlags: 0
@@ -8776,6 +8777,7 @@ MonoBehaviour:
   - {fileID: 2088738412}
   canvas: {fileID: 1461743838}
   gameManager: {fileID: 2057944464}
+  audioManager: {fileID: 848539689}
 --- !u!1 &1351617582
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossSpawnSlime
   slimePrefab: {fileID: 8759148217643277841, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
   interval: 15
-  startTime: 3
+  startTime: 5
   spawnLanes: 00000000010000000200000004000000
   upToLane: 1
