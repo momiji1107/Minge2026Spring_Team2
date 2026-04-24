@@ -112,8 +112,6 @@ public class PlayerModel : MonoBehaviour
     //ダメージ計算
     private int CalcDamage(int damage)
     {
-        if (!attackController.HasSkill(damageNegate.name) || !attackController.HasSkill(damageReduction.name)) return damage;
-        
         if(damageReduction.IsActive)
         {
             damage = Mathf.Max(0, damage - 1);
