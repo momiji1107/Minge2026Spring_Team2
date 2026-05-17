@@ -95,6 +95,7 @@ public class BossSwitchLR : BossBehaviourBaseSO
         float xRatio = !IsRight ? 0+adjustXRatio : 1-adjustXRatio;
         pos.x = GetXOnCameraToWorldPoint(xRatio);
         Context.SetPosition(pos);
+        //Debug.Log("Set Isright="+!IsRight);
         Core.SetIsRight(!IsRight);
         
         double targetXRatio = 1 - _startXRatio;

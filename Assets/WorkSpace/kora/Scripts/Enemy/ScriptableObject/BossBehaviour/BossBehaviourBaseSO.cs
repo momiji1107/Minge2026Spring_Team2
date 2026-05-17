@@ -23,20 +23,18 @@ public abstract class BossBehaviourBaseSO : ScriptableObject
 
     public void SetIsRight(bool isRight)
     {
+        //Debug.Log("Invoked SetIsRight=" + isRight);
+        if (this.IsRight != isRight) Direction = InverseDirection(Direction);
         this.IsRight = isRight;
-        Direction = InitDirection(Direction);
         OnSetIsRight();
     }
     
     protected virtual void OnInit(){}
     protected virtual void OnSetIsRight(){}
-    protected Vector3 InitDirection(Vector3 dir)
+    protected Vector3 InverseDirection(Vector3 dir)
     {
-        dir.Normalize();
-        if (IsRight)
-        {
-            dir.x = -dir.x;
-        }
+        dir.x = -dir.x;
+        dir.Normalize(); 
 
         return dir;
     }

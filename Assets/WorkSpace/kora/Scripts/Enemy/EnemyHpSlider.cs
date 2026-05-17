@@ -11,11 +11,11 @@ public class EnemyHpSlider : MonoBehaviour
 
     private float _hp;
     private float _maxHp;
-    private EnemyCore _core;
+    private IEnemy _core;
 
     void Start()
     {
-        _core = enemy.GetComponent<EnemyCore>();
+        _core = enemy.GetComponent<IEnemy>();
         _maxHp = _core.GetMaxHp();
         _hp = _maxHp;
         

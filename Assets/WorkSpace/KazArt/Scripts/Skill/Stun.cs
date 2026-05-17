@@ -3,10 +3,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Stun", menuName = "ScriptableObjects/Skill/Stun")]
 public class Stun : EquipmentBase
 {
-    [Header("ƒXƒ^ƒ“‘±ŠÔ")]
+    [Header("ï¿½Xï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     [SerializeField] private float duration;
 
-    [Header("“–‚½‚è”»’èƒTƒCƒY")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½è”»ï¿½ï¿½Tï¿½Cï¿½Y")]
     [SerializeField] private float boxWidth;
     [SerializeField] private float boxHeight;
     [SerializeField] private float offSet;
@@ -14,7 +14,7 @@ public class Stun : EquipmentBase
 
     public override void Activate(PlayerModel model)
     {
-        Debug.Log("”­“®");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½");
 
         Vector2 ownerPos = model.transform.position;
         Vector2 hitPos = ownerPos + (Vector2)model.transform.right * offSet;
@@ -31,7 +31,7 @@ public class Stun : EquipmentBase
         {
             if(hit.gameObject.CompareTag("Enemy"))
             {
-                hit.gameObject.GetComponent<EnemyCore>()?.Stun(duration);
+                hit.gameObject.GetComponent<IEnemy>()?.Stun(duration);
             }
         }
     }

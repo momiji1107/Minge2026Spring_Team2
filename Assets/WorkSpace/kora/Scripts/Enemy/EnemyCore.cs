@@ -11,6 +11,13 @@ public interface IEnemy
     public void Stun(float time);
     public void Slow(float time, float per);
     public void SpawnMove(float time, Vector3 vector);
+    public void SetIsRight(bool isRight);
+    public bool GetIsStun();
+    public bool GetIsSlow();
+    public bool GetIsBoss();
+    public bool GetIsDead();
+    public bool GetIsRight();
+    public EnemyData GetData();
 }
 
 public class EnemyCore : MonoBehaviour, IEnemy
