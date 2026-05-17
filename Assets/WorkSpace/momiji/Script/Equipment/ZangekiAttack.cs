@@ -30,7 +30,7 @@ public class ZangekiAttack : EquipmentBase
         {
             if (hit.gameObject.CompareTag("Enemy"))
             {
-                hit.gameObject.GetComponent<EnemyCore>()?.TakeDamage(model.Attack);
+                hit.gameObject.GetComponent<IEnemy>()?.TakeDamage(model.Attack);
                 Debug.Log("hit zangeki");
             }
         }

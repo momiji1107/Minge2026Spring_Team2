@@ -4,18 +4,18 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Poison", menuName = "ScriptableObjects/Skill/Poison")]
 public class Poison : EquipmentBase
 {
-    [Header("“Å‘±ƒ_ƒ[ƒWŠÔ")]
+    [Header("ï¿½Åï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½")]
     [SerializeField] private int poisonDuration;
     [SerializeField] private int poisonInterval;
 
-    [Header("“–‚½‚è”»’èƒTƒCƒY")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½è”»ï¿½ï¿½Tï¿½Cï¿½Y")]
     [SerializeField] private float boxWidth;
     [SerializeField] private float boxHeight;
     [SerializeField] private float offSet;
     
     public override void Activate(PlayerModel model)
     {
-        Debug.Log("”­“®");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½");
 
         Vector2 ownerPos = model.transform.position;
         Vector2 hitPos = ownerPos + (Vector2)model.transform.right * offSet;
@@ -45,7 +45,7 @@ public class Poison : EquipmentBase
         {
             if (targetEnemy == null) break;
 
-            targetEnemy.gameObject.GetComponent<EnemyCore>()?.TakeDamage(model.Attack);
+            targetEnemy.gameObject.GetComponent<IEnemy>()?.TakeDamage(model.Attack);
             yield return new WaitForSeconds(poisonInterval);
             poisonTime += poisonInterval;
         }
