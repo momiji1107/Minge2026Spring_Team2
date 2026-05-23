@@ -15,4 +15,7 @@ MonoBehaviour:
   titleName: "\u65B0\u30B9\u30AD\u30EBGET"
   infoSentence: "\u4E0A\u4E0B\u5DE6\u53F3\u306B\n\u3053\u3046\u3052\u304D\u3059\u308B"
   icon: {fileID: 21300000, guid: e5ce371ac04194c27a8ede6a90cabab7, type: 3}
+  rarity: 6
+  upgradeSkills:
+  - {fileID: 11400000, guid: c05bf50e2313fe6438a89d6ec16dcc89, type: 2}
   newSkill: {fileID: 11400000, guid: f9b379850d15cfc4496c5766ee71aac2, type: 2}
