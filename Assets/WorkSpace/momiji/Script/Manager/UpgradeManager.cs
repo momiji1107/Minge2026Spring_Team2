@@ -61,6 +61,7 @@ public class UpgradeManager : MonoBehaviour
                 weightSum += canAppears[j].rarity;
                 if (displayBoader <= weightSum)
                 {
+                    //Debug.Log("add: " + canAppears[j].name);
                     displayUpgrades.Add(canAppears[j]);
                     canAppears.RemoveAt(j);
                     break;
