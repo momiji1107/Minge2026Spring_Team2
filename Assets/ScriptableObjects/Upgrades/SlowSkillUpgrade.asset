@@ -15,5 +15,6 @@ MonoBehaviour:
   titleName: "\u30B9\u30AD\u30EB\u5F37\u5316"
   infoSentence: "\u3066\u304D\u306E\u3046\u3054\u304D\u3092\n\u3068\u3081\u308B"
   icon: {fileID: 21300000, guid: c7027860289b440548e84b12e1964877, type: 3}
+  rarity: 3
   preSkill: {fileID: 11400000, guid: eabf58a4892996449b8b77f22f1e6f20, type: 2}
   newSkill: {fileID: 11400000, guid: 01d61e8327138a941a531a0560f19524, type: 2}

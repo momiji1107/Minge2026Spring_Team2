@@ -40,11 +40,37 @@ public class UpgradeManager : MonoBehaviour
         Time.timeScale = 0f;
         GameManagement.GameState = GAMESTATE.ISUPGRADE;
         
-        //表示可能なものを抽出、要素をシャッフルし、先頭からdisplayUpgradesNumの数だけ取り出す
-        displayUpgrades = upgrades.Where(u => u.CanAppear(equipmentManager))
-            .OrderBy(u => Guid.NewGuid())
-            .Take(diplayUpgradesNum)
+        displayUpgrades = new List<UpgradeBase>();
+        //表示可能なものを抽出し、要素をシャッフル
+        List<UpgradeBase> canAppears = upgrades
+            .Where(u => u.CanAppear(equipmentManager))
             .ToList();
+        
+        //重みつき計算
+        for (int i = 0; i < diplayUpgradesNum; i++)
+        {
+            int weightSum = 0;
+            //配列シャッフル
+            canAppears = canAppears
+                .OrderBy(u => Guid.NewGuid())
+                .ToList();
+            
+            int displayBoader = UnityEngine.Random.Range(0, canAppears.Sum(upgrade => upgrade.rarity));
+            for (int j = 0; j < canAppears.Count; j++)
+            {
+                weightSum += canAppears[j].rarity;
+                if (displayBoader <= weightSum)
+                {
+                    //Debug.Log("add: " + canAppears[j].name);
+                    displayUpgrades.Add(canAppears[j]);
+                    canAppears.RemoveAt(j);
+                    break;
+                }
+            }
+        }
+        
+        //選ばれた３つの選択肢確認用
+        //Debug.Log("selection: " + displayUpgrades[0].titleName + ", " + displayUpgrades[1].titleName + ", " + displayUpgrades[2].titleName);
         
         //パネルの表示にアップグレードの内容を反映させる
         for (int i = 0; i < displayUpgrades.Count; i++)
@@ -56,9 +82,6 @@ public class UpgradeManager : MonoBehaviour
         
         //アップグレード画面を表示
         upgradePanel.gameObject.SetActive(true);
-        
-        //選ばれた３つの選択肢確認用
-        //Debug.Log("selection: " + displayUpgrades[0].titleName + ", " + displayUpgrades[1].titleName + ", " + displayUpgrades[2].titleName);
     }
     
     //アップグレードを選択し、反映する
