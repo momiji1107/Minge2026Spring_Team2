@@ -58,7 +58,7 @@ public class UpgradeManager : MonoBehaviour
         upgradePanel.gameObject.SetActive(true);
         
         //選ばれた３つの選択肢確認用
-        Debug.Log("selection: " + displayUpgrades[0].titleName + ", " + displayUpgrades[1].titleName + ", " + displayUpgrades[2].titleName);
+        //Debug.Log("selection: " + displayUpgrades[0].titleName + ", " + displayUpgrades[1].titleName + ", " + displayUpgrades[2].titleName);
     }
     
     //アップグレードを選択し、反映する
