@@ -49,7 +49,7 @@ public class EnemyContext : MonoBehaviour
     public void SetCorePosition(Vector3 position)
     {
         if (_coreObject == null) return;
-        Debug.Log("Position: " + position);
+        //Debug.Log("Position: " + position);
         _coreObject.transform.position = position;
     }
     

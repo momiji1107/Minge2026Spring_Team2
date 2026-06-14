@@ -2,12 +2,16 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+public interface IDamageable
+{
+    public void TakeDamage(int damage);
+}
+
 public interface IEnemy
 {
     public int GetHp();
     public int GetMaxHp();
     public int GetExp();
-    public void TakeDamage(int damage);
     public void Stun(float time);
     public void Slow(float time, float per);
     public void SpawnMove(float time, Vector3 vector);
@@ -39,6 +43,7 @@ public class EnemyCore : MonoBehaviour, IEnemy
     private EnemyStatusManager _statusManager;
     private IEnemyStateMachine  _stateMachine;
     private List<EnemyBehaviourBase> _behaviours;
+    private IDamageProcessor _damageProcessor;
 
     // getter
     public int GetHp() => this._hp;
@@ -74,11 +79,13 @@ public class EnemyCore : MonoBehaviour, IEnemy
     /// </summary>
     public void SpawnMove(float time, Vector3 vector) {_statusManager.SpawnMove(time, vector);}
 
-    /// <summary>
-    ///  ダメージを受ける
-    /// </summary>
+    public void ReceiveDamage(int damage) { _damageProcessor.ReceiveDamage(damage); }
+    public void ReceiveDamage(int damage, BossPartType type) { ((BossDamageProcessor)_damageProcessor).ReceiveDamage(damage,type); }
+    
     public void TakeDamage(int damage)
     {
+        if (damage <= 0) return;
+        
         _hp -= damage;
         
         //点滅
@@ -106,17 +113,29 @@ public class EnemyCore : MonoBehaviour, IEnemy
         _hp = data.maxHp;
         
         _statusManager = new EnemyStatusManager();
-        _statusManager.Init(_controller);
 
-        if (!_isBoss) _stateMachine = new EnemyStateMachine();
-        else _stateMachine = new EnemyBossStateMachine();
+        if (!_isBoss)
+        {
+            _stateMachine = new EnemyStateMachine();
+            _damageProcessor = new EnemyDamageProcessor();
+        }
+        else
+        {
+            _stateMachine = new EnemyBossStateMachine();
+            var d = new BossDamageProcessor();
+            d.InitData((BossData)_data);
+            _damageProcessor = d;
+        }
         
+        _damageProcessor.Init(this);
+        _statusManager.Init(_controller);
         _stateMachine.Init(data, this, _controller.Context);
     }
 
     public void Tick()
     {
         _statusManager.Tick();
+        _damageProcessor.Tick();
 
         float dt = Time.deltaTime;
         
@@ -146,7 +165,7 @@ public class EnemyCore : MonoBehaviour, IEnemy
     {
         OnDead?.Invoke();
         //Debug.Log("Die: " + OnDead);
-        if (GetIsBoss())
+        if (_isBoss)
         {
             //Bossが死んだらクリア！
             var obj = SceneContext.Instance.gameManager;

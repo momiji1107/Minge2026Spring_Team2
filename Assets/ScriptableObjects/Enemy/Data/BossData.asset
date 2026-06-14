@@ -45,3 +45,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: b7293f40772c2d343a8d71b6fe8f625a, type: 2}
     - {fileID: 11400000, guid: 5ab3e1af7ca57eb46bce97940306d3c9, type: 2}
     - {fileID: 11400000, guid: ae1df5c4be73ce54399463ae475df633, type: 2}
+  partDatas:
+  - type: 0
+    multiplier: 1
+  - type: 1
+    multiplier: 0.5
