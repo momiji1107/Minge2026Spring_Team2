@@ -24,7 +24,7 @@ public class EnemyCore : MonoBehaviour, IEnemy
 {
     public static event Action<int> AddExpToPlayer;
     public static event Action<int> AddScoreToPlayer;
-
+    public static event Action<GameObject, int> PopupScore; 
     public event Action OnDead;
     public event Action OnAttack;
     public event Action OnMove;
@@ -158,5 +158,7 @@ public class EnemyCore : MonoBehaviour, IEnemy
         AddScoreToPlayer?.Invoke(_data.score);
         //プレイヤーに経験値を加算する
         AddExpToPlayer?.Invoke(_data.exp);
+        //頭上にスコアを表示する
+        PopupScore?.Invoke(gameObject, _data.score);
     }
 }

@@ -15,4 +15,6 @@ MonoBehaviour:
   name: Magic
   level: 1
   coolTime: 0
+  sound: {fileID: 8300000, guid: f94e90af38912430da3a2abbda2136de, type: 3}
   bulletPrefab: {fileID: 1045140358746843033, guid: 4abe72556de141146a9f4bd067af6415, type: 3}
+  flyEndless: 0

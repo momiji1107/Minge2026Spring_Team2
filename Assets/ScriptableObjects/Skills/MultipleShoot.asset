@@ -15,6 +15,7 @@ MonoBehaviour:
   name: multipleShoot
   level: 1
   coolTime: 2
+  sound: {fileID: 8300000, guid: f94e90af38912430da3a2abbda2136de, type: 3}
   bulletPrefab: {fileID: 8325350445536012867, guid: 8233ec1601fc049b4ba1fd11afe0fe36, type: 3}
   offsets:
   - {x: 0, y: 2.3, z: 0}

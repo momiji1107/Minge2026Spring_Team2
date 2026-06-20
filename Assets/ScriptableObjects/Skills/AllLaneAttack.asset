@@ -15,5 +15,6 @@ MonoBehaviour:
   name: AllLaneAttack
   level: 1
   coolTime: 10
+  sound: {fileID: 8300000, guid: f94e90af38912430da3a2abbda2136de, type: 3}
   bulletPrefab: {fileID: 8325350445536012867, guid: 8233ec1601fc049b4ba1fd11afe0fe36, type: 3}
   offSet: 0.75
