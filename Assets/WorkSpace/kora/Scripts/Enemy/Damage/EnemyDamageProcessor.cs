@@ -32,6 +32,7 @@ public class BossDamageProcessor : IDamageProcessor
     
     private bool _isBuffered = false;
     private int _bufferedDamage = 0;
+    private bool _isTookCore; 
 
     public void Init(EnemyCore core)
     {
@@ -51,6 +52,7 @@ public class BossDamageProcessor : IDamageProcessor
 
         _bufferedDamage = 0;
         _isBuffered = false;
+        _isTookCore = false;
     }
 
     public void ReceiveDamage(int damage) { Debug.Log("Set Normal EnemyHitBox on Boss.\n please set BossHitBox");}
@@ -58,6 +60,14 @@ public class BossDamageProcessor : IDamageProcessor
     public void ReceiveDamage(int damage, BossPartType type)
     {
         _isBuffered = true;
+
+        if (_isTookCore) return;
+        if (type == BossPartType.Core)
+        {
+            _bufferedDamage = damage;
+            _isTookCore = true;
+            return;
+        }
         
         foreach (var t in _data.partDatas)
         {
