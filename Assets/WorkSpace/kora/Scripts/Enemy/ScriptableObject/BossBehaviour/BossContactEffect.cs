@@ -11,7 +11,7 @@ public class BossContactEffect : BossBehaviourBaseSO
     
     protected override void OnInit()
     {
-        _damageCollider = Context.damageCollider;
+        _damageCollider = Context.contactDamageCollider;
     }
 
     public override void OnHitPlayer(Collider2D other)
