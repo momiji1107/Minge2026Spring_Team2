@@ -15,5 +15,6 @@ MonoBehaviour:
   name: 
   level: 1
   coolTime: 5
+  sound: {fileID: 8300000, guid: c2bd93d49bf7844e8a86e2b0f2ee0d46, type: 3}
   radius: 1.5
   effect: {fileID: 271370633281393084, guid: 7e10d161c5d301346aca5e481713802d, type: 3}

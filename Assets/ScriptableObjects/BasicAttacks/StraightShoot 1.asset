@@ -15,4 +15,6 @@ MonoBehaviour:
   name: Slash
   level: 1
   coolTime: 0
+  sound: {fileID: 8300000, guid: c2bd93d49bf7844e8a86e2b0f2ee0d46, type: 3}
   bulletPrefab: {fileID: 4492134659843027878, guid: 3d5bb0e0287b24b29981947327293768, type: 3}
+  flyEndless: 0

@@ -15,8 +15,9 @@ MonoBehaviour:
   name: Poison
   level: 1
   coolTime: 10
+  sound: {fileID: 8300000, guid: 3273bb9856c844f1b8c1e6a4d8a3075d, type: 3}
   poisonDuration: 5
   poisonInterval: 1
-  offSet: 2
   boxWidth: 4
   boxHeight: 1
+  offSet: 2
