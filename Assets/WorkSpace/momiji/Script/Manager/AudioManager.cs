@@ -80,4 +80,9 @@ public class AudioManager : MonoBehaviour
             bgmAudioSource.Play();
         }
     }
+
+    public void OneShot(AudioClip clip)
+    {
+        seAudioSource.PlayOneShot(clip);
+    }
 }

@@ -15,6 +15,7 @@ MonoBehaviour:
   name: Slow
   level: 1
   coolTime: 10
+  sound: {fileID: 8300000, guid: 3273bb9856c844f1b8c1e6a4d8a3075d, type: 3}
   slowDuration: 5
   speedDown: 50
   boxWidth: 4

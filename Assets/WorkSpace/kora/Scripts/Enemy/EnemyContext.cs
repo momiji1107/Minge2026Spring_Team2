@@ -16,6 +16,7 @@ public class EnemyContext : MonoBehaviour
     {
         _controller = controller;
         _gameObject = gameObject;
+        EnemyCore.PopupScore += SetScore;
     }
 
     public void SetCoreObject(GameObject coreObject)
@@ -55,11 +56,19 @@ public class EnemyContext : MonoBehaviour
     
     public void Destroy()
     {
+        EnemyCore.PopupScore -= SetScore;
         _controller.Destroy();
     }
 
     public GameObject Instantiate(GameObject obj, Vector3 pos)
     {
         return _controller.Instantiate(obj, pos);
+    }
+
+    private void SetScore(GameObject enemy, int score)
+    {
+        GameObject obj = Instantiate(scorePrefab, enemy.transform.position, Quaternion.identity);
+        obj.GetComponent<ScorePopup>().SetScore(score);
+        EnemyCore.PopupScore -= SetScore;
     }
 }
