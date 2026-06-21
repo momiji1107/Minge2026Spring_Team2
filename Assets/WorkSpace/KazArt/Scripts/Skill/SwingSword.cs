@@ -35,7 +35,7 @@ public class SwingSword : EquipmentBase
         {
             if (hit.gameObject.CompareTag("Enemy"))
             {
-                hit.gameObject.GetComponent<IEnemy>()?.TakeDamage(model.Attack);
+                hit.gameObject.GetComponent<IDamageable>()?.TakeDamage(model.Attack);
             }
         }
     }

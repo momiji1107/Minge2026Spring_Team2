@@ -45,7 +45,7 @@ public class Poison : EquipmentBase
         {
             if (targetEnemy == null) break;
 
-            targetEnemy.gameObject.GetComponent<IEnemy>()?.TakeDamage(model.Attack);
+            targetEnemy.gameObject.GetComponent<IDamageable>()?.TakeDamage(model.Attack);
             yield return new WaitForSeconds(poisonInterval);
             poisonTime += poisonInterval;
         }

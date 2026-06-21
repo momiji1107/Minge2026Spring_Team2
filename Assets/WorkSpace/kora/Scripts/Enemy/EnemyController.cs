@@ -58,4 +58,14 @@ public class EnemyController : MonoBehaviour
             _core.OnHitPlayer(other);
         }
     }
+
+    public void ReceiveDamage(int damage)
+    {
+        _core.ReceiveDamage(damage);
+    }
+
+    public void ReceiveDamage(int damage, BossPartType type)
+    {
+        _core.ReceiveDamage(damage, type);
+    }
 }
