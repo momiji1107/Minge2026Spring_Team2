@@ -96,16 +96,16 @@ public class UpgradeManager : MonoBehaviour
         GameManagement.GameState = GAMESTATE.INGAME;
     }
     
-    //アップグレード中は左右矢印キーで選択肢を変更する、Enterキーで決定
+    //アップグレード中は左右矢印キーまたはADキーで選択肢を変更する、Enterキーで決定
     public void UpgradeInput()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow) && selectNumber < displayUpgrades.Count - 1)
+        if ((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) && selectNumber < displayUpgrades.Count - 1)
         {
             selectNumber++;
             audioManager.Select();
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && selectNumber > 0)
+        if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) && selectNumber > 0)
         {
             selectNumber--;
             audioManager.Select();
