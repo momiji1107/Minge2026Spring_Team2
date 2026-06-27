@@ -7413,13 +7413,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 98481de9fb47f524395ed78c13d2751c, type: 2}
   - {fileID: 11400000, guid: 5b9d9f336e4e19c429a4bc8d3eacf51d, type: 2}
   - {fileID: 11400000, guid: b1a9d324f736bcf49bcddbfad162d7a1, type: 2}
-  - {fileID: 11400000, guid: 5dca15ebe4fd2fc46aa97ef1c9075ac1, type: 2}
   - {fileID: 11400000, guid: 0a7775d40d8dfd84baba3de6d57243fb, type: 2}
   - {fileID: 11400000, guid: 05fc36198f24e564d89aea2518f3d58e, type: 2}
   - {fileID: 11400000, guid: 03913c12aec71468c864e01a2a965df5, type: 2}
   - {fileID: 11400000, guid: 480c074379a614c63b83dbd23b702d22, type: 2}
   - {fileID: 11400000, guid: a88da558716c14db984c050eb92e548f, type: 2}
   - {fileID: 11400000, guid: a4bfd510ab12847c38f904d06859f4ad, type: 2}
+  diplayUpgradesNum: 3
   upgradePanel: {fileID: 1330237610}
   panelRects:
   - {fileID: 1616423229}
@@ -7437,7 +7437,6 @@ MonoBehaviour:
   - {fileID: 1469835637}
   - {fileID: 275178927}
   - {fileID: 92021144}
-  diplayUpgradesNum: 3
 --- !u!1 &1237191014
 GameObject:
   m_ObjectHideFlags: 0

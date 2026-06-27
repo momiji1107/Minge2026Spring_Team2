@@ -11,7 +11,12 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private PlayerEquipmentManager equipmentManager;
     [SerializeField] private PlayerModel model;
     [SerializeField] private AudioManager audioManager;
+    
+    [Header("アップグレード関係")]
     [SerializeField] private List<UpgradeBase> upgrades;
+    [SerializeField,Tooltip("表示するアップグレードの数")] private int diplayUpgradesNum;
+    private List<UpgradeBase> displayUpgrades; //選択肢に表示するアップグレード
+    private int selectNumber; //選択中のアップグレードを示す
     
     [Header("パネルUI関係")]
     [SerializeField] private GameObject upgradePanel;
@@ -20,11 +25,6 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] infoTexts;
     [SerializeField] private Image[] images;
     private float atractSize = 1.2f; //選択中のパネルの拡大したサイズ
-    
-    [Header("アップグレード関係")]
-    [SerializeField,Tooltip("表示するアップグレードの数")] private int diplayUpgradesNum;
-    private List<UpgradeBase> displayUpgrades; //選択肢に表示するアップグレード
-    private int selectNumber; //選択中のアップグレードを示す
 
     void Start()
     {
