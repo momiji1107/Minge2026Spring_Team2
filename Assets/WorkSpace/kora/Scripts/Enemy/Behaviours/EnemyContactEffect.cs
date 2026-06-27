@@ -25,7 +25,7 @@ public class EnemyContactEffect : EnemyBehaviourBase
         _isDamageable = param.isDamageable;
         _isDestroy = param.isDestroy;
         _damage = param.damage;
-        _damageCollider = Context.damageCollider;
+        _damageCollider = Context.contactDamageCollider;
     }
     
     public override void OnHitPlayer(Collider2D other)
