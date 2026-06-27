@@ -11,7 +11,12 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private PlayerEquipmentManager equipmentManager;
     [SerializeField] private PlayerModel model;
     [SerializeField] private AudioManager audioManager;
+    
+    [Header("アップグレード関係")]
     [SerializeField] private List<UpgradeBase> upgrades;
+    [SerializeField,Tooltip("表示するアップグレードの数")] private int diplayUpgradesNum;
+    private List<UpgradeBase> displayUpgrades; //選択肢に表示するアップグレード
+    private int selectNumber; //選択中のアップグレードを示す
     
     [Header("パネルUI関係")]
     [SerializeField] private GameObject upgradePanel;
@@ -20,11 +25,6 @@ public class UpgradeManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] infoTexts;
     [SerializeField] private Image[] images;
     private float atractSize = 1.2f; //選択中のパネルの拡大したサイズ
-    
-    [Header("アップグレード関係")]
-    [SerializeField,Tooltip("表示するアップグレードの数")] private int diplayUpgradesNum;
-    private List<UpgradeBase> displayUpgrades; //選択肢に表示するアップグレード
-    private int selectNumber; //選択中のアップグレードを示す
 
     void Start()
     {
@@ -96,16 +96,16 @@ public class UpgradeManager : MonoBehaviour
         GameManagement.GameState = GAMESTATE.INGAME;
     }
     
-    //アップグレード中は左右矢印キーで選択肢を変更する、Enterキーで決定
+    //アップグレード中は左右矢印キーまたはADキーで選択肢を変更する、Enterキーで決定
     public void UpgradeInput()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow) && selectNumber < displayUpgrades.Count - 1)
+        if ((Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) && selectNumber < displayUpgrades.Count - 1)
         {
             selectNumber++;
             audioManager.Select();
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftArrow) && selectNumber > 0)
+        if ((Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) && selectNumber > 0)
         {
             selectNumber--;
             audioManager.Select();
