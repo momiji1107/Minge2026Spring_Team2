@@ -2,28 +2,27 @@ using UnityEngine;
 
 public class EnemyContext : MonoBehaviour
 {
-    [Header("接触判定")][SerializeField] public Collider2D damageCollider;
-    [Header("発射位置")][SerializeField] public GameObject shotPoint;
+    [Header("接触判定")] [SerializeField] public Collider2D damageCollider;
+    [Header("発射位置")] [SerializeField] public GameObject shotPoint;
     [Header("ダメージ時に点滅するsprite")] public SpriteRenderer sr;
     [SerializeField] private GameObject scorePrefab;
     public GameObject ScorePrefab => scorePrefab;
-    
+
     private EnemyController _controller;
     private GameObject _gameObject;
     private GameObject _coreObject;
-    
+
     public void Init(EnemyController controller, GameObject gameObject)
     {
         _controller = controller;
         _gameObject = gameObject;
-        EnemyCore.PopupScore += SetScore;
     }
 
     public void SetCoreObject(GameObject coreObject)
     {
         _coreObject = coreObject;
     }
-    
+
     //Getter
     public GameObject GameObject => _gameObject;
     public Transform Transform => _gameObject.transform;
@@ -53,22 +52,15 @@ public class EnemyContext : MonoBehaviour
         //Debug.Log("Position: " + position);
         _coreObject.transform.position = position;
     }
-    
-    public void Destroy()
+
+    public void ActivateDestroy()
     {
-        EnemyCore.PopupScore -= SetScore;
-        _controller.Destroy();
+        //EnemyCore.PopupScore -= SetScore;
+        _controller.ActivateDestroy();
     }
 
     public GameObject Instantiate(GameObject obj, Vector3 pos)
     {
         return _controller.Instantiate(obj, pos);
-    }
-
-    private void SetScore(GameObject enemy, int score)
-    {
-        GameObject obj = Instantiate(scorePrefab, enemy.transform.position, Quaternion.identity);
-        obj.GetComponent<ScorePopup>().SetScore(score);
-        EnemyCore.PopupScore -= SetScore;
     }
 }

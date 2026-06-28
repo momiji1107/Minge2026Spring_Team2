@@ -29,7 +29,7 @@ public class BossContactEffect : BossBehaviourBaseSO
 
         if (isDestroy)
         {
-            Context.Destroy();
+            Context.ActivateDestroy();
         }
     }
 }

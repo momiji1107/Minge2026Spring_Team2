@@ -43,7 +43,7 @@ public class EnemyContactEffect : EnemyBehaviourBase
 
         if (_isDestroy)
         {
-            Context.Destroy();
+            Context.ActivateDestroy();
         }
     }
 }
