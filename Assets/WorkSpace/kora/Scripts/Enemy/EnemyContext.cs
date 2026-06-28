@@ -1,11 +1,14 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyContext : MonoBehaviour
 {
-    [Header("接触判定")] [SerializeField] public Collider2D damageCollider;
-    [Header("発射位置")] [SerializeField] public GameObject shotPoint;
+    [Header("接触ダメージ判定")][SerializeField] public Collider2D contactDamageCollider;
+    [Header("攻撃を受けるcollider")] [SerializeField] public List<Collider2D> takeDamageCollider;
+    [Header("発射位置")][SerializeField] public GameObject shotPoint;
     [Header("ダメージ時に点滅するsprite")] public SpriteRenderer sr;
-    [SerializeField] private GameObject scorePrefab;
+    [Header("Rigidbody")] [SerializeField] public Rigidbody2D rb;
+    [Header("scoreを表示するcanvas")][SerializeField] private GameObject scorePrefab;
     public GameObject ScorePrefab => scorePrefab;
 
     private EnemyController _controller;
@@ -16,6 +19,8 @@ public class EnemyContext : MonoBehaviour
     {
         _controller = controller;
         _gameObject = gameObject;
+        
+        if (rb == null) rb = GetComponent<Rigidbody2D>();
     }
 
     public void SetCoreObject(GameObject coreObject)

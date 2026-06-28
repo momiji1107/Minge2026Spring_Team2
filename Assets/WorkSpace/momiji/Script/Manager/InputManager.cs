@@ -36,7 +36,7 @@ public class InputManager : MonoBehaviour
     {
         if (GameManagement.GameState != GAMESTATE.NONE) return;
         
-        if (Input.GetKeyDown(KeyCode.RightArrow)) {
+        if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D)) {
             if (_isSliding) return;
             _selectNumber++;
             if(_selectNumber >= panels.Length) _selectNumber = 0;
@@ -44,7 +44,7 @@ public class InputManager : MonoBehaviour
             StartCoroutine(SlidePanel("right"));
             audioSource.PlayOneShot(selectClip);
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow)) { 
+        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A)) { 
             if (_isSliding) return;
             
             _selectNumber--;

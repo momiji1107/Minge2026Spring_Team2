@@ -953,9 +953,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b81ceb7b14a7c94b8d6e92f647dd34f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyContext
-  damageCollider: {fileID: 192511724214827100}
+  contactDamageCollider: {fileID: 192511724214827100}
+  takeDamageCollider:
+  - {fileID: 8372845332519816060}
+  - {fileID: 8770319744722269527}
   shotPoint: {fileID: 5388298929091285907}
   sr: {fileID: 8789029463910743384}
+  rb: {fileID: 6709984521583131392}
   scorePrefab: {fileID: 5593453957742890521, guid: d676faf3e96f54531bae616495ca2459, type: 3}
 --- !u!114 &6053799333216041222
 MonoBehaviour:

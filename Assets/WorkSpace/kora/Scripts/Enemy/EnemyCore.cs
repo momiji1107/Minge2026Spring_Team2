@@ -163,6 +163,15 @@ public class EnemyCore : MonoBehaviour, IEnemy
     private void Die()
     {
         OnDead?.Invoke();
+
+        // 全てのtakeDamageColliderを無効化
+        foreach (var c in _controller.Context.takeDamageCollider)
+        {
+            c.enabled = false;
+        }
+        // 重力は0に変更
+        _controller.Context.rb.gravityScale = 0;
+        
         //Debug.Log("Die: " + OnDead);
         if (_isBoss)
         {
