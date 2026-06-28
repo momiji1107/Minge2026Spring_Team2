@@ -50,7 +50,7 @@ public class EnemyMoveStraight : EnemyBehaviourBase
         if (pos.x < 0 || 1 < pos.x || pos.y < 0 || 1 < pos.y)
         {
             Debug.Log("Out of Camera and Destroy:" + Context.GameObject.name);
-            Context.Destroy();
+            Context.ActivateDestroy();
         }
     }
 }
