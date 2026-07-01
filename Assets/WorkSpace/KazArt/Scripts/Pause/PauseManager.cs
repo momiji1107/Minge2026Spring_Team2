@@ -18,7 +18,7 @@ public class PauseManager : MonoBehaviour
         isPaused = true;
         Time.timeScale = 0;
 
-        selectManager.startSelect();
+        selectManager.StartSelect();
     }
 
     private void Resume()
@@ -27,6 +27,6 @@ public class PauseManager : MonoBehaviour
         isPaused = false;
         Time.timeScale = 1.0f;
 
-        selectManager.stopSelect();
+        selectManager.StopSelect();
     }
 }

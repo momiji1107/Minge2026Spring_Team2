@@ -687,10 +687,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Option
+  m_text: "\u30AA\u30D7\u30B7\u30E7\u30F3"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fa6f5369f4889447ea53d642e5a9b226, type: 2}
+  m_sharedMaterial: {fileID: 1537351824987109123, guid: fa6f5369f4889447ea53d642e5a9b226, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1964,10 +1964,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Home
+  m_text: "\u30DB\u30FC\u30E0"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fa6f5369f4889447ea53d642e5a9b226, type: 2}
+  m_sharedMaterial: {fileID: 1537351824987109123, guid: fa6f5369f4889447ea53d642e5a9b226, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6730,10 +6730,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Operation
+  m_text: "\u305D\u3046\u3055\u65B9\u6CD5"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: fa6f5369f4889447ea53d642e5a9b226, type: 2}
+  m_sharedMaterial: {fileID: 1537351824987109123, guid: fa6f5369f4889447ea53d642e5a9b226, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -11131,6 +11131,7 @@ MonoBehaviour:
   - {fileID: 438402284}
   - {fileID: 409718597}
   - {fileID: 2019304806}
+  audioManager: {fileID: 848539689}
 --- !u!4 &1669132936
 Transform:
   m_ObjectHideFlags: 0
