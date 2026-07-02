@@ -15,6 +15,7 @@ MonoBehaviour:
   name: EraseBullet
   level: 1
   coolTime: 10
+  sound: {fileID: 8300000, guid: 3273bb9856c844f1b8c1e6a4d8a3075d, type: 3}
   enemyBullet: {fileID: 7523403266130047925, guid: 9a573caf764467a45941063d5838a400, type: 3}
   throwSpeed: 5
   boxWidth: 4

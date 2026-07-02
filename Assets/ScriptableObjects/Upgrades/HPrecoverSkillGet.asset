@@ -15,4 +15,8 @@ MonoBehaviour:
   titleName: "\u65B0\u30B9\u30AD\u30EBGET"
   infoSentence: "HP\u3092\u304B\u3044\u3075\u304F\u3059\u308B"
   icon: {fileID: 21300000, guid: 507b12dce2a5442c0a31c371f0d9d769, type: 3}
+  rarity: 6
+  upgradeSkills:
+  - {fileID: 11400000, guid: 56396d439bfff9b4c86b2accb5b3b5bd, type: 2}
+  - {fileID: 11400000, guid: 5ba9defbd2700e947afe6d8cce284437, type: 2}
   newSkill: {fileID: 11400000, guid: bc81978c905cd7e4b9edf05e44c508a1, type: 2}

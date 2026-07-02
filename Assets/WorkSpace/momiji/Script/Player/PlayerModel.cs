@@ -38,7 +38,6 @@ public class PlayerModel : MonoBehaviour
     [SerializeField] private bool lookAtRight = true; //trueの時右向き
 
     [Header("ダメージ軽減スキル・無効化設定")]
-    [SerializeField] private DamageReduction damageReduction;
     [SerializeField] private DamageNegate damageNegate;
     private bool invincible = false; //無敵中かどうか
     
@@ -111,10 +110,6 @@ public class PlayerModel : MonoBehaviour
     //ダメージ計算
     private int CalcDamage(int damage)
     {
-        if(damageReduction.IsActive)
-        {
-            damage = Mathf.Max(0, damage - 1);
-        }
 
         if(damageNegate.IsActive)
         {

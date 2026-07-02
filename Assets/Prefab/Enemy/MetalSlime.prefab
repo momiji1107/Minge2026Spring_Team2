@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 1093576919478883642}
   - component: {fileID: 8458903826754264497}
   - component: {fileID: 134141170540080227}
+  - component: {fileID: 70583353845057733}
   m_Layer: 3
   m_Name: MetalSlime
   m_TagString: Enemy
@@ -302,6 +303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 195e3db3c9cbc9745ae53efbc8d23ba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBasicView
+  enemy: {fileID: 0}
+  coreObject: {fileID: 0}
 --- !u!114 &134141170540080227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -314,7 +317,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b81ceb7b14a7c94b8d6e92f647dd34f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyContext
-  damageCollider: {fileID: 8082797589827680314}
+  contactDamageCollider: {fileID: 8082797589827680314}
+  takeDamageCollider:
+  - {fileID: 7520136305236063426}
   shotPoint: {fileID: 8759148217643277841}
-  sr: {fileID: 0}
+  sr: {fileID: 3332777169600125922}
+  rb: {fileID: 5939030543876509912}
   scorePrefab: {fileID: 5593453957742890521, guid: d676faf3e96f54531bae616495ca2459, type: 3}
+--- !u!114 &70583353845057733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8759148217643277841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c230cb4976b13244e842a3bdfa3c4524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHitBox
+  controller: {fileID: 4032770715303872910}

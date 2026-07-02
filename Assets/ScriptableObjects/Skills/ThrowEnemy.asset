@@ -15,8 +15,9 @@ MonoBehaviour:
   name: 
   level: 1
   coolTime: 5
+  sound: {fileID: 8300000, guid: f94e90af38912430da3a2abbda2136de, type: 3}
+  enemyBullet: {fileID: 7287775562442470276, guid: ed736939a46d0b04fb302383a9315b4e, type: 3}
+  throwSpeed: 5
   boxWidth: 1
   boxHeight: 1
   offSet: 0.5
-  enemyBullet: {fileID: 7287775562442470276, guid: ed736939a46d0b04fb302383a9315b4e, type: 3}
-  throwSpeed: 5

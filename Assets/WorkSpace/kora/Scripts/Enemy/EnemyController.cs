@@ -21,7 +21,7 @@ public class EnemyController : MonoBehaviour
     
     public EnemyContext Context => _context;
     
-    public void Destroy() { Destroy(enemy); }
+    public void ActivateDestroy() { Destroy(enemy); }
     public GameObject Instantiate(GameObject obj, Vector3 pos) { return Instantiate(obj, pos, obj.transform.rotation); }
     
     void Awake()
@@ -57,5 +57,15 @@ public class EnemyController : MonoBehaviour
         {
             _core.OnHitPlayer(other);
         }
+    }
+
+    public void ReceiveDamage(int damage)
+    {
+        _core.ReceiveDamage(damage);
+    }
+
+    public void ReceiveDamage(int damage, BossPartType type)
+    {
+        _core.ReceiveDamage(damage, type);
     }
 }

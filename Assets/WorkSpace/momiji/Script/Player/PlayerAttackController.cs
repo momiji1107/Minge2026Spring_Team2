@@ -61,6 +61,7 @@ public class PlayerAttackController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.X) && timers[1] >= model.RapidFireSpeed + skills[0]?.coolTime)
         {
             skills[0]?.Activate(model);
+            audioManager.OneShot(skills[0].sound);
             timers[1] = 0f;
         }
 
@@ -68,6 +69,7 @@ public class PlayerAttackController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C) && timers[2] >= model.RapidFireSpeed + skills[1]?.coolTime)
         {
             skills[1]?.Activate(model);
+            audioManager.OneShot(skills[1].sound);
             timers[2] = 0f;
         }
 
@@ -75,20 +77,11 @@ public class PlayerAttackController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.V) && timers[3] >= model.RapidFireSpeed + skills[2]?.coolTime)
         {
             skills[2]?.Activate(model);
+            audioManager.OneShot(skills[2].sound);
             timers[3] = 0f;
         }
 
         DisplayCoolTimeBar();
-    }
-
-    public bool HasSkill(string skillName)
-    {
-        foreach (var skill in skills)
-        {
-            if(skill.name == skillName) return true;
-        }
-        
-        return false;
     }
 
     //クールタイムをSliderに表示させる

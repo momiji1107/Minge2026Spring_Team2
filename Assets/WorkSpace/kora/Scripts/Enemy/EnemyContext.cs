@@ -1,28 +1,33 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyContext : MonoBehaviour
 {
-    [Header("接触判定")][SerializeField] public Collider2D damageCollider;
+    [Header("接触ダメージ判定")][SerializeField] public Collider2D contactDamageCollider;
+    [Header("攻撃を受けるcollider")] [SerializeField] public List<Collider2D> takeDamageCollider;
     [Header("発射位置")][SerializeField] public GameObject shotPoint;
     [Header("ダメージ時に点滅するsprite")] public SpriteRenderer sr;
-    [SerializeField] private GameObject scorePrefab;
+    [Header("Rigidbody")] [SerializeField] public Rigidbody2D rb;
+    [Header("scoreを表示するcanvas")][SerializeField] private GameObject scorePrefab;
     public GameObject ScorePrefab => scorePrefab;
-    
+
     private EnemyController _controller;
     private GameObject _gameObject;
     private GameObject _coreObject;
-    
+
     public void Init(EnemyController controller, GameObject gameObject)
     {
         _controller = controller;
         _gameObject = gameObject;
+        
+        if (rb == null) rb = GetComponent<Rigidbody2D>();
     }
 
     public void SetCoreObject(GameObject coreObject)
     {
         _coreObject = coreObject;
     }
-    
+
     //Getter
     public GameObject GameObject => _gameObject;
     public Transform Transform => _gameObject.transform;
@@ -49,13 +54,14 @@ public class EnemyContext : MonoBehaviour
     public void SetCorePosition(Vector3 position)
     {
         if (_coreObject == null) return;
-        Debug.Log("Position: " + position);
+        //Debug.Log("Position: " + position);
         _coreObject.transform.position = position;
     }
-    
-    public void Destroy()
+
+    public void ActivateDestroy()
     {
-        _controller.Destroy();
+        //EnemyCore.PopupScore -= SetScore;
+        _controller.ActivateDestroy();
     }
 
     public GameObject Instantiate(GameObject obj, Vector3 pos)

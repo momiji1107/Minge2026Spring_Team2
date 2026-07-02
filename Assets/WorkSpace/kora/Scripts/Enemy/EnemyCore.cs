@@ -2,22 +2,32 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+public interface IDamageable
+{
+    public void TakeDamage(int damage);
+}
+
 public interface IEnemy
 {
     public int GetHp();
     public int GetMaxHp();
     public int GetExp();
-    public void TakeDamage(int damage);
     public void Stun(float time);
     public void Slow(float time, float per);
     public void SpawnMove(float time, Vector3 vector);
+    public void SetIsRight(bool isRight);
+    public bool GetIsStun();
+    public bool GetIsSlow();
+    public bool GetIsBoss();
+    public bool GetIsDead();
+    public bool GetIsRight();
+    public EnemyData GetData();
 }
 
 public class EnemyCore : MonoBehaviour, IEnemy
 {
     public static event Action<int> AddExpToPlayer;
     public static event Action<int> AddScoreToPlayer;
-
     public event Action OnDead;
     public event Action OnAttack;
     public event Action OnMove;
@@ -32,6 +42,7 @@ public class EnemyCore : MonoBehaviour, IEnemy
     private EnemyStatusManager _statusManager;
     private IEnemyStateMachine  _stateMachine;
     private List<EnemyBehaviourBase> _behaviours;
+    private IDamageProcessor _damageProcessor;
 
     // getter
     public int GetHp() => this._hp;
@@ -67,11 +78,13 @@ public class EnemyCore : MonoBehaviour, IEnemy
     /// </summary>
     public void SpawnMove(float time, Vector3 vector) {_statusManager.SpawnMove(time, vector);}
 
-    /// <summary>
-    ///  ダメージを受ける
-    /// </summary>
+    public void ReceiveDamage(int damage) { _damageProcessor.ReceiveDamage(damage); }
+    public void ReceiveDamage(int damage, BossPartType type) { ((BossDamageProcessor)_damageProcessor).ReceiveDamage(damage,type); }
+    
     public void TakeDamage(int damage)
     {
+        if (damage <= 0) return;
+        
         _hp -= damage;
         
         //点滅
@@ -99,17 +112,29 @@ public class EnemyCore : MonoBehaviour, IEnemy
         _hp = data.maxHp;
         
         _statusManager = new EnemyStatusManager();
-        _statusManager.Init(_controller);
 
-        if (!_isBoss) _stateMachine = new EnemyStateMachine();
-        else _stateMachine = new EnemyBossStateMachine();
+        if (!_isBoss)
+        {
+            _stateMachine = new EnemyStateMachine();
+            _damageProcessor = new EnemyDamageProcessor();
+        }
+        else
+        {
+            _stateMachine = new EnemyBossStateMachine();
+            var d = new BossDamageProcessor();
+            d.InitData((BossData)_data);
+            _damageProcessor = d;
+        }
         
+        _damageProcessor.Init(this);
+        _statusManager.Init(_controller);
         _stateMachine.Init(data, this, _controller.Context);
     }
 
     public void Tick()
     {
         _statusManager.Tick();
+        _damageProcessor.Tick();
 
         float dt = Time.deltaTime;
         
@@ -126,7 +151,7 @@ public class EnemyCore : MonoBehaviour, IEnemy
     
     public void ActiveDestroy()
     {
-        _controller.Destroy();
+        _controller.ActivateDestroy();
     }
     
     public void InvokeAttackAnim() {OnAttack?.Invoke();}
@@ -138,8 +163,17 @@ public class EnemyCore : MonoBehaviour, IEnemy
     private void Die()
     {
         OnDead?.Invoke();
+
+        // 全てのtakeDamageColliderを無効化
+        foreach (var c in _controller.Context.takeDamageCollider)
+        {
+            c.enabled = false;
+        }
+        // 重力は0に変更
+        _controller.Context.rb.gravityScale = 0;
+        
         //Debug.Log("Die: " + OnDead);
-        if (GetIsBoss())
+        if (_isBoss)
         {
             //Bossが死んだらクリア！
             var obj = SceneContext.Instance.gameManager;
@@ -151,5 +185,8 @@ public class EnemyCore : MonoBehaviour, IEnemy
         AddScoreToPlayer?.Invoke(_data.score);
         //プレイヤーに経験値を加算する
         AddExpToPlayer?.Invoke(_data.exp);
+        //頭上にスコアを表示する
+        Instantiate(_controller.Context.ScorePrefab, _controller.Context.GameObject.transform.position, Quaternion.identity)
+            .GetComponent<ScorePopup>().SetScore(_data.score);
     }
 }

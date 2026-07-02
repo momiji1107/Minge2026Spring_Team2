@@ -13,7 +13,7 @@ public class BulletBase : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy"))
         {
-            other.gameObject.GetComponent<EnemyCore>()?.TakeDamage(_damage);
+            other.gameObject.GetComponent<IDamageable>()?.TakeDamage(_damage);
             Destroy(this.gameObject);
         }
     }

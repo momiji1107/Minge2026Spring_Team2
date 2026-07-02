@@ -15,4 +15,5 @@ MonoBehaviour:
   titleName: "\u3060\u3093\u305D\u304FUP"
   infoSentence: "\u3060\u3093\u305D\u304F\u304C\n1 \u4E0A\u304C\u308B"
   icon: {fileID: 21300000, guid: e70057e6c387340ac88f6f8fd3ca36e1, type: 3}
+  rarity: 9
   shootSpeed: 1

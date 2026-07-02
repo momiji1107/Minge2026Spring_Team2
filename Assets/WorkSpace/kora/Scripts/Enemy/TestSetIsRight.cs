@@ -6,12 +6,12 @@ public class TestSetIsRight : MonoBehaviour
 
     [SerializeField] private bool isFunc1;
 
-    private EnemyCore _core;
+    private IEnemy _core;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        _core = enemy.GetComponent<EnemyCore>();
+        _core = enemy.GetComponent<IEnemy>();
         if (isFunc1) Invoke(nameof(Func2), 3f);
     }
 
