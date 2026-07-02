@@ -44,7 +44,7 @@ public class PauseMenuSelectManager : MonoBehaviour
 
         bool isChanged = false;
 
-        if(Input.GetKeyDown(KeyCode.UpArrow))
+        if(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             selectedIndex--;
             if(selectedIndex < 0) selectedIndex = buttons.Length - 1;
@@ -53,7 +53,7 @@ public class PauseMenuSelectManager : MonoBehaviour
             audioManager.Select();
         }
 
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
         {
             selectedIndex++;
             if (selectedIndex >= buttons.Length) selectedIndex = 0;
