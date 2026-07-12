@@ -10,6 +10,7 @@ public class PlayerInputController : MonoBehaviour
     [SerializeField] private UpgradeManager upgradeManager;
     [SerializeField] private SceneChanger sceneChanger;
     [SerializeField] private ScoreManager scoreManager;
+    [SerializeField] private PauseManager pauseManager;
 
     [Header("縦移動")]
     [SerializeField,Tooltip("レーン移動後に再びレーン移動できるようになるまでの時間")] private float laneMoveTime = 0.5f;
@@ -62,6 +63,11 @@ public class PlayerInputController : MonoBehaviour
             {
                 scoreManager.CloseScore();
             }
+        }
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            pauseManager.TogglePause();
         }
     }
 

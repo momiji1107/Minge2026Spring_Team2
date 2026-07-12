@@ -18,12 +18,12 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip clearBGMClip;
     [SerializeField] private AudioClip bossAppearClip;
     
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         StartGameBGM();
     }
 
+    //ゲームオーバー時に実行
     public IEnumerator GameOver()
     {
         bgmAudioSource.Stop(); //BGMを止める
@@ -34,6 +34,7 @@ public class AudioManager : MonoBehaviour
         bgmAudioSource.Play();
     }
 
+    //ゲームクリア時に実行
     public IEnumerator GameClear()
     {
         bgmAudioSource.Stop(); //BGMを止める
@@ -45,24 +46,27 @@ public class AudioManager : MonoBehaviour
         bgmAudioSource.Play();
     }
 
+    //選択音を鳴らす
     public void Select()
     {
         seAudioSource.PlayOneShot(selectClip);
     }
 
+    //決定音を鳴らす
     public void Confirm()
     {
         seAudioSource.PlayOneShot(confirmClip);
     }
 
+    //攻撃音を鳴らす
     public void Attack(AudioClip attackClip)
     {
         seAudioSource.PlayOneShot(attackClip);
     }
 
+    //ボス出現BGMを流す
     public void BossAppear()
     {
-        //ボス出現BGMを流す
         bgmAudioSource.Stop();
         bgmAudioSource.loop = false;
         bgmAudioSource.clip = bossAppearClip;
@@ -70,6 +74,7 @@ public class AudioManager : MonoBehaviour
         StartCoroutine(Common.DelayCall(StartGameBGM, 10.0f));
     }
 
+    //BGMをランダムで流し始める
     private void StartGameBGM()
     {
         if (!bgmAudioSource.isPlaying)
@@ -81,6 +86,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    //呼び出す側にAudio Clipを登録し、一度音を鳴らしたいときに使用する
     public void OneShot(AudioClip clip)
     {
         seAudioSource.PlayOneShot(clip);

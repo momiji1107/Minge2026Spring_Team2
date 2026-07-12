@@ -15,6 +15,7 @@ public class DamageNegate : EquipmentBase
     {
         //init effect
         var obj = Instantiate(effect, model.transform.position, Quaternion.identity);
+        obj.GetComponent<SkillEffectView>().Activate(duration);
         if (!model.GetDirection)
         {
             var l = obj.transform.localScale;
