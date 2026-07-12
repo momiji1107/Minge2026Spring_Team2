@@ -7609,6 +7609,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 67c6e9fcaceb09a40a6ec93d9aacd112, type: 2}
   - {fileID: 11400000, guid: d470ea747c2c146ae87ac87b5dce746a, type: 2}
   - {fileID: 11400000, guid: 4404b5c660f864a8c90012efafec7db3, type: 2}
+  - {fileID: 11400000, guid: e9bc66030dcd95c4fb4c2be847056436, type: 2}
   diplayUpgradesNum: 3
   upgradePanel: {fileID: 1330237610}
   panelRects:
@@ -7872,7 +7873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GenerateEnemy
   waves:
-  - spawnTime: 5
+  - spawnTime: 3
     enamydatas:
     - enemyPrefab: {fileID: 8759148217643277841, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
       spawnPoint: {fileID: 1306579116}
@@ -7919,6 +7920,18 @@ MonoBehaviour:
       isRight: 0
     - enemyPrefab: {fileID: 8759148217643277841, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
       spawnPoint: {fileID: 571631438}
+      spawnMoveTime: 1
+      targetPosition: {x: -1, y: 0, z: 0}
+      isRight: 0
+  - spawnTime: 25
+    enamydatas:
+    - enemyPrefab: {fileID: 8759148217643277841, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
+      spawnPoint: {fileID: 1008840894}
+      spawnMoveTime: 1
+      targetPosition: {x: 1, y: 0, z: 0}
+      isRight: 1
+    - enemyPrefab: {fileID: 8759148217643277841, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
+      spawnPoint: {fileID: 120388281}
       spawnMoveTime: 1
       targetPosition: {x: -1, y: 0, z: 0}
       isRight: 0
