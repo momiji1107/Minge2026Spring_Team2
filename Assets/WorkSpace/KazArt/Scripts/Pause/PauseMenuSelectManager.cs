@@ -4,15 +4,22 @@ using UnityEngine.UI;
 
 public class PauseMenuSelectManager : MonoBehaviour
 {
-    [SerializeField] private Button[] buttons;
+    [SerializeField] private Button[] pauseButtons;
+    [SerializeField] private Button[] homeButtons;
     [SerializeField] private AudioManager audioManager;
+    [SerializeField] private PauseMenuManager menuManager;
+ 
     private int selectedIndex;
     private bool isActive;
+    private Button[] buttons;
+
+    private const int homeIndex = 2;
 
     public void StartSelect()
     {
         selectedIndex = 0;
         isActive = true;
+        buttons = pauseButtons;
 
         if (buttons != null && buttons.Length > 0)
         {
@@ -44,22 +51,45 @@ public class PauseMenuSelectManager : MonoBehaviour
 
         bool isChanged = false;
 
-        if(Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+        if (buttons == pauseButtons)
         {
-            selectedIndex--;
-            if(selectedIndex < 0) selectedIndex = buttons.Length - 1;
+            if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+            {
+                selectedIndex--;
+                if (selectedIndex < 0) selectedIndex = buttons.Length - 1;
 
-            isChanged = true;
-            audioManager.Select();
+                isChanged = true;
+                audioManager.Select();
+            }
+
+            if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+            {
+                selectedIndex++;
+                if (selectedIndex >= buttons.Length) selectedIndex = 0;
+
+                isChanged = true;
+                audioManager.Select();
+            }
         }
-
-        if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
+        else if(buttons == homeButtons)
         {
-            selectedIndex++;
-            if (selectedIndex >= buttons.Length) selectedIndex = 0;
+            if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+            {
+                selectedIndex--;
+                if (selectedIndex < 0) selectedIndex = buttons.Length - 1;
 
-            isChanged = true;
-            audioManager.Select();
+                isChanged = true;
+                audioManager.Select();
+            }
+
+            if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+            {
+                selectedIndex++;
+                if (selectedIndex >= buttons.Length) selectedIndex = 0;
+
+                isChanged = true;
+                audioManager.Select();
+            }
         }
 
         if (isChanged)
@@ -71,6 +101,32 @@ public class PauseMenuSelectManager : MonoBehaviour
         {
             SelectMenu(selectedIndex);
             audioManager.Confirm();
+
+            if(buttons == pauseButtons)
+            {
+                if(selectedIndex == homeIndex)
+                {
+                    buttons = homeButtons;
+                    selectedIndex = 0;
+
+                    UpdateSelectedButtonSize();
+                }
+            }
+            else if(buttons == homeButtons)
+            {
+                if(selectedIndex == 0)
+                {
+                    menuManager.OnConfirmYes();
+                }
+                else
+                {
+                    menuManager.OnConfirmNo();
+
+                    buttons = pauseButtons;
+                    selectedIndex = homeIndex;
+                    UpdateSelectedButtonSize();
+                }
+            }
         }
     }
 
