@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
     //ゲームオーバー
     public void GameOver()
     {
+        if (GameManagement.CurrentScene != SceneName.INGAME_SCENE) return;
+        
         GameManagement.GameState = GAMESTATE.GAMEOVER;
         StartCoroutine(audioManager.GameOver());
         gameOverPanel.SetActive(true);
@@ -60,6 +62,6 @@ public class GameManager : MonoBehaviour
 
         //音を鳴らしてスコアを表示する
         StartCoroutine(audioManager.GameClear());
-        scoreManager.DisplayScore();
+        if (GameManagement.CurrentScene == SceneName.INGAME_SCENE) scoreManager.DisplayScore();
     }
 }
