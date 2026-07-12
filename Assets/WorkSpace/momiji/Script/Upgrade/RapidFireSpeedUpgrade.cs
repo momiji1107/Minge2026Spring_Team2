@@ -7,8 +7,8 @@ public class RapidFireSpeedUpgrade : UpgradeBase
     
     void OnEnable()
     {
-        titleName = "クールタイム短縮";
-        infoSentence = $"通常こうげきの\nクールタイムが\n{rapidFireSpeed}s 早くなる";
+        titleName = "こうげき速度UP";
+        infoSentence = $"こうげきの\nクールタイムが\n{rapidFireSpeed}秒 早くなる";
     }
     
     public override bool CanAppear(PlayerEquipmentManager equipmentManager)
