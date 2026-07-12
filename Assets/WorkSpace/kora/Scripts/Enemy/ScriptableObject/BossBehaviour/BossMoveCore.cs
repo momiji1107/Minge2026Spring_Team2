@@ -28,6 +28,7 @@ public class BossMoveCore : BossBehaviourBaseSO
 
     protected override void OnInit()
     {
+        
         _state = State.Wait;
         _waitTimer = roundTime - startTime;
         _moveTimer = 0;

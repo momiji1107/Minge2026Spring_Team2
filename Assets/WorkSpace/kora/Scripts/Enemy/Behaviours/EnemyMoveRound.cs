@@ -22,6 +22,7 @@ public class EnemyMoveRound : EnemyBehaviourBase
     
     public override void OnInit()
     {
+        //Debug.Log("Init EnemyMoveRound");
         var param = Data.moveRound;
         _speed = param.speed;
         _distance = param.distance;

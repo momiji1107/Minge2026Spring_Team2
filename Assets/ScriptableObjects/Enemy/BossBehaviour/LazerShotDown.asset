@@ -17,10 +17,11 @@ MonoBehaviour:
   adjustPosition: {x: 0, y: 0, z: 0}
   projectile: {fileID: 2053019384128273929, guid: e3985af18e774f146bbf12f79575b3fd, type: 3}
   shotType: 0
-  shotRate: 20
+  shotRate: 15
   direction: {x: -1, y: 0, z: 0}
   startTime: 2
   isSetCenter: 1
   isForecast: 1
+  isSetCenterForecast: 1
   forecastObject: {fileID: 2053019384128273929, guid: 6dc17bb4b3e38394ea2495c3dfc1629c, type: 3}
   forecastTime: 3

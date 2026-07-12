@@ -111,7 +111,9 @@ MonoBehaviour:
   speed: 2
   lifeTime: 15
   fromDirection: {x: -1, y: 0, z: 0}
+  isDestroy: 1
   bounceLanes: 0000000004000000
+  isDebug: 0
 --- !u!70 &3681234813121717496
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -146,9 +148,9 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.010950282, y: 0.0008088514}
-  m_Size: {x: 0.17799827, y: 0.17799827}
-  m_Direction: 1
+  m_Offset: {x: -0.005053711, y: 0.0008088529}
+  m_Size: {x: 0.13359375, y: 0.17799844}
+  m_Direction: 0
 --- !u!95 &7108000628871154850
 Animator:
   serializedVersion: 7

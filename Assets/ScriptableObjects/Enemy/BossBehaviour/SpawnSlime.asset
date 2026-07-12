@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a2eaef771264374a9be8714df19be0a, type: 3}
   m_Name: SpawnSlime
   m_EditorClassIdentifier: Assembly-CSharp::BossSpawnSlime
-  slimePrefab: {fileID: 8759148217643277841, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
+  slimePrefab: {fileID: 8759148217643277841, guid: 737a06b294e195c429a71dd7f873c1db, type: 3}
   interval: 15
   startTime: 5
   spawnLanes: 00000000010000000200000004000000
