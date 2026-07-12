@@ -2688,6 +2688,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 522140088}
     - target: {fileID: 911620504892808639, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+      propertyPath: inputController
+      value: 
+      objectReference: {fileID: 369819797}
+    - target: {fileID: 911620504892808639, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: equipmentManager
       value: 
       objectReference: {fileID: 1722399496}
@@ -2979,6 +2983,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8248557561561940559, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
   m_PrefabInstance: {fileID: 369819793}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &369819797 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6845716956616023705, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+  m_PrefabInstance: {fileID: 369819793}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017885669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ea57cab991e746d3a3d05ccd43c1b40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
 --- !u!1 &381723710
 GameObject:
   m_ObjectHideFlags: 0
