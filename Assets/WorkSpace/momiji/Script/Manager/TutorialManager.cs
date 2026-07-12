@@ -34,6 +34,11 @@ public class TutorialManager : MonoBehaviour
             }
         }
 
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            StartCoroutine(_sceneChanger.ChangeScene());
+        }
+        
         if (!inputFlag) return;
         //入力ステップに従ってステップを進めると同時に時間を動かす
         switch (_playerInputCrl.inputStep)
