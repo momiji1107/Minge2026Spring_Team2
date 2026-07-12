@@ -4,9 +4,17 @@ using UnityEngine;
 public class RapidFireSpeedUpgrade : UpgradeBase
 {
     [SerializeField] private float rapidFireSpeed;
+    
+    void OnEnable()
+    {
+        titleName = "こうげき速度UP";
+        infoSentence = $"こうげきの\nクールタイムが\n{rapidFireSpeed}秒 早くなる";
+    }
+    
     public override bool CanAppear(PlayerEquipmentManager equipmentManager)
     {
-        if(equipmentManager.Model.RapidFireSpeed >= rapidFireSpeed) return true;
+        if(PlayerSelection.selectedCharacter == CharacterName.PLAYER_TWO) return false;
+        else if(equipmentManager.Model.RapidFireSpeed > rapidFireSpeed) return true;
         return false;
     }
 

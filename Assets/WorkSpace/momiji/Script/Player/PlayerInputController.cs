@@ -16,11 +16,13 @@ public class PlayerInputController : MonoBehaviour
     [SerializeField,Tooltip("レーン移動後に再びレーン移動できるようになるまでの時間")] private float laneMoveTime = 0.5f;
     private float laneMoveTimer = 0.0f;
     [SerializeField,Tooltip("レーンオブジェクトの配列")] private GameObject[] lanes;
-    private int laneidx = 0; //今いるレーンのインデックス
-    
-    private float horizontal; //横入力
-    private float vertical; //縦入力
-    private float heightAdjust = 0.1f; //レーンからの高さ補正
+    private int laneidx = 0;             //今いるレーンのインデックス
+
+    [Header("入力関係")] 
+    public int inputStep = 0;            //入力がどの段階まで可能か(0:入力不可, 1:横移動, 2:縦移動, 3:方向転換, 4:攻撃, 5:スキル)
+    private float horizontal;            //横入力
+    private float vertical;              //縦入力
+    private float heightAdjust = 0.1f;   //レーンからの高さ補正
     
     [Header("Audio関係")]
     [SerializeField] private AudioSource audioSource;
@@ -32,6 +34,7 @@ public class PlayerInputController : MonoBehaviour
     {
         rb = Player.GetComponent<Rigidbody2D>();
         laneMoveTimer = 0.0f;
+        if (GameManagement.CurrentScene == SceneName.INGAME_SCENE) inputStep = 5;
     }
 
     // Update is called once per frame
@@ -40,7 +43,7 @@ public class PlayerInputController : MonoBehaviour
         laneMoveTimer += Time.deltaTime;
 
         //Shiftキーを押すとオブジェクトを反転させる
-        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift) && GameManagement.GameState == GAMESTATE.INGAME)
+        if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) && GameManagement.GameState == GAMESTATE.INGAME && inputStep >= 3)
         {
             model.TurnAround();
             Player.transform.Rotate(0, 180, 0);
@@ -72,15 +75,15 @@ public class PlayerInputController : MonoBehaviour
 
         if (GameManagement.GameState != GAMESTATE.INGAME) return;
         
-        HorizontalMove();
-        VerticalMove();
+        if(inputStep >= 0) HorizontalMove();
+        if(inputStep >= 1) VerticalMove();
         
     }
 
     //左右移動
     void HorizontalMove()
     {
-        horizontal = Input.GetAxis("Horizontal");
+        horizontal = Input.GetAxisRaw("Horizontal");
         
         Vector2 velocity = new Vector2(horizontal, 0) * model.MoveSpeed;
         rb.linearVelocity = velocity;
@@ -92,7 +95,7 @@ public class PlayerInputController : MonoBehaviour
     //上下移動
     void VerticalMove()
     { 
-        vertical = Input.GetAxis("Vertical");
+        vertical = Input.GetAxisRaw("Vertical");
         if (vertical > 0 && laneMoveTimer >= laneMoveTime)
         {
             if (laneidx >= lanes.Length - 1) return;

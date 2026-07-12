@@ -15,11 +15,17 @@ public enum GAMESTATE
 public static class GameManagement
 {
     private static GAMESTATE gameState;
+    private static SceneName currentScene;
     
     /// <summary>
     /// GANESTATEを変更する
     /// </summary>
     public static GAMESTATE GameState { get => gameState; set => gameState = value; }
+    
+    /// <summary>
+    /// 現在のシーンを取得する
+    /// </summary>
+    public static SceneName CurrentScene => currentScene;
 
     /// <summary>
     /// シーン遷移を行う
@@ -29,6 +35,7 @@ public static class GameManagement
     /// <param name="sceneName">遷移先のシーン名</param>
     public static void LoadScene(SceneName sceneName)
     {
+        currentScene = sceneName;
         SceneManager.LoadScene(sceneName.ToString());
     }
 }

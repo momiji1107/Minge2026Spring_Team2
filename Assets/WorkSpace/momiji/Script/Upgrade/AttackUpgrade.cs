@@ -14,6 +14,7 @@ public class AttackUpgrade : UpgradeBase
 
     public override bool CanAppear(PlayerEquipmentManager equipmentManager)
     {
+        if(PlayerSelection.selectedCharacter == CharacterName.PLAYER_ONE && attack >= 10) return false;
         return true;
     }
 
