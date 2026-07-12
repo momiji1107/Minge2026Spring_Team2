@@ -6,7 +6,7 @@ public class RapidFireSpeedUpgrade : UpgradeBase
     [SerializeField] private float rapidFireSpeed;
     public override bool CanAppear(PlayerEquipmentManager equipmentManager)
     {
-        if(equipmentManager.Model.RapidFireSpeed >= rapidFireSpeed) return true;
+        if(equipmentManager.Model.RapidFireSpeed > rapidFireSpeed) return true;
         return false;
     }
 

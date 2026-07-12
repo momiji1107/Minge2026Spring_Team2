@@ -41,7 +41,6 @@ public class PlayerInputController : MonoBehaviour
     void Update()
     {
         laneMoveTimer += Time.deltaTime;
-        Debug.Log("inputStep: " + inputStep);
 
         //Shiftキーを押すとオブジェクトを反転させる
         if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) && GameManagement.GameState == GAMESTATE.INGAME && inputStep >= 3)

@@ -31,6 +31,12 @@ public class Common : MonoBehaviour
             yield return new WaitForSeconds(interval);
         }
     }
+
+    public static IEnumerator DelayCallArg<T>(Action<T> action, T arg, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        action(arg);
+    }
 }
 
 

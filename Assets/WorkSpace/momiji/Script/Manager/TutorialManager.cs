@@ -1,18 +1,27 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.Serialization;
+using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
 {
     [SerializeField] private PlayerInputController _playerInputCrl;
     [SerializeField] private GameManager _gameManager;
+    [SerializeField] private AudioManager _audioManager;
+    [SerializeField] private SceneChanger _sceneChanger;
     [SerializeField] private float[] stopTiming = new float[5]; //チュートリアルのために時間を止めるタイミング
 
     [Header("テキストパネル")]
     [SerializeField] private GameObject tutorialPanel;
     [SerializeField] private TextMeshProUGUI tutorialText;
+    [SerializeField] private TextMeshProUGUI arrows; //スキルスロットを指し示す矢印のテキスト
     
     private bool inputFlag = false; //入力待ち状態かどうか
+
+    void Start()
+    {
+        arrows.gameObject.SetActive(false);
+    }
     
     void Update()
     {
@@ -22,7 +31,6 @@ public class TutorialManager : MonoBehaviour
             if (_gameManager.gameTimer >= stopTiming[i] && _playerInputCrl.inputStep == i)
             {
                 TutorialTime();
-                Debug.Log("tutorial time: "+ i);
             }
         }
 
@@ -63,7 +71,7 @@ public class TutorialManager : MonoBehaviour
                 if (GameManagement.GameState == GAMESTATE.ISUPGRADE)
                 {
                     tutorialPanel.SetActive(true);
-                    tutorialText.text = "矢印キー←→ または ADキーで せんたく¥nEnterキー で決定";
+                    tutorialText.text = "矢印キー←→ または ADキーで せんたく\nEnterキー で決定";
                     if (Input.GetKeyDown(KeyCode.Return))
                     {
                         OneStep();
@@ -76,6 +84,31 @@ public class TutorialManager : MonoBehaviour
                 if(Input.GetKeyDown(KeyCode.X))
                 {
                     OneStep();
+                    inputFlag = true;
+                }
+                break;
+            case 6:
+                if (GameManagement.GameState == GAMESTATE.ISUPGRADE)
+                {
+                    tutorialText.text = "スキルは３つまで持つことができる\nXキー, Cキー, Vキーで使い分けよう";
+                    arrows.gameObject.SetActive(true);
+                    tutorialPanel.SetActive(true);
+                    if (Input.GetKeyDown(KeyCode.Return))
+                    {
+                        OneStep();
+                        arrows.gameObject.SetActive(false);
+                        Invoke(nameof(TutorialTime), 5.0f);
+                    }
+                }
+                break;
+            case 7:
+                Time.timeScale = 1;
+                tutorialText.text = "じゅんびができたら出発しよう!!\n(Enterキー で出発)";
+                tutorialPanel.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.Return))
+                {
+                    _audioManager.Confirm();
+                    StartCoroutine(_sceneChanger.ChangeScene());
                 }
                 break;
         }
