@@ -34,13 +34,15 @@ public class PlayerInputController : MonoBehaviour
     {
         rb = Player.GetComponent<Rigidbody2D>();
         laneMoveTimer = 0.0f;
-        if (GameManagement.CurrentScene == SceneName.INGAME_SCENE) inputStep = 5;
+        if (GameManagement.CurrentScene == SceneName.INGAME_SCENE) inputStep = 10;
     }
 
     // Update is called once per frame
     void Update()
     {
         laneMoveTimer += Time.deltaTime;
+        Debug.Log("input step: " + inputStep);
+        Debug.Log("current scene: " + GameManagement.CurrentScene);
 
         //Shiftキーを押すとオブジェクトを反転させる
         if ((Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift)) && GameManagement.GameState == GAMESTATE.INGAME && inputStep >= 3)
