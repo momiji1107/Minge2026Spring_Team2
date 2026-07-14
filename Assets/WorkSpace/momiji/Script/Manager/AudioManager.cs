@@ -72,7 +72,7 @@ public class AudioManager : MonoBehaviour
         bgmAudioSource.loop = false;
         bgmAudioSource.clip = bossAppearClip;
         bgmAudioSource.Play();
-        StartCoroutine(Common.DelayCall(StartBossBGM, 5.0f));
+        StartCoroutine(Common.DelayCall(StartBossBGM, 9.0f));
     }
 
     //呼び出す側にAudio Clipを登録し、一度音を鳴らしたいときに使用する
