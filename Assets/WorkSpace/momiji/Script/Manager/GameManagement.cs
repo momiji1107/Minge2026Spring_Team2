@@ -35,7 +35,12 @@ public static class GameManagement
     /// <param name="sceneName">遷移先のシーン名</param>
     public static void LoadScene(SceneName sceneName)
     {
-        currentScene = sceneName;
+        SetCurrentScene(sceneName);
         SceneManager.LoadScene(sceneName.ToString());
+    }
+    
+    public static void SetCurrentScene(SceneName sceneName)
+    {
+        currentScene = sceneName;
     }
 }

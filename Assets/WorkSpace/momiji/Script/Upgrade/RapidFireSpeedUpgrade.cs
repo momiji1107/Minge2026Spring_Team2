@@ -14,7 +14,7 @@ public class RapidFireSpeedUpgrade : UpgradeBase
     public override bool CanAppear(PlayerEquipmentManager equipmentManager)
     {
         if(PlayerSelection.selectedCharacter == CharacterName.PLAYER_TWO) return false;
-        else if(equipmentManager.Model.RapidFireSpeed > rapidFireSpeed) return true;
+        else if(equipmentManager.Model.RapidFireSpeed > 0.5f) return true;
         return false;
     }
 
