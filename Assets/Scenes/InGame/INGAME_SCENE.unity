@@ -6161,6 +6161,7 @@ MonoBehaviour:
   gameOverBGMClip: {fileID: 8300000, guid: 135ea5506912b402a9aee7d0c605e3f7, type: 3}
   clearBGMClip: {fileID: 8300000, guid: 2627d37022e7e499291c3278d2610e91, type: 3}
   bossAppearClip: {fileID: 8300000, guid: 3856657c1ef194c7a913a7297cd32bf5, type: 3}
+  bossBGMClip: {fileID: 8300000, guid: 6fb5950b89ea9d34ba530fb0a992296a, type: 3}
 --- !u!1 &872786393
 GameObject:
   m_ObjectHideFlags: 0
