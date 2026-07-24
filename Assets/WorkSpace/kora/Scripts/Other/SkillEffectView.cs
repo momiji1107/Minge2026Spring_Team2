@@ -57,12 +57,7 @@ public class SkillEffectView : MonoBehaviour
         }
 
     }
-
-    private void NextState()
-    {
-        if(!_isActivated) Destroy(gameObject);
-    }
-
+ 
     public void Activate(float duration)
     {
         _isActivated = true;
