@@ -14,10 +14,70 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Poison
   name: Poison
   level: 1
-  coolTime: 10
+  coolTime: 1
   sound: {fileID: 8300000, guid: 3273bb9856c844f1b8c1e6a4d8a3075d, type: 3}
-  poisonDuration: 5
-  poisonInterval: 1
-  boxWidth: 4
-  boxHeight: 1
-  offSet: 2
+  prefab: {fileID: 5072948504032176861, guid: e2fb91d3e6b9019438bd4481cbd66450, type: 3}
+  distance: 3.05
+  height: 0.97
+  throwingDuration: 2
+  arcCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 3.0717862
+      outSlope: 3.0717862
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 0.32067186
+      value: 0.98503536
+      inSlope: -0.033062447
+      outSlope: -0.033062447
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.2845536
+    - serializedVersion: 3
+      time: 0.99591064
+      value: -0.9689789
+      inSlope: -2.8938122
+      outSlope: -2.8938122
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  widthCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  duration: 5
+  damage: 50
+  hitInterval: 1
+  scaleMultiplier: 1

@@ -14,6 +14,7 @@ public class BossOzyama : BossBehaviourBaseSO
     [SerializeField] private Vector2 minViewPort = new Vector2(0,1);
     [SerializeField] private Vector2 maxViewPort = new Vector2(0,1);
     [SerializeField] private Vector2 projDistance = new Vector2(0.1f,0.1f);
+    [SerializeField] private int hudCanvasIndex = 0;
     
     private float _timer;
     private bool _isFire;
@@ -66,6 +67,7 @@ public class BossOzyama : BossBehaviourBaseSO
             panel.transform.SetParent(point.transform);
             panel.transform.position = pos;
             panel.transform.localScale = scale;
+            panel.transform.SetSiblingIndex(hudCanvasIndex+1);
         }
         
         _timer = 0f;

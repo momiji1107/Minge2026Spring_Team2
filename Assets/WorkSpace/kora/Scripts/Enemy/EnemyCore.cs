@@ -4,12 +4,12 @@ using UnityEngine;
 
 public interface IDamageable
 {
-    public void TakeDamage(int damage);
+    public void TakeDamage(float damage);
 }
 
 public interface IEnemy
 {
-    public int GetHp();
+    public float GetHp();
     public int GetMaxHp();
     public int GetExp();
     public void Stun(float time);
@@ -32,7 +32,7 @@ public class EnemyCore : MonoBehaviour, IEnemy
     public event Action OnAttack;
     public event Action OnMove;
     
-    private int _hp;
+    private float _hp;
     private bool _isDead = false;
     private bool _isBoss = false;
     private bool _isRight = false;
@@ -45,7 +45,7 @@ public class EnemyCore : MonoBehaviour, IEnemy
     private IDamageProcessor _damageProcessor;
 
     // getter
-    public int GetHp() => this._hp;
+    public float GetHp() => this._hp;
     public int GetMaxHp() => _data.maxHp;
     public int GetExp() => _data.exp;
     public bool GetIsStun() => _statusManager.IsStun;
@@ -78,10 +78,10 @@ public class EnemyCore : MonoBehaviour, IEnemy
     /// </summary>
     public void SpawnMove(float time, Vector3 vector) {_statusManager.SpawnMove(time, vector);}
 
-    public void ReceiveDamage(int damage) { _damageProcessor.ReceiveDamage(damage); }
-    public void ReceiveDamage(int damage, BossPartType type) { ((BossDamageProcessor)_damageProcessor).ReceiveDamage(damage,type); }
+    public void ReceiveDamage(float damage) { _damageProcessor.ReceiveDamage(damage); }
+    public void ReceiveDamage(float damage, BossPartType type) { ((BossDamageProcessor)_damageProcessor).ReceiveDamage(damage,type); }
     
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         if (damage <= 0) return;
         

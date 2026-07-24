@@ -4,7 +4,7 @@ public class EnemyHitBox : MonoBehaviour ,IDamageable
 {
     [SerializeField] private EnemyController controller;
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         controller.ReceiveDamage(damage);
     }
