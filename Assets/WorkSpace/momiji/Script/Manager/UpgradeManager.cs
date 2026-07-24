@@ -41,6 +41,10 @@ public class UpgradeManager : MonoBehaviour
         GameManagement.GameState = GAMESTATE.ISUPGRADE;
         
         displayUpgrades = new List<UpgradeBase>();
+        
+        //アップグレード内容を更新
+        foreach (UpgradeBase upgrade in upgrades) upgrade.UpdateUpgrade();
+        
         //表示可能なものを抽出し、要素をシャッフル
         List<UpgradeBase> canAppears = upgrades
             .Where(u => u.CanAppear(equipmentManager))
@@ -68,6 +72,8 @@ public class UpgradeManager : MonoBehaviour
                 }
             }
         }
+        
+        
         
         //選ばれた３つの選択肢確認用
         //Debug.Log("selection: " + displayUpgrades[0].titleName + ", " + displayUpgrades[1].titleName + ", " + displayUpgrades[2].titleName);
