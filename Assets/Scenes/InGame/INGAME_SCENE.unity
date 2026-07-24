@@ -8693,8 +8693,9 @@ MonoBehaviour:
   model: {fileID: 67754450}
   audioManager: {fileID: 848539689}
   upgrades:
-  - {fileID: 11400000, guid: d470ea747c2c146ae87ac87b5dce746a, type: 2}
   - {fileID: 11400000, guid: c7ead5dcd5de0428dac9153abd88a2c5, type: 2}
+  - {fileID: 11400000, guid: d470ea747c2c146ae87ac87b5dce746a, type: 2}
+  - {fileID: 11400000, guid: c6b05e35b11864554ac1898fcfc7fd88, type: 2}
   - {fileID: 11400000, guid: 4404b5c660f864a8c90012efafec7db3, type: 2}
   - {fileID: 11400000, guid: e9bc66030dcd95c4fb4c2be847056436, type: 2}
   - {fileID: 11400000, guid: 83b9608e4be0d4328a0d345f22cc0edb, type: 2}
