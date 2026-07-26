@@ -80,6 +80,11 @@ public class AudioManager : MonoBehaviour
     {
         seAudioSource.PlayOneShot(clip);
     }
+
+    public void StopBGM()
+    {
+        bgmAudioSource.Stop();
+    }
     
     //BGMをランダムで流し始める
     private void StartGameBGM()

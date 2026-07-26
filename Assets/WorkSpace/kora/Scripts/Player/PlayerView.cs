@@ -5,15 +5,23 @@ using UnityEngine;
 public class PlayerView : MonoBehaviour
 {
     [SerializeField] private GameObject player;
+    [SerializeField] private PlayerModel playerModel;
     [SerializeField] private PlayerAttackController attack;
+    [SerializeField] private GameManager gameManager;
     
     [SerializeField] private SelectedPlayer select;
+
+    [Tooltip("dead再生終了からGameOver画面表示までの時間")] [SerializeField]
+    private float waitDuration = 0.5f;
     
     private Animator _animator = null;
     private PlayerData _data = null;
+
+    private const string IsMove = "IsMove";
+    private const string IsAttack = "Attack";
+    private const string OnDead = "OnDead";
     
-    private readonly string _isMove = "IsMove";
-    private readonly string _isAttack = "Attack";
+    private const string DeadClipName = "Dead";
 
     private void Start()
     {
@@ -29,6 +37,8 @@ public class PlayerView : MonoBehaviour
         
         var spriteRenderer = player.GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = _data?.PlayerSprite;
+
+        playerModel.GameOverEvent += ActiveGameOver;
     }
 
     private void Update()
@@ -37,16 +47,38 @@ public class PlayerView : MonoBehaviour
         
         if (Input.GetAxis("Horizontal") != 0)
         {
-            _animator.SetBool(_isMove, true);
+            _animator.SetBool(IsMove, true);
         }
         else
         {
-            _animator.SetBool(_isMove, false);
+            _animator.SetBool(IsMove, false);
         }
     }
 
     private void ActiveBasicAttackAnim()
     {
-        _animator.SetTrigger(_isAttack);
+        _animator.SetTrigger(IsAttack);
+    }
+
+    private void ActiveGameOver()
+    {
+        ActiveDeadAnim();
+
+        float clipLength = 0f;
+        
+        foreach (var clip in _animator.runtimeAnimatorController.animationClips)
+        {
+            if (clip.name == DeadClipName)
+            {
+                clipLength = clip.length;
+            }
+        }
+        
+        gameManager.GameOver(clipLength + waitDuration);
+    }
+    
+    private void ActiveDeadAnim()
+    {
+        _animator.SetTrigger(OnDead);
     }
 }

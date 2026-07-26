@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Poison
   name: Poison
   level: 1
-  coolTime: 1
+  coolTime: 10
   sound: {fileID: 8300000, guid: 3273bb9856c844f1b8c1e6a4d8a3075d, type: 3}
   prefab: {fileID: 5072948504032176861, guid: e2fb91d3e6b9019438bd4481cbd66450, type: 3}
   distance: 3.05
@@ -78,6 +78,6 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   duration: 5
-  damage: 50
+  damage: 5
   hitInterval: 1
   scaleMultiplier: 1
