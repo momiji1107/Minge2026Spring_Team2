@@ -2579,6 +2579,14 @@ PrefabInstance:
       propertyPath: select
       value: 
       objectReference: {fileID: 522140088}
+    - target: {fileID: 109577816681400898, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 2057944466}
+    - target: {fileID: 109577816681400898, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
+      propertyPath: waitDuration
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 342104190562028362, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.2997713
@@ -2697,7 +2705,7 @@ PrefabInstance:
       objectReference: {fileID: 1722399496}
     - target: {fileID: 911620504892808639, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: skills.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 911620504892808639, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: 'skills.Array.data[0]'
@@ -4990,6 +4998,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::KariClearButton
   scoreManager: {fileID: 223086938}
   gameManager: {fileID: 0}
+  waitTime: 0
 --- !u!1 &685833174
 GameObject:
   m_ObjectHideFlags: 0
@@ -5181,6 +5190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::KariClearButton
   scoreManager: {fileID: 223086938}
   gameManager: {fileID: 2057944466}
+  waitTime: 0
 --- !u!114 &696466911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7302,7 +7312,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1019798214
@@ -9079,7 +9089,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1261193532
 Transform:
   m_ObjectHideFlags: 0
@@ -13722,6 +13732,7 @@ MonoBehaviour:
   audioManager: {fileID: 848539689}
   gameOverPanel: {fileID: 2010402258}
   gameOverText: {fileID: 250795328}
+  timeScale: 0.3
 --- !u!114 &2057944467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13989,7 +14000,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2081101987
 RectTransform:
   m_ObjectHideFlags: 0
