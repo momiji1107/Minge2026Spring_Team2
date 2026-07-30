@@ -8,11 +8,11 @@ public class InputManager : MonoBehaviour
     
     [Header("パネルUI関係")]
     [SerializeField] private GameObject[] panels;
-    private readonly float _atractSize = 1.2f;           //選択中のパネルサイズ
-    private readonly float _nonAtractSize = 0.8f;        //非選択中のパネルサイズ
     private readonly float _panelDistance = 1100f;       //パネル同士の距離
     private readonly float _panelHeight = 35f;           //パネルのY座標
     private readonly float _panelMoveSpeed = 1.5f;       //パネルが動く速さ
+    private float _atractSize = 1.2f;                    //選択中のパネルサイズ
+    private float _nonAtractSize = 0.8f;                 //非選択中のパネルサイズ
     private float _limitPosX;                            //パネルの左右移動量限度
     private int _selectNumber;                           //選択中のパネルを示すインデックス
     private bool _isSliding = false;                     //パネルが動いてるかどうか
@@ -28,6 +28,8 @@ public class InputManager : MonoBehaviour
         Time.timeScale = 1;
         _selectNumber = 0;
         _limitPosX = _panelDistance * panels.Length/2;
+        if(GameManagement.CurrentScene == SceneName.CHARACTER_SELECT_SCENE) _atractSize = 1.2f;
+        if(GameManagement.CurrentScene == SceneName.STAGE_SELECT_SCENE) _atractSize = 1.0f;
         PanelSetting();
     }
 

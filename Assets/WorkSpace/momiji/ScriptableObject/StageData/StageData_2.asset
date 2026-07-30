@@ -17,3 +17,4 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1e5cad15aaacfca4fad8319423579076, type: 3}
   - {fileID: 21300000, guid: a2127430e4ba1a94dbb5087dad5c8532, type: 3}
   infoText: "\u30B2\u30FC\u30E0\u304C\u82E6\u624B\u306A\u4EBA\u5411\u3051"
+  stageTitleText: "\u306F\u3058\u3081\u3066\u306E\u307C\u3046\u3051\u3093"

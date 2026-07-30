@@ -9,6 +9,7 @@ public class StagePanelSetting : MonoBehaviour
     [SerializeField] private Image[] difficultyStar;
     [SerializeField] private Image[] enemiySprite;
     [SerializeField] private TextMeshProUGUI infoText;
+    [SerializeField] private TextMeshProUGUI stageTitleText;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,6 +26,7 @@ public class StagePanelSetting : MonoBehaviour
             enemiySprite[i].enabled = i < enemyNum;
         }
         infoText.text = stageData.InfoText;
+        stageTitleText.text = stageData.StageTitleText;
     }
     
 }

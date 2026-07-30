@@ -16,3 +16,4 @@ MonoBehaviour:
   enemies:
   - {fileID: 21300000, guid: cdb9e629dc263cf4ba2a452a77e1a5b4, type: 3}
   infoText: "\u30E1\u30BF\u30EB\u30B9\u30E9\u30A4\u30E0\u3057\u304B\u3044\u306A\u3044"
+  stageTitleText: "\u30E1\u30BF\u30EB\u307E\u307F\u308C"

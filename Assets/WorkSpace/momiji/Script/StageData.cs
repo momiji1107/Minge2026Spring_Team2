@@ -7,9 +7,11 @@ public class StageData : ScriptableObject
     [SerializeField] private int difficulty;
     [SerializeField] private Sprite[] enemies;
     [SerializeField] private string infoText;
+    [SerializeField] private string stageTitleText;
 
     //getter
     public int Difficulty => difficulty;
     public Sprite[] Enemies => enemies;
     public string InfoText => infoText;
+    public string StageTitleText => stageTitleText;
 }
