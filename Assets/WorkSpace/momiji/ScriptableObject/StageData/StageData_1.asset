@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e4149a332323ec44baab97d05d45ef30, type: 3}
-  m_Name: StageData_0
+  m_Name: StageData_1
   m_EditorClassIdentifier: Assembly-CSharp::StageData
-  difficulty: 3
+  difficulty: 5
   enemies:
   - {fileID: 21300000, guid: 1e5cad15aaacfca4fad8319423579076, type: 3}
   - {fileID: 21300000, guid: a2127430e4ba1a94dbb5087dad5c8532, type: 3}
   - {fileID: 21300000, guid: 9454b89d1051acf4e9489e16353908e4, type: 3}
   - {fileID: 21300000, guid: 0581b3358b850064d89f38662dbe9e75, type: 3}
-  - {fileID: 21300000, guid: ef3eaef1bdaa3bb4398eb9aa4d44b24f, type: 3}
+  - {fileID: 21300000, guid: cdb9e629dc263cf4ba2a452a77e1a5b4, type: 3}
   - {fileID: 21300082, guid: 1eaee135ce037439d925cee5e41ce026, type: 3}
+  infoText: "\u3059\u3079\u3066\u306E\u3066\u304D\u304C\u304A\u305D\u3044\u304B\u304B\u308B\uFF01"

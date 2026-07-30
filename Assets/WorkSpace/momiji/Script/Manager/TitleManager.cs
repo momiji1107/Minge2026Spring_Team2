@@ -49,7 +49,7 @@ public class TitleManager : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.C))
         {
-            StartCoroutine(CreditScene());
+            CreditScene();
         }
     }
     
@@ -62,11 +62,10 @@ public class TitleManager : MonoBehaviour
         sr.sprite = sprite1;
     }
 
-    private IEnumerator CreditScene()
+    private void CreditScene()
     {
         audioSource.PlayOneShot(startClip);
         sceneChanger.nextScene = SceneName.CREDIT_SCENE;
         StartCoroutine(sceneChanger.ChangeScene());
-        yield return new WaitForSeconds(0.3f);
     }
 }

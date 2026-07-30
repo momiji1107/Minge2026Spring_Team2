@@ -291,6 +291,7 @@ MonoBehaviour:
   nextScene: 1
   nextGameState: 0
   changeTime: 0.5
+  fadeImage: {fileID: 0}
 --- !u!1 &246989951
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,6 +372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CreditScrollViewer
   uiDocument: {fileID: 1413448177}
   scrollSpeed: 60
+  isFinished: 0
 --- !u!1 &695384028
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class StagePanelSetting : MonoBehaviour
     [Header("Data表示UI")]
     [SerializeField] private Image[] difficultyStar;
     [SerializeField] private Image[] enemiySprite;
+    [SerializeField] private TextMeshProUGUI infoText;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -22,6 +24,7 @@ public class StagePanelSetting : MonoBehaviour
             if(i < enemyNum) enemiySprite[i].sprite = stageData.Enemies[i];
             enemiySprite[i].enabled = i < enemyNum;
         }
+        infoText.text = stageData.InfoText;
     }
     
 }
