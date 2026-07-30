@@ -36,7 +36,7 @@ public class EnemyContactEffect : EnemyBehaviourBase
         
         if (_isDamageable)
         {
-            Debug.Log("EnemyContactEffect: " + other.name +"に" + _damage + "ダメージを与える");
+            //Debug.Log("EnemyContactEffect: " + other.name +"に" + _damage + "ダメージを与える");
             // playerにダメージを与える処理を追記
             other.gameObject.GetComponentInChildren<PlayerModel>().Damage(_damage);
         }

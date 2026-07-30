@@ -18,9 +18,13 @@ public class TitleManager : MonoBehaviour
     [SerializeField] private Sprite sprite1;
     [SerializeField] private Sprite sprite2;
     
+    static bool isFirstTimePlay = true;
+    
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Application.targetFrameRate = 60;
+        
         GameManagement.GameState = GAMESTATE.NONE;
     }
 
@@ -30,7 +34,17 @@ public class TitleManager : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            StartCoroutine(NextScene());
+            if (isFirstTimePlay)
+            {
+                sceneChanger.nextScene = SceneName.TUTORIAL_SCENE;
+                isFirstTimePlay = false;
+                StartCoroutine(NextScene());
+            }
+            else
+            {
+                sceneChanger.nextScene = SceneName.CHARACTER_SELECT_SCENE;
+                StartCoroutine(NextScene());
+            }
         }
 
         if(Input.GetKeyDown(KeyCode.C))

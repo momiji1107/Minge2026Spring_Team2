@@ -9,6 +9,7 @@ public class PlayerAttackController : MonoBehaviour
     [SerializeField] private PlayerEquipmentManager equipmentManager;
     [SerializeField] private AudioManager audioManager;
     [SerializeField] private SelectedPlayer selectedPlayer;
+    [SerializeField] private PlayerInputController inputController;
     
     [Header("攻撃方法")]
     [SerializeField] private EquipmentBase basicAttack;
@@ -49,7 +50,7 @@ public class PlayerAttackController : MonoBehaviour
         }
         
         //Spaceキーを押すと通常攻撃
-        if (Input.GetKey(KeyCode.Space) && timers[0] >= model.RapidFireSpeed + basicAttack.coolTime)
+        if (Input.GetKey(KeyCode.Space) && timers[0] >= model.RapidFireSpeed + basicAttack.coolTime && inputController.inputStep >= 2)
         {
             BasicAttackAnim?.Invoke();
             audioManager.Attack(selectedPlayer.PlayerData.AttackClip);
@@ -58,7 +59,7 @@ public class PlayerAttackController : MonoBehaviour
         }
 
         //Xキーを押すとスキル１を使用する
-        if (Input.GetKeyDown(KeyCode.X) && timers[1] >= model.RapidFireSpeed + skills[0]?.coolTime)
+        if (Input.GetKeyDown(KeyCode.X) && timers[1] >= model.RapidFireSpeed + skills[0]?.coolTime && inputController.inputStep >= 5)
         {
             skills[0]?.Activate(model);
             audioManager.OneShot(skills[0].sound);
@@ -66,7 +67,7 @@ public class PlayerAttackController : MonoBehaviour
         }
 
         //Cキーを押すとスキル２を使用する
-        if (Input.GetKeyDown(KeyCode.C) && timers[2] >= model.RapidFireSpeed + skills[1]?.coolTime)
+        if (Input.GetKeyDown(KeyCode.C) && timers[2] >= model.RapidFireSpeed + skills[1]?.coolTime && inputController.inputStep >= 5)
         {
             skills[1]?.Activate(model);
             audioManager.OneShot(skills[1].sound);
@@ -74,7 +75,7 @@ public class PlayerAttackController : MonoBehaviour
         }
 
         //Vキーを押すとスキル３を使用する
-        if (Input.GetKeyDown(KeyCode.V) && timers[3] >= model.RapidFireSpeed + skills[2]?.coolTime)
+        if (Input.GetKeyDown(KeyCode.V) && timers[3] >= model.RapidFireSpeed + skills[2]?.coolTime && inputController.inputStep >= 5)
         {
             skills[2]?.Activate(model);
             audioManager.OneShot(skills[2].sound);

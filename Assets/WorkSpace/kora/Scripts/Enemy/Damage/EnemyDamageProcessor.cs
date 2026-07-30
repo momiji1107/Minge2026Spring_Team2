@@ -5,7 +5,7 @@ public interface IDamageProcessor
 {
     public void Init(EnemyCore core);
     public void Tick();
-    public void ReceiveDamage(int damage);
+    public void ReceiveDamage(float damage);
 }
 
 public class EnemyDamageProcessor : IDamageProcessor
@@ -19,7 +19,7 @@ public class EnemyDamageProcessor : IDamageProcessor
     
     public void Tick(){}
 
-    public void ReceiveDamage(int damage)
+    public void ReceiveDamage(float damage)
     {
         _core.TakeDamage(damage);
     }
@@ -31,7 +31,7 @@ public class BossDamageProcessor : IDamageProcessor
     private BossData _data;
     
     private bool _isBuffered = false;
-    private int _bufferedDamage = 0;
+    private float _bufferedDamage = 0;
     private bool _isTookCore; 
 
     public void Init(EnemyCore core)
@@ -55,9 +55,9 @@ public class BossDamageProcessor : IDamageProcessor
         _isTookCore = false;
     }
 
-    public void ReceiveDamage(int damage) { Debug.Log("Set Normal EnemyHitBox on Boss.\n please set BossHitBox");}
+    public void ReceiveDamage(float damage) { Debug.Log("Set Normal EnemyHitBox on Boss.\n please set BossHitBox");}
 
-    public void ReceiveDamage(int damage, BossPartType type)
+    public void ReceiveDamage(float damage, BossPartType type)
     {
         _isBuffered = true;
 
@@ -74,7 +74,7 @@ public class BossDamageProcessor : IDamageProcessor
             if (t.type != type) continue;
             
             //Debug.Log("type multiplier is " + t.multiplier);
-            damage = (int)Math.Ceiling(damage * t.multiplier);
+            damage = (float)Math.Ceiling(damage * t.multiplier);
             break;
         }
         

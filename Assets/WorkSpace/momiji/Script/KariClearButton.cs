@@ -5,6 +5,7 @@ public class KariClearButton : MonoBehaviour
 {
     [SerializeField] private ScoreManager scoreManager;
     [SerializeField] private GameManager gameManager;
+    [SerializeField] private float waitTime = 0f;
     
     public void Clear()
     {
@@ -13,6 +14,6 @@ public class KariClearButton : MonoBehaviour
 
     public void GameOver()
     {
-        gameManager.GameOver();
+        gameManager.GameOver(waitTime);
     }
 }

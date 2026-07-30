@@ -59,12 +59,12 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void ReceiveDamage(int damage)
+    public void ReceiveDamage(float damage)
     {
         _core.ReceiveDamage(damage);
     }
 
-    public void ReceiveDamage(int damage, BossPartType type)
+    public void ReceiveDamage(float damage, BossPartType type)
     {
         _core.ReceiveDamage(damage, type);
     }

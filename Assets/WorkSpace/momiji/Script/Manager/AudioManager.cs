@@ -17,6 +17,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip gameOverBGMClip;
     [SerializeField] private AudioClip clearBGMClip;
     [SerializeField] private AudioClip bossAppearClip;
+    [SerializeField] private AudioClip bossBGMClip;
     
     void Start()
     {
@@ -71,9 +72,20 @@ public class AudioManager : MonoBehaviour
         bgmAudioSource.loop = false;
         bgmAudioSource.clip = bossAppearClip;
         bgmAudioSource.Play();
-        StartCoroutine(Common.DelayCall(StartGameBGM, 10.0f));
+        StartCoroutine(Common.DelayCall(StartBossBGM, 9.0f));
     }
 
+    //呼び出す側にAudio Clipを登録し、一度音を鳴らしたいときに使用する
+    public void OneShot(AudioClip clip)
+    {
+        seAudioSource.PlayOneShot(clip);
+    }
+
+    public void StopBGM()
+    {
+        bgmAudioSource.Stop();
+    }
+    
     //BGMをランダムで流し始める
     private void StartGameBGM()
     {
@@ -85,10 +97,16 @@ public class AudioManager : MonoBehaviour
             bgmAudioSource.Play();
         }
     }
-
-    //呼び出す側にAudio Clipを登録し、一度音を鳴らしたいときに使用する
-    public void OneShot(AudioClip clip)
+    
+    //ボスBGMを流す
+    private void StartBossBGM()
     {
-        seAudioSource.PlayOneShot(clip);
+        if (!bgmAudioSource.isPlaying)
+        {
+            bgmAudioSource.loop = true;
+            bgmAudioSource.clip = bossBGMClip;
+            bgmAudioSource.Play();
+        }
     }
+    
 }

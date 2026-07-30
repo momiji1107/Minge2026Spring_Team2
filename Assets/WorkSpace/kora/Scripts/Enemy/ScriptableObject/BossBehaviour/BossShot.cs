@@ -39,7 +39,7 @@ public class BossShot : BossBehaviourBaseSO
     private bool isSetCenter = false;
 
     [SerializeField] private bool isForecast = false;
-    [SerializeField] private bool isSetSenterForecast = false;
+    [SerializeField] private bool isSetCenterForecast = false;
     [SerializeField] private GameObject forecastObject;
     [SerializeField] private float forecastTime = 3f;
 
@@ -90,7 +90,7 @@ public class BossShot : BossBehaviourBaseSO
         if (_isForecast && (_rateTimer >= shotRate - forecastTime))
         {
             _isForecast = false;
-            SetShotPos(isSetSenterForecast);
+            SetShotPos(isSetCenterForecast);
             Forecast();
         }
 

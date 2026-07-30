@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b92e92685b33bd43bb5a560795e61c8, type: 3}
   m_Name: PoisonSlime
   m_EditorClassIdentifier: Assembly-CSharp::NormalEnemyData
-  maxHp: 20
+  maxHp: 25
   exp: 100
   score: 200
   isBoss: 0
@@ -26,15 +26,15 @@ MonoBehaviour:
     isDestroy: 0
     damage: 1
   moveRound:
-    speed: 3
-    distance: 5
-    startDistance: 4
+    speed: 0.5
+    distance: 2
+    startDistance: 0.5
     isMoveRight: 0
   moveStraight:
     speed: 5
     direction: {x: -1, y: 0, z: 0}
   shotSingle:
     projectile: {fileID: 5893101884982852981, guid: 72f42a3e583a0034486f7aabf1ef78e4, type: 3}
-    shotRate: 1.5
+    shotRate: 2
     direction: {x: -1, y: 0, z: 0}
     startTime: 0

@@ -31,7 +31,8 @@ public class BossSpawnSlime : BossBehaviourBaseSO
                 pos.y += upToLane;
                 pos.x = Context.Transform.position.x;
 
-                Context.Instantiate(slimePrefab, pos);
+                var slime = Context.Instantiate(slimePrefab, pos);
+                slime.GetComponent<IEnemy>().SetIsRight(IsRight);
             }
         }
     }
