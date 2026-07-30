@@ -46,6 +46,11 @@ public class TitleManager : MonoBehaviour
                 StartCoroutine(NextScene());
             }
         }
+
+        if(Input.GetKeyDown(KeyCode.C))
+        {
+            StartCoroutine(CreditScene());
+        }
     }
     
     private IEnumerator NextScene()
@@ -55,5 +60,13 @@ public class TitleManager : MonoBehaviour
         sr.sprite = sprite2;
         yield return new WaitForSeconds(0.3f);
         sr.sprite = sprite1;
+    }
+
+    private IEnumerator CreditScene()
+    {
+        audioSource.PlayOneShot(startClip);
+        sceneChanger.nextScene = SceneName.CREDIT_SCENE;
+        StartCoroutine(sceneChanger.ChangeScene());
+        yield return new WaitForSeconds(0.3f);
     }
 }
