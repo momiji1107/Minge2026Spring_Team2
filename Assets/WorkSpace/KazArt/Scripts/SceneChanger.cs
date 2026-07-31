@@ -67,10 +67,16 @@ public class SceneChanger : MonoBehaviour
     
     public IEnumerator ChangeScene()
     {
-        if(fadeImage == null) Debug.Log("fadeImage is null");
-        fadeImage.DOFade(1, changeTime).SetUpdate(true);
-        yield return new WaitForSecondsRealtime(changeTime);
-        fadeImage.color = new Color(0, 0, 0, 1f); 
+        if(fadeImage == null)
+        {
+            Debug.Log("fadeImage is null");
+        }
+        else
+        {
+            fadeImage.DOFade(1, changeTime).SetUpdate(true);
+            yield return new WaitForSecondsRealtime(changeTime);
+            fadeImage.color = new Color(0, 0, 0, 1f); 
+        }
         GameManagement.LoadScene(nextScene);
         GameManagement.GameState = nextGameState;
     }

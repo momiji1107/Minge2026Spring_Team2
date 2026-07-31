@@ -29,6 +29,11 @@ public class GameManager : MonoBehaviour
         {
             gameTimer += Time.deltaTime;
         }
+
+        if (GameManagement.CurrentScene == SceneName.STAGE_TWO && gameTimer >= clearTime)
+        {
+            GameClear();
+        }
     }
 
     //ゲームオーバー
@@ -76,6 +81,6 @@ public class GameManager : MonoBehaviour
 
         //音を鳴らしてスコアを表示する
         StartCoroutine(audioManager.GameClear());
-        if (GameManagement.CurrentScene == SceneName.INGAME_SCENE) scoreManager.DisplayScore();
+        if (GameManagement.CurrentScene != SceneName.TUTORIAL_SCENE) scoreManager.DisplayScore();
     }
 }

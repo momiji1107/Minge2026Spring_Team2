@@ -194,7 +194,7 @@ public class PoisonController : MonoBehaviour
 
         _hitEnemies.Add(enemy);
 
-        Debug.Log("TakeDamage: " + _damage);
+        //Debug.Log("TakeDamage: " + _damage);
         damageable.TakeDamage(_damage);
         yield return new WaitForSeconds(_hitInterval);
        

@@ -372,7 +372,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CreditScrollViewer
   uiDocument: {fileID: 1413448177}
   scrollSpeed: 60
-  isFinished: 0
 --- !u!1 &695384028
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,8 +677,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4280229666
-  m_fontColor: {r: 0.13207549, g: 0.12335352, b: 0.12335352, a: 1}
+    rgba: 4279966491
+  m_fontColor: {r: 0.10588236, g: 0.10588236, b: 0.10588236, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
