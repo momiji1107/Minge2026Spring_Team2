@@ -4505,6 +4505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::KariClearButton
   scoreManager: {fileID: 223086938}
   gameManager: {fileID: 0}
+  waitTime: 0
 --- !u!1 &685833174
 GameObject:
   m_ObjectHideFlags: 0
@@ -4696,6 +4697,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::KariClearButton
   scoreManager: {fileID: 223086938}
   gameManager: {fileID: 2057944466}
+  waitTime: 0
 --- !u!114 &696466911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4890,7 +4892,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 723456971}
-  - component: {fileID: 723456972}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -4921,18 +4922,6 @@ Transform:
   - {fileID: 489694521}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &723456972
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 723456970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 583e8bab81eec416986a985b30ee99ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ScoreRanking
 --- !u!1 &732718175
 GameObject:
   m_ObjectHideFlags: 0
@@ -12206,6 +12195,7 @@ MonoBehaviour:
   audioManager: {fileID: 848539689}
   gameOverPanel: {fileID: 2010402258}
   gameOverText: {fileID: 250795328}
+  timeScale: 0.3
 --- !u!114 &2057944467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12218,7 +12208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b085c73af57b5242a4b8994357f6622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneChanger
-  nextScene: 5
+  nextScene: 3
   nextGameState: 0
   changeTime: 0.5
   fadeImage: {fileID: 1473830788}

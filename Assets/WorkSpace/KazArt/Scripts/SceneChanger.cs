@@ -14,6 +14,9 @@ public enum SceneName
     MODE_SELECT_SCENE,
     CHARACTER_SELECT_SCENE,
     INGAME_SCENE,
+    STAGE_ONE,
+    STAGE_TWO,
+    STAGE_THREE,
     CREDIT_SCENE
 };
 
@@ -46,6 +49,15 @@ public class SceneChanger : MonoBehaviour
                 break;
             case "INGAME_SCENE":
                 GameManagement.SetCurrentScene(SceneName.INGAME_SCENE);
+                break;
+            case "STAGE_ONE":
+                GameManagement.SetCurrentScene(SceneName.STAGE_ONE);
+                break;
+            case "STAGE_TWO":
+                GameManagement.SetCurrentScene(SceneName.STAGE_TWO);
+                break;
+            case "STAGE_THREE":
+                GameManagement.SetCurrentScene(SceneName.STAGE_THREE);
                 break;
             default:
                 GameManagement.SetCurrentScene(SceneName.NONE);

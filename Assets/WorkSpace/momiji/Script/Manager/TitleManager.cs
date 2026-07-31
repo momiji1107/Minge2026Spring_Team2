@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// ゲーム開始時にGAMESTATEを設定する仮のスクリプト
@@ -14,7 +15,7 @@ public class TitleManager : MonoBehaviour
     [SerializeField] private AudioClip startClip;
     
     [Header("Sprite関係")]
-    [SerializeField] private SpriteRenderer sr;
+    [SerializeField] private Image sr;
     [SerializeField] private Sprite sprite1;
     [SerializeField] private Sprite sprite2;
     
@@ -42,7 +43,7 @@ public class TitleManager : MonoBehaviour
             }
             else
             {
-                sceneChanger.nextScene = SceneName.CHARACTER_SELECT_SCENE;
+                sceneChanger.nextScene = SceneName.STAGE_SELECT_SCENE;
                 StartCoroutine(NextScene());
             }
         }

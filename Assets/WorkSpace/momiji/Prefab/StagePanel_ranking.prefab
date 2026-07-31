@@ -967,7 +967,7 @@ GameObject:
   - component: {fileID: 1198905148254381707}
   - component: {fileID: 490633579875822850}
   - component: {fileID: 4154133988390926811}
-  - component: {fileID: 3026046930695671270}
+  - component: {fileID: 7034899280980322068}
   m_Layer: 5
   m_Name: StagePanel_ranking
   m_TagString: Untagged
@@ -1034,7 +1034,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3026046930695671270
+--- !u!114 &7034899280980322068
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1043,10 +1043,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1475333440890082060}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 928bd5817272b484b81aead2430a15a0, type: 3}
+  m_Script: {fileID: 11500000, guid: a3ec6bcbdd6e19f489e6013ac1c59519, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CharacterSelect
-  characterName: 0
+  m_EditorClassIdentifier: Assembly-CSharp::StageSelect
+  stageName: 0
 --- !u!1 &1592534017804073938
 GameObject:
   m_ObjectHideFlags: 0

@@ -64,8 +64,7 @@ public class ScoreManager : MonoBehaviour
     //スコア画面を閉じ、キャラ選択画面へ移行する
     public void CloseScore()
     {
-        ScoreRanking.Instance.AddScoreRanking(score);
-        //scorePanel.SetActive(false);
+        ScoreRanking.Instance.AddScoreRanking(score, StageSelection.selectedStage);
         ResetScore();
         
         //キャラ選択画面にシーン移行

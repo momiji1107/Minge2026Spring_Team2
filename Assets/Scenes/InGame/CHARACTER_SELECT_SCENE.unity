@@ -904,7 +904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b085c73af57b5242a4b8994357f6622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneChanger
-  nextScene: 6
+  nextScene: 0
   nextGameState: 1
   changeTime: 0.5
   fadeImage: {fileID: 2095237408}
@@ -920,7 +920,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d051086c123f546799b77f7ef6e149b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InputManager
-  currentScene: 5
   sceneChanger: {fileID: 661839969}
   panels:
   - {fileID: 743766433}
@@ -1510,7 +1509,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2093687540}
-  - component: {fileID: 2093687541}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -1535,18 +1533,6 @@ Transform:
   - {fileID: 2146400689}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2093687541
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2093687539}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 583e8bab81eec416986a985b30ee99ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ScoreRanking
 --- !u!1 &2095237407
 GameObject:
   m_ObjectHideFlags: 0

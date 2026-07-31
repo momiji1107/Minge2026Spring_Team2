@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     //ゲームオーバー
     public void GameOver(float playerDeadDuration)
     {
-        if (GameManagement.CurrentScene != SceneName.INGAME_SCENE) return;
+        if (GameManagement.CurrentScene == SceneName.TUTORIAL_SCENE) return;
         
         GameManagement.GameState = GAMESTATE.GAMEOVER;
         

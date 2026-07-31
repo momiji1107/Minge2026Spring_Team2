@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    [SerializeField] private SceneName currentScene;
     [SerializeField] private SceneChanger sceneChanger;
     
     [Header("パネルUI関係")]
@@ -67,7 +66,16 @@ public class InputManager : MonoBehaviour
     /// </summary>
     private void NextScene()
     {
-        if (currentScene == SceneName.CHARACTER_SELECT_SCENE) panels[_selectNumber].GetComponent<CharacterSelect>()?.ChangeCharacter();
+        if (GameManagement.CurrentScene == SceneName.CHARACTER_SELECT_SCENE)
+        {
+            panels[_selectNumber].GetComponent<CharacterSelect>()?.ChangeCharacter();
+            sceneChanger.nextScene = StageSelection.selectedStage;
+        }
+        else if (GameManagement.CurrentScene == SceneName.STAGE_SELECT_SCENE)
+        {
+            panels[_selectNumber].GetComponent<StageSelect>()?.ChangeStage();
+            sceneChanger.nextScene = SceneName.CHARACTER_SELECT_SCENE;
+        }
         
         audioSource.PlayOneShot(confirmClip);
         StartCoroutine(sceneChanger.ChangeScene());
