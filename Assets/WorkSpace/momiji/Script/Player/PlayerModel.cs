@@ -119,7 +119,7 @@ public class PlayerModel : MonoBehaviour
             damage = 0;
         }
 
-        Debug.Log(damage + "与えられた");
+        //Debug.Log(damage + "与えられた");
 
         return damage;
     }
