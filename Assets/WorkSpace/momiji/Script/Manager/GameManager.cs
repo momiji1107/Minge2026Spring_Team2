@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
             gameTimer += Time.deltaTime;
         }
 
-        if (GameManagement.CurrentScene == SceneName.STAGE_TWO && gameTimer >= clearTime)
+        if ((GameManagement.CurrentScene == SceneName.STAGE_TWO || GameManagement.CurrentScene == SceneName.STAGE_THREE) && gameTimer >= clearTime)
         {
             GameClear();
         }

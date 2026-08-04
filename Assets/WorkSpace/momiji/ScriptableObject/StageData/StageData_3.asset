@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4149a332323ec44baab97d05d45ef30, type: 3}
   m_Name: StageData_3
   m_EditorClassIdentifier: Assembly-CSharp::StageData
-  difficulty: 3
+  difficulty: 2
   enemies:
   - {fileID: 21300000, guid: cdb9e629dc263cf4ba2a452a77e1a5b4, type: 3}
-  infoText: "\u30E1\u30BF\u30EB\u30B9\u30E9\u30A4\u30E0\u3057\u304B\u3044\u306A\u3044"
-  stageTitleText: "\u30E1\u30BF\u30EB\u307E\u307F\u308C"
+  infoText: "\u304B\u305F\u3044\u3001\u306F\u3084\u3044\u3001\u3044\u305F\u3044"
+  stageTitleText: "\u3010\u30E1\u30BF\u30EB\u307E\u307F\u308C\u3011"
