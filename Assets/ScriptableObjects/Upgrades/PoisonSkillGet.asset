@@ -16,5 +16,6 @@ MonoBehaviour:
   infoSentence: "\u6BD2\u30D3\u30F3\u3092\u6295\u3052\u3066\n\u306F\u3093\u3044\u5185\u306E\u3066\u304D\u306B\n5\u79D2\u9593\u4E00\u5B9A\u30C0\u30E1\u30FC\u30B8\n\u3092\u3042\u305F\u3048\u308B"
   icon: {fileID: 21300000, guid: 042307001ef517746a9b81b11c7f34b6, type: 3}
   rarity: 5
-  upgradeSkills: []
+  upgradeSkills:
+  - {fileID: 11400000, guid: 27518aae6dd92044c914b3edabd6701a, type: 2}
   newSkill: {fileID: 11400000, guid: c6d622193fc400841830c834c7231ea4, type: 2}

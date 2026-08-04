@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0637bea7a624e2a40af79db33183a87a, type: 3}
+  m_Name: Poison2
+  m_EditorClassIdentifier: Assembly-CSharp::Poison
+  name: PoisonSizeUp
+  level: 1
+  coolTime: 10
+  sound: {fileID: 8300000, guid: 3273bb9856c844f1b8c1e6a4d8a3075d, type: 3}
+  prefab: {fileID: 5072948504032176861, guid: e2fb91d3e6b9019438bd4481cbd66450, type: 3}
+  distance: 3.05
+  height: 0.97
+  throwingDuration: 2
+  arcCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 3.3571427
+      outSlope: 3.3571427
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.06666667
+    - serializedVersion: 3
+      time: 0.32140198
+      value: 0.99628156
+      inSlope: -0
+      outSlope: -0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.5916667
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1.0095351
+      value: -0.979839
+      inSlope: -2.9827905
+      outSlope: -2.9827905
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.110029764
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  widthCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  duration: 5
+  damage: 5
+  hitInterval: 1
+  scaleMultiplier: 2

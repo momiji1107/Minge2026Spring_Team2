@@ -8844,12 +8844,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 67c6e9fcaceb09a40a6ec93d9aacd112, type: 2}
   - {fileID: 11400000, guid: 7893491c52f0ad94685ca03dc9be064d, type: 2}
   - {fileID: 11400000, guid: ac31f4d028a7a6a4ea22652b54e2949e, type: 2}
-  - {fileID: 11400000, guid: 62eaa128cba272f43869b93194d5c55b, type: 2}
   - {fileID: 11400000, guid: 98481de9fb47f524395ed78c13d2751c, type: 2}
   - {fileID: 11400000, guid: 5b9d9f336e4e19c429a4bc8d3eacf51d, type: 2}
   - {fileID: 11400000, guid: b1a9d324f736bcf49bcddbfad162d7a1, type: 2}
   - {fileID: 11400000, guid: 0a7775d40d8dfd84baba3de6d57243fb, type: 2}
   - {fileID: 11400000, guid: 05fc36198f24e564d89aea2518f3d58e, type: 2}
+  - {fileID: 11400000, guid: e7a7f3657bafb33449be1cb30c56a1db, type: 2}
   diplayUpgradesNum: 3
   upgradePanel: {fileID: 1330237610}
   panelRects:

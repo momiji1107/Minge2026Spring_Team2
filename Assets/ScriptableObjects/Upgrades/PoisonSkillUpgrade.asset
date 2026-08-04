@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43aa4827770dc43d48561eafeff22583, type: 3}
+  m_Name: PoisonSkillUpgrade
+  m_EditorClassIdentifier: Assembly-CSharp::SkillUpgrade
+  titleName: "\u30B9\u30AD\u30EB\u5F37\u5316"
+  infoSentence: "\u6BD2\u30D3\u30F3\u306E\n\u30B5\u30A4\u30BA\u304C\n\uFF12\u500D\u306B\u306A\u308B"
+  icon: {fileID: 21300000, guid: 042307001ef517746a9b81b11c7f34b6, type: 3}
+  rarity: 3
+  preSkill: {fileID: 11400000, guid: c6d622193fc400841830c834c7231ea4, type: 2}
+  newSkill: {fileID: 11400000, guid: 27518aae6dd92044c914b3edabd6701a, type: 2}
