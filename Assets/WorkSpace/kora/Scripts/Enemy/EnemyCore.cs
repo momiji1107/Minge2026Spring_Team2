@@ -33,6 +33,7 @@ public class EnemyCore : MonoBehaviour, IEnemy
     public event Action OnDead;
     public event Action OnAttack;
     public event Action OnMove;
+    public event Action OnEndSpawnMove;
     
     private float _hp;
     private bool _isDead = false;
@@ -197,5 +198,10 @@ public class EnemyCore : MonoBehaviour, IEnemy
         //頭上にスコアを表示する
         Instantiate(_controller.Context.ScorePrefab, _controller.Context.GameObject.transform.position, Quaternion.identity)
             .GetComponent<ScorePopup>().SetScore(_data.score);
+    }
+
+    public void InvokeOnEndSpawnMove()
+    {
+        OnEndSpawnMove?.Invoke();
     }
 }

@@ -20,6 +20,7 @@ public class EnemyController : MonoBehaviour
     private float _slowPer;
     
     public EnemyContext Context => _context;
+    public EnemyCore Core => _core;
     
     public void ActivateDestroy() { Destroy(enemy); }
     public GameObject Instantiate(GameObject obj, Vector3 pos) { return Instantiate(obj, pos, obj.transform.rotation); }
