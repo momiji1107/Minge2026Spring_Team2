@@ -60,6 +60,9 @@ public class PlayerModel : MonoBehaviour
     public float ShootSpeed => shootSpeed;
     public float RapidFireSpeed => rapidFireSpeed;
     public bool GetDirection => lookAtRight;
+    
+    // event
+    public event Action GameOverEvent;
 
     void Start()
     {
@@ -103,7 +106,7 @@ public class PlayerModel : MonoBehaviour
         if (hp <= 0)
         {
             //死んだ時の処理
-            gameManager.GameOver();
+            GameOverEvent?.Invoke();
         }
     }
     
@@ -116,7 +119,7 @@ public class PlayerModel : MonoBehaviour
             damage = 0;
         }
 
-        Debug.Log(damage + "与えられた");
+        //Debug.Log(damage + "与えられた");
 
         return damage;
     }

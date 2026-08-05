@@ -3,19 +3,18 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    [SerializeField] private SceneName currentScene;
     [SerializeField] private SceneChanger sceneChanger;
     
     [Header("パネルUI関係")]
     [SerializeField] private GameObject[] panels;
-    private readonly float _atractSize = 1.2f; //選択中のパネルの拡大したサイズ
-    private readonly float _nonAtractSize = 0.8f; //非選択中のパネルサイズ
-    private readonly float _panelDistance = 1100f; //パネル同士の距離
-    private readonly float _panelHeight = 35f; //パネルのY座標
-    private readonly float _panelMoveSpeed = 1.5f; //パネルが動く速さ
-    private float _limitPosX; //パネルの左右移動量限度
-    private int _selectNumber; //選択中のパネルを示すインデックス
-    private bool _isSliding = false; //パネルが動いてるかどうか
+    private readonly float _panelDistance = 1100f;       //パネル同士の距離
+    private readonly float _panelHeight = 35f;           //パネルのY座標
+    private readonly float _panelMoveSpeed = 1.5f;       //パネルが動く速さ
+    private float _atractSize = 1.2f;                    //選択中のパネルサイズ
+    private float _nonAtractSize = 0.8f;                 //非選択中のパネルサイズ
+    private float _limitPosX;                            //パネルの左右移動量限度
+    private int _selectNumber;                           //選択中のパネルを示すインデックス
+    private bool _isSliding = false;                     //パネルが動いてるかどうか
     
     [Header("Audio関係")]
     [SerializeField] private AudioSource audioSource;
@@ -28,6 +27,8 @@ public class InputManager : MonoBehaviour
         Time.timeScale = 1;
         _selectNumber = 0;
         _limitPosX = _panelDistance * panels.Length/2;
+        if(GameManagement.CurrentScene == SceneName.CHARACTER_SELECT_SCENE) _atractSize = 1.2f;
+        if(GameManagement.CurrentScene == SceneName.STAGE_SELECT_SCENE) _atractSize = 1.0f;
         PanelSetting();
     }
 
@@ -65,7 +66,16 @@ public class InputManager : MonoBehaviour
     /// </summary>
     private void NextScene()
     {
-        if (currentScene == SceneName.CHARACTER_SELECT_SCENE) panels[_selectNumber].GetComponent<CharacterSelect>()?.ChangeCharacter();
+        if (GameManagement.CurrentScene == SceneName.CHARACTER_SELECT_SCENE)
+        {
+            panels[_selectNumber].GetComponent<CharacterSelect>()?.ChangeCharacter();
+            sceneChanger.nextScene = StageSelection.selectedStage;
+        }
+        else if (GameManagement.CurrentScene == SceneName.STAGE_SELECT_SCENE)
+        {
+            panels[_selectNumber].GetComponent<StageSelect>()?.ChangeStage();
+            sceneChanger.nextScene = SceneName.CHARACTER_SELECT_SCENE;
+        }
         
         audioSource.PlayOneShot(confirmClip);
         StartCoroutine(sceneChanger.ChangeScene());

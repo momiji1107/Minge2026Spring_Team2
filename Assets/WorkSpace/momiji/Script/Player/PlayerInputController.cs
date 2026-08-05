@@ -34,7 +34,7 @@ public class PlayerInputController : MonoBehaviour
     {
         rb = Player.GetComponent<Rigidbody2D>();
         laneMoveTimer = 0.0f;
-        if (GameManagement.CurrentScene == SceneName.INGAME_SCENE) inputStep = 10;
+        if (GameManagement.CurrentScene != SceneName.TUTORIAL_SCENE) inputStep = 10;
     }
 
     // Update is called once per frame

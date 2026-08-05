@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     
     [SerializeField] private GameObject gameOverPanel;
     [SerializeField] private TextMeshProUGUI gameOverText;
+    [SerializeField] private float timeScale = 0.3f;
     
     private bool isClear = false; //ゲームをクリアしたかどうか
     
@@ -28,18 +29,36 @@ public class GameManager : MonoBehaviour
         {
             gameTimer += Time.deltaTime;
         }
+
+        if ((GameManagement.CurrentScene == SceneName.STAGE_TWO || GameManagement.CurrentScene == SceneName.STAGE_THREE) && gameTimer >= clearTime)
+        {
+            GameClear();
+        }
     }
 
     //ゲームオーバー
-    public void GameOver()
+    public void GameOver(float playerDeadDuration)
     {
-        if (GameManagement.CurrentScene != SceneName.INGAME_SCENE) return;
+        if (GameManagement.CurrentScene == SceneName.TUTORIAL_SCENE) return;
         
         GameManagement.GameState = GAMESTATE.GAMEOVER;
+        
+        // BGMを無音にする
+        Time.timeScale = timeScale;
+        audioManager.StopBGM();
+        StartCoroutine(WaitPlayerDead(playerDeadDuration));
+    }
+
+    private IEnumerator WaitPlayerDead(float waitDuration)
+    {
+        yield return new WaitForSeconds(waitDuration);
+
         StartCoroutine(audioManager.GameOver());
         gameOverPanel.SetActive(true);
         scoreManager.DisplayScore();
         StartCoroutine(DropText());
+
+        yield return null;
     }
 
     //ゲームオーバーテキストを表示するアニメーション
@@ -62,6 +81,6 @@ public class GameManager : MonoBehaviour
 
         //音を鳴らしてスコアを表示する
         StartCoroutine(audioManager.GameClear());
-        if (GameManagement.CurrentScene == SceneName.INGAME_SCENE) scoreManager.DisplayScore();
+        if (GameManagement.CurrentScene != SceneName.TUTORIAL_SCENE) scoreManager.DisplayScore();
     }
 }

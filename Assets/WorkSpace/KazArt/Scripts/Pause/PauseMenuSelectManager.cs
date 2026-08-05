@@ -8,12 +8,14 @@ public class PauseMenuSelectManager : MonoBehaviour
     [SerializeField] private Button[] homeButtons;
     [SerializeField] private AudioManager audioManager;
     [SerializeField] private PauseMenuManager menuManager;
+
+    [SerializeField] private float selectSize = 1.5f;
  
     private int selectedIndex;
     private bool isActive;
     private Button[] buttons;
 
-    private const int homeIndex = 2;
+    private const int homeIndex = 0;
 
     public void StartSelect()
     {
@@ -107,7 +109,7 @@ public class PauseMenuSelectManager : MonoBehaviour
                 if(selectedIndex == homeIndex)
                 {
                     buttons = homeButtons;
-                    selectedIndex = 0;
+                    selectedIndex = 1;
 
                     UpdateSelectedButtonSize();
                 }
@@ -139,7 +141,7 @@ public class PauseMenuSelectManager : MonoBehaviour
             if(i == selectedIndex)
             {
                 buttons[i].Select();
-                buttons[i].transform.localScale = new Vector3(1.2f, 1.2f, 1f);
+                buttons[i].transform.localScale = new Vector3(selectSize, selectSize, 1f);
             }
             else
             {

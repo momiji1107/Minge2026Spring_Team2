@@ -49,6 +49,7 @@ MonoBehaviour:
   upgradeManager: {fileID: 0}
   sceneChanger: {fileID: 0}
   scoreManager: {fileID: 0}
+  pauseManager: {fileID: 0}
   laneMoveTime: 0.3
   lanes:
   - {fileID: 0}
@@ -56,6 +57,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  inputStep: 0
   audioSource: {fileID: 0}
   moveClip: {fileID: 0}
   laneChangeClip: {fileID: 0}
@@ -122,7 +124,6 @@ MonoBehaviour:
   firstExp: 0
   sr: {fileID: 4120501383824954216}
   lookAtRight: 1
-  damageReduction: {fileID: 11400000, guid: 4c8165ff24f5f5b45b202f2a54151e3c, type: 2}
   damageNegate: {fileID: 11400000, guid: a92e6d01137a03b40ae96f3848fce274, type: 2}
   audioSource: {fileID: 0}
   damageClip: {fileID: 0}
@@ -172,7 +173,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttackController
   model: {fileID: 1639827053677834406}
   equipmentManager: {fileID: 0}
+  audioManager: {fileID: 0}
   selectedPlayer: {fileID: 0}
+  inputController: {fileID: 0}
   basicAttack: {fileID: 11400000, guid: 938335deb2a8441d3984ca66a4ab2024, type: 2}
   skills:
   - {fileID: 11400000, guid: e31d2c84bb47941bbb6086d71997d975, type: 2}
@@ -359,7 +362,7 @@ Animator:
   m_GameObject: {fileID: 6228957118106431102}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0b4e3026163be2d4cbaf1bfdb4af2a1c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 092af4d6887d42c4b991031ae1f18679, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -464,5 +467,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerView
   player: {fileID: 6228957118106431102}
+  playerModel: {fileID: 1639827053677834406}
   attack: {fileID: 911620504892808639}
+  gameManager: {fileID: 0}
   select: {fileID: 0}
+  waitDuration: 0.5
