@@ -14,6 +14,8 @@ public class CreditScrollViewer : MonoBehaviour
 
     void OnEnable()
     {
+        Time.timeScale = 1.0f;
+
         if (uiDocument == null)
         {
             uiDocument = GetComponent<UIDocument>();
@@ -28,7 +30,7 @@ public class CreditScrollViewer : MonoBehaviour
             Debug.Log("ScrollView‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½");
             return;
         }
-
+       
         root.RegisterCallback<GeometryChangedEvent>(OnGeometryChanged);
     }
 
