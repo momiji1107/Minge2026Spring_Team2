@@ -8,12 +8,16 @@ public class SkillUpgrade : UpgradeBase
 
     public override bool CanAppear(PlayerEquipmentManager equipmentManager)
     {
-        if(equipmentManager.GetSkill(preSkill) != null) return true;
+        if(equipmentManager.GetSkill(preSkill) != null)
+        {
+            //Debug.Log(newSkill.name + ": Player have " + preSkill.name);
+            return true;
+        }
         return false;
     }
 
     public override void Apply(PlayerEquipmentManager equipmentManager)
     {
-        equipmentManager.UpgradeSkill(preSkill, newSkill);
+        equipmentManager.UpgradeSkill(preSkill, newSkill, icon);
     }
 }

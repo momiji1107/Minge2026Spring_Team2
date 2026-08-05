@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b2d2816ec81cfc46962263d106018e2, type: 3}
   m_Name: SwingSword
   m_EditorClassIdentifier: Assembly-CSharp::SwingSword
-  name: 
+  name: SwingSword
   level: 1
   coolTime: 5
   sound: {fileID: 8300000, guid: c2bd93d49bf7844e8a86e2b0f2ee0d46, type: 3}

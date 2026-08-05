@@ -9339,7 +9339,7 @@ MonoBehaviour:
       spawnMoveTime: 2
       targetPosition: {x: -2, y: 0, z: 0}
       isRight: 0
-  - spawnTime: 40
+  - spawnTime: 35
     enamydatas:
     - enemyPrefab: {fileID: 8759148217643277841, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
       spawnPoint: {fileID: 120388281}
@@ -9351,7 +9351,7 @@ MonoBehaviour:
       spawnMoveTime: 1
       targetPosition: {x: 1, y: 0, z: 0}
       isRight: 1
-  - spawnTime: 45
+  - spawnTime: 40
     enamydatas:
     - enemyPrefab: {fileID: 7785345535377445664, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
       spawnPoint: {fileID: 1255025508}
@@ -9368,7 +9368,7 @@ MonoBehaviour:
       spawnMoveTime: 1
       targetPosition: {x: 2, y: 0, z: 0}
       isRight: 1
-  - spawnTime: 50
+  - spawnTime: 45
     enamydatas:
     - enemyPrefab: {fileID: 8759148217643277841, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
       spawnPoint: {fileID: 1275203100}
@@ -9395,14 +9395,14 @@ MonoBehaviour:
       spawnMoveTime: 1
       targetPosition: {x: -2, y: 0, z: 0}
       isRight: 0
-  - spawnTime: 60
+  - spawnTime: 50
     enamydatas:
     - enemyPrefab: {fileID: 7785345535377445664, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
       spawnPoint: {fileID: 571631438}
       spawnMoveTime: 2
       targetPosition: {x: -3, y: 0, z: 0}
       isRight: 0
-  - spawnTime: 65
+  - spawnTime: 55
     enamydatas:
     - enemyPrefab: {fileID: 8759148217643277841, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
       spawnPoint: {fileID: 1255025508}
@@ -9419,7 +9419,7 @@ MonoBehaviour:
       spawnMoveTime: 1
       targetPosition: {x: 1, y: 0, z: 0}
       isRight: 1
-  - spawnTime: 70
+  - spawnTime: 60
     enamydatas:
     - enemyPrefab: {fileID: 8759148217643277841, guid: a224bdc6b3e76fd4eb70867a0eafc8c3, type: 3}
       spawnPoint: {fileID: 1008840894}
@@ -9446,7 +9446,7 @@ MonoBehaviour:
       spawnMoveTime: 3
       targetPosition: {x: 1, y: 0, z: 0}
       isRight: 1
-  - spawnTime: 75
+  - spawnTime: 65
     enamydatas:
     - enemyPrefab: {fileID: 7785345535377445664, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
       spawnPoint: {fileID: 120388281}
@@ -9463,7 +9463,7 @@ MonoBehaviour:
       spawnMoveTime: 1
       targetPosition: {x: -1, y: 0, z: 0}
       isRight: 0
-  - spawnTime: 80
+  - spawnTime: 70
     enamydatas:
     - enemyPrefab: {fileID: 7785345535377445664, guid: 9e2eaf116f3ad754287c886efcce81b2, type: 3}
       spawnPoint: {fileID: 1275203100}
@@ -14078,7 +14078,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72fbb6ea18d8747c0ad05ac07adeedae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
-  clearTime: 100
+  clearTime: 80
   gameTimer: 0
   scoreManager: {fileID: 223086938}
   audioManager: {fileID: 848539689}
