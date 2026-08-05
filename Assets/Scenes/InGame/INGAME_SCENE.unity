@@ -3891,9 +3891,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectedPlayer
   playerDatas:
-  - {fileID: 11400000, guid: 2e7d735f7c7004c05a718d36a9485e62, type: 2}
   - {fileID: 11400000, guid: 1116e6cc332cf4697adc822217bc45b9, type: 2}
   - {fileID: 11400000, guid: 577ecf284b03c204eaf15c0863a4851b, type: 2}
+  - {fileID: 11400000, guid: 62951beff03d3405f99390300915a994, type: 2}
 --- !u!1 &526368926
 GameObject:
   m_ObjectHideFlags: 0
