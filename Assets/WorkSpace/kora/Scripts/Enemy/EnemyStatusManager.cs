@@ -115,6 +115,10 @@ public class EnemyStatusManager
             var delta = _spawnMoveDelta * Time.deltaTime;
             _controller.Context.Move(delta);
         }
-        else _isSpawnMove = false;
+        else
+        {
+            _isSpawnMove = false;
+            _controller.Core.InvokeOnEndSpawnMove();
+        }
     }
 }

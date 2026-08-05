@@ -3,18 +3,18 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ThrowEnemy", menuName = "ScriptableObjects/Skill/ThrowEnemy")]
 public class ThrowEnemy : EquipmentBase
 {
-    [Header("“G‚ð“Š‚°‚é—p‚ÌƒIƒuƒWƒFƒNƒg")]
+    [Header("ï¿½Gï¿½ð“Š‚ï¿½ï¿½ï¿½pï¿½ÌƒIï¿½uï¿½Wï¿½Fï¿½Nï¿½g")]
     [SerializeField] private GameObject enemyBullet;
     [SerializeField] private int throwSpeed;
 
-    [Header("“–‚½‚è”»’èƒTƒCƒY")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½è”»ï¿½ï¿½Tï¿½Cï¿½Y")]
     [SerializeField] private float boxWidth;
     [SerializeField] private float boxHeight;
     [SerializeField] private float offSet;
 
     public override void Activate(PlayerModel model)
     {
-        Debug.Log("”­“®");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½");
 
         Vector2 ownerPos = model.transform.position;
         Vector2 hitPos = ownerPos + (Vector2)model.transform.right * offSet;
@@ -50,7 +50,12 @@ public class ThrowEnemy : EquipmentBase
     {
         if (nearest != null)
         {
-            Destroy(nearest.gameObject);
+            var enemy = nearest.GetComponent<IEnemy>();
+            if (!enemy.GetData().isBoss)
+            {
+                enemy.SetIsSkipDeadAnim(true);
+                nearest.GetComponent<IDamageable>().TakeDamage(9999);
+            }
 
             var bullet = Instantiate(enemyBullet, hitPos, Quaternion.identity);
             var rb = bullet.GetComponent<Rigidbody2D>();

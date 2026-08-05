@@ -2713,7 +2713,7 @@ PrefabInstance:
     - target: {fileID: 911620504892808639, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: 'skills.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: c6d622193fc400841830c834c7231ea4, type: 2}
+      objectReference: {fileID: 11400000, guid: f4b2445a81598be47bb93c7802bf3e51, type: 2}
     - target: {fileID: 911620504892808639, guid: 91cd60330d7e94411be8650db6c32dd5, type: 3}
       propertyPath: coolTimeBar.Array.size
       value: 4
@@ -3891,8 +3891,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SelectedPlayer
   playerDatas:
-  - {fileID: 11400000, guid: 2e7d735f7c7004c05a718d36a9485e62, type: 2}
   - {fileID: 11400000, guid: 1116e6cc332cf4697adc822217bc45b9, type: 2}
+  - {fileID: 11400000, guid: 577ecf284b03c204eaf15c0863a4851b, type: 2}
   - {fileID: 11400000, guid: 62951beff03d3405f99390300915a994, type: 2}
 --- !u!1 &526368926
 GameObject:

@@ -31,7 +31,7 @@ public class BossSwitchLR : BossBehaviourBaseSO
         
         _waitTimer = interval - startTime;
         _moveTimer = _moveTime;
-        
+
         _moveState = MoveState.WaitInterval;
     }
 
@@ -54,23 +54,9 @@ public class BossSwitchLR : BossBehaviourBaseSO
                 break;
             
             case MoveState.Moving1:
-                _moveTimer += dt;
-                if (_moveTimer >= _moveTime)
-                {
-                    _moveTimer = 0;
-                    SwitchMove2();
-                    _moveState = MoveState.Moving2;
-                }
                 break;
             
             case MoveState.Moving2:
-                _moveTimer += dt;
-                if (_moveTimer >= _moveTime)
-                {
-                    _moveTimer = _moveTime;
-                    if (isOnce) _isFire = true;
-                    _moveState = MoveState.WaitInterval;
-                }
                 break;
         }
     }
@@ -87,6 +73,8 @@ public class BossSwitchLR : BossBehaviourBaseSO
         //Debug.Log("move1 xRatio:" + xRatio);
         
         Core.SpawnMove(_moveTime, new Vector3(vecX, 0, 0));
+
+        Core.OnEndSpawnMove += SwitchMove2;
     }
 
     private void SwitchMove2()
@@ -103,6 +91,10 @@ public class BossSwitchLR : BossBehaviourBaseSO
         var vecX = GetXOnCameraToWorldPoint((float)targetXRatio);
         vecX -= Context.Transform.position.x;
         //Debug.Log("move2 vecX:" + vecX);
+        
         Core.SpawnMove(_moveTime, new Vector3(vecX, 0, 0));
+        
+        _moveState = MoveState.WaitInterval;
+        Core.OnEndSpawnMove -= SwitchMove2;
     }
 }

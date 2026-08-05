@@ -21,6 +21,8 @@ public interface IEnemy
     public bool GetIsBoss();
     public bool GetIsDead();
     public bool GetIsRight();
+    public bool IsSkipDeadAnim();
+    public void SetIsSkipDeadAnim(bool isSkip);
     public EnemyData GetData();
 }
 
@@ -31,11 +33,13 @@ public class EnemyCore : MonoBehaviour, IEnemy
     public event Action OnDead;
     public event Action OnAttack;
     public event Action OnMove;
+    public event Action OnEndSpawnMove;
     
     private float _hp;
     private bool _isDead = false;
     private bool _isBoss = false;
     private bool _isRight = false;
+    private bool _isSkipDeadAnim = false;
     
     private EnemyData _data;
     private EnemyController _controller;
@@ -54,6 +58,7 @@ public class EnemyCore : MonoBehaviour, IEnemy
     public bool GetIsDead() => this._isDead;
     public bool GetIsRight() => _isRight;
     public EnemyData GetData() => this._data;
+    public bool IsSkipDeadAnim() => _isSkipDeadAnim;
     
     // setter
     public void SetIsRight(bool right)
@@ -61,6 +66,11 @@ public class EnemyCore : MonoBehaviour, IEnemy
         _isRight = right;
         _stateMachine.SetIsRignt(right);
         _controller.OnSetIsRight?.Invoke(right);
+    }
+
+    public void SetIsSkipDeadAnim(bool isSkip)
+    {
+        _isSkipDeadAnim = isSkip;
     }
 
     /// <summary>
@@ -188,5 +198,10 @@ public class EnemyCore : MonoBehaviour, IEnemy
         //頭上にスコアを表示する
         Instantiate(_controller.Context.ScorePrefab, _controller.Context.GameObject.transform.position, Quaternion.identity)
             .GetComponent<ScorePopup>().SetScore(_data.score);
+    }
+
+    public void InvokeOnEndSpawnMove()
+    {
+        OnEndSpawnMove?.Invoke();
     }
 }

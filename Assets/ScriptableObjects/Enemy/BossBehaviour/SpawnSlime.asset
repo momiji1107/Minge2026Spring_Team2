@@ -15,5 +15,5 @@ MonoBehaviour:
   slimePrefab: {fileID: 8759148217643277841, guid: 737a06b294e195c429a71dd7f873c1db, type: 3}
   interval: 15
   startTime: 5
-  spawnLanes: 00000000010000000200000004000000
+  spawnLanes: 0000000001000000020000000300000004000000
   upToLane: 1

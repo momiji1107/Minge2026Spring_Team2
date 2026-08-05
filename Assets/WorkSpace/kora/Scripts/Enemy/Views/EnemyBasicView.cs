@@ -60,6 +60,13 @@ public class EnemyBasicView : MonoBehaviour, IEnemyView
         
         if (_isDead)
         {
+            if (Core.IsSkipDeadAnim())
+            {
+                Debug.Log("Skip Dead Animation");
+                Core.ActiveDestroy();
+                return;
+            }
+            
             if (_isNullAnimController) ; //{ Core.ActiveDestroy(); }
             else
             {
