@@ -16,6 +16,7 @@ public class BossSwitchLR : BossBehaviourBaseSO
     private MoveState _moveState;
     
     private double _startXRatio;
+    private float _startCoreXRatio;
     
     private enum MoveState
     {
@@ -33,6 +34,7 @@ public class BossSwitchLR : BossBehaviourBaseSO
         _moveTimer = _moveTime;
         
         _moveState = MoveState.WaitInterval;
+        _startCoreXRatio = GetXWorldToCameraPoint(Context.CoreTransform.position.x);
     }
 
     public override void Tick(float dt)
@@ -85,7 +87,11 @@ public class BossSwitchLR : BossBehaviourBaseSO
         var vecX = GetXOnCameraToWorldPoint(xRatio) - Context.Transform.position.x;
         
         //Debug.Log("move1 xRatio:" + xRatio);
+        var corePos = Context.CoreTransform.position;
+        float coreXRatio = !IsRight ? _startCoreXRatio : 1f - _startCoreXRatio;
+        corePos.x = GetXOnCameraToWorldPoint(coreXRatio);
         
+        Context.SetCorePosition(corePos);
         Core.SpawnMove(_moveTime, new Vector3(vecX, 0, 0));
     }
 

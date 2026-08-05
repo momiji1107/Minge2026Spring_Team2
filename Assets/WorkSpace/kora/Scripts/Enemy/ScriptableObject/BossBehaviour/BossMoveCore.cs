@@ -62,6 +62,22 @@ public class BossMoveCore : BossBehaviourBaseSO
         }
 
     }
+
+    protected override void OnSetIsRight()
+    {
+        var viewPortX = GetXWorldToCameraPoint(_startPosition.x);
+        
+        if (viewPortX >= 0.5f)
+        {
+            viewPortX = !IsRight ? viewPortX : 1f - viewPortX;
+        }
+        else viewPortX = IsRight ? viewPortX : 1f - viewPortX;
+
+        var posX = GetXOnCameraToWorldPoint(viewPortX);
+        Debug.Log("viewportX = "+ viewPortX);
+        _startPosition.x = posX;
+        _endPosition.x = posX;
+    }
     
     private void SetPos()
     {
