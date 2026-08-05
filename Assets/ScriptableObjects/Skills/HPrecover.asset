@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ed651171f883b541996001e90917b5e, type: 3}
   m_Name: HPrecover
   m_EditorClassIdentifier: Assembly-CSharp::HPrecover
-  name: Heal
+  name: HPrecover
   level: 1
   coolTime: 5
   sound: {fileID: 8300000, guid: 10b75b917536d49db89ed8baa8a902e2, type: 3}
   healAmount: 1
-  healClip: {fileID: 8300000, guid: 10b75b917536d49db89ed8baa8a902e2, type: 3}

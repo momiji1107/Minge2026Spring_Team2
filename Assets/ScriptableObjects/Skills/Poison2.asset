@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0637bea7a624e2a40af79db33183a87a, type: 3}
   m_Name: Poison2
   m_EditorClassIdentifier: Assembly-CSharp::Poison
-  name: PoisonSizeUp
+  name: Poison2
   level: 1
   coolTime: 10
   sound: {fileID: 8300000, guid: 3273bb9856c844f1b8c1e6a4d8a3075d, type: 3}

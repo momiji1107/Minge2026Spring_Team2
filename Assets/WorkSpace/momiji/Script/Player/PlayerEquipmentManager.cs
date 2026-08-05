@@ -41,10 +41,11 @@ public class PlayerEquipmentManager : MonoBehaviour
     }
     
     //スキルをアップグレードする
-    public void UpgradeSkill(EquipmentBase preSkill, EquipmentBase newSkill)
+    public void UpgradeSkill(EquipmentBase preSkill, EquipmentBase newSkill, Sprite icon)
     {
         int idx = attackController.Skills.FindIndex(s => s.name == preSkill.name);
         if (idx < 0) return;
         attackController.Skills[idx] = newSkill;
+        srs[idx].sprite = icon;
     }
 }

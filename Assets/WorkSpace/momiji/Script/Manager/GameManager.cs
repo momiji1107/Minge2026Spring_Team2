@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
 
         if ((GameManagement.CurrentScene == SceneName.STAGE_TWO || GameManagement.CurrentScene == SceneName.STAGE_THREE) && gameTimer >= clearTime)
         {
-            GameClear();
+            if (!isClear) GameClear();
         }
     }
 
@@ -76,6 +76,8 @@ public class GameManager : MonoBehaviour
 
     public void GameClear()
     {
+        if (isClear) return;
+        
         GameManagement.GameState = GAMESTATE.CLEAR;
         isClear = true;
 
