@@ -15,7 +15,10 @@ public class StunAll : EquipmentBase
         {
             if(enemy.GetComponent<Renderer>().isVisible)
             {
-                enemy.GetComponent<IEnemy>().Stun(duration);
+                if (enemy.gameObject.TryGetComponent<IEnemy>(out var core))
+                {
+                    core.Stun(duration);
+                }
             }
         }
     }

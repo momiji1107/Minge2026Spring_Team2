@@ -191,11 +191,13 @@ public class PoisonController : MonoBehaviour
     private IEnumerator HitEnemy(GameObject enemy)
     {
         if (!enemy.TryGetComponent<IDamageable>(out IDamageable damageable)) yield return null;
+        if (!enemy.TryGetComponent<IEnemy>(out IEnemy core)) yield return null;
 
         _hitEnemies.Add(enemy);
 
         //Debug.Log("TakeDamage: " + _damage);
         damageable.TakeDamage(_damage);
+        core.HitPoison();
         yield return new WaitForSeconds(_hitInterval);
        
         _hitEnemies.Remove(enemy);

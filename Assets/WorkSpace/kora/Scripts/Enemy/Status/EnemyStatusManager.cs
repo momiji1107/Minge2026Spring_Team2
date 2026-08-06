@@ -4,6 +4,7 @@ using UnityEngine;
 public class EnemyStatusManager
 {
     private EnemyController _controller;
+    private IEnemyStatusPanel _panel;
     
     private bool _isStun;
     private bool _isSlow;
@@ -50,6 +51,8 @@ public class EnemyStatusManager
         _slowPer = (100f - per) / 100f;
         _slowTimer = 0f;
         _slowTime = time;
+        
+        _panel.ShowSlow(time);
     }
     
     public void Stun(float time)
@@ -59,6 +62,13 @@ public class EnemyStatusManager
         _stunTimer = 0f;
         _isStun = true;
         _stunTime = time;
+        
+        _panel.ShowStun(time);
+    }
+
+    public void SetPanel(IEnemyStatusPanel panel)
+    {
+        _panel = panel;
     }
 
     public void SpawnMove(float time, Vector3 vector)

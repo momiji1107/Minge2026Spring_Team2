@@ -31,7 +31,10 @@ public class Stun : EquipmentBase
         {
             if(hit.gameObject.CompareTag("Enemy"))
             {
-                hit.gameObject.GetComponent<IEnemy>()?.Stun(duration);
+                if (hit.gameObject.TryGetComponent<IEnemy>(out var core))
+                { 
+                    core.Stun(duration);
+                }
             }
         }
     }
