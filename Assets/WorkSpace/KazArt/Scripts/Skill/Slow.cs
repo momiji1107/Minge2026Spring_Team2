@@ -38,7 +38,11 @@ public class Slow : EquipmentBase
         {
             if (hit.gameObject.CompareTag("Enemy"))
             {
-                hit.gameObject.GetComponent<IEnemy>()?.Slow(slowDuration, speedDown);
+                if (hit.gameObject.TryGetComponent<IEnemy>(out var core))
+                {
+                    //Debug.Log("namm: " + hit.gameObject.name);
+                    core.Slow(slowDuration, speedDown);
+                }
             }
         }
     }

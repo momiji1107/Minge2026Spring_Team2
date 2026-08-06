@@ -9,7 +9,9 @@ public class EnemyContext : MonoBehaviour
     [Header("ダメージ時に点滅するsprite")] public SpriteRenderer sr;
     [Header("Rigidbody")] [SerializeField] public Rigidbody2D rb;
     [Header("scoreを表示するcanvas")][SerializeField] private GameObject scorePrefab;
+    [Header("スキル効果を表示するcanvas")][SerializeField] private GameObject statusPrefab;
     public GameObject ScorePrefab => scorePrefab;
+    public GameObject StatusPrefab => statusPrefab;
 
     private EnemyController _controller;
     private GameObject _gameObject;

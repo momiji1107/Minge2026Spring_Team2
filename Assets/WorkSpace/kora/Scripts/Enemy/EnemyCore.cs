@@ -24,6 +24,7 @@ public interface IEnemy
     public bool IsSkipDeadAnim();
     public void SetIsSkipDeadAnim(bool isSkip);
     public EnemyData GetData();
+    public void HitPoison();
 }
 
 public class EnemyCore : MonoBehaviour, IEnemy
@@ -47,6 +48,7 @@ public class EnemyCore : MonoBehaviour, IEnemy
     private IEnemyStateMachine  _stateMachine;
     private List<EnemyBehaviourBase> _behaviours;
     private IDamageProcessor _damageProcessor;
+    private IEnemyStatusPanel _statusPanel;
 
     // getter
     public float GetHp() => this._hp;
@@ -112,6 +114,11 @@ public class EnemyCore : MonoBehaviour, IEnemy
         }
     }
 
+    public void HitPoison()
+    {
+        _statusPanel.OnHitPoison();
+    }
+
     public void Init(EnemyData data, EnemyController controller)
     {
         if (data == null) Debug.Log("Data is null!");
@@ -138,6 +145,10 @@ public class EnemyCore : MonoBehaviour, IEnemy
         
         _damageProcessor.Init(this);
         _statusManager.Init(_controller);
+        if (_controller.Context.StatusPrefab.TryGetComponent<IEnemyStatusPanel>(out _statusPanel))
+        { 
+            _statusManager.SetPanel(_statusPanel);
+        }
         _stateMachine.Init(data, this, _controller.Context);
     }
 
