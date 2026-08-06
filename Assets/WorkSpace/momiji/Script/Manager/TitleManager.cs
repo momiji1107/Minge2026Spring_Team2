@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -19,6 +20,8 @@ public class TitleManager : MonoBehaviour
     [SerializeField] private Sprite sprite1;
     [SerializeField] private Sprite sprite2;
     
+    [Header("Tutorial関係")]
+    [SerializeField] private TextMeshProUGUI tutorialText;
     static bool isFirstTimePlay = true;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -27,6 +30,7 @@ public class TitleManager : MonoBehaviour
         Application.targetFrameRate = 60;
         
         GameManagement.GameState = GAMESTATE.NONE;
+        tutorialText.gameObject.SetActive(!isFirstTimePlay);
     }
 
     void Update()
@@ -46,6 +50,12 @@ public class TitleManager : MonoBehaviour
                 sceneChanger.nextScene = SceneName.STAGE_SELECT_SCENE;
                 StartCoroutine(NextScene());
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.T) && !isFirstTimePlay)
+        {
+            sceneChanger.nextScene = SceneName.TUTORIAL_SCENE;
+            StartCoroutine(NextScene());
         }
 
         if(Input.GetKeyDown(KeyCode.C))
